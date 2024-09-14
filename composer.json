@@ -1,0 +1,21 @@
+{
+    "name": "expressgp/expressproject",
+    "description": "Uma plataforma de e-commerce.",
+    "type": "project",
+    "require-dev": {
+        "vlucas/phpdotenv": "5.6.x-dev"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Expressgp\\Expressproject\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "ExpressGroup"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
