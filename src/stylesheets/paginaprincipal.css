@@ -1,14 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
 }
 
 header {
   background-color: #001f54;
   padding: 10px;
   color: white;
-  font-family: Inter;
   position: relative; /* Adiciona o comportamento para posicionar o header */
   z-index: 10; /* Coloca o header em um nível superior ao slider */
 }
@@ -24,8 +26,6 @@ header {
   font-size: 20px;
   color: white;
   text-decoration: none;
-  font-family: 'Inter', sans-serif;
-  font-weight: italic;
 }
 
 .logo {
@@ -53,7 +53,7 @@ header {
   flex-grow: 1; 
   justify-content: flex-start;
   margin-left: 100px; /* Ajustado para melhor responsividade */
-  margin-right: 20px; /* Ajustado para melhor responsividade */
+  margin-right: 20px;
 }
 
 .searchbar input {
