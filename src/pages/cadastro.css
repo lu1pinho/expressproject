@@ -3,6 +3,8 @@
 body {
     font-style: normal;
     font-weight: 300;
+    overflow-y: auto;
+    height: 100%;
 }
 
 .cabecalho {
@@ -74,10 +76,10 @@ body {
     background-color: #0A3871;
 }
 
-.hr{
+/*.hr{
     border-color: #0A3871;
     width:300px;
-}
+}*/
 
 .cadastro {
     margin-top: 15px;
