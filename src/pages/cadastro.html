@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Express.com</title>
+    <link rel="stylesheet" href="cadastro.css">
+</head>
+
+<body>
+    <header class="cabecalho">
+        <img src="image 2.png" width="85" height="70" alt="Express.com Logo">
+        <h1 class="h1">Express.com</h1>
+    </header>
+    <div class="caixa_fundo">
+        <h2 class="titulo">Cadastre-se</h2>
+    
+        <form>
+            <div class="apresentacao">
+                <label for="name" class="campos">Nome:</label>
+                <input type="text" id="name" name="name" class="bordas" required>
+    
+                <label for="phone" class="campos">Telefone:</label>
+                <input type="tel" id="phone" name="phone" class="bordas" required>
+    
+                <label for="category" class="campos">Categoria:</label>
+                <select id="category" name="category" class="bordas" required>
+                    <option value="">Selecione</option>
+                    <option value="cliente">Cliente</option>
+                    <option value="fornecedor">Fornecedor</option>
+                </select>
+    
+                <label for="email" class="campos">Email:</label>
+                <input type="email" id="email" name="email" class="bordas" required>
+    
+                <label for="password" class="campos">Senha:</label>
+                <input type="password" id="password" name="password" class="bordas" required>
+    
+                <label for="confirm-password" class="campos">Confirme a Senha:</label>
+                <input type="password" id="confirm-password" name="confirm-password" class="bordas" required>
+            </div>
+    
+            <div class="centro">
+                <button type="submit" class="botoes">Cadastrar</button>
+            </div>
+        </form>
+    
+        <hr class="hr">
+    
+        <div class="cadastro">
+            <p>Já tem uma conta? <a href="#">Faça login</a></p>
+        </div>
+    </div>
+</body>
