@@ -43,7 +43,7 @@
             </div>
 
             <div class="cadastro">
-                <p>Já tem uma conta? <a href="#">Faça login</a></p>
+                <p>Já tem uma conta? <a href="login.php">Faça login</a></p>
             </div>
 
         </form>
