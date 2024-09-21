@@ -1,14 +1,66 @@
+<?php
+
+$id = isset($_GET['id']) ? intval($_GET['id']) : 0;
+
+include_once 'C:/xampp/htdocs/expressproject/src/settings/connection.php';
+
+if (empty($conn) || $conn->connect_error) {
+    die("Falha na conexão: " . (isset($conn->connect_error) ? $conn->connect_error : "Conexão não estabelecida."));
+}
+
+
+$sql = "SELECT id, nome, dados, descricao, preco, precodesconto FROM produtos WHERE id = ?";
+$stmt = $conn->prepare($sql);
+
+if ($stmt === false) {
+    die('Erro na preparação da consulta: ' . $conn->error);
+}
+
+
+$stmt->bind_param("i", $id);
+$stmt->execute();
+$stmt->bind_result($id, $nome, $dados, $descricao, $preco, $precodesconto);
+if (!$stmt->fetch()) {
+    die("Produto não encontrado.");
+}
+
+$porcentagem = 100 - (($precodesconto / $preco) * 100);
+$porcentagem = round($porcentagem); // Formatar para número inteiro
+$stmt->close();
+
+
+function formatText($text) {
+    $text = nl2br(htmlspecialchars($text));
+    return str_replace("  ", "<br><br>", $text);
+}
+
+
+$recommended_sql = "SELECT id, nome, preco, precodesconto FROM produtos WHERE id != ? LIMIT 3";
+$recommended_stmt = $conn->prepare($recommended_sql);
+$recommended_stmt->bind_param("i", $id);
+$recommended_stmt->execute();
+$recommended_stmt->bind_result($rec_id, $rec_nome, $rec_preco, $rec_precodesconto);
+
+$recommended_products = [];
+while ($recommended_stmt->fetch()) {
+    $recommended_products[] = [
+        'id' => $rec_id,
+        'nome' => $rec_nome,
+        'preco' => $rec_preco,
+        'precodesconto' => $rec_precodesconto,
+    ];
+}
+$recommended_stmt->close();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <link rel="stylesheet" href="../stylesheets/individual-product.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Principal</title>
+    <title><?php echo htmlspecialchars($nome); ?></title>
     <script src="../script/script.js" defer></script>
-    <!-- Imports -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -70,29 +122,25 @@
 <main>
     <article>
         <div class="left"></div>
-
         <div class="right">
             <div class="product">
-                <h2>WAP Parafusadeira E Furadeira A Bateria Li-Ion 12V Bpf 12K3</h2>
+                <h2><?php echo htmlspecialchars($nome); ?></h2>
                 <div class="pricing-container">
                     <div class="pricing">
-                        <p class="old_price">R$ 349,90</p>
-                        <p class="actual_price">R$ 218,91</p>
+                        <p class="old_price">R$ <?php echo number_format($preco, 2, ',', '.'); ?></p>
+                        <p class="actual_price">R$ <?php echo number_format($precodesconto, 2, ',', '.'); ?></p>
                         <p class="installment">em até 4x sem juros.</p>
                     </div>
                     <div class="vertical-line"></div>
                     <div class="discount">
-                        <p class="discount-price">37% de desconto</p>
+                        <p class="discount-price"><?php echo htmlspecialchars($porcentagem); ?>% de desconto</p>
                         <p>comprando agora!</p>
                     </div>
                 </div>
                 <div class="minimal-description">
                     <p>Dados do Produto</p>
                     <ul>
-                        <li>Marca: WAP</li>
-                        <li>Fonte de Alimentação: Não Aplicável</li>
-                        <li>Velocidade Máxima de Rotação: 740 RPM</li>
-                        <li>Tensão: 110 Volts, 220 Volts</li>
+                        <li><?php echo formatText($dados); ?></li> <!-- Usando a função formatText -->
                     </ul>
                 </div>
                 <div class="action-buttons">
@@ -106,46 +154,20 @@
         <div class="description">
             <p class="description-text">Descrição do Produto</p>
             <hr>
-            <p>
-                A Parafusadeira e Furadeira 12V BPF 12K3 é a solução ideal para quem busca praticidade e eficiência em tarefas manuais.
-                Compacta e robusta, é perfeita para pequenas reformas e manutenções domésticas. Seu design exclusivo da WAP e bateria de
-                tecnologia lítio (Li-Íon) garantem mobilidade e maior vida útil. O produto é bivolt, conta com bateria recarregável e possui
-                um LED indicativo do nível de carga, facilitando o uso em qualquer momento.
-            </p>
-            <p>
-                Para apertar ou soltar parafusos, a ferramenta conta com um seletor de reverso, ajustando o sentido de rotação conforme a necessidade.
-                Com 18 níveis de torque e 1 nível exclusivo para perfuração, oferece controle total para os mais variados trabalhos. A velocidade
-                ajustável pelo gatilho garante mais precisão, produtividade e economia de tempo.
-            </p>
-            <p>
-                A Parafusadeira e Furadeira 12V BPF 12K3 vem acompanhada de uma maleta com acessórios, oferecendo praticidade no transporte e
-                armazenamento. Seu design ergonômico e o LED embutido garantem conforto e maior visibilidade em áreas de difícil acesso.
-            </p>
+            <p><?php echo formatText($descricao); ?></p> <!-- Usando a função formatText -->
         </div>
     </section>
 
     <section>
         <p class="tx-25 pd-top-bottom">Produtos Recomendados</p>
         <div class="container">
-            <div class="card">
-                <div class="imgbg">Imagem</div>
-                <p>Produto 1</p>
-                <p class="price">R$ 0,00</p>
-            </div>
-            <div class="card">
-                <div class="imgbg">Imagem</div>
-                <p>Produto 2</p>
-                <p class="price">R$ 0,00</p>
-            </div>
-            <div class="card">
-                <div class="imgbg">Imagem</div>
-                <p>Produto 3</p>
-                <p class="price">R$ 0,00</p>
-            </div><div class="card">
-                <div class="imgbg">Imagem</div>
-                <p>Produto 3</p>
-                <p class="price">R$ 0,00</p>
-            </div>
+            <?php foreach ($recommended_products as $product): ?>
+                <div class="card">
+                    <div class="imgbg">Imagem</div>
+                    <p><?php echo htmlspecialchars($product['nome']); ?></p>
+                    <p class="price">R$ <?php echo number_format($product['precodesconto'], 2, ',', '.'); ?></p>
+                </div>
+            <?php endforeach; ?>
         </div>
     </section>
 </main>
