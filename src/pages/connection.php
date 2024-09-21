@@ -21,13 +21,8 @@ try {
     // Verificar se a conexão foi bem-sucedida
     if ($conn->connect_errno) {
         throw new Exception("Conexão falhou: (" . $conn->connect_errno . ") " . $conn->connect_error);
-    } else {
-        echo "Conectado com sucesso!";
     }
-
-    // Fechar a conexão quando terminar
-    $conn->close();
 } catch (Exception $e) {
-    echo "Erro: " . $e->getMessage();
+    die("Erro: " . $e->getMessage());
 }
 ?>
