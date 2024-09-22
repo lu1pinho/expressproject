@@ -277,11 +277,13 @@ header {
   font-family: 'Inter', sans-serif;
 }
 
+/* Layout Principal */
 main {
   display: flex;
   gap: 60px;
 }
 
+/* Sidebar (Aside) */
 aside {
   width: 20%;
   height: 1000px;
@@ -290,11 +292,13 @@ aside {
   border-left: 2px solid #ccc;
 }
 
+/* Conteúdo Principal (Article) */
 article {
   width: 70%;
   padding-top: 60px;
 }
 
+/* Frete Grátis */
 .frete-gratis-container {
   margin-bottom: 20px;
 }
@@ -320,6 +324,7 @@ article {
   font-size: 18px;
 }
 
+/* Categoria */
 .categoria {
   margin: 5px 0.8px 20px;
 }
@@ -335,10 +340,7 @@ article {
   width: 200px;
 }
 
-body {
-  font-family: 'Inter', sans-serif;
-}
-
+/* Preço */
 .price-range-container {
   width: 300px;
   margin: auto;
@@ -364,6 +366,7 @@ input[type="range"]::-webkit-slider-thumb {
   border-radius: 50%;
 }
 
+/* Opções (Ofertas e Condições) */
 .opcao {
   margin-bottom: 20px;
 }
@@ -378,7 +381,6 @@ input[type="range"]::-webkit-slider-thumb {
   display: flex;
   align-items: center;
   margin-bottom: 5px;
-  /* Espaçamento entre as opções */
 }
 
 .opcao input[type="checkbox"] {
@@ -391,6 +393,7 @@ input[type="range"]::-webkit-slider-thumb {
   font-size: 18px;
 }
 
+/* Botão de Busca */
 .buscar-btn {
   background-color: #104281;
   color: white;
@@ -403,10 +406,10 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 .buscar-btn:hover {
-  background-color: #104281;
+  background-color: #0a3461;
 }
 
-
+/* Estilos Globais */
 * {
   margin: 0;
   padding: 0;
@@ -424,6 +427,7 @@ body {
   margin: 0 auto;
 }
 
+/* Carrossel */
 .carousel-container {
   display: flex;
   justify-content: space-between;
@@ -447,16 +451,71 @@ body {
   transition: opacity 1s ease-in-out;
 }
 
-
 .carousel-img.active {
   opacity: 1;
 }
 
-.resultado {
+/* Resultados da Busca */
+.resultados {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
+  gap: 20px;
 }
 
+.resultados ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 0;
+  list-style: none;
+}
+
+.resultados li {
+  flex: 1 1 20%;
+  max-width: 220px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+.resultados li img {
+  width: 100%;
+  height: auto;
+  max-height: 180px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.resultados li p {
+  margin: 10px 0;
+}
+
+.resultados li strong {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.resultados li .preco {
+  color: #007bff;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.resultados li .preco::before {
+  content: "R$";
+}
+
+.resultados li .produto-nome {
+  font-size: 16px;
+  color: #333;
+}
+
+/* Cartões de Produto */
 .card {
   width: 240px;
   background-color: #ffffff;

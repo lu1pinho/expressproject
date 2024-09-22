@@ -83,6 +83,7 @@
             <label for="frete-gratis">Frete Grátis</label>
           </div>
         </div>
+
         <!-- Categoria -->
         <div class="categoria">
           <p class="departamento">Departamento</p>
@@ -94,8 +95,9 @@
             <option value="Brinquedos e Jogos">Brinquedos e Jogos</option>
           </select>
         </div>
+
         <!-- Preço -->
-        <h3 class="preço">Preço</h3>
+        <h3 class="preco">Preço</h3>
         <div class="price-range-container">
           <label for="minPrice">Preço Mínimo: R$ <span id="minPriceLabel">0</span></label>
           <input type="range" id="minPrice" name="minPrice" min="0" max="10000" value="0" step="1">
@@ -103,6 +105,7 @@
           <label for="maxPrice">Preço Máximo: R$ <span id="maxPriceLabel">10,000</span></label>
           <input type="range" id="maxPrice" name="maxPrice" min="0" max="10000" value="10000" step="1">
         </div>
+
         <!-- Ofertas e Descontos -->
         <div class="opcao">
           <h3>Ofertas e Descontos</h3>
@@ -115,6 +118,7 @@
             <label for="oferta_descontos">Todos os Descontos</label>
           </div>
         </div>
+
         <!-- Condição -->
         <div class="opcao">
           <h3>Condição</h3>
@@ -127,6 +131,7 @@
             <label for="condicao_usado">Usado</label>
           </div>
         </div>
+
         <!-- Botão de buscar -->
         <button type="submit" class="buscar-btn">Buscar</button>
       </form>
@@ -137,14 +142,14 @@
         <!-- Carrossel de imagens -->
         <div class="carousel-container">
           <div class="carousel carousel-1">
-            <img src="images/imagem01.jpg" alt="Imagem 1" class="carousel-img active">
-            <img src="images/imagem02.jpg" alt="Imagem 2" class="carousel-img">
-            <img src="images/imagem03.jpg" alt="Imagem 3" class="carousel-img">
+            <img src="images/Projetor Led.jpg" alt="Projetor Led" class="carousel-img active">
+            <img src="images/Marcador de Página.jpg" alt="Marcador de Página" class="carousel-img">
+            <img src="images/tv.jpg" alt="TV" class="carousel-img">
           </div>
           <div class="carousel carousel-2">
-            <img src="images/imagem05.jpeg" alt="Imagem 1 do Carrossel 2" class="carousel-img active">
-            <img src="images/imagem06.jpg" alt="Imagem 2 do Carrossel 2" class="carousel-img">
-            <img src="images/imagem07.jpeg" alt="Imagem 3 do Carrossel 2" class="carousel-img">
+            <img src="images/Drone.jpg" alt="Drone" class="carousel-img active">
+            <img src="images/Headse.jpg" alt="Headset" class="carousel-img">
+            <img src="images/Jogo de Panelas.jpg" alt="Jogo de Panelas" class="carousel-img">
           </div>
         </div>
 
@@ -154,44 +159,43 @@
           <?php
           include 'connection.php';
 
+          // Verificação dos filtros aplicados
           if (isset($_GET['minPrice']) || isset($_GET['categoria']) || isset($_GET['frete-gratis']) || isset($_GET['oferta']) || isset($_GET['condicao'])) {
+            $frete_gratis = $_GET['frete-gratis'] ?? null;
+            $categoria = $_GET['categoria'] ?? null;
+            $minPrice = (int)($_GET['minPrice'] ?? 0);
+            $maxPrice = (int)($_GET['maxPrice'] ?? 10000);
+            $oferta = $_GET['oferta'] ?? null;
+            $condicao = $_GET['condicao'] ?? null;
 
-            $frete_gratis = isset($_GET['frete-gratis']) ? $_GET['frete-gratis'] : null;
-            $categoria = isset($_GET['categoria']) ? $_GET['categoria'] : null;
-            $minPrice = isset($_GET['minPrice']) ? (int)$_GET['minPrice'] : 0;
-            $maxPrice = isset($_GET['maxPrice']) ? (int)$_GET['maxPrice'] : 10000;
-            $oferta = isset($_GET['oferta']) ? $_GET['oferta'] : null;
-            $condicao = isset($_GET['condicao']) ? $_GET['condicao'] : null;
-
-            $query = "SELECT * FROM filtro WHERE preco BETWEEN ? AND ?";
-
+            // Construção da query
+            $query = "SELECT f.*, f.imagem_url FROM filtro f WHERE f.preco BETWEEN ? AND ?";
             $types = "dd";
             $params = [$minPrice, $maxPrice];
 
+            // Filtros adicionais
             if ($frete_gratis) {
-              $query .= " AND frete_gratis = 1";
+              $query .= " AND f.frete_gratis = 1";
             }
-
-            if (!empty($categoria)) {
-              $query .= " AND departamento = ?";
+            if ($categoria) {
+              $query .= " AND f.departamento = ?";
               $types .= "s";
               $params[] = $categoria;
             }
-
-            if (!empty($oferta)) {
+            if ($oferta) {
               if ($oferta == 'dia') {
-                $query .= " AND ofertas_descontos = 'Ofertas do Dia'";
+                $query .= " AND f.ofertas_descontos = 'Ofertas do Dia'";
               } elseif ($oferta == 'descontos') {
-                $query .= " AND ofertas_descontos != ''";
+                $query .= " AND f.ofertas_descontos != ''";
               }
             }
-
-            if (!empty($condicao)) {
-              $query .= " AND condicao = ?";
+            if ($condicao) {
+              $query .= " AND f.condicao = ?";
               $types .= "s";
               $params[] = $condicao;
             }
 
+            // Preparar e executar a consulta
             $stmt = $conn->prepare($query);
 
             if ($stmt === false) {
@@ -199,21 +203,27 @@
             }
 
             $stmt->bind_param($types, ...$params);
-
             $stmt->execute();
-
             $result = $stmt->get_result();
 
+            // Exibir os resultados
             if ($result->num_rows > 0) {
               echo '<ul>';
               while ($row = $result->fetch_assoc()) {
-                echo "<li><p><strong>Departamento:</strong> " . $row['departamento'] . " - <strong>Preço:</strong> R$" . number_format($row['preco'], 2, ',', '.') . " - <strong>Condição:</strong> " . $row['condicao'] . "</p></li>";
+                $imagem_src = !empty($row['imagem_url']) ? $row['imagem_url'] : 'default.png'; // Imagem padrão
+                echo "<li>
+                      <img src='" . htmlspecialchars($imagem_src) . "' alt='" . htmlspecialchars($row['nome']) . "' style='width:100px;height:100px;'>
+                      <p><strong>Nome do Produto:</strong> " . htmlspecialchars($row['nome']) . "  
+                      <strong>Preço:</strong> R$" . number_format($row['preco'], 2, ',', '.') . " 
+                      <strong>Ofertas/Descontos:</strong> " . htmlspecialchars($row['ofertas_descontos']) . "</p>
+                    </li>";
               }
               echo '</ul>';
             } else {
               echo "<p>Nenhum produto encontrado.</p>";
             }
 
+            // Fechar a conexão
             $stmt->close();
             $conn->close();
           } else {
@@ -224,6 +234,7 @@
       </div>
     </article>
   </main>
+
 </body>
 
 </html>
