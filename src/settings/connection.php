@@ -20,7 +20,7 @@ try {
     if ($conn->connect_errno) {
         throw new Exception("Conexão falhou: (" . $conn->connect_errno . ") " . $conn->connect_error);
     }
-
+    
 } catch (Exception $e) {
     echo "Erro: " . $e->getMessage();
 }
