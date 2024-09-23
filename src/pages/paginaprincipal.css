@@ -9,8 +9,8 @@ header {
   padding: 10px;
   color: white;
   font-family: Inter;
-  position: relative; /* Adiciona o comportamento para posicionar o header */
-  z-index: 10; /* Coloca o header em um nível superior ao slider */
+  position: relative;
+  z-index: 10;
 }
 
 .navbar {
@@ -50,19 +50,17 @@ header {
 .searchbar {
   display: flex;
   align-items: center;
-  flex-grow: 1; 
+  flex-grow: 1;
   justify-content: flex-start;
-  margin-left: 100px; /* Ajustado para melhor responsividade */
-  margin-right: 20px; /* Ajustado para melhor responsividade */
+  margin: 0 20px;
 }
 
 .searchbar input {
-  padding: 5px;
+  padding: 5px 15px;
   font-size: 14px;
-  width: 100%; /* Ajusta a largura do input conforme o tamanho da tela */
-  max-width: 500px; /* Largura máxima para telas maiores */
+  width: 100%;
+  max-width: 500px;
   height: 38px;
-  padding-left: 15px;
   border-radius: 10px 0 0 10px;
   border: none;
   box-sizing: border-box;
@@ -102,7 +100,6 @@ header {
 
 .contas {
   position: relative;
-  display: flex;
   margin-left: 10px;
 }
 
@@ -162,7 +159,7 @@ header {
 
 .divs {
   display: flex;
-  margin-right: 20px; /* Ajustado para melhor responsividade */
+  margin-right: 20px;
 }
 
 .carrinho {
@@ -176,7 +173,7 @@ header {
   cursor: pointer;
 }
 
-.subnav{
+.subnav {
   display: flex;
   align-items: center;
   background-color: #0A3871;
@@ -186,7 +183,7 @@ header {
 .todos,
 .venda-na-express,
 .comprar-novamente,
-.oferta-do-dia{
+.oferta-do-dia {
   font-family: Inter;
   margin-right: 10px;
   color: white;
@@ -194,7 +191,7 @@ header {
   cursor: pointer;
 }
 
-.subnav div{
+.subnav div {
   position: relative;
   z-index: 20; 
   cursor: pointer;
@@ -237,7 +234,7 @@ header {
 
 .slider {
   position: absolute;
-  transition: opacity;
+  transition: opacity 0.5s ease; 
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -248,6 +245,7 @@ header {
 .on {
   opacity: 1;
 }
+
 #prev-button, #next-button {
   position: absolute; 
   top: 50%;
@@ -267,37 +265,44 @@ header {
   right: 55px;
 }
 
-#prev-button img, #next-button img {
-  width: 30px; 
-  height: 30px; 
-}
-
 .lista-ofertas {
   display: flex;
   align-items: center;
-  overflow: hidden; /* Para esconder imagens que saem do contêiner */
+  overflow: hidden;
   position: relative;
+  font-family: Inter;
 }
 
-.lista-ofertas a{
-  margin-left: 8px;
+.lista-ofertas a, .identacao-recomendacao a {
+  margin-left: 16px;
   text-decoration: none;
   color: #0A3871;
   cursor: pointer;
   z-index: 20;
 }
 
-.images-lista-ofertas {
+.lista-ofertas p {
+  margin-left: 15px;
+}
+.lista-recomendacoes {
+  display: flex;
+  align-items: center;
+}
+.lista-recomendacoes p{
+  margin-bottom: 30px;
+}
+.images-lista-ofertas, .images-lista-recomendacoes, .images-lista-vendidos, .images-talvez-goste{
   display: flex; 
   transition: transform 0.5s ease;
   width: max-content; 
 }
 
-.images-lista-ofertas img {
-  width: 150px;
+.images-lista-ofertas img, .images-lista-recomendacoes img, .images-lista-vendidos img, .images-talvez-goste img{
+  width: 150px; 
   height: 200px; 
-  object-fit: cover;
-  margin-right: 8px; 
+  object-fit: cover; 
+  margin-right: 8px;
+  border-radius: 5px; 
 }
 
 #prev-button2, #next-button2 {
@@ -311,20 +316,177 @@ header {
   background-color: #001f54;
 }
 
-#prev-button2 {
+#prev-button2, #prev-button3, #prev-button4, #prev-button5 {
   left: 55px;
 }
 
-#next-button2 {
+#next-button2, #next-button3, #next-button4, #next-button5 {
   right: 55px;
 }
 
-#prev-button2 img, #next-button2 img {
-  width: 30px; 
-  height: 30px; 
-}
 .sem-margem {
   margin-top: -167px;
 }
 
+.categorias p, .identacao-recomendacao p, .identacao-vendidos p, .identacao-talvez p {
+  font-family: Inter;
+  margin-left: 10px;
+  margin-top: 30px;
+}
 
+.categorias {
+  margin-left: 35px;
+}
+
+.img-categoria img {
+  width: 170px;
+  height: 170px;
+  margin-top: 20px;
+  border-radius: 50%;
+  margin-left: 10px;
+  flex-shrink: 0;
+}
+
+.img-categoria {
+  display: flex;
+  align-items: center;
+  overflow: hidden; 
+}
+
+#prev-button3, #next-button3 {
+  position: absolute; 
+  top: 155%;
+  transform: translateY(-50%); 
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  background-color: #001f54;
+}
+
+.images-lista-recomendacoes img, .images-lista-vendidos img, .images-talvez-goste img{
+  width: 150px;
+  height: 200px;
+  object-fit: cover;
+  margin-right: 4px;
+  border-radius: 5px; 
+}
+
+.images-lista-recomendacoes {
+  overflow: hidden;
+}
+
+.images-lista-vendidos, .images-talvez-goste{
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+#prev-button3 img, #next-button3 img, #prev-button4 img, #next-button4 img, #prev-button5 img, #next-button5 img{
+  width: 30px;  
+  height: 30px; 
+  background-color: #001f54; 
+  border: none; 
+  cursor: pointer; 
+  z-index: 10; 
+  position: absolute; 
+  transform: translateY(-50%); 
+}
+.mais-vendidos{
+  width: 150px; 
+  margin-right: 4px; 
+  transition: transform 0.5s ease; 
+}
+.identacao-vendidos, .identacao-talvez{
+  height: 100vh; 
+  overflow-y: auto;
+}
+#prev-button4, #next-button4 {
+  position: absolute; 
+  top: 190%;
+  transform: translateY(-50%); 
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  background-color: #001f54;
+}
+body {
+  overflow-x: hidden; 
+}
+.identacao-vendidos, .identacao-talvez{
+  overflow: hidden;
+}
+.identacao-vendidos, .identacao-talvez{
+  height: auto; 
+  overflow: hidden; 
+  margin-bottom: 0;
+  padding: 0;
+}
+#prev-button5, #next-button5 {
+  position: absolute; 
+  top: 220%;
+  transform: translateY(-50%); 
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  background-color: #001f54;
+}
+.lado-a-lado2 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; 
+  justify-content: space-between;
+  margin-top: 40px; 
+}
+
+.quadrado {
+  background-color: rgb(236, 228, 228);
+  width: 300px; 
+  height: 310px; 
+  box-sizing: border-box;
+  padding: 10px 10px 10px 20px; 
+  margin-bottom: 30px;
+}
+
+.lado-a-lado {
+  display: flex;
+  gap: 10px;
+}
+
+.quadrado img {
+  width: 120px; 
+  height: 120px;
+  object-fit: cover;
+}
+
+.quadrado p {
+  font-family: Inter;
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+.infor-historico {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 10px;
+}
+.infor-historico p {
+  font-family: Inter;
+}
+.infor-historico a{
+  text-decoration: none;
+  font-family: Inter;
+  color: #0A3871;
+}
+.img-historico {
+  display: flex;
+  align-items: center;
+}
+.img-historico img{
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
