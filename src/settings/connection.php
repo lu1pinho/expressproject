@@ -26,7 +26,7 @@ try {
     }
 
     // Fechar a conexão quando terminar
-    $conn->close();
+    //$conn->close();
 } catch (Exception $e) {
     echo "Erro: " . $e->getMessage();
 }

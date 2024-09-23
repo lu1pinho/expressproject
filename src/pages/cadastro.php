@@ -54,8 +54,8 @@
     <?php
 include 'C:/xampp/htdocs/expressproject/src/settings/connection.php';
 
-if (isset($_POST['submit'])) {
-    // Verifica se todos os campos obrigatórios estão preenchidos
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    
     if (strlen($_POST['name']) == 0) {
         echo "Preencha seu nome";
     } else if (strlen($_POST['phone']) == 0) {
@@ -71,27 +71,28 @@ if (isset($_POST['submit'])) {
     } else if ($_POST['password'] !== $_POST['confirm-password']) {
         echo "As senhas não coincidem";
     } else {
-        // Captura e escapa os dados para evitar SQL Injection
+        
         $name = $conn->real_escape_string($_POST['name']);
         $phone = $conn->real_escape_string($_POST['phone']);
         $category = $conn->real_escape_string($_POST['category']);
         $email = $conn->real_escape_string($_POST['email']);
-        $password = password_hash($conn->real_escape_string($_POST['password']), PASSWORD_DEFAULT); // Hash de senha
+        $password = password_hash($conn->real_escape_string($_POST['password']), PASSWORD_DEFAULT);
 
-        // Verifica se o email já existe no banco de dados
         $sql_check_email = "SELECT * FROM users WHERE email = '$email'";
-        $check_query = $conn->query($sql_check_email) or die("Falha ao executar a consulta: " . $conn->error);
+        $check_query = $conn->query($sql_check_email);
+        if (!$check_query) {
+            die("Falha ao executar a consulta: " . $conn->error);
+        }
 
         if ($check_query->num_rows > 0) {
             echo "<script>alert('Este email já está cadastrado.');</script>";
         } else {
-            // Insere os dados do usuário no banco
+    
             $sql_insert = "INSERT INTO users (nome, telefone, categoria, email, senha) VALUES ('$name', '$phone', '$category', '$email', '$password')";
 
             if ($conn->query($sql_insert) === TRUE) {
                 echo "<script>alert('Cadastro realizado com sucesso!');</script>";
-                // Redireciona ou exibe outra ação após o cadastro
-                // header("Location: login.php"); // Exemplo de redirecionamento para a página de login
+               
             } else {
                 echo "Erro ao cadastrar: " . $conn->error;
             }
