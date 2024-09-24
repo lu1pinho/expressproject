@@ -342,15 +342,6 @@ article {
 }
 
 
-.left {
-    background-color: black;
-    background-image: url('../pages/images/products/parafusadeira.jpg'); /* Verifique o caminho da imagem */
-    background-size: cover;
-    background-position: center;
-    width: 500px;
-    height: 500px;
-}
-
 .right {
     display: flex;
     flex-direction: column;
@@ -505,7 +496,6 @@ article {
 .description {
     display: block;
     margin-top: 20px;
-    background-color: #F5F5F5;
 }
 
 
@@ -567,7 +557,7 @@ section {
     height: 200px;
     background-color: #000000;
     border-radius: 10px;
-    margin: 0 auto 20px;
+    margin: 0 auto 60px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -647,3 +637,8 @@ section {
 .tx-25 {
     font-size: 25px;
 }
+
+.product-image {
+    visibility: hidden;
+}
+
