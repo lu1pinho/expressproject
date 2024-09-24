@@ -135,12 +135,12 @@ $recommended_stmt->close();
                     <div class="pricing">
                         <p class="old_price">R$ <?php echo number_format($preco, 2, ',', '.'); ?></p>
                         <p class="actual_price">R$ <?php echo number_format($precodesconto, 2, ',', '.'); ?></p>
-                        <p class="installment">em até 4x sem juros.</p>
+                        <p class="installment">em até 10x sem juros com o Cartão Express.</p>
                     </div>
                     <div class="vertical-line"></div>
                     <div class="discount">
                         <p class="discount-price"><?php echo htmlspecialchars($porcentagem); ?>% de desconto</p>
-                        <p>comprando agora!</p>
+                        <p>comprando agora no PIX!</p>
                     </div>
                 </div>
                 <div class="minimal-description">
