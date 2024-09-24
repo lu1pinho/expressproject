@@ -114,8 +114,8 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
         <td>Verificação de email já registrado</td>
         <td>Validação do Usuário</td>
         <td>Neci Silva</td>
-        <td>23/09</td>
-        <td>23/09</td>
+        <td>21/09</td>
+        <td>21/09</td>
         <td>15</td>
         <td>Concluído</td>
         <td></td>
