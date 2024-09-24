@@ -50,7 +50,7 @@ header {
 .searchbar {
   display: flex;
   align-items: center;
-  flex-grow: 1; 
+  flex-grow: 1;
   justify-content: flex-start;
   margin-left: 100px; /* Ajustado para melhor responsividade */
   margin-right: 20px;
@@ -90,11 +90,11 @@ header {
 }
 
 .contas p {
-  font-family: Inter; 
+  font-family: Inter;
   color: rgb(184, 178, 178);
 }
 
-.contas, 
+.contas,
 .pedidos {
   display: flex;
   flex-direction: column;
@@ -145,7 +145,7 @@ header {
   font-size: 13px;
 }
 
-.contas a, 
+.contas a,
 .pedidos a,
 .carrinho a {
   color: white;
@@ -258,12 +258,12 @@ header {
 .container-slider {
   display: flex;
   width: 100%;
-  height: 100vh; 
+  height: 100vh;
   align-items: center;
   justify-content: center;
   gap: 1rem;
   margin-top: -183px;
-  position: relative; 
+  position: relative;
 }
 
 .container-images {
@@ -289,9 +289,9 @@ header {
   opacity: 1;
 }
 #prev-button, #next-button {
-  position: absolute; 
+  position: absolute;
   top: 50%;
-  transform: translateY(-50%); 
+  transform: translateY(-50%);
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -300,7 +300,7 @@ header {
 }
 
 #prev-button {
-  left: 55px; 
+  left: 55px;
 }
 
 #next-button {
@@ -308,6 +308,6 @@ header {
 }
 
 #prev-button img, #next-button img {
-  width: 30px; 
-  height: 30px; 
+  width: 30px;
+  height: 30px;
 }
