@@ -9,8 +9,7 @@
 
 <body>
     <header class="cabecalho">
-        <img src="image 2.png" width="85" height="70" alt="Express.com Logo">
-        <h1 class="h1">Express.com</h1>
+        <img src="images/logo.png" alt="Logotipo Express Marketplace" width="150">
     </header>
 
     <div class="apresentacao">
