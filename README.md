@@ -84,10 +84,10 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
         <td>Implementação do sistema de cadastro</td>
         <td>Cadastro de Usuário</td>
         <td>Neci Silva</td>
-        <td></td>
-        <td></td>
+        <td>13/09</td>
+        <td>21/09</td>
         <td>15</td>
-        <td>Ainda Não Feito</td>
+        <td>Concluído</td>
         <td></td>
     </tr>
     <tr>
@@ -104,20 +104,20 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
         <td>Validação dos campos obrigatórios no cadastro</td>
         <td>Validação e Segurança</td>
         <td>Neci Silva</td>
-        <td></td>
-        <td></td>
+        <td>21/09</td>
+        <td>21/09</td>
         <td>15</td>
-        <td>Ainda Não Feito</td>
+        <td>Concluído</td>
         <td></td>
     </tr>
     <tr>
         <td>Verificação de email já registrado</td>
-        <td>Validação e Feedback do Usuário</td>
+        <td>Validação do Usuário</td>
         <td>Neci Silva</td>
-        <td></td>
-        <td></td>
+        <td>23/09</td>
+        <td>23/09</td>
         <td>15</td>
-        <td>Ainda Não Feito</td>
+        <td>Concluído</td>
         <td></td>
     </tr>
     <tr>
