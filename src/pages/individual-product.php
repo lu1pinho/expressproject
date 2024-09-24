@@ -70,13 +70,13 @@ $recommended_stmt->close();
             <img src="images/logo.png" alt="Logotipo Express Marketplace" width="150">
         </div>
         <div class="location">
-            <img src="images/location_on_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg">
+            <img src="images/svg/location_on.svg">
             <a href="#">Atualizar CEP</a>
         </div>
         <div class="searchbar">
             <input type="text" placeholder="Pesquisa Express.com.br">
             <button type="submit">
-                <img style="height: 32px;" src="images/search_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="pesquisa">
+                <img style="height: 32px;" src="images/svg/search.svg" alt="pesquisa">
             </button>
         </div>
         <div class="divs">
@@ -96,7 +96,7 @@ $recommended_stmt->close();
                 <a href="#">Pedidos</a>
             </div>
             <div class="carrinho">
-                <img src="images/shopping_cart_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24 (1).svg" alt="">
+                <img src="images/svg/shopping_cart.svg" alt="">
                 <a href="#">Carrinho</a>
             </div>
         </div>
@@ -105,7 +105,7 @@ $recommended_stmt->close();
 
 <div class="subnav">
     <div class="todos">
-        <img src="images/menu_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24 (1).svg" alt="menu-sanduiche">
+        <img src="images/svg/menu.svg" alt="menu-sanduiche">
         <p>Todos</p>
     </div>
     <div class="venda-na-express">
