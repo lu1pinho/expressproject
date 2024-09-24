@@ -64,6 +64,7 @@ header {
   border-radius: 10px 0 0 10px;
   border: none;
   box-sizing: border-box;
+  margin-left: 40px;
 }
 
 .searchbar input:focus {
@@ -164,6 +165,7 @@ header {
 
 .carrinho {
   margin-left: 20px;
+  margin-right: 15px;
   display: flex;
   align-items: center;
 }
@@ -483,10 +485,35 @@ body {
   display: flex;
   align-items: center;
 }
+.rodape{
+  display: flex;
+  margin-top: 50px;
+}
 .img-historico img{
   width: 100px;
   height: 100px;
   object-fit: cover;
   margin-top: 10px;
-  margin-bottom: 10px;
+}
+.redes-sociais img{
+  width: 170px;
+  margin-left: 20px;
+}
+.navegacao a{
+  display: block;
+  margin-top: 5px;
+  text-decoration: none;
+  color: black;
+  font-family: Inter;
+  font-size: 14px;
+}
+.navegacao p {
+  font-family: Inter;
+  font-size: 17px;
+  margin-bottom: 12px;
+}
+.navegacao{
+  margin-left: 50px;
+  margin-bottom: 100px;
+  margin-right: 50px;
 }
