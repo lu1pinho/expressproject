@@ -55,11 +55,10 @@ header {
   margin: 0 20px;
 }
 
-.searchbar input {
+.searchbar form input {
   padding: 5px 15px;
   font-size: 14px;
-  width: 100%;
-  max-width: 500px;
+  width: 450px;
   height: 38px;
   border-radius: 10px 0 0 10px;
   border: none;
@@ -71,7 +70,12 @@ header {
   border: 2px solid orange;
   outline: none;
 }
-
+.searchbar form {
+  display: flex; 
+  width: auto; 
+  height: auto; 
+  margin: 0; 
+}
 .searchbar button {
   padding: 5px 10px;
   font-size: 14px;
@@ -516,4 +520,30 @@ body {
   margin-left: 50px;
   margin-bottom: 100px;
   margin-right: 50px;
+}
+.resultado-container {
+  margin-left: 200px; 
+  flex: 1; 
+}
+
+main {
+  display: flex; 
+}
+
+aside {
+  flex: 0 0 250px; 
+}
+
+a {
+  text-decoration: none; 
+  color: black;
+}
+
+h1, h2, h3 {
+  text-decoration: none; 
+}
+.product-image-wrapper {
+  background-color: white;
+  padding: 20px;
+  display: inline-block;
 }

@@ -1,3 +1,7 @@
+<?php 
+  include 'C:/xampp/htdocs/expressproject/src/settings/connection.php';
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -5,8 +9,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Página Principal</title>
   <link rel="stylesheet" href="paginaprincipal.css">
-  <script src="script.js" defer ></script>
-  <script src="script2.js" defer ></script>
+  <script src="script-pag-principal/script-slider.js" defer ></script>
+  <script src="script-pag-principal/script2.js" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
@@ -21,12 +25,15 @@
         <img src="images/location_on_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg">
         <a href="#">Atualizar CEP</a>
       </div>
-      <div class="searchbar" >
-        <input type="text" placeholder="Pesquisa Express.com.br">
+      <div class="searchbar">
+    <form action="teste-listagem.php" method="GET">
+        <input type="text" name="query" placeholder="Pesquisa Express.com.br" required>
         <button type="submit">
-          <img style="height: 32px;" src="images/search_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="pesquisa">
+            <img src="images/search_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="pesquisa">
         </button>
-      </div>
+    </form>
+</div>
+
       <div class="divs" >
         <div class="contas" >
           <p>Olá, faça seu login</p>
@@ -75,12 +82,6 @@
     </div>
     <button id="next-button"><img src="images/arrow_forward_ios_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" alt="next-button"></button>
   </div>
-<!--mudança com o merge-->
-  <div class="produto">
-    <a href="individual-product.php?id=1">Parafusadeira</a>
-    <br>
-    <a href="individual-product.php?id=2">Echo Dot</a>
-  </div>
 <!--Ofertas do dia-->
 <div class="sem-margem" >
   <div class="lista-ofertas" >
@@ -90,20 +91,14 @@
   <button id="prev-button2"><img src="images/arrow_back_ios_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" alt="prev-button2"></button>
   <div class="images-lista-ofertas" id="images-lista-ofertas">
   <img class="offer-image on" src="imgs-ofertas/mouse.jpeg" alt="mouse 1">
-  <img class="offer-image" src="imgs-ofertas/mouse.jpeg" alt="mouse 2">
-  <img class="offer-image" src="imgs-ofertas/mouse.jpeg" alt="mouse 3">
-  <img class="offer-image" src="imgs-ofertas/mouse.jpeg" alt="mouse 4">
-  <img class="offer-image" src="imgs-ofertas/mouse.jpeg" alt="mouse 5">
-  <img class="offer-image" src="imgs-ofertas/mouse.jpeg" alt="mouse 6">
-  <img class="offer-image" src="imgs-ofertas/mouse.jpeg" alt="mouse 7">
-  <img class="offer-image" src="imgs-ofertas/mouse.jpeg" alt="mouse 8">
-  <img class="offer-image" src="imgs-ofertas/mouse.jpeg" alt="mouse 9">
-  <img class="offer-image" src="imgs-ofertas/mouse.jpeg" alt="mouse 10">
-  <img class="offer-image" src="imgs-ofertas/mouse.jpeg" alt="mouse 11">
-  <img class="offer-image" src="imgs-ofertas/mouse.jpeg" alt="mouse 12">
-  <img class="offer-image" src="imgs-ofertas/mouse.jpeg" alt="mouse 13">
-  <img class="offer-image" src="imgs-ofertas/mouse.jpeg" alt="mouse 14">
-  <img class="offer-image" src="imgs-ofertas/mouse.jpeg" alt="mouse 15">
+  <img class="offer-image" src="images/Batedeira .jpg" alt="mouse 3">
+  <img class="offer-image" src="images/Bicicleta Ergométrica.jpg" alt="mouse 4">
+  <img class="offer-image" src="images/Caiu Perdeu.jpg" alt="mouse 5">
+  <img class="offer-image" src="images/caneta.jpg" alt="mouse 6">
+  <img class="offer-image" src="images/celular-samsung .jpg" alt="mouse 8">
+  <img class="offer-image" src="images/Churrasqueira a Carvão.jpg" alt="mouse 9">
+  <img class="offer-image" src="images/Colchão Ortopédico.jpg" alt="mouse 10">
+  <img class="offer-image" src="images/Conjunto de Panelas.jpg" alt="mouse 11">
   </div>
   <button id="next-button2"><img src="images/arrow_forward_ios_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" alt="next-button2"></button>
 </div>
@@ -113,17 +108,34 @@
   <div>
     <p><b>Navegue pelas Categorias</b></p>
   </div>
-  <div class="img-categoria" id="img-categoria" >
-    <img class="category-image on" src="imgs-categoria/perifericos-com-fundo (1).png" alt="periféricos">
-    <img class="category-image" src="imgs-categoria/mouse com fundo.png" alt="acessorios">
-    <img class="category-image" src="imgs-categoria/celular-com-fundo (1).png" alt="celular">
-    <img class="category-image" src="imgs-categoria/drone-com-fundo (2).png" alt="drones">
-    <img class="category-image" src="imgs-categoria/placa-de-video-com-fundo.png" alt="placa de video">
-    <img class="category-image" src="imgs-categoria/roteador-com-fundo.png" alt="rede">
-    <img class="category-image" src="imgs-categoria/ssd-com-fundo.png" alt="ssd">
-    <img class="category-image" src="imgs-categoria/tv-com-fundo (2).png" alt="monitor">
+  <div class="img-categoria" id="img-categoria">
+    <a href="produtos.php?categoria=perifericos">
+      <img class="category-image on" src="imgs-categoria/perifericos-com-fundo (1).png" alt="periféricos">
+    </a>
+    <a href="produtos.php?categoria=acessorios">
+      <img class="category-image" src="imgs-categoria/mouse com fundo.png" alt="acessórios">
+    </a>
+    <a href="produtos.php?categoria=celular">
+      <img class="category-image" src="imgs-categoria/celular-com-fundo (1).png" alt="celular">
+    </a>
+    <a href="produtos.php?categoria=drones">
+      <img class="category-image" src="imgs-categoria/drone-com-fundo (2).png" alt="drones">
+    </a>
+    <a href="produtos.php?categoria=placa_de_video">
+      <img class="category-image" src="imgs-categoria/placa-de-video-com-fundo.png" alt="placa de vídeo">
+    </a>
+    <a href="produtos.php?categoria=rede">
+      <img class="category-image" src="imgs-categoria/roteador-com-fundo.png" alt="rede">
+    </a>
+    <a href="produtos.php?categoria=ssd">
+      <img class="category-image" src="imgs-categoria/ssd-com-fundo.png" alt="ssd">
+    </a>
+    <a href="produtos.php?categoria=monitor">
+      <img class="category-image" src="imgs-categoria/tv-com-fundo (2).png" alt="monitor">
+    </a>
   </div>
 </div>
+
 <!-- Recomendações -->
 <div class="identacao-recomendacao">
   <div class="lista-recomendacoes">
@@ -132,26 +144,15 @@
   </div>
   <button id="prev-button3"><img src="images/arrow_back_ios_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" alt="prev-button3"></button>
   <div class="images-lista-recomendacoes" id="images-lista-recomendacoes">
-    <img class="recommendation-image on" src="imgs-ofertas/mouse.jpeg" alt="mouse 1">
-    <img class="recommendation-image" src="imgs-ofertas/mouse.jpeg" alt="mouse 2">
-    <img class="recommendation-image" src="imgs-ofertas/mouse.jpeg" alt="mouse 3">
-    <img class="recommendation-image" src="imgs-ofertas/mouse.jpeg" alt="mouse 4">
-    <img class="recommendation-image" src="imgs-ofertas/mouse.jpeg" alt="mouse 5">
-    <img class="recommendation-image" src="imgs-ofertas/mouse.jpeg" alt="mouse 6">
-    <img class="recommendation-image" src="imgs-ofertas/mouse.jpeg" alt="mouse 7">
-    <img class="recommendation-image" src="imgs-ofertas/mouse.jpeg" alt="mouse 8">
-    <img class="recommendation-image" src="imgs-ofertas/mouse.jpeg" alt="mouse 9">
-    <img class="recommendation-image" src="imgs-ofertas/mouse.jpeg" alt="mouse 10">
-    <img class="recommendation-image" src="imgs-ofertas/mouse.jpeg" alt="mouse 11">
-    <img class="recommendation-image" src="imgs-ofertas/mouse.jpeg" alt="mouse 12">
-    <img class="recommendation-image" src="imgs-ofertas/mouse.jpeg" alt="mouse 13">
-    <img class="recommendation-image" src="imgs-ofertas/mouse.jpeg" alt="mouse 14">
-    <img class="recommendation-image" src="imgs-ofertas/mouse.jpeg" alt="mouse 15">
-    <img class="recommendation-image" src="imgs-ofertas/mouse.jpeg" alt="mouse 16">
-    <img class="recommendation-image" src="imgs-ofertas/mouse.jpeg" alt="mouse 17">
-    <img class="recommendation-image" src="imgs-ofertas/mouse.jpeg" alt="mouse 18">
-    <img class="recommendation-image" src="imgs-ofertas/mouse.jpeg" alt="mouse 19">
-    <img class="recommendation-image" src="imgs-ofertas/mouse.jpeg" alt="mouse 20">
+  <img class="offer-image on" src="imgs-ofertas/mouse.jpeg" alt="mouse 1">
+  <img class="offer-image" src="images/Batedeira .jpg" alt="mouse 3">
+  <img class="offer-image" src="images/Bicicleta Ergométrica.jpg" alt="mouse 4">
+  <img class="offer-image" src="images/Caiu Perdeu.jpg" alt="mouse 5">
+  <img class="offer-image" src="images/caneta.jpg" alt="mouse 6">
+  <img class="offer-image" src="images/celular-samsung .jpg" alt="mouse 8">
+  <img class="offer-image" src="images/Churrasqueira a Carvão.jpg" alt="mouse 9">
+  <img class="offer-image" src="images/Colchão Ortopédico.jpg" alt="mouse 10">
+  <img class="offer-image" src="images/Conjunto de Panelas.jpg" alt="mouse 11">
   </div>
   <button id="next-button3"><img src="images/arrow_forward_ios_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" alt="next-button3"></button>
 </div>
@@ -162,26 +163,15 @@
   </div>
   <button id="prev-button4"><img src="images/arrow_back_ios_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" alt="prev-button4"></button>
   <div class="images-lista-vendidos" id="images-lista-vendidos">
-    <img class="mais-vendidos on" src="imgs-ofertas/mouse.jpeg" alt="mouse 1">
-    <img class="mais-vendidos" src="imgs-ofertas/mouse.jpeg" alt="mouse 2">
-    <img class="mais-vendidos" src="imgs-ofertas/mouse.jpeg" alt="mouse 3">
-    <img class="mais-vendidos" src="imgs-ofertas/mouse.jpeg" alt="mouse 4">
-    <img class="mais-vendidos" src="imgs-ofertas/mouse.jpeg" alt="mouse 5">
-    <img class="mais-vendidos" src="imgs-ofertas/mouse.jpeg" alt="mouse 6">
-    <img class="mais-vendidos" src="imgs-ofertas/mouse.jpeg" alt="mouse 7">
-    <img class="mais-vendidos" src="imgs-ofertas/mouse.jpeg" alt="mouse 8">
-    <img class="mais-vendidos" src="imgs-ofertas/mouse.jpeg" alt="mouse 9">
-    <img class="mais-vendidos" src="imgs-ofertas/mouse.jpeg" alt="mouse 10">
-    <img class="mais-vendidos" src="imgs-ofertas/mouse.jpeg" alt="mouse 11">
-    <img class="mais-vendidos" src="imgs-ofertas/mouse.jpeg" alt="mouse 12">
-    <img class="mais-vendidos" src="imgs-ofertas/mouse.jpeg" alt="mouse 13">
-    <img class="mais-vendidos" src="imgs-ofertas/mouse.jpeg" alt="mouse 14">
-    <img class="mais-vendidos" src="imgs-ofertas/mouse.jpeg" alt="mouse 15">
-    <img class="mais-vendidos" src="imgs-ofertas/mouse.jpeg" alt="mouse 16">
-    <img class="mais-vendidos" src="imgs-ofertas/mouse.jpeg" alt="mouse 17">
-    <img class="mais-vendidos" src="imgs-ofertas/mouse.jpeg" alt="mouse 18">
-    <img class="mais-vendidos" src="imgs-ofertas/mouse.jpeg" alt="mouse 19">
-    <img class="mais-vendidos" src="imgs-ofertas/mouse.jpeg" alt="mouse 20">
+  <img class="offer-image on" src="imgs-ofertas/mouse.jpeg" alt="mouse 1">
+  <img class="offer-image" src="images/Batedeira .jpg" alt="mouse 3">
+  <img class="offer-image" src="images/Bicicleta Ergométrica.jpg" alt="mouse 4">
+  <img class="offer-image" src="images/Caiu Perdeu.jpg" alt="mouse 5">
+  <img class="offer-image" src="images/caneta.jpg" alt="mouse 6">
+  <img class="offer-image" src="images/celular-samsung .jpg" alt="mouse 8">
+  <img class="offer-image" src="images/Churrasqueira a Carvão.jpg" alt="mouse 9">
+  <img class="offer-image" src="images/Colchão Ortopédico.jpg" alt="mouse 10">
+  <img class="offer-image" src="images/Conjunto de Panelas.jpg" alt="mouse 11">
   </div>
   <button id="next-button4"><img src="images/arrow_forward_ios_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" alt="next-button4"></button>
 </div>
@@ -192,26 +182,15 @@
   </div>
   <button id="prev-button5"><img src="images/arrow_back_ios_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" alt="prev-button5"></button>
   <div class="images-talvez-goste" id="images-talvez-goste" >
-    <img class="talvez-goste on" src="imgs-ofertas/mouse.jpeg" alt="mouse 1">
-    <img class="talvez-goste" src="imgs-ofertas/mouse.jpeg" alt="mouse 2">
-    <img class="talvez-goste" src="imgs-ofertas/mouse.jpeg" alt="mouse 3">
-    <img class="talvez-goste" src="imgs-ofertas/mouse.jpeg" alt="mouse 4">
-    <img class="talvez-goste" src="imgs-ofertas/mouse.jpeg" alt="mouse 5">
-    <img class="talvez-goste" src="imgs-ofertas/mouse.jpeg" alt="mouse 6">
-    <img class="talvez-goste" src="imgs-ofertas/mouse.jpeg" alt="mouse 7">
-    <img class="talvez-goste" src="imgs-ofertas/mouse.jpeg" alt="mouse 8">
-    <img class="talvez-goste" src="imgs-ofertas/mouse.jpeg" alt="mouse 9">
-    <img class="talvez-goste" src="imgs-ofertas/mouse.jpeg" alt="mouse 10">
-    <img class="talvez-goste" src="imgs-ofertas/mouse.jpeg" alt="mouse 11">
-    <img class="talvez-goste" src="imgs-ofertas/mouse.jpeg" alt="mouse 12">
-    <img class="talvez-goste" src="imgs-ofertas/mouse.jpeg" alt="mouse 13">
-    <img class="talvez-goste" src="imgs-ofertas/mouse.jpeg" alt="mouse 14">
-    <img class="talvez-goste" src="imgs-ofertas/mouse.jpeg" alt="mouse 15">
-    <img class="talvez-goste" src="imgs-ofertas/mouse.jpeg" alt="mouse 16">
-    <img class="talvez-goste" src="imgs-ofertas/mouse.jpeg" alt="mouse 17">
-    <img class="talvez-goste" src="imgs-ofertas/mouse.jpeg" alt="mouse 18">
-    <img class="talvez-goste" src="imgs-ofertas/mouse.jpeg" alt="mouse 19">
-    <img class="talvez-goste" src="imgs-ofertas/mouse.jpeg" alt="mouse 20">    
+  <img class="offer-image on" src="imgs-ofertas/mouse.jpeg" alt="mouse 1">
+  <img class="offer-image" src="images/Batedeira .jpg" alt="mouse 3">
+  <img class="offer-image" src="images/Bicicleta Ergométrica.jpg" alt="mouse 4">
+  <img class="offer-image" src="images/Caiu Perdeu.jpg" alt="mouse 5">
+  <img class="offer-image" src="images/caneta.jpg" alt="mouse 6">
+  <img class="offer-image" src="images/celular-samsung .jpg" alt="mouse 8">
+  <img class="offer-image" src="images/Churrasqueira a Carvão.jpg" alt="mouse 9">
+  <img class="offer-image" src="images/Colchão Ortopédico.jpg" alt="mouse 10">
+  <img class="offer-image" src="images/Conjunto de Panelas.jpg" alt="mouse 11">    
   </div>
   <button id="next-button5"><img src="images/arrow_forward_ios_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" alt="next-button5"></button>
 </div>

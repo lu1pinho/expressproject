@@ -1,18 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
 }
 
 header {
   background-color: #001f54;
   padding: 10px;
   color: white;
-  position: relative; /* Adiciona o comportamento para posicionar o header */
-  z-index: 10; /* Coloca o header em um nível superior ao slider */
+  font-family: Inter;
+  position: relative;
+  z-index: 10;
 }
 
 .navbar {
@@ -26,6 +24,8 @@ header {
   font-size: 20px;
   color: white;
   text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  font-weight: italic;
 }
 
 .logo {
@@ -52,20 +52,19 @@ header {
   align-items: center;
   flex-grow: 1;
   justify-content: flex-start;
-  margin-left: 100px; /* Ajustado para melhor responsividade */
-  margin-right: 20px;
+  margin: 0 20px;
 }
 
 .searchbar input {
-  padding: 5px;
+  padding: 5px 15px;
   font-size: 14px;
-  width: 100%; /* Ajusta a largura do input conforme o tamanho da tela */
-  max-width: 500px; /* Largura máxima para telas maiores */
+  width: 100%;
+  max-width: 500px;
   height: 38px;
-  padding-left: 15px;
   border-radius: 10px 0 0 10px;
   border: none;
   box-sizing: border-box;
+  margin-left: 40px;
 }
 
 .searchbar input:focus {
@@ -90,11 +89,11 @@ header {
 }
 
 .contas p {
-  font-family: Inter;
+  font-family: Inter; 
   color: rgb(184, 178, 178);
 }
 
-.contas,
+.contas, 
 .pedidos {
   display: flex;
   flex-direction: column;
@@ -102,7 +101,6 @@ header {
 
 .contas {
   position: relative;
-  display: flex;
   margin-left: 10px;
 }
 
@@ -138,6 +136,7 @@ header {
 .inline {
   display: flex;
   gap: 10px;
+  font-size: 12px;
 }
 
 .tooltip p {
@@ -145,7 +144,7 @@ header {
   font-size: 13px;
 }
 
-.contas a,
+.contas a, 
 .pedidos a,
 .carrinho a {
   color: white;
@@ -161,11 +160,12 @@ header {
 
 .divs {
   display: flex;
-  margin-right: 20px; /* Ajustado para melhor responsividade */
+  margin-right: 20px;
 }
 
 .carrinho {
   margin-left: 20px;
+  margin-right: 15px;
   display: flex;
   align-items: center;
 }
@@ -175,56 +175,7 @@ header {
   cursor: pointer;
 }
 
-/* Estilos Responsivos */
-@media (max-width: 768px) {
-  .searchbar {
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-
-  .searchbar input {
-    width: calc(100% - 50px); /* Ajusta a largura para telas menores */
-  }
-
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .location, .divs {
-    margin-left: 0;
-    margin-top: 10px;
-  }
-
-  .logo, .searchbar {
-    width: 100%;
-    justify-content: space-between;
-  }
-
-  .contas {
-    margin-top: 10px;
-  }
-}
-
-@media (max-width: 480px) {
-  .searchbar input {
-    width: calc(100% - 40px); /* Ajusta ainda mais para telas muito pequenas */
-  }
-
-  .tooltip {
-    width: 150px; /* Reduz a largura da tooltip em telas pequenas */
-  }
-
-  .tooltip button {
-    width: 150px; /* Ajusta a largura do botão dentro da tooltip */
-  }
-
-  .tooltip::after {
-    border-width: 8px; /* Reduz o tamanho da seta para telas pequenas */
-  }
-}
-
-.subnav{
+.subnav {
   display: flex;
   align-items: center;
   background-color: #0A3871;
@@ -234,16 +185,18 @@ header {
 .todos,
 .venda-na-express,
 .comprar-novamente,
-.oferta-do-dia{
+.oferta-do-dia {
   font-family: Inter;
   margin-right: 10px;
   color: white;
-  cursor: pointer;
   padding: 2px 10px;
+  cursor: pointer;
 }
 
-.subnav div:hover {
-  background-color: #104281;
+.subnav div {
+  position: relative;
+  z-index: 20; 
+  cursor: pointer;
 }
 
 .todos {
@@ -255,15 +208,21 @@ header {
   margin-left: 3px;
 }
 
+.logo1 {
+  width: 130px;
+  height: 30px;
+  margin-left: 5px;
+}
+
 .container-slider {
   display: flex;
   width: 100%;
-  height: 100vh;
+  height: 100vh; 
   align-items: center;
   justify-content: center;
   gap: 1rem;
   margin-top: -183px;
-  position: relative;
+  position: relative; 
 }
 
 .container-images {
@@ -277,7 +236,7 @@ header {
 
 .slider {
   position: absolute;
-  transition: opacity;
+  transition: opacity 0.5s ease; 
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -288,10 +247,11 @@ header {
 .on {
   opacity: 1;
 }
+
 #prev-button, #next-button {
-  position: absolute;
+  position: absolute; 
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-50%); 
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -300,14 +260,260 @@ header {
 }
 
 #prev-button {
-  left: 55px;
+  left: 55px; 
 }
 
 #next-button {
   right: 55px;
 }
 
-#prev-button img, #next-button img {
-  width: 30px;
-  height: 30px;
+.lista-ofertas {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  font-family: Inter;
+}
+
+.lista-ofertas a, .identacao-recomendacao a {
+  margin-left: 16px;
+  text-decoration: none;
+  color: #0A3871;
+  cursor: pointer;
+  z-index: 20;
+}
+
+.lista-ofertas p {
+  margin-left: 15px;
+}
+.lista-recomendacoes {
+  display: flex;
+  align-items: center;
+}
+.lista-recomendacoes p{
+  margin-bottom: 30px;
+}
+.images-lista-ofertas, .images-lista-recomendacoes, .images-lista-vendidos, .images-talvez-goste{
+  display: flex; 
+  transition: transform 0.5s ease;
+  width: max-content; 
+}
+
+.images-lista-ofertas img, .images-lista-recomendacoes img, .images-lista-vendidos img, .images-talvez-goste img{
+  width: 150px; 
+  height: 200px; 
+  object-fit: cover; 
+  margin-right: 8px;
+  border-radius: 5px; 
+}
+
+#prev-button2, #next-button2 {
+  position: absolute; 
+  top: 85%;
+  transform: translateY(-50%); 
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  background-color: #001f54;
+}
+
+#prev-button2, #prev-button3, #prev-button4, #prev-button5 {
+  left: 55px;
+}
+
+#next-button2, #next-button3, #next-button4, #next-button5 {
+  right: 55px;
+}
+
+.sem-margem {
+  margin-top: -167px;
+}
+
+.categorias p, .identacao-recomendacao p, .identacao-vendidos p, .identacao-talvez p {
+  font-family: Inter;
+  margin-left: 10px;
+  margin-top: 30px;
+}
+
+.categorias {
+  margin-left: 35px;
+}
+
+.img-categoria img {
+  width: 170px;
+  height: 170px;
+  margin-top: 20px;
+  border-radius: 50%;
+  margin-left: 10px;
+  flex-shrink: 0;
+}
+
+.img-categoria {
+  display: flex;
+  align-items: center;
+  overflow: hidden; 
+}
+
+#prev-button3, #next-button3 {
+  position: absolute; 
+  top: 155%;
+  transform: translateY(-50%); 
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  background-color: #001f54;
+}
+
+.images-lista-recomendacoes img, .images-lista-vendidos img, .images-talvez-goste img{
+  width: 150px;
+  height: 200px;
+  object-fit: cover;
+  margin-right: 4px;
+  border-radius: 5px; 
+}
+
+.images-lista-recomendacoes {
+  overflow: hidden;
+}
+
+.images-lista-vendidos, .images-talvez-goste{
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+#prev-button3 img, #next-button3 img, #prev-button4 img, #next-button4 img, #prev-button5 img, #next-button5 img{
+  width: 30px;  
+  height: 30px; 
+  background-color: #001f54; 
+  border: none; 
+  cursor: pointer; 
+  z-index: 10; 
+  position: absolute; 
+  transform: translateY(-50%); 
+}
+.mais-vendidos{
+  width: 150px; 
+  margin-right: 4px; 
+  transition: transform 0.5s ease; 
+}
+.identacao-vendidos, .identacao-talvez{
+  height: 100vh; 
+  overflow-y: auto;
+}
+#prev-button4, #next-button4 {
+  position: absolute; 
+  top: 190%;
+  transform: translateY(-50%); 
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  background-color: #001f54;
+}
+body {
+  overflow-x: hidden; 
+}
+.identacao-vendidos, .identacao-talvez{
+  overflow: hidden;
+}
+.identacao-vendidos, .identacao-talvez{
+  height: auto; 
+  overflow: hidden; 
+  margin-bottom: 0;
+  padding: 0;
+}
+#prev-button5, #next-button5 {
+  position: absolute; 
+  top: 220%;
+  transform: translateY(-50%); 
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  background-color: #001f54;
+}
+.lado-a-lado2 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; 
+  justify-content: space-between;
+  margin-top: 40px; 
+}
+
+.quadrado {
+  background-color: rgb(236, 228, 228);
+  width: 300px; 
+  height: 310px; 
+  box-sizing: border-box;
+  padding: 10px 10px 10px 20px; 
+  margin-bottom: 30px;
+}
+
+.lado-a-lado {
+  display: flex;
+  gap: 10px;
+}
+
+.quadrado img {
+  width: 120px; 
+  height: 120px;
+  object-fit: cover;
+}
+
+.quadrado p {
+  font-family: Inter;
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+.infor-historico {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 10px;
+}
+.infor-historico p {
+  font-family: Inter;
+}
+.infor-historico a{
+  text-decoration: none;
+  font-family: Inter;
+  color: #0A3871;
+}
+.img-historico {
+  display: flex;
+  align-items: center;
+}
+.rodape{
+  display: flex;
+  margin-top: 50px;
+}
+.img-historico img{
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-top: 10px;
+}
+.redes-sociais img{
+  width: 170px;
+  margin-left: 20px;
+}
+.navegacao a{
+  display: block;
+  margin-top: 5px;
+  text-decoration: none;
+  color: black;
+  font-family: Inter;
+  font-size: 14px;
+}
+.navegacao p {
+  font-family: Inter;
+  font-size: 17px;
+  margin-bottom: 12px;
+}
+.navegacao{
+  margin-left: 50px;
+  margin-bottom: 100px;
+  margin-right: 50px;
 }

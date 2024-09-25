@@ -89,39 +89,46 @@ $recommended_stmt->close();
                 <img style="height: 32px;" src="images/search_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="pesquisa">
             </button>
         </div>
-        <div class="divs">
-            <div class="contas">
-                <p>Olá, faça seu login</p>
-                <a href="#">Contas</a>
-                <div class="tooltip">
-                    <button>Faça seu login</button>
-                    <div class="inline">
-                        <p>Cliente novo?</p>
-                        <a style="color: #001f54; font-size: 13px;" href="#">Comece aqui.</a>
-                    </div>
-                </div>
+        <div class="divs" >
+        <div class="contas" >
+          <p>Olá, faça seu login</p>
+          <a href="#">Contas</a>
+          <div class="tooltip" >
+            <button>Faça seu login</button>
+            <div class="inline" >
+            <p style="font-family: Inter;" >Cliente novo?</p>
+            <a style="color: #001f54; font-size: 13px; " href="#">Comece aqui.</a>
             </div>
-            <div class="pedidos">
-                <a href="#">Devoluções e</a>
-                <a href="#">Pedidos</a>
-            </div>
-            <div class="carrinho">
-                <img src="images/shopping_cart_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24 (1).svg" alt="Carrinho">
-                <a href="#">Carrinho</a>
-            </div>
+          </div>
         </div>
+        <div class="pedidos" >
+          <a href="#">Devoluções e</a>
+          <a href="#">Pedidos</a>
+        </div>
+        <div class="carrinho" >
+          <img src="images/shopping_cart_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24 (1).svg" alt="">
+          <a href="#">Carrinho</a>
+        </div>
+      </div>
+    </div>
     </div>
 </header>
 
-<div class="subnav">
-    <div class="todos">
-        <img src="images/menu_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24 (1).svg" alt="menu-sanduiche">
-        <p>Todos</p>
+<div class="subnav" >
+    <div class="todos" >
+      <img src="images/menu_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24 (1).svg" alt="menu-sanduiche">
+      <p>Todos</p>
     </div>
-    <div class="venda-na-express">Venda Na Express</div>
-    <div class="comprar-novamente">Comprar novamente</div>
-    <div class="oferta-do-dia">Oferta do dia</div>
-</div>
+    <div class="venda-na-express" >
+      Venda Na Express
+    </div>
+    <div class="comprar-novamente" >
+      Comprar novamente
+    </div>
+    <div class="oferta-do-dia" >
+      Oferta do dia
+    </div>
+  </div>
 
 <main>
     <article>
