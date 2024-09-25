@@ -23,7 +23,7 @@
                 $_SESSION['id'] = $usuario['id'];
                 $_SESSION['nome'] = $usuario['nome'];
                 //echo "<script>alert('SUCESSO');</script>";
-                header("Location: paginaprincipal.html");
+                header("Location: paginaprincipal.php");
             }else {
                echo "<script>alert('Falha ao logar! Nome de usuário ou senha incorretos');</script>";
                 //echo "Falha ao logar! Nome de usuário ou senha incorretos";
