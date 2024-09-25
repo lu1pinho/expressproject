@@ -5,10 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Página Principal</title>
   <link rel="stylesheet" href="paginaprincipal.css">
-<<<<<<< Updated upstream
-=======
   <script src="script-pag-principal/filtro.js" defer></script>
->>>>>>> Stashed changes
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link

@@ -22,6 +22,10 @@
     width: 150px;
     height: 150px;
   }
+  a {
+    text-decoration: none;
+    color: black;
+  }
 </style>
 
   <link rel="stylesheet" href="paginaprincipal.css">
