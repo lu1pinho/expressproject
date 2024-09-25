@@ -77,7 +77,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
         <td></td>
         <td></td>
         <td>15</td>
-        <td>Ainda Não Feito</td>
+        <td>Concluido</td>
         <td></td>
     </tr>
     <tr>
@@ -97,7 +97,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
         <td></td>
         <td></td>
         <td>15</td>
-        <td>Ainda Não Feito</td>
+        <td>Concluido</td>
         <td></td>
     </tr>
     <tr>
@@ -127,7 +127,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
         <td></td>
         <td></td>
         <td>15</td>
-        <td>Ainda Não Feito</td>
+        <td>Concluido</td>
         <td></td>
     </tr>
     <tr>
@@ -137,7 +137,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
         <td></td>
         <td></td>
         <td>15</td>
-        <td>Ainda Não Feito</td>
+        <td>Concluido</td>
         <td></td>
     </tr>
     <tr>
@@ -147,7 +147,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
         <td></td>
         <td></td>
         <td>15</td>
-        <td>Ainda Não Feito</td>
+        <td>Concluido</td>
         <td></td>
     </tr>
     <tr>
@@ -157,7 +157,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
         <td></td>
         <td></td>
         <td>15</td>
-        <td>Ainda Não Feito</td>
+        <td>Concluido</td>
         <td></td>
     </tr>
     <tr>
@@ -167,7 +167,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
         <td></td>
         <td></td>
         <td>15</td>
-        <td>Ainda Não Feito</td>
+        <td>Concluido</td>
         <td>Adicionar filtros por categoria, preço, popularidade, etc.
             Permitir seleção múltipla e aplicação de filtros simultâneos.</td>
     </tr>
@@ -188,7 +188,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
         <td></td>
         <td></td>
         <td>15</td>
-        <td>Ainda Não Feito</td>
+        <td>Concluido</td>
         <td></td>
     </tr>
     <tr>
@@ -198,7 +198,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
         <td></td>
         <td></td>
         <td>15</td>
-        <td>Ainda Não Feito</td>
+        <td>Concluido</td>
         <td>Exibir preço atual e, se aplicável, preço promocional.
             Incluir botões de adição ao carrinho e outras opções de compra.</td>
     </tr>
@@ -209,7 +209,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
         <td></td>
         <td></td>
         <td>15</td>
-        <td>Ainda Não Feito</td>
+        <td>Concluido</td>
         <td>Criar filtros interativos e atualizáveis (checkboxes, sliders, dropdowns).
             Garantir que a aplicação de múltiplos filtros funcione corretamente.</td>
     </tr>
@@ -220,7 +220,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
         <td></td>
         <td></td>
         <td>15</td>
-        <td>Ainda Não Feito</td>
+        <td>Concluido</td>
         <td>Verificar se a navegação entre a Página Principal e a Página Individual do Produto está funcionando corretamente.
             Testar links e botões para garantir que direcionem para as páginas certas.</td>
     </tr>
@@ -231,7 +231,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
         <td></td>
         <td></td>
         <td>15</td>
-        <td>Ainda Não Feito</td>
+        <td>Concluido</td>
         <td>Testar a funcionalidade dos filtros e da busca para assegurar que os resultados são precisos e relevantes.</td>
     </tr>
 </table>
