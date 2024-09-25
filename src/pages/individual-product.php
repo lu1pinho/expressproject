@@ -69,6 +69,7 @@ $recommended_stmt->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../stylesheets/individual-product.css">
+    <link rel="stylesheet" href="paginaprincipal.css">
     <title><?php echo htmlspecialchars($nome); ?></title>
     <script src="script-pag-principal/script-slider.js" defer></script>
     <script src="script-pag-principal/script2.js" defer></script>
