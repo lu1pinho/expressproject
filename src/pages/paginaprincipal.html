@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página Principal</title>
+  <link rel="stylesheet" href="../stylesheets/paginaprincipal.css">
+  <script src="../script/script.js" defer ></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="navbar" >
+      <div class="logo" >
+        <img src="images/svg/shopping_cart.svg" alt="carrinho">
+        <a href="#">Express.com</a>
+      </div>
+      <div class="location" >
+        <img src="images/svg/location_on.svg">
+        <a href="#">Atualizar CEP</a>
+      </div>
+      <div class="searchbar" >
+        <input type="text" placeholder="Pesquisa Express.com.br">
+        <button type="submit">
+          <img style="height: 32px;" src="images/svg/search.svg" alt="pesquisa">
+        </button>
+      </div>
+      <div class="divs" >
+        <div class="contas" >
+          <p>Olá, faça seu login</p>
+          <a href="#">Contas</a>
+          <div class="tooltip" >
+            <button>Faça seu login</button>
+            <div class="inline" >
+            <p>Cliente novo?</p>
+            <a style="color: #001f54; font-size: 13px; " href="#">Comece aqui.</a>
+            </div>
+          </div>
+        </div>
+        <div class="pedidos" >
+          <a href="#">Devoluções e</a>
+          <a href="#">Pedidos</a>
+        </div>
+        <div class="carrinho" >
+          <img src="images/svg/shopping_cart.svg" alt="">
+          <a href="#">Carrinho</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="subnav" >
+    <div class="todos" >
+      <img src="images/svg/menu.svg" alt="menu-sanduiche">
+      <p>Todos</p>
+    </div>
+    <div class="venda-na-express" >
+      Venda Na Express
+    </div>
+    <div class="comprar-novamente" >
+      Comprar novamente
+    </div>
+    <div class="oferta-do-dia" >
+      Oferta do dia
+    </div>
+  </div>
+  <!--carrossel de imagens-->
+  <div class="container-slider" >
+    <button id="prev-button"><img src="images/svg/arrow_back.svg" alt="prev-button"></button>
+    <div class="container-images" >
+      <img src="poster/SOON.png" alt="banner" class="slider on" >
+      <img src="poster/SOON (2).png" alt="banner" class="slider" >
+    </div>
+    <button id="next-button"><img src="images/svg/arrow_forward.svg" alt="next-button"></button>
+  </div>
+
+  <div class="produto">
+    <a href="individual-product.php?id=1">Parafusadeira</a>
+    <br>
+    <a href="individual-product.php?id=2">Echo Dot</a>
+  </div>
+
+</body>
+</html>   

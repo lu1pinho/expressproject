@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    font-style: normal;
+    font-weight: 300;
+}
+
+.cabecalho {
+    display: flex;
+    gap: 10px;
+    padding: 10px 0px 5px 0px;
+}
+
+.h1 {
+    font-size: 38px;
+    margin: 10px 0px 0px 0px;
+    color: #0A3871;
+}
+
+.apresentacao {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 20px 0px 40px;
+    color: black;
+    font-size: 20px;
+    gap: 10px;
+    align-items: center;
+}
+
+.titulo {
+    font-size: 30px
+}
+
+.campos {
+    font-size: 19px;
+    margin: 0;
+    padding: 0px 0px 5px 0px;
+}
+.bordas {
+    padding: 5px;
+    border: 0px solid;
+    width: 50%;
+    color: black;
+    border-radius: 10px;
+    width: 280px;
+    height: 20px;
+    margin: 0px 0px 10px 0px;
+}
+
+.caixa_fundo {
+    background-color: #99BFE7; 
+    /* Fundo branco com leve transparência */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    /* Limitar a largura máxima */
+    margin: auto;
+    /* Centralizar */
+    z-index: 1;
+    /* Certifique-se de que esteja acima do fundo */
+}
+
+.hr{
+    border-color: #0A3871;
+    width:300px;
+}
+
+.cadastro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+}
+.centro{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0px 10px 0px;
+}
+.aviso{
+    width: 200px;
+    margin: 10px 0px 10px 0px;
+    font-size: 11px;
+}
+
+.botoes {
+    align-items: center;
+    text-align: center;
+    border-radius: 10px;
+    border: 0;
+    width: 200px;
+    padding: 10px;
+    text-decoration: none;
+    font-size: 15px;
+
+    color: white;
+    background-color: #0A3871;
+}
