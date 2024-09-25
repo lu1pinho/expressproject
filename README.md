@@ -307,7 +307,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
     <tr>
       <td>Integração da API de Pedidos com a Página de Visualização</td>
       <td>Integração</td>
-      <td>Luís Gustavo</td>
+      <td>Dallyla de MOraes</td>
       <td>07/10/2024</td>
       <td>09/10/2024</td>
       <td>15</td>
