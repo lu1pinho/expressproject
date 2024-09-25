@@ -67,7 +67,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
         <td></td>
         <td></td>
         <td>15</td>
-        <td>Ainda Não Feito</td>
+        <td>Concluido</td>
         <td></td>
     </tr>
     <tr>
@@ -178,7 +178,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
         <td></td>
         <td></td>
         <td>15</td>
-        <td>Ainda Não Feito</td>
+        <td>Concluido</td>
         <td></td>
     </tr>
     <tr>
