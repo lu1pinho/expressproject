@@ -236,6 +236,166 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
     </tr>
 </table>
 
+## Sprint Planning
+<table border="1">
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Gerente do Projeto</th>
+      <th>Início</th>
+      <th>Fim</th>
+      <th>Entregável do Projeto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>SPRINT 3: Página Individual do Usuário e Carrinho de Compras</td>
+      <td></td>
+      <td>25/09/2024</td>
+      <td>09/10/2024</td>
+      <td>Permitir ao usuário gerenciar seu perfil e adicionar produtos ao carrinho</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Página Individual do Usuário e Visualização de Pedidos</h3>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Tarefa</th>
+      <th>Tipo de Funcionalidade</th>
+      <th>Responsável</th>
+      <th>Data de Início</th>
+      <th>Data de Término</th>
+      <th>Duração (em dias úteis)</th>
+      <th>Status</th>
+      <th>Notas</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Desenvolvimento da Página de Atualização de Dados Pessoais</td>
+      <td>Interface do Usuário (UI)</td>
+      <td>Heloisa Rolins</td>
+      <td>25/09/2024</td>
+      <td>30/09/2024</td>
+      <td>15</td>
+      <td>Pendente</td>
+      <td>Formulário com campos para atualizar nome, e-mail, telefone, endereço</td>
+    </tr>
+    <tr>
+      <td>Validação de Dados Pessoais</td>
+      <td>Validação e Segurança</td>
+      <td>Mara Emanuella</td>
+      <td>25/09/2024</td>
+      <td>30/09/2024</td>
+      <td>15</td>
+      <td>Pendente</td>
+      <td>Verificação de campos obrigatórios, formato de e-mail, número de telefone</td>
+    </tr>
+    <tr>
+      <td>Implementação da Visualização de Pedidos Realizados</td>
+      <td>Interface do Usuário (UI)</td>
+      <td>Neci Silva</td>
+      <td>01/10/2024</td>
+      <td>06/10/2024</td>
+      <td>15</td>
+      <td>Pendente</td>
+      <td>Listagem de pedidos com status, data, detalhes do produto e rastreamento</td>
+    </tr>
+    <tr>
+      <td>Integração da API de Pedidos com a Página de Visualização</td>
+      <td>Integração</td>
+      <td>Luís Gustavo</td>
+      <td>07/10/2024</td>
+      <td>09/10/2024</td>
+      <td>15</td>
+      <td>Pendente</td>
+      <td>Conectar API de pedidos ao frontend, garantindo a exibição correta</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Carrinho de Compras</h3>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Tarefa</th>
+      <th>Tipo de Funcionalidade</th>
+      <th>Responsável</th>
+      <th>Data de Início</th>
+      <th>Data de Término</th>
+      <th>Duração (em dias úteis)</th>
+      <th>Status</th>
+      <th>Notas</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Implementação da Adição ao Carrinho</td>
+      <td>Lógica de Negócio</td>
+      <td>Mara Emanuella</td>
+      <td>25/09/2024</td>
+      <td>01/10/2024</td>
+      <td>15</td>
+      <td>Pendente</td>
+      <td>Adicionar produtos ao carrinho a partir da página de detalhes</td>
+    </tr>
+    <tr>
+      <td>Atualização de Quantidade no Carrinho</td>
+      <td>Lógica de Negócio</td>
+      <td>Luís Gustavo</td>
+      <td>25/09/2024</td>
+      <td>01/10/2024</td>
+      <td>15</td>
+      <td>Pendente</td>
+      <td>Permitir que o usuário aumente ou diminua a quantidade de itens no carrinho</td>
+    </tr>
+    <tr>
+      <td>Remoção de Itens do Carrinho</td>
+      <td>Lógica de Negócio</td>
+      <td>Luís Gustavo</td>
+      <td>02/10/2024</td>
+      <td>06/10/2024</td>
+      <td>15</td>
+      <td>Pendente</td>
+      <td>Funcionalidade de remover itens do carrinho</td>
+    </tr>
+    <tr>
+      <td>Exibição de Itens no Carrinho</td>
+      <td>Interface do Usuário (UI)</td>
+      <td>Dallyla de Moraes</td>
+      <td>02/10/2024</td>
+      <td>06/10/2024</td>
+      <td>15</td>
+      <td>Pendente</td>
+      <td>Listar produtos com nome, imagem, preço e quantidade no carrinho</td>
+    </tr>
+    <tr>
+      <td>Integração da API do Carrinho com o Frontend</td>
+      <td>Integração</td>
+      <td>Luís Gustavo</td>
+      <td>07/10/2024</td>
+      <td>09/10/2024</td>
+      <td>15</td>
+      <td>Pendente</td>
+      <td>Conectar API do carrinho ao frontend para atualização e persistência dos dados</td>
+    </tr>
+    <tr>
+      <td>Testes de Funcionalidade do Carrinho</td>
+      <td>Testes</td>
+      <td>Neci Silva</td>
+      <td>07/10/2024</td>
+      <td>09/10/2024</td>
+      <td>15</td>
+      <td>Pendente</td>
+      <td>Verificar se adição, remoção e atualização estão funcionando corretamente</td>
+    </tr>
+  </tbody>
+</table>
+
 # SPRINTS
 ## Sprint 1: Configuração Inicial e Infraestrutura
 Objetivo: Configurar o ambiente de desenvolvimento, banco de dados, autenticação e autorização.
