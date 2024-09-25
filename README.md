@@ -144,8 +144,8 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
         <td>Listagem de Produtos</td>
         <td>Interface do Usuário (UI)</td>
         <td>Dallyla de Moraes</td>
-        <td></td>
-        <td></td>
+        <td>21/09</td>
+        <td>24/09</td>
         <td>15</td>
         <td>Concluido</td>
         <td></td>
