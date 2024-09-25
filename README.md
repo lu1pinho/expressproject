@@ -277,7 +277,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
     <tr>
       <td>Desenvolvimento da Página de Atualização de Dados Pessoais</td>
       <td>Interface do Usuário (UI)</td>
-      <td>Heloisa Rolins</td>
+      <td></td>
       <td>25/09/2024</td>
       <td>30/09/2024</td>
       <td>15</td>
@@ -287,7 +287,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
     <tr>
       <td>Validação de Dados Pessoais</td>
       <td>Validação e Segurança</td>
-      <td>Mara Emanuella</td>
+      <td></td>
       <td>25/09/2024</td>
       <td>30/09/2024</td>
       <td>15</td>
@@ -297,7 +297,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
     <tr>
       <td>Implementação da Visualização de Pedidos Realizados</td>
       <td>Interface do Usuário (UI)</td>
-      <td>Neci Silva</td>
+      <td></td>
       <td>01/10/2024</td>
       <td>06/10/2024</td>
       <td>15</td>
@@ -307,7 +307,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
     <tr>
       <td>Integração da API de Pedidos com a Página de Visualização</td>
       <td>Integração</td>
-      <td>Dallyla de Moraes</td>
+      <td></td>
       <td>07/10/2024</td>
       <td>09/10/2024</td>
       <td>15</td>
@@ -336,7 +336,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
     <tr>
       <td>Implementação da Adição ao Carrinho</td>
       <td>Lógica de Negócio</td>
-      <td>Mara Emanuella</td>
+      <td></td>
       <td>25/09/2024</td>
       <td>01/10/2024</td>
       <td>15</td>
@@ -346,7 +346,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
     <tr>
       <td>Atualização de Quantidade no Carrinho</td>
       <td>Lógica de Negócio</td>
-      <td>Luís Gustavo</td>
+      <td></td>
       <td>25/09/2024</td>
       <td>01/10/2024</td>
       <td>15</td>
@@ -356,7 +356,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
     <tr>
       <td>Remoção de Itens do Carrinho</td>
       <td>Lógica de Negócio</td>
-      <td>Luís Gustavo</td>
+      <td></td>
       <td>02/10/2024</td>
       <td>06/10/2024</td>
       <td>15</td>
@@ -366,7 +366,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
     <tr>
       <td>Exibição de Itens no Carrinho</td>
       <td>Interface do Usuário (UI)</td>
-      <td>Dallyla de Moraes</td>
+      <td></td>
       <td>02/10/2024</td>
       <td>06/10/2024</td>
       <td>15</td>
@@ -376,7 +376,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
     <tr>
       <td>Integração da API do Carrinho com o Frontend</td>
       <td>Integração</td>
-      <td>Luís Gustavo</td>
+      <td></td>
       <td>07/10/2024</td>
       <td>09/10/2024</td>
       <td>15</td>
@@ -386,7 +386,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
     <tr>
       <td>Testes de Funcionalidade do Carrinho</td>
       <td>Testes</td>
-      <td>Neci Silva</td>
+      <td></td>
       <td>07/10/2024</td>
       <td>09/10/2024</td>
       <td>15</td>
