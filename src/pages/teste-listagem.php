@@ -157,27 +157,45 @@
         $stmt->execute();
         $result = $stmt->get_result();
 
-        // Verifica se há resultados
         if ($result->num_rows > 0) {
-          // Exibe cada resultado como uma imagem com o nome abaixo
           while ($row = $result->fetch_assoc()) {
-              echo "<div class='product-item' style='text-align: center; width: 150px;'>"; // Aumentei a largura do item
+              echo "<div class='product-item' style='text-align: center; width: 150px;'>";
               echo "<a href='individual-product.php?id=" . $row['id'] . "'>";
-
+              
               // Adiciona um div com fundo branco ao redor da imagem
               echo "<div style='background-color: white; padding: 10px; display: inline-block; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);'>";
               echo "<img src='" . htmlspecialchars($row['url_img']) . "' alt='" . htmlspecialchars($row['nome']) . "' class='product-image' style='width: 150px; height: 150px;'>";
               echo "</div>";
-
+              
               // Ajusta o estilo do parágrafo
               echo "<p style='margin: 5px 0; word-wrap: break-word; text-align: left; font-family: Inter; padding-left: 10px; width: 130px;'>" . htmlspecialchars($row['nome']) . "</p>";
-              echo "<p style='text-align:left; font-size: 20px; font-family:Inter; margin-left:7px'><strong>R$ " . number_format($row['preco'], 2, ',', '.') . "</strong></p>";
+      
+              // Verifica se há um desconto percentual
+              if (!empty($row['percentual_desconto'])) {
+                  // Calcula o valor do desconto
+                  $desconto = $row['preco'] * ($row['percentual_desconto'] / 100);
+                  $preco_com_desconto = $row['preco'] - $desconto;
+      
+                  // Exibe o preço original riscado
+                  echo "<p style='text-align:left; font-size: 16px; font-family:Inter; margin-left:7px; color: #777; text-decoration: line-through;'>R$ " . number_format($row['preco'], 2, ',', '.') . "</p>";
+      
+                  // Exibe o percentual de desconto e o preço com desconto
+                  echo "<p style='text-align:left; font-size: 14px; font-family:Inter; margin-left:7px; color: green;'>(" . htmlspecialchars($row['percentual_desconto']) . "% de desconto)</p>";
+                  
+                  // Exibe o preço final com desconto
+                  echo "<p style='text-align:left; font-size: 20px; font-family:Inter; margin-left:7px; color: #0A3871;'><strong>R$ " . number_format($preco_com_desconto, 2, ',', '.') . "</strong></p>";
+              } else {
+                  // Exibe apenas o preço normal se não houver desconto
+                  echo "<p style='text-align:left; font-size: 20px; font-family:Inter; margin-left:7px'><strong>R$ " . number_format($row['preco'], 2, ',', '.') . "</strong></p>";
+              }
+      
               echo "</a>";
               echo "</div>";
           }
-        } else {
+      } else {
           echo "<p>Nenhum resultado encontrado para: " . htmlspecialchars($query) . "</p>";
-        }     
+      }      
+
 
         $stmt->close();
     } else {

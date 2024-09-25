@@ -39,10 +39,12 @@
           <p>Olá, faça seu login</p>
           <a href="#">Contas</a>
           <div class="tooltip" >
+          <a href="login.php">
             <button>Faça seu login</button>
+          </a>
             <div class="inline" >
             <p>Cliente novo?</p>
-            <a style="color: #001f54; font-size: 13px; " href="#">Comece aqui.</a>
+            <a style="color: #001f54; font-size: 13px; " href="cadastro.php">Comece aqui.</a>
             </div>
           </div>
         </div>
@@ -86,7 +88,7 @@
 <div class="sem-margem" >
   <div class="lista-ofertas" >
     <p><b>Ofertas do Dia</b></p>
-    <a href="#">Ver Mais Ofertas</a>
+    <a href="ofertas-do-dia.php">Ver Mais Ofertas</a>
   </div>
   <button id="prev-button2"><img src="images/arrow_back_ios_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" alt="prev-button2"></button>
   <div class="images-lista-ofertas" id="images-lista-ofertas">
