@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Página Principal</title>
   <link rel="stylesheet" href="paginaprincipal.css">
+<<<<<<< Updated upstream
+=======
+  <script src="script-pag-principal/filtro.js" defer></script>
+>>>>>>> Stashed changes
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -177,7 +181,7 @@
 
         $stmt->close();
     } else {
-        echo "<p>Por favor, insira uma pesquisa.</p>";
+        // echo "<p>Por favor, insira uma pesquisa.</p>";
     }
     $conn->close();
     ?>
@@ -201,7 +205,7 @@
             $condicao = $_GET['condicao'] ?? null;
 
             // Construção da query
-            $query = "SELECT f.*, f.imagem_url FROM produtos f WHERE f.preco BETWEEN ? AND ?";
+            $query = "SELECT f.*, f.url_img FROM produtos f WHERE f.preco BETWEEN ? AND ?";
             $params = [$minPrice, $maxPrice];
 
             // Adiciona condições baseadas nos filtros
@@ -213,12 +217,8 @@
               $params[] = $categoria;
             }
             if ($oferta) {
-              $query .= " AND f.oferta = ?";
+              $query .= " AND f.oferta_do_dia = ?";
               $params[] = $oferta;
-            }
-            if ($condicao) {
-              $query .= " AND f.condicao = ?";
-              $params[] = $condicao;
             }
 
             // Prepara a consulta
@@ -229,27 +229,31 @@
             
             // Exibe os produtos filtrados
             if ($result->num_rows > 0) {
+              // Exibe cada resultado como uma imagem com o nome abaixo
               while ($row = $result->fetch_assoc()) {
-                  echo "<div class='carousel-item'>";
-                  // Verifica se a imagem existe
-                  if (!empty($row['imagem_url'])) {
-                      echo "<img src='" . htmlspecialchars($row['imagem_url']) . "' alt='" . htmlspecialchars($row['nome']) . "' style='width: 100px; height: auto;'>"; // Tamanho pequeno da imagem
-                  } else {
-                      echo "<img src='caminho/para/imagem/padrao.png' alt='Imagem não disponível' style='width: 100px; height: auto;'>"; // Imagem padrão caso não haja
-                  }
-                  // Exibe o nome do produto sem sublinhado
-                  echo "<p class='product-name'>" . htmlspecialchars($row['nome']) . "</p>";
-                  echo "<p>R$" . number_format($row['preco'], 2, ',', '.') . "</p>";
+                  echo "<div class='product-item' style='text-align: center; width: 150px;'>"; // Aumentei a largura do item
+                  echo "<a href='individual-product.php?id=" . $row['id'] . "'>";
+    
+                  // Adiciona um div com fundo branco ao redor da imagem
+                  echo "<div style='background-color: white; padding: 10px; display: inline-block; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);'>";
+                  echo "<img src='" . htmlspecialchars($row['url_img']) . "' alt='" . htmlspecialchars($row['nome']) . "' class='product-image' style='width: 150px; height: 150px;'>";
+                  echo "</div>";
+    
+                  // Ajusta o estilo do parágrafo
+                  echo "<p style='margin: 5px 0; word-wrap: break-word; text-align: left; font-family: Inter; padding-left: 10px; width: 130px;'>" . htmlspecialchars($row['nome']) . "</p>";
+                  echo "<p style='text-align:left; font-size: 20px; font-family:Inter; margin-left:7px'><strong>R$ " . number_format($row['preco'], 2, ',', '.') . "</strong></p>";
+                  echo "</a>";
                   echo "</div>";
               }
-          } else {
-              echo "<p>Nenhum produto encontrado com os filtros aplicados.</p>";
-          }          
+            } else {
+              echo "<p>Nenhum resultado encontrado para: " . htmlspecialchars($query) . "</p>";
+            }     
+    
             $stmt->close();
-          } else {
-           // echo "<p>Por favor, aplique filtros para ver os produtos.</p>";
-          }
-          $conn->close();
+        } else {
+            // echo "<p>Por favor, insira uma pesquisa.</p>";
+        }
+        $conn->close();
           ?>
         </div>
       </div>

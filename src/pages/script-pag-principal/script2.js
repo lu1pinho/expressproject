@@ -48,3 +48,4 @@ setupCarousel('next-button2', 'prev-button2', 'images-lista-ofertas', 'offer-ima
 setupCarousel('next-button3', 'prev-button3', 'images-lista-recomendacoes', 'recommendation-image');
 setupCarousel('next-button4', 'prev-button4', 'images-lista-vendidos', 'mais-vendidos');
 setupCarousel('next-button5', 'prev-button=5', 'images-talvez-goste', 'talvez-goste');
+
