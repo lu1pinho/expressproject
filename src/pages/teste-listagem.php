@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Página Principal</title>
   <link rel="stylesheet" href="paginaprincipal.css">
-  <script src="script.js" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -16,10 +15,9 @@
 <body>
   <header>
     <div class="navbar">
-      <div class="logo">
-        <img src="images/shopping_cart_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24 (1).svg" alt="carrinho">
-        <a href="#">Express.com</a>
-      </div>
+        <div class="logo" onclick="homePage()">
+            <img src="images/logo.png" alt="Logotipo Express Marketplace" width="150">
+        </div>
       <div class="location">
         <img src="images/location_on_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg">
         <a href="#">Atualizar CEP</a>
@@ -257,6 +255,8 @@
       </div>
     </article>
   </main>
-</body>
 
+
+
+</body>
 </html>

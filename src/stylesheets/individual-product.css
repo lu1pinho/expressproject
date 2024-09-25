@@ -445,6 +445,7 @@ article {
 .description {
     display: block;
     margin-top: 20px;
+    width: 100%;
 }
 
 
@@ -579,7 +580,7 @@ section {
 
 /*Espaçamento*/
 .pd-top-bottom {
-    padding: 20px 0;
+    padding: 80px 0;
 }
 
 /*Posicionamento*/

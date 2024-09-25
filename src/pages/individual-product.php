@@ -76,7 +76,7 @@ $recommended_stmt->close();
 <body>
 <header>
     <div class="navbar">
-        <div class="logo">
+        <div class="logo" onclick="homePage()">
             <img src="images/logo.png" alt="Logotipo Express Marketplace" width="150">
         </div>
         <div class="location">
@@ -217,6 +217,10 @@ $recommended_stmt->close();
 <script>
     function openPage(id) {
         window.location.href = "individual-product.php?id=" + id;
+    }
+
+    function homePage() {
+        window.location.href = "paginaprincipal.php";
     }
 </script>
 

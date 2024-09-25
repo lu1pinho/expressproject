@@ -38,6 +38,11 @@ function setupCarousel(nextButtonId, prevButtonId, imagesContainerId, imageClass
   }
 }
 
+function iphonePage() {
+    window.location.href = "individual-product.php?id=5";
+}
+
+
 // Configurando os carrosséis
 setupCarousel('next-button2', 'prev-button2', 'images-lista-ofertas', 'offer-image');
 setupCarousel('next-button3', 'prev-button3', 'images-lista-recomendacoes', 'recommendation-image');

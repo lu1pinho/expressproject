@@ -76,8 +76,8 @@
 <!--carrossel de imagens-->
   <div class="container-slider" >
     <button id="prev-button"><img src="images/arrow_back_ios_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" alt="prev-button"></button>
-    <div class="container-images" >
-      <img src="poster/SOON.png" alt="banner" class="slider on" >
+    <div class="container-images" onclick="iphonePage()">
+      <img src="poster/SOON.png" alt="banner" class="slider on">
       <img src="poster/SOON (2).png" alt="banner" class="slider" >
     </div>
     <button id="next-button"><img src="images/arrow_forward_ios_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" alt="next-button"></button>
