@@ -277,7 +277,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
     <tr>
       <td>Desenvolvimento da Página de Atualização de Dados Pessoais</td>
       <td>Interface do Usuário (UI)</td>
-      <td></td>
+      <td>Heloisa Rolins</td>
       <td>25/09/2024</td>
       <td>30/09/2024</td>
       <td>15</td>
@@ -287,7 +287,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
     <tr>
       <td>Validação de Dados Pessoais</td>
       <td>Validação e Segurança</td>
-      <td></td>
+      <td>Heloisa Rolins</td>
       <td>25/09/2024</td>
       <td>30/09/2024</td>
       <td>15</td>
