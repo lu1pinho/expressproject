@@ -336,7 +336,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
     <tr>
       <td>Implementação da Adição ao Carrinho</td>
       <td>Lógica de Negócio</td>
-      <td></td>
+      <td>Dallyla de Moraes</td>
       <td>25/09/2024</td>
       <td>01/10/2024</td>
       <td>15</td>
@@ -346,7 +346,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
     <tr>
       <td>Atualização de Quantidade no Carrinho</td>
       <td>Lógica de Negócio</td>
-      <td></td>
+      <td>Dallyla de Moraes</td>
       <td>25/09/2024</td>
       <td>01/10/2024</td>
       <td>15</td>
