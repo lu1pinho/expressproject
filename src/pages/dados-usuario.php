@@ -3,13 +3,19 @@ session_start();
 include 'C:/xampp/htdocs/expressproject/src/settings/connection.php';
 
 
+
+
 if (!isset($_SESSION['id'])) {
     header('Location: login.php');
     exit();
 }
 
 
+
+
 $userId = $_SESSION['id'];
+
+
 
 
 $sql = "SELECT nome, email, genero, cpf, telefone, dt_nascimento FROM users WHERE id = ?";
@@ -17,6 +23,8 @@ $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $userId);
 $stmt->execute();
 $result = $stmt->get_result();
+
+
 
 
 if ($result->num_rows > 0) {
@@ -33,6 +41,8 @@ if ($result->num_rows > 0) {
 }
 
 
+
+
 if (isset($_POST['atualizar1'])) {
     $userId = $_SESSION['id'];
     $nome = $conn->real_escape_string($_POST['name']);
@@ -43,9 +53,13 @@ if (isset($_POST['atualizar1'])) {
     $dt_nascimento = $conn->real_escape_string($_POST['dt-nascimento']);
 
 
+
+
     $sql = "UPDATE users SET nome = ?, email = ?, genero = ?, cpf = ?, telefone = ?, dt_nascimento = ? WHERE id = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("ssssssi", $nome, $email, $genero, $cpf, $telefone, $dt_nascimento, $userId);
+
+
 
 
         if ($stmt->execute()) {
@@ -73,7 +87,11 @@ if("SELECT * FROM enderecos WHERE id_user = id"){
         $estado = $row['estado'];
 
 
+
+
 }
+
+
 
 
 if (isset($_POST['atualizar2'])) {
@@ -86,9 +104,13 @@ if (isset($_POST['atualizar2'])) {
     $estado = $conn->real_escape_string($_POST['estado']);
 
 
+
+
     $sql = "UPDATE enderecos SET endereco = ?, bairro = ?, complemento = ?, numero = ?, cep = ?, cidade = ?, estado = ? WHERE id_end = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("sssisssi", $endereco, $bairro, $complemento, $numero, $cep, $cidade, $estado, $id_end);
+
+
 
 
     if ($stmt->execute()) {
@@ -101,12 +123,16 @@ if (isset($_POST['atualizar2'])) {
 //-----------------------------------------------ENDERECO - FIM -------------------------------------------------------
 
 
+
+
 if("SELECT * FROM cartoes WHERE id_user = id"){
     $sql = "SELECT nome_cartao, apelido, numero_cartao, dt_expedicao, cvv, categoria_cartao, id_user FROM cartoes WHERE id_cartao= ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $userId);
     $stmt->execute();
     $result = $stmt->get_result();
+
+
 
 
         $row = $result->fetch_assoc();
@@ -128,9 +154,13 @@ if("SELECT * FROM cartoes WHERE id_user = id"){
         $categoria_cartao = $conn->real_escape_string($_POST['categoria_cartao']);
 
 
+
+
         $sql = "UPDATE cartoes SET nome_cartao = ?, apelido = ?, numero_cartao = ?, dt_expedicao = ?, cvv = ?, categoria_cartao = ? WHERE id_user = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("ssssssi", $nome_cartao, $apelido, $numero_cartao, $dt_expedicao, $cvv, $categoria_cartao, $id_cartao);
+
+
 
 
         if ($stmt->execute()) {
@@ -143,6 +173,8 @@ if("SELECT * FROM cartoes WHERE id_user = id"){
 ?>
 
 
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -151,6 +183,8 @@ if("SELECT * FROM cartoes WHERE id_user = id"){
     <title>Express.com</title>
     <link rel="stylesheet" href="../stylesheets/dados-usuario.css">
 </head>
+
+
 
 
 <body>
@@ -164,8 +198,12 @@ if("SELECT * FROM cartoes WHERE id_user = id"){
                 <input type="text" id="name" name="name" value="<?php echo htmlspecialchars($nome); ?>" class="bordas" required>
 
 
+
+
                 <label for="email" class="campos">Email:</label>
                 <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($email); ?>" class="bordas" required>
+
+
 
 
                 <label for="genero" class="campos">Gênero:</label>
@@ -180,8 +218,12 @@ if("SELECT * FROM cartoes WHERE id_user = id"){
                 <input type="cpf" id="cpf" name="cpf" value="<?php echo htmlspecialchars($cpf); ?>" placeholder="  _ _ _ . _ _ _ . _ _ _ - _ _" class="bordas" required>
 
 
+
+
                 <label for="phone" class="campos">Telefone:</label>
                 <input type="tel" id="phone" name="phone" value="<?php echo htmlspecialchars($telefone); ?>" placeholder="  (_ _) _ _ _ _ _ - _ _ _ _" class="bordas" required>            
+
+
 
 
                 <label for="dt-nascimento" class="campos">Data de nascimento:</label>
@@ -191,6 +233,8 @@ if("SELECT * FROM cartoes WHERE id_user = id"){
             <button type="submit" name="atualizar1" class="botoes">Atualizar</button>
 
 
+
+
         <p class="titulo">Seu endereço</p>
         <div class="dados">
             <div class="sub">
@@ -198,12 +242,18 @@ if("SELECT * FROM cartoes WHERE id_user = id"){
                 <input type="text" id="endereco" name="endereco" value="<?php echo htmlspecialchars($endereco); ?>"class="bordas" required>
 
 
+
+
                 <label for="bairro" class="campos">Bairro:</label>
                 <input type="text" id="bairro" name="bairro" value="<?php echo htmlspecialchars($bairro); ?>" class="bordas" required>
 
 
+
+
                 <label for="complemento" class="campos">Complemento:</label>
                 <input type="text" id="complemento" name="complemento" value="<?php echo htmlspecialchars($complemento); ?>" class="bordas" required>
+
+
 
 
                 <label for="numero" class="campos">Nº residência:</label>
@@ -214,8 +264,12 @@ if("SELECT * FROM cartoes WHERE id_user = id"){
             <input type="text" id="cep" name="cep" value="<?php echo htmlspecialchars($cep); ?>" placeholder="  _ _ _ _ _ - _ _ _" class="bordas" required>            
 
 
+
+
             <label for="cidade" class="campos">Cidade:</label>
             <input type="text" id="cidade" name="cidade" value="<?php echo htmlspecialchars($cidade); ?>" class="bordas" required>
+
+
 
 
                 <label for="estado" class="campos">Estado:</label>
@@ -253,6 +307,8 @@ if("SELECT * FROM cartoes WHERE id_user = id"){
         </div>
 
 
+
+
             <button type="submit" name="atualizar2" class="botoes">Atualizar</button>
            
         <p class="titulo">Seu cartão</p>
@@ -262,8 +318,12 @@ if("SELECT * FROM cartoes WHERE id_user = id"){
                 <input type="text" id="nome-cartao" name="nome-cartao" value="<?php echo htmlspecialchars($nome_cartao); ?>" class="bordas" required>
 
 
+
+
                 <label for="apelido" class="campos">Apelido:</label>
                 <input type="text" id="apelido" name="apelido"  value="<?php echo htmlspecialchars($apelido); ?>" class="bordas" required>
+
+
 
 
                 <label for="numero-cartao" class="campos">Número:</label>
@@ -278,8 +338,12 @@ if("SELECT * FROM cartoes WHERE id_user = id"){
                     </select>
 
 
+
+
                 <label for="dt-expedicao" class="campos">Data de expedição:</label>
                 <input type="text" id="dt-expedicao" name="dt-expedicao" value="<?php echo htmlspecialchars($dt_expedicao); ?>"placeholder="  _ _ / _ _ / _ _ _ _"  class="bordas" required>
+
+
 
 
                 <label for="cvv" class="campos">CVV:</label>
@@ -288,11 +352,14 @@ if("SELECT * FROM cartoes WHERE id_user = id"){
         </div>
 
 
+
+
             <button type="submit" name="atualizar3" class="botoes">Atualizar</button>
+
+
 
 
         </form>
     </div>
 </body>
 </html>  
-

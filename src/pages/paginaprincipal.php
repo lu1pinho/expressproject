@@ -1,7 +1,14 @@
-<?php 
+<?php
   include 'C:/xampp/htdocs/expressproject/src/settings/connection.php';
-
+  session_start();
+  function logout() {
+    session_destroy();
+}
+    if (isset($_POST['logout'])) {
+        logout(); 
+    }
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -34,20 +41,24 @@
     </form>
 </div>
 
-      <div class="divs" >
-        <div class="contas" >
-          <p>Olá, faça seu login</p>
-          <a href="#">Contas</a>
-          <div class="tooltip" >
-          <a href="login.php">
-            <button>Faça seu login</button>
-          </a>
-            <div class="inline" >
-            <p>Cliente novo?</p>
-            <a style="color: #001f54; font-size: 13px; " href="cadastro.php">Comece aqui.</a>
-            </div>
-          </div>
-        </div>
+      < <div class="divs">
+            <div class="contas">
+                <?php if (isset($_SESSION['nome'])): ?>
+                    <p>Olá, <?php echo $_SESSION['nome']; ?>!</p>
+                <?php else: ?>
+                  <p>Olá, faça seu login</p>
+                  <a href="#">Contas</a>
+                    <div class="tooltip">
+                        <a href="login.php">
+                            <button>Faça seu login</button>
+                        </a>
+                        <div class="inline">
+                            <p>Cliente novo?</p>
+                            <a style="color: #001f54; font-size: 13px;" href="cadastro.php">Comece aqui.</a>
+                        </div>
+                    </div>
+                <?php endif; ?>
+
         <div class="pedidos" >
           <a href="#">Devoluções e</a>
           <a href="#">Pedidos</a>
@@ -62,8 +73,13 @@
   <div class="subnav" >
     <div class="todos" >
       <img src="images/menu_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24 (1).svg" alt="menu-sanduiche">
-      <p>Todos</p>
-    </div>
+      <div class="menu">
+        <a href="dados-usuario.php">Dados Pessoais</a>
+        <form method="post">
+            <button type="submit" name="logout">Sair</button>
+        </form>
+      </div>
+
     <div class="venda-na-express" >
       Venda Na Express
     </div>
