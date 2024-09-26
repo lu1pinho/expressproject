@@ -69,14 +69,16 @@ $recommended_stmt->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../stylesheets/individual-product.css">
+    <link rel="stylesheet" href="paginaprincipal.css">
     <title><?php echo htmlspecialchars($nome); ?></title>
-    <script src="../script/script.js" defer></script>
+    <script src="script-pag-principal/script-slider.js" defer></script>
+    <script src="script-pag-principal/script2.js" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
 <header>
     <div class="navbar">
-        <div class="logo">
+        <div class="logo" onclick="homePage()">
             <img src="images/logo.png" alt="Logotipo Express Marketplace" width="150">
         </div>
         <div class="location">
@@ -89,39 +91,46 @@ $recommended_stmt->close();
                 <img style="height: 32px;" src="images/search_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="pesquisa">
             </button>
         </div>
-        <div class="divs">
-            <div class="contas">
-                <p>Olá, faça seu login</p>
-                <a href="#">Contas</a>
-                <div class="tooltip">
-                    <button>Faça seu login</button>
-                    <div class="inline">
-                        <p>Cliente novo?</p>
-                        <a style="color: #001f54; font-size: 13px;" href="#">Comece aqui.</a>
-                    </div>
-                </div>
+        <div class="divs" >
+        <div class="contas" >
+          <p>Olá, faça seu login</p>
+          <a href="#">Contas</a>
+          <div class="tooltip" >
+            <button>Faça seu login</button>
+            <div class="inline" >
+            <p style="font-family: Inter;" >Cliente novo?</p>
+            <a style="color: #001f54; font-size: 13px; " href="#">Comece aqui.</a>
             </div>
-            <div class="pedidos">
-                <a href="#">Devoluções e</a>
-                <a href="#">Pedidos</a>
-            </div>
-            <div class="carrinho">
-                <img src="images/shopping_cart_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24 (1).svg" alt="Carrinho">
-                <a href="#">Carrinho</a>
-            </div>
+          </div>
         </div>
+        <div class="pedidos" >
+          <a href="#">Devoluções e</a>
+          <a href="#">Pedidos</a>
+        </div>
+        <div class="carrinho" >
+          <img src="images/shopping_cart_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24 (1).svg" alt="">
+          <a href="#">Carrinho</a>
+        </div>
+      </div>
+    </div>
     </div>
 </header>
 
-<div class="subnav">
-    <div class="todos">
-        <img src="images/menu_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24 (1).svg" alt="menu-sanduiche">
-        <p>Todos</p>
+<div class="subnav" >
+    <div class="todos" >
+      <img src="images/menu_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24 (1).svg" alt="menu-sanduiche">
+      <p>Todos</p>
     </div>
-    <div class="venda-na-express">Venda Na Express</div>
-    <div class="comprar-novamente">Comprar novamente</div>
-    <div class="oferta-do-dia">Oferta do dia</div>
-</div>
+    <div class="venda-na-express" >
+      Venda Na Express
+    </div>
+    <div class="comprar-novamente" >
+      Comprar novamente
+    </div>
+    <div class="oferta-do-dia" >
+      Oferta do dia
+    </div>
+  </div>
 
 <main>
     <article>
@@ -210,6 +219,10 @@ $recommended_stmt->close();
 <script>
     function openPage(id) {
         window.location.href = "individual-product.php?id=" + id;
+    }
+
+    function homePage() {
+        window.location.href = "paginaprincipal.php";
     }
 </script>
 

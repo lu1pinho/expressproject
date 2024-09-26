@@ -9,8 +9,7 @@
 
 <body>
     <header class="cabecalho">
-        <img src="image 2.png" width="85" height="70" alt="Express.com Logo">
-        <h1 class="h1">Express.com</h1>
+        <img src="images/logo.png" alt="Logotipo Express Marketplace" width="150">
     </header>
 
     <div class="apresentacao">
@@ -76,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $phone = $conn->real_escape_string($_POST['phone']);
         $category = $conn->real_escape_string($_POST['category']);
         $email = $conn->real_escape_string($_POST['email']);
-        $password = password_hash($conn->real_escape_string($_POST['password']), PASSWORD_DEFAULT);
+        $password = $conn->real_escape_string($_POST['password']);
 
         $sql_check_email = "SELECT * FROM users WHERE email = '$email'";
         $check_query = $conn->query($sql_check_email);

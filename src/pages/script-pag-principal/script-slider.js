@@ -36,6 +36,4 @@ btnNext.addEventListener('click', nextSlider)
 btnPrev.addEventListener('click', prevSlider)
 
 
-function homePage() {
-  window.location.href = "paginaprincipal.php";
-}
+

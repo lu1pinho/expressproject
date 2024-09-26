@@ -55,11 +55,10 @@ header {
   margin: 0 20px;
 }
 
-.searchbar input {
+.searchbar form input {
   padding: 5px 15px;
   font-size: 14px;
-  width: 100%;
-  max-width: 500px;
+  width: 450px;
   height: 38px;
   border-radius: 10px 0 0 10px;
   border: none;
@@ -70,6 +69,13 @@ header {
 .searchbar input:focus {
   border: 2px solid orange;
   outline: none;
+}
+
+.searchbar form {
+  display: flex;
+  width: auto;
+  height: auto;
+  margin: 0;
 }
 
 .searchbar button {
@@ -89,11 +95,11 @@ header {
 }
 
 .contas p {
-  font-family: Inter; 
+  font-family: Inter;
   color: rgb(184, 178, 178);
 }
 
-.contas, 
+.contas,
 .pedidos {
   display: flex;
   flex-direction: column;
@@ -144,7 +150,7 @@ header {
   font-size: 13px;
 }
 
-.contas a, 
+.contas a,
 .pedidos a,
 .carrinho a {
   color: white;
@@ -195,7 +201,7 @@ header {
 
 .subnav div {
   position: relative;
-  z-index: 20; 
+  z-index: 20;
   cursor: pointer;
 }
 
@@ -217,12 +223,12 @@ header {
 .container-slider {
   display: flex;
   width: 100%;
-  height: 100vh; 
+  height: 100vh;
   align-items: center;
   justify-content: center;
   gap: 1rem;
   margin-top: -183px;
-  position: relative; 
+  position: relative;
 }
 
 .container-images {
@@ -236,7 +242,7 @@ header {
 
 .slider {
   position: absolute;
-  transition: opacity 0.5s ease; 
+  transition: opacity 0.5s ease;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -248,10 +254,11 @@ header {
   opacity: 1;
 }
 
-#prev-button, #next-button {
-  position: absolute; 
+#prev-button,
+#next-button {
+  position: absolute;
   top: 50%;
-  transform: translateY(-50%); 
+  transform: translateY(-50%);
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -260,7 +267,7 @@ header {
 }
 
 #prev-button {
-  left: 55px; 
+  left: 55px;
 }
 
 #next-button {
@@ -275,7 +282,8 @@ header {
   font-family: Inter;
 }
 
-.lista-ofertas a, .identacao-recomendacao a {
+.lista-ofertas a,
+.identacao-recomendacao a {
   margin-left: 16px;
   text-decoration: none;
   color: #0A3871;
@@ -286,31 +294,41 @@ header {
 .lista-ofertas p {
   margin-left: 15px;
 }
+
 .lista-recomendacoes {
   display: flex;
   align-items: center;
 }
-.lista-recomendacoes p{
+
+.lista-recomendacoes p {
   margin-bottom: 30px;
 }
-.images-lista-ofertas, .images-lista-recomendacoes, .images-lista-vendidos, .images-talvez-goste{
-  display: flex; 
+
+.images-lista-ofertas,
+.images-lista-recomendacoes,
+.images-lista-vendidos,
+.images-talvez-goste {
+  display: flex;
   transition: transform 0.5s ease;
-  width: max-content; 
+  width: max-content;
 }
 
-.images-lista-ofertas img, .images-lista-recomendacoes img, .images-lista-vendidos img, .images-talvez-goste img{
-  width: 150px; 
-  height: 200px; 
-  object-fit: cover; 
+.images-lista-ofertas img,
+.images-lista-recomendacoes img,
+.images-lista-vendidos img,
+.images-talvez-goste img {
+  width: 150px;
+  height: 200px;
+  object-fit: cover;
   margin-right: 8px;
-  border-radius: 5px; 
+  border-radius: 5px;
 }
 
-#prev-button2, #next-button2 {
-  position: absolute; 
+#prev-button2,
+#next-button2 {
+  position: absolute;
   top: 85%;
-  transform: translateY(-50%); 
+  transform: translateY(-50%);
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -318,11 +336,17 @@ header {
   background-color: #001f54;
 }
 
-#prev-button2, #prev-button3, #prev-button4, #prev-button5 {
+#prev-button2,
+#prev-button3,
+#prev-button4,
+#prev-button5 {
   left: 55px;
 }
 
-#next-button2, #next-button3, #next-button4, #next-button5 {
+#next-button2,
+#next-button3,
+#next-button4,
+#next-button5 {
   right: 55px;
 }
 
@@ -330,7 +354,10 @@ header {
   margin-top: -167px;
 }
 
-.categorias p, .identacao-recomendacao p, .identacao-vendidos p, .identacao-talvez p {
+.categorias p,
+.identacao-recomendacao p,
+.identacao-vendidos p,
+.identacao-talvez p {
   font-family: Inter;
   margin-left: 10px;
   margin-top: 30px;
@@ -352,13 +379,14 @@ header {
 .img-categoria {
   display: flex;
   align-items: center;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
-#prev-button3, #next-button3 {
-  position: absolute; 
+#prev-button3,
+#next-button3 {
+  position: absolute;
   top: 155%;
-  transform: translateY(-50%); 
+  transform: translateY(-50%);
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -366,88 +394,110 @@ header {
   background-color: #001f54;
 }
 
-.images-lista-recomendacoes img, .images-lista-vendidos img, .images-talvez-goste img{
+.images-lista-recomendacoes img,
+.images-lista-vendidos img,
+.images-talvez-goste img {
   width: 150px;
   height: 200px;
   object-fit: cover;
   margin-right: 4px;
-  border-radius: 5px; 
+  border-radius: 5px;
 }
 
 .images-lista-recomendacoes {
   overflow: hidden;
 }
 
-.images-lista-vendidos, .images-talvez-goste{
+.images-lista-vendidos,
+.images-talvez-goste {
   display: flex;
   overflow: hidden;
   position: relative;
 }
-#prev-button3 img, #next-button3 img, #prev-button4 img, #next-button4 img, #prev-button5 img, #next-button5 img{
-  width: 30px;  
-  height: 30px; 
-  background-color: #001f54; 
-  border: none; 
-  cursor: pointer; 
-  z-index: 10; 
-  position: absolute; 
-  transform: translateY(-50%); 
+
+#prev-button3 img,
+#next-button3 img,
+#prev-button4 img,
+#next-button4 img,
+#prev-button5 img,
+#next-button5 img {
+  width: 30px;
+  height: 30px;
+  background-color: #001f54;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  position: absolute;
+  transform: translateY(-50%);
 }
-.mais-vendidos{
-  width: 150px; 
-  margin-right: 4px; 
-  transition: transform 0.5s ease; 
+
+.mais-vendidos {
+  width: 150px;
+  margin-right: 4px;
+  transition: transform 0.5s ease;
 }
-.identacao-vendidos, .identacao-talvez{
-  height: 100vh; 
+
+.identacao-vendidos,
+.identacao-talvez {
+  height: 100vh;
   overflow-y: auto;
 }
-#prev-button4, #next-button4 {
-  position: absolute; 
+
+#prev-button4,
+#next-button4 {
+  position: absolute;
   top: 190%;
-  transform: translateY(-50%); 
+  transform: translateY(-50%);
   background-color: transparent;
   border: none;
   cursor: pointer;
   z-index: 10;
   background-color: #001f54;
 }
+
 body {
-  overflow-x: hidden; 
+  overflow-x: hidden;
 }
-.identacao-vendidos, .identacao-talvez{
+
+.identacao-vendidos,
+.identacao-talvez {
   overflow: hidden;
 }
-.identacao-vendidos, .identacao-talvez{
-  height: auto; 
-  overflow: hidden; 
+
+.identacao-vendidos,
+.identacao-talvez {
+  height: auto;
+  overflow: hidden;
   margin-bottom: 0;
   padding: 0;
 }
-#prev-button5, #next-button5 {
-  position: absolute; 
+
+#prev-button5,
+#next-button5 {
+  position: absolute;
   top: 220%;
-  transform: translateY(-50%); 
+  transform: translateY(-50%);
   background-color: transparent;
   border: none;
   cursor: pointer;
   z-index: 10;
   background-color: #001f54;
 }
+
 .lado-a-lado2 {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px; 
+  gap: 10px;
   justify-content: space-between;
-  margin-top: 40px; 
+  margin-top: 40px;
 }
 
 .quadrado {
   background-color: rgb(236, 228, 228);
-  width: 300px; 
-  height: 310px; 
+  width: 300px;
+  height: 310px;
   box-sizing: border-box;
-  padding: 10px 10px 10px 20px; 
+  padding: 10px 10px 10px 20px;
   margin-bottom: 30px;
 }
 
@@ -457,7 +507,7 @@ body {
 }
 
 .quadrado img {
-  width: 120px; 
+  width: 120px;
   height: 120px;
   object-fit: cover;
 }
@@ -467,39 +517,47 @@ body {
   font-weight: bold;
   margin-bottom: 3px;
 }
+
 .infor-historico {
   display: flex;
   align-items: center;
   gap: 10px;
   margin-left: 10px;
 }
+
 .infor-historico p {
   font-family: Inter;
 }
-.infor-historico a{
+
+.infor-historico a {
   text-decoration: none;
   font-family: Inter;
   color: #0A3871;
 }
+
 .img-historico {
   display: flex;
   align-items: center;
 }
-.rodape{
+
+.rodape {
   display: flex;
   margin-top: 50px;
 }
-.img-historico img{
+
+.img-historico img {
   width: 100px;
   height: 100px;
   object-fit: cover;
   margin-top: 10px;
 }
-.redes-sociais img{
+
+.redes-sociais img {
   width: 170px;
   margin-left: 20px;
 }
-.navegacao a{
+
+.navegacao a {
   display: block;
   margin-top: 5px;
   text-decoration: none;
@@ -507,17 +565,286 @@ body {
   font-family: Inter;
   font-size: 14px;
 }
+
 .navegacao p {
   font-family: Inter;
   font-size: 17px;
   margin-bottom: 12px;
 }
-.navegacao{
+
+.navegacao {
   margin-left: 50px;
   margin-bottom: 100px;
   margin-right: 50px;
 }
 
+.resultado-container {
+  margin-left: 200px;
+  flex: 1;
+}
 
+/* Layout Principal */
+main {
+  display: flex;
+  gap: 60px;
+}
 
+/* Sidebar (Aside) */
+aside {
+  width: 20%;
+  height: 1000px;
+  background-color: #f1f1f1;
+  padding: 5px;
+  border-left: 2px solid #ccc;
+}
 
+/* Conteúdo Principal (Article) */
+article {
+  width: 70%;
+  padding-top: 60px;
+}
+
+/* Frete Grátis */
+.frete-gratis-container {
+  margin-bottom: 20px;
+}
+
+.frete-gratis-text {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.frete-gratis-checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.frete-gratis-checkbox input[type="checkbox"] {
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+}
+
+.frete-gratis-checkbox label {
+  font-size: 18px;
+}
+
+/* Categoria */
+.categoria {
+  margin: 5px 0.8px 20px;
+}
+
+.categoria label {
+  font-size: 16px;
+  margin-right: 20px;
+}
+
+.categoria select {
+  font-size: 14px;
+  padding: 5px 10px;
+  width: 200px;
+}
+
+/* Preço */
+.price-range-container {
+  width: 300px;
+  margin: auto;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+input[type="range"] {
+  width: 98%;
+  appearance: none;
+  background: #e0e0e0;
+  height: 7px;
+  border-radius: 5px;
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #104281;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+/* Opções (Ofertas e Condições) */
+.opcao {
+  margin-bottom: 20px;
+}
+
+.opcao h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.opcao .checkbox-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.opcao input[type="checkbox"] {
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+}
+
+.opcao label {
+  font-size: 18px;
+}
+
+/* Botão de Busca */
+.buscar-btn {
+  background-color: #104281;
+  color: white;
+  padding: 10px 118px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.buscar-btn:hover {
+  background-color: #0a3461;
+}
+
+/* Estilos Globais */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #ffffff;
+  color: #333;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Carrossel */
+.carousel-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+
+.carousel {
+  width: 50%;
+  height: 200px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.carousel-img.active {
+  opacity: 1;
+}
+
+/* Resultados da Busca */
+.resultados {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.resultados ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 70px;
+  padding: 0;
+  list-style: none;
+}
+
+.resultados li {
+  flex: 1 1 20%;
+  max-width: 220px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+.resultados li img {
+  width: 100%;
+  height: auto;
+  max-height: 180px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.resultados li p {
+  margin: 10px 0;
+}
+
+.resultados li strong {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.resultados li .preco {
+  color: #007bff;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.resultados li .preco::before {
+  content: "R$";
+}
+
+.resultados li .produto-nome {
+  font-size: 16px;
+  color: #333;
+}
+
+/* Cartões de Produto */
+.card {
+  width: 240px;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  margin: 10px;
+}
+
+.imgbg {
+  background-color: #333;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.price {
+  font-size: 18px;
+  margin: 5px 0;
+}
+a{
+  text-decoration: none;
+  color: black;
+}
