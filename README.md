@@ -356,7 +356,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
     <tr>
       <td>Remoção de Itens do Carrinho</td>
       <td>Lógica de Negócio</td>
-      <td></td>
+      <td>Neci Silva</td>
       <td>02/10/2024</td>
       <td>06/10/2024</td>
       <td>15</td>
@@ -366,7 +366,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
     <tr>
       <td>Exibição de Itens no Carrinho</td>
       <td>Interface do Usuário (UI)</td>
-      <td></td>
+      <td>Neci Silva</td>
       <td>02/10/2024</td>
       <td>06/10/2024</td>
       <td>15</td>
