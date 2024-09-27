@@ -28,36 +28,13 @@ if ($result->num_rows > 0) {
     exit();
 }
 
-
-if (isset($_POST['atualizar1'])) {
-    $userId = $_SESSION['id'];
-    $nome = $conn->real_escape_string($_POST['name']);
-    $email = $conn->real_escape_string($_POST['email']);
-    $genero = $conn->real_escape_string($_POST['genero']);
-    $cpf = $conn->real_escape_string($_POST['cpf']);
-    $phone = $conn->real_escape_string($_POST['phone']);
-    $dt_nascimento = $conn->real_escape_string($_POST['dt-nascimento']);
-
-    $sql = "UPDATE users SET nome = ?, email = ?, genero = ?, cpf = ?, telefone = ?, dt_nascimento = ? WHERE id = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssssssi", $nome, $email, $genero, $cpf, $telefone, $dt_nascimento, $userId);
-
-    if ($stmt->execute()) {
-        header('Location: dados-usuario.php');
-        exit();
-    } else {
-        echo "<script>alert('Erro ao atualizar os dados. Tente novamente.');</script>";
-    }
-}
 //-----------------------------------------------DADOS PESSOAIS - FIM -------------------------------------------------------
-    $sql = "SELECT * FROM enderecos WHERE id_user = $userId";
-    $sql = "SELECT id_end, endereco, bairro, complemento, numero, cep, cidade, estado, id_user FROM enderecos WHERE id_end = ?";
+    $sql = "SELECT id_end, endereco, bairro, complemento, numero, cep, cidade, estado FROM enderecos WHERE id_user = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $userId);
     $stmt->execute();
     $result = $stmt->get_result();
     $end = $result->fetch_assoc();
-    //var_dump($end);
 
     if($end){ 
     // echo "Tem";
@@ -80,39 +57,10 @@ if (isset($_POST['atualizar1'])) {
         $estado = '';
     }
 
-    if (isset($_POST['atualizar2'])) {
-        $endereco = $conn->real_escape_string($_POST['endereco']);
-        $bairro = $conn->real_escape_string($_POST['bairro']);
-        $complemento = $conn->real_escape_string($_POST['complemento']);
-        $numero = $conn->real_escape_string($_POST['numero']);
-        $cep = $conn->real_escape_string($_POST['cep']);
-        $cidade = $conn->real_escape_string($_POST['cidade']);
-        $estado = $conn->real_escape_string($_POST['estado']);
-        $id_user = $userId;
-
-        if($end){
-            $sql = "UPDATE enderecos SET endereco = ?, bairro = ?, complemento = ?, numero = ?, cep = ?, cidade = ?, estado = ?, id_user = $userId WHERE id_end = ?";
-            $stmt = $conn->prepare($sql);
-            $stmt->bind_param("sssisssii", $endereco, $bairro, $complemento, $numero, $cep, $cidade, $estado, $id_user, $id_end);
-        }else{
-            $sql = "INSERT INTO enderecos (endereco, bairro, complemento, numero, cep, cidade, estado, id_user) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-            $stmt = $conn->prepare($sql);
-            $stmt->bind_param("sssisisi", $endereco, $bairro, $complemento, $numero, $cep, $cidade, $estado, $id_user);
-        }
-        
-        if ($stmt->execute()) {
-            $sql = "SELECT * FROM enderecos WHERE id_user = $userId";
-            header('Location: dados-usuario.php');
-            exit();
-        } else {
-            echo "Erro: " . $stmt->error;
-        }
-    }
 //-----------------------------------------------ENDERECO - FIM -------------------------------------------------------
-if("SELECT * FROM cartoes WHERE id_user = id"){
-    $sql = "SELECT id_cartao, nome_cartao, apelido, numero_cartao, dt_expedicao, cvv, categoria_cartao, id_user FROM cartoes WHERE id_cartao= ?";
+    $sql = "SELECT id_cartao, nome_cartao, apelido, numero_cartao, dt_expedicao, cvv, categoria_cartao FROM cartoes WHERE id_user= ?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $id_user);
+    $stmt->bind_param("i", $userId);
     $stmt->execute();
     $result = $stmt->get_result();
     $car = $result->fetch_assoc();
@@ -137,41 +85,72 @@ if("SELECT * FROM cartoes WHERE id_user = id"){
         $cvv = '';
         $categoria_cartao = '';
     }
-   
-}
-    if (isset($_POST['atualizar3'])) {
+//-----------------------------------------------CARTAO - FIM -------------------------------------------------------
+
+    if (isset($_POST['atualizar'])) {
+        // Coletando dados de endereço
+        $endereco = $conn->real_escape_string($_POST['endereco']);
+        $bairro = $conn->real_escape_string($_POST['bairro']);
+        $complemento = $conn->real_escape_string($_POST['complemento']);
+        $numero = $conn->real_escape_string($_POST['numero']);
+        $cep = $conn->real_escape_string($_POST['cep']);
+        $cidade = $conn->real_escape_string($_POST['cidade']);
+        $estado = $conn->real_escape_string($_POST['estado']);
+        $id_user = $_SESSION['id'];
+    
+        // Atualizando ou inserindo o endereço
+        if ($end) {
+            $sql = "UPDATE enderecos SET endereco = ?, bairro = ?, complemento = ?, numero = ?, cep = ?, cidade = ?, estado = ? WHERE id_end = ?";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("sssisssi", $endereco, $bairro, $complemento, $numero, $cep, $cidade, $estado, $id_end);    
+        } else {
+            $sql = "INSERT INTO enderecos (endereco, bairro, complemento, numero, cep, cidade, estado, id_user) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("sssisssi", $endereco, $bairro, $complemento, $numero, $cep, $cidade, $estado, $id_user);
+        }
+    
+        // Coletando os dados de usuário
+        $nome = $conn->real_escape_string($_POST['name']);
+        $email = $conn->real_escape_string($_POST['email']);
+        $genero = $conn->real_escape_string($_POST['genero']);
+        $cpf = $conn->real_escape_string($_POST['cpf']);
+        $telefone = $conn->real_escape_string($_POST['phone']);
+        $dt_nascimento = $conn->real_escape_string($_POST['dt-nascimento']);
+    
+        // Atualizando os dados do usuário
+        $sql = "UPDATE users SET nome = ?, email = ?, genero = ?, cpf = ?, telefone = ?, dt_nascimento = ? WHERE id = ?";
+        $stmt2 = $conn->prepare($sql);
+        $stmt2->bind_param("ssssssi", $nome, $email, $genero, $cpf, $telefone, $dt_nascimento, $id_user);
+    
+        // Coletando os dados do cartão
         $nome_cartao = $conn->real_escape_string($_POST['nome_cartao']);
         $apelido = $conn->real_escape_string($_POST['apelido']);
         $numero_cartao = $conn->real_escape_string($_POST['numero_cartao']);
         $dt_expedicao = $conn->real_escape_string($_POST['dt_expedicao']);
         $cvv = $conn->real_escape_string($_POST['cvv']);
         $categoria_cartao = $conn->real_escape_string($_POST['categoria_cartao']);
-        $id_user = $userId;
-
-        if($car){
+    
+        // Atualizando ou inserindo o cartão
+        if ($car) {
             $sql = "UPDATE cartoes SET nome_cartao = ?, apelido = ?, numero_cartao = ?, dt_expedicao = ?, cvv = ?, categoria_cartao = ? WHERE id_cartao = ?";
-            $stmt = $conn->prepare($sql);
-            $stmt->bind_param("ssssisi", $nome_cartao, $apelido, $numero_cartao, $dt_expedicao, $cvv, $categoria_cartao, $id_cartao);
-
-            if ($stmt->execute()) {
-                header('Location: dados-usuario.php');
-                exit();
-            } else {
-                echo "<script>alert('Erro ao atualizar os dados. Tente novamente.');</script>";
-            }
-        }else{
+            $stmt3 = $conn->prepare($sql);
+            $stmt3->bind_param("ssssisi", $nome_cartao, $apelido, $numero_cartao, $dt_expedicao, $cvv, $categoria_cartao, $id_cartao);
+        } else {
             $sql = "INSERT INTO cartoes (nome_cartao, apelido, numero_cartao, dt_expedicao, cvv, categoria_cartao, id_user) VALUES (?, ?, ?, ?, ?, ?, ?)";
-            $stmt = $conn->prepare($sql);
-            $stmt->bind_param("ssssiis", $nome_cartao, $apelido, $numero_cartao, $dt_expedicao, $cvv, $categoria_cartao, $id_user);
-
-            if ($stmt->execute()) {
-                header('Location: dados-usuario.php');
-                exit();
-            } else {
-                echo "<script>alert('Erro ao adicionar o cartão. Tente novamente.');</script>";
-            }
+            $stmt3 = $conn->prepare($sql);
+            $stmt3->bind_param("ssssisi", $nome_cartao, $apelido, $numero_cartao, $dt_expedicao, $cvv, $categoria_cartao, $id_user);
+        }
+    
+        // Executando e verificando se foram bem-sucedidas
+        if ($stmt->execute() && $stmt2->execute() && $stmt3->execute()) {
+            // Redirecionando para a página com os dados atualizados
+            header('Location: dados-usuario.php');
+            exit;
+        } else {
+            echo "Erro: " . $stmt1->error . " " . $stmt2->error . " " . $stmt3->error;
         }
     }
+    
 ?>
 
 <!DOCTYPE html>
@@ -214,7 +193,6 @@ if("SELECT * FROM cartoes WHERE id_user = id"){
                 <input type="text" id="dt-nascimento" name="dt-nascimento" value="<?php echo htmlspecialchars($dt_nascimento); ?>" placeholder="  _ _ / _ _ / _ _ _ _" class="bordas" required>
             </div>
         </div>
-            <button type="submit" name="atualizar1" class="botoes">Atualizar</button>
 
         <p class="titulo">Seu endereço</p>
         <div class="dados">
@@ -239,7 +217,7 @@ if("SELECT * FROM cartoes WHERE id_user = id"){
             <input type="text" id="cidade" name="cidade" value="<?php echo htmlspecialchars($cidade); ?>" class="bordas" required>
 
                 <label for="estado" class="campos">Estado:</label>
-                <select id="estado" name="estado" class="bordas" required>
+                <select id="estado" name="estado" value="<?php echo htmlspecialchars($estado); ?>"class="bordas" required>
                     <option value="">Selecione</option>
                     <option value="AC" <?php echo ($estado == 'AC') ? 'selected' : ''; ?>>AC</option>
                     <option value="AL" <?php echo ($estado == 'AL') ? 'selected' : ''; ?>>AL</option>
@@ -251,8 +229,8 @@ if("SELECT * FROM cartoes WHERE id_user = id"){
                     <option value="ES" <?php echo ($estado == 'ES') ? 'selected' : ''; ?>>ES</option>
                     <option value="GO" <?php echo ($estado == 'GO') ? 'selected' : ''; ?>>GO</option>
                     <option value="MA" <?php echo ($estado == 'MA') ? 'selected' : ''; ?>>MA</option>
-                    <option value="MG" <?php echo ($estado == 'MT') ? 'selected' : ''; ?>>MT</option>
-                    <option value="MSl" <?php echo ($estado == 'MS') ? 'selected' : ''; ?>>MS</option>
+                    <option value="MT" <?php echo ($estado == 'MT') ? 'selected' : ''; ?>>MT</option>
+                    <option value="MS" <?php echo ($estado == 'MS') ? 'selected' : ''; ?>>MS</option>
                     <option value="MG" <?php echo ($estado == 'MG') ? 'selected' : ''; ?>>MG</option>
                     <option value="PA" <?php echo ($estado == 'PA') ? 'selected' : ''; ?>>PA</option>
                     <option value="PB" <?php echo ($estado == 'PB') ? 'selected' : ''; ?>>PB</option>
@@ -265,7 +243,7 @@ if("SELECT * FROM cartoes WHERE id_user = id"){
                     <option value="RO" <?php echo ($estado == 'RO') ? 'selected' : ''; ?>>RO</option>
                     <option value="RR" <?php echo ($estado == 'RR') ? 'selected' : ''; ?>>RR</option>
                     <option value="SC" <?php echo ($estado == 'SC') ? 'selected' : ''; ?>>SC</option>
-                    <option value="P" <?php echo ($estado == 'SP') ? 'selected' : ''; ?>>SP</option>
+                    <option value="SP" <?php echo ($estado == 'SP') ? 'selected' : ''; ?>>SP</option>
                     <option value="SE" <?php echo ($estado == 'SE') ? 'selected' : ''; ?>>SE</option>
                     <option value="TO" <?php echo ($estado == 'TO') ? 'selected' : ''; ?>>TO</option>
                 </select>
@@ -274,7 +252,6 @@ if("SELECT * FROM cartoes WHERE id_user = id"){
 
         <input type="hidden" name="id_end" value="<?php echo $id_end; ?>">
 
-        <button type="submit" name="atualizar2" class="botoes">Atualizar</button>
            
         <p class="titulo">Seu cartão</p>
         <div class="dados">
@@ -306,7 +283,7 @@ if("SELECT * FROM cartoes WHERE id_user = id"){
 
             <input type="hidden" name="id_cartao" value="<?php echo $id_cartao; ?>">
 
-            <button type="submit" name="atualizar3" class="botoes">Atualizar</button>
+            <button type="submit" name="atualizar" class="botoes">Atualizar</button>
 
         </form>
     </div>
