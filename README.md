@@ -275,6 +275,16 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
   </thead>
   <tbody>
     <tr>
+      <td>Crontrole de sessão</td>
+      <td>Autentificação e Identificação de usuários</td>
+      <td>Heloisa Rolins</td>
+      <td>25/09/2024</td>
+      <td>30/09/2024</td>
+      <td>15</td>
+      <td>Pendente</td>
+      <td>Formulário com campos para atualizar nome, e-mail, telefone, endereço</td>
+    </tr>
+    <tr>
       <td>Desenvolvimento da Página de Atualização de Dados Pessoais</td>
       <td>Interface do Usuário (UI)</td>
       <td>Heloisa Rolins</td>
