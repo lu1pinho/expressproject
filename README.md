@@ -281,7 +281,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
       <td>25/09/2024</td>
       <td>30/09/2024</td>
       <td>15</td>
-      <td>Pendente</td>
+      <td>Concluído</td>
       <td>Formulário com campos para atualizar nome, e-mail, telefone, endereço</td>
     </tr>
     <tr>
@@ -291,7 +291,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
       <td>25/09/2024</td>
       <td>30/09/2024</td>
       <td>15</td>
-      <td>Pendente</td>
+      <td>Concluído</td>
       <td>Formulário com campos para atualizar nome, e-mail, telefone, endereço</td>
     </tr>
     <tr>
@@ -301,7 +301,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
       <td>25/09/2024</td>
       <td>30/09/2024</td>
       <td>15</td>
-      <td>Pendente</td>
+      <td>Concluído</td>
       <td>Verificação de campos obrigatórios, formato de e-mail, número de telefone</td>
     </tr>
     <tr>
