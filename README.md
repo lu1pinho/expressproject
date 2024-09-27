@@ -297,7 +297,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
     <tr>
       <td>Implementação da Visualização de Pedidos Realizados</td>
       <td>Interface do Usuário (UI)</td>
-      <td></td>
+      <td>Mara Emanuella</td>
       <td>01/10/2024</td>
       <td>06/10/2024</td>
       <td>15</td>
@@ -307,7 +307,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
     <tr>
       <td>Integração da API de Pedidos com a Página de Visualização</td>
       <td>Integração</td>
-      <td></td>
+      <td>Mara Emanuella</td>
       <td>07/10/2024</td>
       <td>09/10/2024</td>
       <td>15</td>
