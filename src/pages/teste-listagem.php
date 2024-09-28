@@ -1,3 +1,13 @@
+<?php
+  include 'C:/xampp/htdocs/expressproject/src/settings/connection.php';
+  session_start();
+  function logout() {
+    session_destroy();
+}
+    if (isset($_POST['logout'])) {
+        logout(); 
+    }
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -31,18 +41,25 @@
           </button>
         </form>
       </div>
-      <div class="divs">
-        <div class="contas">
-          <p>Olá, faça seu login</p>
-          <a href="#">Contas</a>
-          <div class="tooltip">
+      <div class="divs" >
+      <div class="contas">
+        <?php if (isset($_SESSION['nome'])): ?>
+        <p>Olá, <?php echo $_SESSION['nome']; ?>!</p>
+        <a href="#">Seus Dados</a>
+        <?php else: ?>
+        <p>Olá, faça seu login</p>
+        <a href="#">Seus Dados</a>
+        <div class="tooltip">
+        <a href="login.php">
             <button>Faça seu login</button>
-            <div class="inline">
-              <p>Cliente novo?</p>
-              <a style="color: #001f54; font-size: 13px;" href="#">Comece aqui.</a>
-            </div>
-          </div>
+        </a>
+        <div class="inline">
+            <p>Cliente novo?</p>
+            <a style="color: #001f54; font-size: 13px;" href="cadastro.php">Comece aqui.</a>
         </div>
+        </div>
+        <?php endif; ?>
+    </div>
         <div class="pedidos">
           <a href="#">Devoluções e</a>
           <a href="#">Pedidos</a>

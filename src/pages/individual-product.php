@@ -61,6 +61,13 @@ while ($recommended_stmt->fetch()) {
     ];
 }
 $recommended_stmt->close();
+session_start();
+function logout() {
+  session_destroy();
+}
+  if (isset($_POST['logout'])) {
+      logout(); 
+  }
 ?>
 
 <!DOCTYPE html>
@@ -68,8 +75,7 @@ $recommended_stmt->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../stylesheets/individual-product.css">
-    <link rel="stylesheet" href="paginaprincipal.css">
+    <link rel="stylesheet" href="..\stylesheets\individual-product.css">
     <title><?php echo htmlspecialchars($nome); ?></title>
     <script src="script-pag-principal/script-slider.js" defer></script>
     <script src="script-pag-principal/script2.js" defer></script>
@@ -86,23 +92,32 @@ $recommended_stmt->close();
             <a href="#">Atualizar CEP</a>
         </div>
         <div class="searchbar">
-            <input type="text" placeholder="Pesquisa Express.com.br">
-            <button type="submit">
-                <img style="height: 32px;" src="images/search_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="pesquisa">
-            </button>
-        </div>
-        <div class="divs" >
-        <div class="contas" >
-          <p>Olá, faça seu login</p>
-          <a href="#">Contas</a>
-          <div class="tooltip" >
+    <form action="teste-listagem.php" method="GET">
+        <input type="text" name="query" placeholder="Pesquisa Express.com.br" required>
+        <button type="submit">
+            <img src="images/search_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="pesquisa">
+        </button>
+    </form>
+</div>
+      <div class="divs" >
+      <div class="contas">
+        <?php if (isset($_SESSION['nome'])): ?>
+        <p>Olá, <?php echo $_SESSION['nome']; ?>!</p>
+        <a href="#">Seus Dados</a>
+        <?php else: ?>
+        <p>Olá, faça seu login</p>
+        <a href="#">Seus Dados</a>
+        <div class="tooltip">
+        <a href="login.php">
             <button>Faça seu login</button>
-            <div class="inline" >
-            <p style="font-family: Inter;" >Cliente novo?</p>
-            <a style="color: #001f54; font-size: 13px; " href="#">Comece aqui.</a>
-            </div>
-          </div>
+        </a>
+        <div class="inline">
+            <p>Cliente novo?</p>
+            <a style="color: #001f54; font-size: 13px;" href="cadastro.php">Comece aqui.</a>
         </div>
+        </div>
+        <?php endif; ?>
+    </div>
         <div class="pedidos" >
           <a href="#">Devoluções e</a>
           <a href="#">Pedidos</a>
