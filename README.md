@@ -386,7 +386,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
     <tr>
       <td>Integração da API do Carrinho com o Frontend</td>
       <td>Integração</td>
-      <td></td>
+      <td>Luís Gustavo</td>
       <td>07/10/2024</td>
       <td>09/10/2024</td>
       <td>15</td>
@@ -396,7 +396,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
     <tr>
       <td>Testes de Funcionalidade do Carrinho</td>
       <td>Testes</td>
-      <td></td>
+      <td>Luís Gustavo</td>
       <td>07/10/2024</td>
       <td>09/10/2024</td>
       <td>15</td>
