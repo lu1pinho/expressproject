@@ -12,7 +12,7 @@ if (isset($_GET['categoria'])) {
     $result = $stmt->get_result();
 } else {
     // Redireciona se a categoria não for fornecida
-    header("Location: index.php");
+    header("Location: pagina.php");
     exit();
 }
 ?>
