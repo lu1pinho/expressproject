@@ -28,7 +28,7 @@
         </div>
 
         <div class="nav-item rem-9" id="login">
-            <p class="wrap" onmouseenter="showPopup()" onmouseleave="startTimeout()">faça seu login.</p>
+            <p class="wrap" onmouseenter="showLoginPopup()" onmouseleave="hideLoginPopup()">faça seu login.</p>
         </div>
 
         <div class="nav-item rem-9">
@@ -65,7 +65,7 @@
 </div>
 
 <!--    POPUP - LOGIN-->
-<div id="login-popup" class="form" style="visibility: hidden;">
+<div id="login-popup" class="form" style="display: flex;" onmouseenter="keepLoginPopup()" onmouseleave="hideLoginPopupWithDelay()">
     <button class="button-submit" type="submit">Fazer Login</button>
     <p class="p">Não tem uma conta Express? <span class="span">Cadastre-se</span></p>
 </div>
@@ -96,17 +96,16 @@
             <section>
                 <img src="../principal/images/banner/expressblack.png" alt="">
             </section>
-            <section>
-                <img src="../principal/images/banner/expressblack.png" alt="">
-            </section>
-            <section>content3</section>
-            <section>content4</section>
-            <section>content5</section>
+            <section><img src="../principal/images/banner/7.png" alt=""></section>
+            <section><img src="../principal/images/banner/8.png" alt=""></section>
+            <section><img src="../principal/images/banner/9.png" alt=""></section>
             <section>content6</section>
             <section>content7</section>
             <section>content8</section>
             <section>content9</section>
             <section>content10</section>
+            <section>
+            </section>
         </div>
         <div class="slider-controls">
             <span class="arrow left material-icons"><</span>
