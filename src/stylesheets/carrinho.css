@@ -7,15 +7,18 @@
 
 body {
     background-color: #f7f7f7;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
 .container {
-    max-width: 900px;
+    width: 80%;
     margin: 20px auto;
     background-color: white;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    min-height: 100vh;
 }
 
 .header {
@@ -37,6 +40,7 @@ body {
 .cart {
     border-top: 2px solid #ccc;
     padding-top: 15px;
+    min-height: 100%;
 }
 
 .back-button {
