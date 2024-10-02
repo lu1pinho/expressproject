@@ -44,11 +44,27 @@ body {
 }
 
 .back-button {
-    display: inline-block;
-    margin-bottom: 15px;
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: #f0f0f0;
     color: #333;
     font-size: 18px;
     text-decoration: none;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    width: 95%;
+    margin-bottom: 15px;
+}
+
+.back-button:hover {
+    background-color: #e0e0e0;
+}
+
+.back-button .arrow {
+    margin-right: 8px;
+    font-size: 20px;
+    color: #007bff;
 }
 
 .cart-item {
@@ -72,30 +88,30 @@ body {
 }
 
 .cart-item .product-details {
-    flex: 2; /* Expande a seção de detalhes dos produtos */
-    margin-left: 15px; /* Mais espaço entre imagem e detalhes */
+    flex: 2;
+    margin-left: 15px; 
 }
 
 .cart-item .product-details a {
     color: #007bff;
-    font-size: 18px; /* Aumentei o tamanho do link do nome do produto */
+    font-size: 18px; 
     text-decoration: none;
 }
 
 .cart-item .product-details p {
     color: #666;
-    font-size: 16px; /* Aumentei o tamanho do preço */
+    font-size: 16px; 
 }
 
 .quantity-control {
     display: flex;
     align-items: center;
-    gap: 10px; /* Mais espaço entre os botões de quantidade */
+    gap: 10px;
 }
 
 .quantity-control .quantity-label {
     display: inline-block;
-    width: 50px; /* Ligeiramente maior para acomodar números maiores */
+    width: 50px; 
     text-align: center;
     font-size: 18px;
     color: #333;
