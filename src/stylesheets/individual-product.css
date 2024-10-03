@@ -401,10 +401,17 @@ article {
 
 /*Buttons*/
 .action-buttons {
-    display: flex;
-    gap: 40px;
-    margin-top: 20px;
+  display: flex;
+  justify-content: flex-start; /* Pode ser alterado conforme sua necessidade */
+  align-items: center; /* Alinha verticalmente os botões */
+  margin-top: 20px;
 }
+
+.action-buttons .btn-final {
+  margin-top: 29px;
+  margin-right: 15px;
+}
+
 
 .action-buttons .btn-final {
     background-color: #001f54;
@@ -415,8 +422,8 @@ article {
     border: none;
     border-radius: 13px;
     cursor: pointer;
-    min-width: 250px;
-    min-height: 45px;
+    width: 250px;
+    height: 45px;
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
@@ -591,4 +598,13 @@ section {
 .product-image {
     visibility: hidden;
 }
-
+.seletor {
+    display: flex;
+    margin-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    width: 250px;
+    background-color: rgb(235, 229, 229);
+}
