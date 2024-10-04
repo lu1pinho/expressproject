@@ -52,6 +52,7 @@ function calcularDesconto($preco, $preco_com_desconto, $percentual_desconto) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../principal/stylesheets/index.css">
     <title>Express.com</title>
+    <title>Express.com</title>
 </head>
 <body>
 <header>
