@@ -134,29 +134,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <span>Carrinho</span>
             </div>
 
+            <!-- Verificar se o carrinho está vazio -->
             <?php if (empty($_SESSION['carrinho'])): ?>
-                <p>Seu carrinho está vazio.</p>
-            <?php else: ?>
-                <?php foreach ($_SESSION['carrinho'] as $index => $item): ?>
-                    <div class="cart-item">
-                         <!-- Adicionando a checkbox para selecionar o produto -->
-                         <input class="check" type="checkbox" name="produtos[]" value="<?= $index; ?>" checked>
-                        <img src="<?= htmlspecialchars($item['url_img']); ?>" alt="<?= htmlspecialchars($item['nome']); ?>" class="product-image">
-                        <div class="product-details">
-                            <a href="#"><?= htmlspecialchars($item['nome']); ?></a>
-                            <?php
-                                $produto_preco = (float) $item['preco'];
-                                $produto_preco_desconto = isset($item['preco_com_desconto']) ? (float) $item['preco_com_desconto'] : null;
+                    <p>Seu carrinho está vazio.</p>
+                <?php else: ?>
+                    <form action="carrinho.php" method="POST" id="carrinhoForm">
+                        <?php foreach ($_SESSION['carrinho'] as $index => $item): ?>
+                            <div class="cart-item">
+                                <!-- Adicionando a checkbox para selecionar o produto -->
+                                <input class="check" type="checkbox" name="produtos_selecionados[]" value="<?= $index; ?>" checked onchange="document.getElementById('carrinhoForm').submit();">
+                                <img src="<?= htmlspecialchars($item['url_img']); ?>" alt="<?= htmlspecialchars($item['nome']); ?>" class="product-image">
+                                <div class="product-details">
+                                    <a href="#"><?= htmlspecialchars($item['nome']); ?></a>
+                                    <?php
+                                        $produto_preco = (float) $item['preco'];
+                                        $produto_preco_desconto = isset($item['preco_com_desconto']) ? (float) $item['preco_com_desconto'] : null;
 
-                                if ($produto_preco_desconto !== null && $produto_preco_desconto < $produto_preco) {
-                                    echo "<p>R$ " . number_format($produto_preco_desconto, 2, ',', '.') . "</p>";
-                                } else {
-                                    echo "<p>R$ " . number_format($produto_preco, 2, ',', '.') . "</p>";
-                                }
+                                        if ($produto_preco_desconto !== null && $produto_preco_desconto < $produto_preco) {
+                                            echo "<p>R$ " . number_format($produto_preco_desconto, 2, ',', '.') . "</p>";
+                                        } else {
+                                            echo "<p>R$ " . number_format($produto_preco, 2, ',', '.') . "</p>";
+                                        }
 
-                                $preco_final = $produto_preco_desconto !== null ? $produto_preco_desconto : $produto_preco;
-                                $total += $preco_final * $item['quantidade'];
-                            ?>
+                                        $preco_final = $produto_preco_desconto !== null ? $produto_preco_desconto : $produto_preco;
+
+                                        // Verificar se o produto está marcado (selecionado) para somar ao total
+                                        if (isset($_POST['produtos_selecionados']) && in_array($index, $_POST['produtos_selecionados'])) {
+                                            $total += $preco_final * $item['quantidade'];
+                                        }
+                                    ?>
                         </div>
                         <div class="quantity-control">
                             <form action="carrinho.php" method="POST">

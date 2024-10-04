@@ -279,6 +279,7 @@ body {
     border: 1px solid #ccc;
     width: 95%;
     margin-bottom: 15px;
+    max-width: 100%;
 }
 
 .back-button:hover {
@@ -302,13 +303,13 @@ body {
     width: 95%;
     margin-left: auto;
     margin-right: auto;
-}
+  }
 
 .cart-item img.product-image {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    margin-right: 15px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-right: 20px; /* Adiciona espaçamento entre a imagem e a checkbox */
 }
 
 .cart-item .product-details {
@@ -396,6 +397,7 @@ body {
   display: flex; /* Torna o contêiner flexível */
   justify-content: space-between; /* Espaça os filhos */
   align-items: flex-start; /* Alinha os itens no início */
+  flex-wrap: wrap;
 }
 
 .container {
@@ -405,7 +407,7 @@ body {
 
 .container2 {
   flex-shrink: 0; /* Impede que o container do botão diminua */
-  width: 300x;
+  width: 300px;
   margin-right: 20px;
   margin-top: 10px;
   background-color: white;
@@ -414,8 +416,10 @@ body {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   min-height: auto;
 }
+
 .check {
-  margin-right: 5px;
-}
+    transform: scale(1.75); /* Aumenta o tamanho da checkbox */
+    margin-right: 15px; /* Adiciona espaçamento à direita da checkbox */
+  }
 
 
