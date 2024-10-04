@@ -4,7 +4,7 @@ let timeoutId;
 let indicator = document.querySelector('.slider-controls');
 
 function changeColor(){
-    if(sectionIndex === 0){
+    if(sectionIndex === 0 || sectionIndex === 1 || sectionIndex === 2){
         indicator.style.color = 'white';
     } else {
         indicator.style.color = 'black';

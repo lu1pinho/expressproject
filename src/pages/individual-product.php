@@ -159,7 +159,7 @@ function logout() {
                     <div class="pricing">
                         <p class="old_price">R$ <?php echo number_format($preco, 2, ',', '.'); ?></p>
                         <p class="actual_price">R$ <?php echo number_format($precodesconto, 2, ',', '.'); ?></p>
-                        <p class="installment">em até 10x sem juros com o Cartão Express.</p>
+                        <p class="installment"> Em até 10x de <?php echo htmlspecialchars(dividirPor10($precodesconto)); ?> sem juros com o Cartão Express.</p>
                     </div>
                     <div class="vertical-line"></div>
                     <div class="discount">

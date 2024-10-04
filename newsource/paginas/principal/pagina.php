@@ -1,3 +1,48 @@
+<?php
+include 'C:/xampp/htdocs/expressproject/src/settings/connection.php';
+
+// Define o caminho para as imagens
+define('CAMINHO_IMAGENS', '../../produtos/');
+
+// Busca os produtos com oferta do dia
+$query_ofertas = "SELECT * FROM produtos WHERE oferta_do_dia = 1 LIMIT 6";
+$ofertas_do_dia = $conn->query($query_ofertas);
+
+// Busca os 6 produtos mais vendidos
+$query_mais_vendidos = "SELECT * FROM produtos ORDER BY n_vendas DESC LIMIT 6";
+$top_vendidos = $conn->query($query_mais_vendidos);
+
+// Função para formatar o preço e calcular desconto
+function calcularDesconto($preco, $preco_com_desconto, $percentual_desconto) {
+    if ($percentual_desconto === null || $percentual_desconto === "") {
+        if ($preco_com_desconto !== null) {
+            $percentual_desconto = round((($preco - $preco_com_desconto) / $preco) * 100);
+        } else {
+            return [
+                'preco' => number_format($preco, 2, ',', '.'),
+                'percentual_desconto' => 0,
+                'frete_texto' => "FRETE EXPRESSO"
+            ];
+        }
+    }
+
+    if ($percentual_desconto > 0) {
+        return [
+            'preco' => number_format($preco_com_desconto, 2, ',', '.'),
+            'percentual_desconto' => $percentual_desconto,
+            'frete_texto' => ""
+        ];
+    } else {
+        return [
+            'preco' => number_format($preco, 2, ',', '.'),
+            'percentual_desconto' => 0,
+            'frete_texto' => "FRETE EXPRESSO"
+        ];
+    }
+}
+?>
+
+
 <!doctype html>
 <html lang="pt-br">
 <head>
@@ -79,17 +124,13 @@
             <li><a href="#">TV e Vídeo</a></li>
             <li><a href="#">Áudio</a></li>
             <li><a href="#">Games</a></li>
-            <li><a href="#">Utilidades Domésticas</a></li>
-            <li><a href="#">Brinquedos</a></li>
+            <li><a href="#">Tablets</a></li>
         </ul>
     </div>
 </div>
 
 
 <!-- CARROSEL-->
-<main>
-
-</main>
 <div class="baba">
     <div class="carousel">
         <div class="slider">
@@ -141,7 +182,7 @@
     </div>
 </div>
 
-<main class="corpo">
+<main>
     <div class="produto-container">
         <div class="title" id="ofertas-do-dia">
             <h2>Ofertas do Dia</h2>
@@ -149,37 +190,107 @@
         </div>
 
         <div class="destaque">
-            <div class="destaques">
-                <img src="../index/outros/produtos/ipad.jpg" alt="">
-                <p>IPad Air de 13 polegadas Wi-Fi<br>128GB - Cinza-Espacial</p>
-                <p>R$ 00,00</p>
-            </div>
-            <div class="destaques">
-                <img src="../index/outros/produtos/iphone14.webp" alt="">
-                <p>iPhone 13 Apple 128GB<br></p>
-                <p>R$ 00,00</p>
-            </div>
-            <div class="destaques">
-                <img src="../index/outros/produtos/iphone16.webp" alt="">
-                <p>iPhone 16 Apple 256GB</p>
-                <p>R$ 00,00</p>
-            </div>
-            <div class="destaques">
-                <img src="../index/outros/produtos/iPhone.jpg" alt="">
-                <p>iPhone 15 Pro Max Apple <br>256GB - Cinza</p>
-                <p>R$ 00,00</p>
-            </div><div class="destaques">
-                <img src="../index/outros/produtos/alexa.jpeg" alt="">
-                <p>Echo Dot 5ª geração<br>Cor Preta</p>
-                <p>R$ 00,00</p>
-            </div><div class="destaques">
-                <img src="../index/outros/produtos/firestick.jpg" alt="">
-                <p>FireStick 4k</p>
-                <p>R$ 00,00</p>
-            </div>
+            <?php while ($produto = $ofertas_do_dia->fetch_assoc()) {
+                $resultado = calcularDesconto($produto['preco'], $produto['preco_com_desconto'], $produto['percentual_desconto']);
+                ?>
+                <div class="destaques" onclick="window.location.href='../../../newsource/paginas/produto-individual/produto.php?id=<?php echo $produto['id']; ?>'">
+                    <img src="<?php echo CAMINHO_IMAGENS . $produto['url_img']; ?>" alt="<?php echo $produto['nome']; ?>">
+                    <p><?php echo $produto['nome']; ?></p>
+                    <div class="discount">
+                        <?php if ($resultado['percentual_desconto'] > 0) { ?>
+                            <p><?php echo $resultado['percentual_desconto']; ?>% OFF
+                                <?php if ($produto['frete_gratis']) {
+                                    echo '- FRETE GRÁTIS';
+                                } ?></p>
+                        <?php } else { ?>
+                            <p><?php echo $resultado['frete_texto']; ?></p>
+                        <?php } ?>
+                    </div>
+                    <div class="price">
+                        <span>R$</span> <span><?php echo $resultado['preco']; ?></span> <!-- Parte inteira -->
+                        <?php if ($resultado['percentual_desconto'] > 0) { ?>
+                            <span>De: R$ <?php echo number_format($produto['preco'], 2, ',', '.'); ?></span> <!-- Preço normal -->
+                        <?php } ?>
+                    </div>
+                </div>
+            <?php } ?>
+        </div>
+    </div>
+
+    <div class="produto-container">
+        <div class="title" id="mais-vendidos">
+            <h2>Mais Vendidos</h2>
+            <p>Ver todos os produtos</p>
+        </div>
+
+        <div class="destaque">
+            <?php while ($produto = $top_vendidos->fetch_assoc()) {
+                $resultado = calcularDesconto($produto['preco'], $produto['preco_com_desconto'], $produto['percentual_desconto']);
+                ?>
+                <div class="destaques" onclick="window.location.href='../../../newsource/paginas/produto-individual/produto.php?id=<?php echo $produto['id']; ?>'">
+                    <img src="<?php echo CAMINHO_IMAGENS . $produto['url_img']; ?>" alt="<?php echo $produto['nome']; ?>">
+                    <p><?php echo $produto['nome']; ?></p>
+                    <div class="discount">
+                        <?php if ($resultado['percentual_desconto'] > 0) { ?>
+                            <p><?php echo $resultado['percentual_desconto']; ?>% OFF
+                                <?php if ($produto['frete_gratis']) {
+                                    echo '- FRETE GRÁTIS';
+                                } ?></p>
+                        <?php } else { ?>
+                            <p><?php echo $resultado['frete_texto']; ?></p>
+                        <?php } ?>
+                    </div>
+                    <div class="price">
+                        <span>R$</span> <span><?php echo $resultado['preco']; ?></span> <!-- Parte inteira -->
+                        <?php if ($resultado['percentual_desconto'] > 0) { ?>
+                            <span>De: R$ <?php echo number_format($produto['preco'], 2, ',', '.'); ?></span> <!-- Preço normal -->
+                        <?php } ?>
+                    </div>
+                </div>
+            <?php } ?>
         </div>
     </div>
 </main>
+
+<footer>
+    <div class="footer-container">
+
+        <div class="footer-item">
+            <img src="../principal/images/logo/logopreta.png" alt="Logo Express">
+        </div>
+
+        <div class="footer-item">
+            <h3>Atendimento ao Cliente</h3>
+            <a href="#">Central de Atendimento</a>
+            <a href="#">Como Comprar</a>
+            <a href="#">Formas de Pagamento</a>
+            <a href="#">Política de Privacidade</a>
+            <a href="#">Política de Troca e Devolução</a>
+        </div>
+
+        <div class="footer-item">
+            <h3>Express Marketplace</h3>
+            <a href="#">Quem Somos</a>
+            <a href="#">Trabalhe Conosco</a>
+            <a href="#">Seja um Parceiro</a>
+        </div>
+
+        <div class="footer-item">
+            <h3>Minha Conta</h3>
+            <a href="#">Meus Pedidos</a>
+            <a href="#">Meus Dados</a>
+            <a href="#">Meus Endereços</a>
+        </div>
+        <div class="footer-item">
+            <h3>Formas de Pagamento</h3>
+            <a href="#">Cartões Visa e MasterCard</a>
+            <a href="#">Pagamento por Pix</a>
+            <a href="#">Apple Pay e PayPal</a>
+            <img class="payments" src="../principal/images/svg/paymentmethods.png" alt="Formas de Pagamento">
+        </div>
+    </div>
+</footer>
+
 
 <script src="../principal/scripts/index.js"></script>
 </body>
