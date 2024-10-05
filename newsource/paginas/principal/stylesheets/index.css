@@ -25,6 +25,11 @@ facilitando a aplicação de estilos específicos de forma concisa e legível.
 Exemplo: `&:hover` se refere ao estado de hover do seletor pai.
 */
 
+.show {
+    opacity: 1;
+    visibility: visible;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -38,7 +43,8 @@ html {
 
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #000000;
+    background-image: linear-gradient(to top, #f5f5f5, #000000);
+    background-repeat: no-repeat;
 }
 
 
@@ -107,68 +113,13 @@ body {
 }
 
 
-/*Login PopUp*/
-.login-popup {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    visibility: hidden;
-    top: 70px;
-    left: 60vw;
-    float: right;
-    height: 200px;
-    background-color: #f5f5f5;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 35vw;
-    padding: 20px;
-
-    & .login-popup-header {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 20px;
-    }
-
-    & .login-popup-content {
-        display: flex;
-        flex-direction: column;
-    }
-
-    & .login-popup-body input {
-        width: 200px;
-        height: 25px;
-        padding-left: 5px;
-    }
-
-    & .login-popup-body button {
-        width: 60px;
-        height: 30px;
-        background-color: var(--color-orange);
-        color: white;
-        border: none;
-        border-radius: 5px;
-    }
-
-    & .login-popup-body button:hover {
-        cursor: pointer;
-        background-color: var(--color-light-orange);
-    }
-
-    & .login-popup-footer {
-        margin-top: 10px;
-    }
-
-    &::backdrop {
-        background-color: rgba(0, 0, 0, 0.5);
-    }
-}
 
 /*Form POPUP*/
 
 .form {
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
     opacity: 0;
-    visibility: hidden;
+    /*visibility: hidden;*/
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -180,8 +131,13 @@ body {
     width: 250px;
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
+    z-index: 2;
     height: 130px;
+}
+
+.form.show {
+    opacity: 1;
+    visibility: visible;
 }
 
 .form button {
@@ -283,6 +239,11 @@ body {
         padding-right: 10px;
         padding-left: 10px;
         border-radius: 10px 0 0 10px;
+        transition: border 0.5ms linear;
+
+        &:focus {
+            border: 3px solid var(--color-orange);
+        }
     }
 }
 
@@ -399,7 +360,7 @@ body {
     width: 100%;
     height: 300px;
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 1) 50%);
-    top: 80%;
+    top: 85%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
@@ -479,21 +440,23 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    padding: 50px;
     gap: 20px;
     background-color: white;
+    align-items: center;
+
+
+
 
     & .destaque {
         display: flex;
         flex-direction: row;
-        margin: 0 auto;
-
         gap: 20px;
 
         & .destaques {
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-start;
             justify-content: center;
             gap: 10px;
             padding: 10px;
@@ -501,18 +464,43 @@ body {
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             transition: transform 0.1s ease-in-out;
 
+            & .discount{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: auto;
+                height: auto;
+                padding: 5px;
+                bottom: 0;
+                border-radius: 10px;
+                background-color: var(--color-blue-4);
+
+                & p {
+                    text-align: center;
+                    font-size: 0.7rem;
+                    color: white;
+                }
+            }
+
             &:hover {
                 cursor: pointer;
                 transform: scale(1.05);
             }
 
             & img {
-                width: 180px;
+                width: 200px;
                 height: auto;
-                max-width: 180px;
+                /*max-width: 180px;*/
                 image-rendering: high-quality;
                 image-resolution: from-image;
+                align-self: center; !important;
             }
+
+            & p:nth-child(2) {
+                margin-top: 10px;
+                align-self: start;
+            }
+
         }
     }
 
@@ -538,6 +526,86 @@ body {
 
         }
     }
+
+    & .price {
+        display: flex;
+        position: relative;
+        bottom: 0;
+        color: black;
+
+
+        span:nth-child(1) {
+            font-size: 0.9rem;
+        }
+
+        span:nth-child(2) {
+            font-size: 1.2rem;
+
+        }
+        span:nth-child(3){
+            font-size: 0.9rem;
+            margin-left: 10px;
+            text-decoration: line-through;
+            color: #959595;
+        }
+    }
 }
 
+/*FOOTER */
+
+.footer-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    padding: 20px;
+    height: 250px;
+    background-color: white;
+    color: black;
+    border-top: 1px solid #d3d3d3;
+
+    & img {
+        width: 200px;
+        height: auto;
+    }
+
+}
+
+.footer-item {
+    display: flex;
+    flex-direction: column; /* Para empilhar os links verticalmente */
+    align-items: flex-start; /* Alinha os itens à esquerda */
+    height: 150px;
+
+    &:first-child {
+        align-items: center;
+        margin-right: 50px;
+    }
+
+    & h3{
+        font-size: 1rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    & .payments {
+        width: 180px;
+        margin-right: 10px;
+    }
+}
+
+.footer-item a {
+    text-decoration: none;
+    color: black;
+    margin: 5px 0;
+    transition: all 0.3s;
+    font-size: 0.9rem;
+    border-bottom: 1px solid transparent;
+}
+
+.footer-item a:hover {
+    color: orange;
+    border-bottom: 1px solid orange;
+}
 

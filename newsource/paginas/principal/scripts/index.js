@@ -1,48 +1,17 @@
 let timeoutId;
 
-function showPopup() {
-    const elemento = document.getElementsByClassName('form')[0];
-    elemento.style.opacity = '1'; // Define a opacidade como 1
-    elemento.style.visibility = 'visible'; // Torna visível
-
-    // Limpa o timeout se o popup for mostrado
-    clearTimeout(timeoutId);
-}
-
-function hidePopup() {
-    const elemento = document.getElementsByClassName('form')[0];
-    elemento.style.opacity = '0'; // Define a opacidade como 0
-
-    // Aguarda a animação antes de esconder o card
-    setTimeout(() => {
-        elemento.style.visibility = 'hidden'; // Torna invisível após a animação
-    }, 300); // Tempo da animação em milissegundos
-}
-
-function startTimeout() {
-    // Inicia um timeout de 3 segundos para esconder o popup
-    timeoutId = setTimeout(hidePopup, 1000);
-}
-
-// Adiciona eventos de mouseleave ao popup
-document.getElementById('login-popup').addEventListener('mouseenter', () => {
-    clearTimeout(timeoutId); // Limpa o timeout se o mouse entrar no popup
-});
-
-document.getElementById('login-popup').addEventListener('mouseleave', startTimeout); // Reinicia o timeout se o mouse sair do popup
-
-
 // Mudar cor do indicador
 let indicator = document.querySelector('.slider-controls');
 
 function changeColor(){
-    if(sectionIndex === 0){
+    if(sectionIndex === 0 || sectionIndex === 1 || sectionIndex === 2){
         indicator.style.color = 'white';
     } else {
         indicator.style.color = 'black';
     }
 }
-// Carrosel de Imagens
+
+// Carousel de Imagens
 const slider = document.querySelector(".slider");
 
 const leftArrow = document.querySelector(".left");
@@ -79,7 +48,6 @@ leftArrow.addEventListener('click', function () {
 });
 
 
-
 // Categorias
 const menu_burger = document.querySelector('.todos-menu');
 const popup_todos = document.querySelector('.popup-todos');
@@ -114,3 +82,25 @@ menu_burger.onmouseleave = popup_todos.onmouseleave = function () {
 };
 
 
+let popupTimeout;
+
+function showLoginPopup() {
+    clearTimeout(popupTimeout); // Cancela qualquer ocultamento programado
+    document.getElementById("login-popup").style.opacity= "1";
+}
+
+function hideLoginPopup() {
+    popupTimeout = setTimeout(() => {
+        document.getElementById("login-popup").style.opacity= "0";
+    }, 2000); // Esconde após 2 segundos
+}
+
+function keepLoginPopup() {
+    clearTimeout(popupTimeout); // Se o cursor está sobre o formulário, cancela o temporizador
+}
+
+function hideLoginPopupWithDelay() {
+    popupTimeout = setTimeout(() => {
+        document.getElementById("login-popup").style.opacity= "0";
+    }, 2000); // Inicia o temporizador para esconder o popup
+}
