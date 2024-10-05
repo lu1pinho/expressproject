@@ -81,6 +81,7 @@ if (isset($_POST['logout'])) {
     <script src="script-pag-principal/script-slider.js" defer></script>
     <script src="script-pag-principal/script2.js" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="define('CAMINHO_IMAGENS', '../../produtos/');">
 </head>
 <body>
 <header>
