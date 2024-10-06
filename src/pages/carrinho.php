@@ -46,6 +46,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 }
+
+// Verifica se produtos foram selecionados e calcula o total
+if (isset($_POST['produtos_selecionados'])) {
+    foreach ($_POST['produtos_selecionados'] as $index) {
+        if (isset($_SESSION['carrinho'][$index])) {
+            $item = $_SESSION['carrinho'][$index];
+            $preco_final = $item['preco_com_desconto'] ?? $item['preco']; // Usa o preço com desconto se existir
+            $total += $preco_final * $item['quantidade'];
+        }
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -136,48 +147,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <!-- Verificar se o carrinho está vazio -->
             <?php if (empty($_SESSION['carrinho'])): ?>
-                    <p>Seu carrinho está vazio.</p>
-                <?php else: ?>
-                    <form action="carrinho.php" method="POST" id="carrinhoForm">
-                        <?php foreach ($_SESSION['carrinho'] as $index => $item): ?>
-                            <div class="cart-item">
-                                <!-- Adicionando a checkbox para selecionar o produto -->
-                                <input class="check" type="checkbox" name="produtos_selecionados[]" value="<?= $index; ?>" checked onchange="document.getElementById('carrinhoForm').submit();">
-                                <img src="<?= htmlspecialchars($item['url_img']); ?>" alt="<?= htmlspecialchars($item['nome']); ?>" class="product-image">
-                                <div class="product-details">
-                                    <a href="#"><?= htmlspecialchars($item['nome']); ?></a>
-                                    <?php
-                                        $produto_preco = (float) $item['preco'];
-                                        $produto_preco_desconto = isset($item['preco_com_desconto']) ? (float) $item['preco_com_desconto'] : null;
+                <p>Seu carrinho está vazio.</p>
+            <?php else: ?>
+                <form action="carrinho.php" method="POST" id="carrinhoForm">
+                <?php foreach ($_SESSION['carrinho'] as $index => $item): ?>
+                    <div class="cart-item">
+                        <input class="check" type="checkbox" name="produtos_selecionados[]" value="<?= $index; ?>" 
+                        <?= (isset($_POST['produtos_selecionados']) && in_array($index, $_POST['produtos_selecionados'])) ? 'checked' : ''; ?>
+                        onchange="document.getElementById('carrinhoForm').submit();">
 
-                                        if ($produto_preco_desconto !== null && $produto_preco_desconto < $produto_preco) {
-                                            echo "<p>R$ " . number_format($produto_preco_desconto, 2, ',', '.') . "</p>";
-                                        } else {
-                                            echo "<p>R$ " . number_format($produto_preco, 2, ',', '.') . "</p>";
-                                        }
-
-                                        $preco_final = $produto_preco_desconto !== null ? $produto_preco_desconto : $produto_preco;
-
-                                        // Verificar se o produto está marcado (selecionado) para somar ao total
-                                        if (isset($_POST['produtos_selecionados']) && in_array($index, $_POST['produtos_selecionados'])) {
-                                            $total += $preco_final * $item['quantidade'];
-                                        }
-                                    ?>
+                        <img src="<?= htmlspecialchars($item['url_img']); ?>" alt="<?= htmlspecialchars($item['nome']); ?>" class="product-image">
+                        <div class="product-details">
+                            <a href="#"><?= htmlspecialchars($item['nome']); ?></a>
+                            <p>R$ <?= number_format($item['preco'], 2, ',', '.'); ?></p>
                         </div>
                         <div class="quantity-control">
-                            <form action="carrinho.php" method="POST">
-                                <input type="hidden" name="index" value="<?= $index; ?>">
-                                <button type="submit" name="alterar_quantidade" value="plus" class="btn-quantity">+</button>
-                                <label class="quantity-label" for="item<?= $index; ?>-quantity"><?= $item['quantidade']; ?></label>
-                                <button type="submit" name="alterar_quantidade" value="minus" class="btn-quantity">-</button>
-                            </form>
-                        </div>
-                        <form action="carrinho.php" method="POST">
                             <input type="hidden" name="index" value="<?= $index; ?>">
-                            <button type="submit" name="remover_item" class="remove-item">&#128465;</button>
-                        </form>
+                            <button type="submit" name="alterar_quantidade" value="plus" class="btn-quantity">+</button>
+                            <label class="quantity-label" for="item<?= $index; ?>-quantity"><?= $item['quantidade']; ?></label>
+                            <button type="submit" name="alterar_quantidade" value="minus" class="btn-quantity">-</button>
+                        </div>
+                        <button type="submit" name="remover_item" class="remove-item">&#128465;</button>
                     </div>
                 <?php endforeach; ?>
+            </form>
             <?php endif; ?>
         </div>
     </div>
