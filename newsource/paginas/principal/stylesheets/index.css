@@ -227,23 +227,23 @@ body {
 .search-container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start; /* Alterado para flex-start */
     height: 40px;
+    margin: 0; /* Garantir que não haja margens */
+}
 
-    & input {
-        border: none;
-        outline: none;
-        width: 400px;
-        height: 100%;
-        font-size: 14px;
-        padding-right: 10px;
-        padding-left: 10px;
-        border-radius: 10px 0 0 10px;
-        transition: border 0.5ms linear;
+.search-container input {
+    border: none;
+    outline: none;
+    width: 400px;
+    height: 100%;
+    font-size: 14px;
+    padding: 0 10px; /* Ajuste de padding */
+    border-radius: 10px 0 0 10px;
+    transition: border 0.5ms linear;
 
-        &:focus {
-            border: 3px solid var(--color-orange);
-        }
+    &:focus {
+        border: 3px solid var(--color-orange);
     }
 }
 

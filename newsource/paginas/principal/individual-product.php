@@ -76,7 +76,7 @@ if (isset($_POST['logout'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="..\stylesheets\individual-product.css">
+    <link rel="stylesheet" href="individual-product.css">
     <title><?php echo htmlspecialchars($nome); ?></title>
     <script src="script-pag-principal/script-slider.js" defer></script>
     <script src="script-pag-principal/script2.js" defer></script>
@@ -84,70 +84,7 @@ if (isset($_POST['logout'])) {
     <link rel="stylesheet" href="define('CAMINHO_IMAGENS', '../../produtos/');">
 </head>
 <body>
-<header>
-    <div class="navbar">
-        <div class="logo" onclick="homePage()">
-            <img src="images/logo.png" alt="Logotipo Express Marketplace" width="150">
-        </div>
-        <div class="location">
-            <img src="images/location_on_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="Localização">
-            <a href="#">Atualizar CEP</a>
-        </div>
-        <div class="searchbar">
-    <form action="teste-listagem.php" method="GET">
-        <input type="text" name="query" placeholder="Pesquisa Express.com.br" required>
-        <button type="submit">
-            <img src="images/search_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="pesquisa">
-        </button>
-    </form>
-</div>
-      <div class="divs" >
-      <div class="contas">
-        <?php if (isset($_SESSION['nome'])): ?>
-        <p>Olá, <?php echo $_SESSION['nome']; ?>!</p>
-        <a href="#">Seus Dados</a>
-        <?php else: ?>
-        <p>Olá, faça seu login</p>
-        <a href="#">Seus Dados</a>
-        <div class="tooltip">
-        <a href="login.php">
-            <button>Faça seu login</button>
-        </a>
-        <div class="inline">
-            <p>Cliente novo?</p>
-            <a style="color: #001f54; font-size: 13px;" href="cadastro.php">Comece aqui.</a>
-        </div>
-        </div>
-        <?php endif; ?>
-    </div>
-        <div class="pedidos" >
-          <a href="#">Devoluções e</a>
-          <a href="#">Pedidos</a>
-        </div>
-        <div class="carrinho" >
-          <img src="images/shopping_cart_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24 (1).svg" alt="">
-          <a href="#">Carrinho</a>
-        </div>
-      </div>
-    </div>
-    </div>
-</header>
-
-<div class="subnav" >
-    <div class="todos" >
-      <img src="images/menu_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24 (1).svg" alt="menu-sanduiche">
-      <p>Todos</p>
-    </div>
-    <div class="venda-na-express" >
-      Venda Na Express
-    </div>
-    <div class="comprar-novamente" >
-      Comprar novamente
-    </div>
-    <div class="oferta-do-dia" >
-      Oferta do dia
-    </div>
-  </div>
+<?php include 'nav.php'?>
 
 <main>
     <article>
