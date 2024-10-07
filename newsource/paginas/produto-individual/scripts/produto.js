@@ -107,3 +107,7 @@ cart_button.onclick = function() {
         popup.style.transform = "translateY(60px)";
     }, 2000); // 2000 milissegundos = 2 segundos
 }
+
+function GoToMainPage(){
+    alert("Você será redirecionado para a página principal");
+}

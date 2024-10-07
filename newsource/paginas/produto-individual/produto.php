@@ -103,7 +103,7 @@ if (isset($_POST['logout'])) {
 <body>
     <header>
         <nav class="nav-container">
-            <div class="express-logo">
+            <div class="express-logo" onclick="window.location.href='../../../newsource/paginas/principal/pagina.php';">
                 <img src="../principal/images/logo/logo.png" alt="Logo Express">
             </div>
 
