@@ -1,0 +1,168 @@
+.cart {
+  border-top: 2px solid #ccc;
+  padding-top: 15px;
+  min-height: 100%;
+}
+
+.arrow-link {
+  text-decoration: none; /* Remove a linha embaixo do link */
+}
+
+.arrow-link:hover {
+  text-decoration: none; /* Garante que a linha não apareça ao passar o mouse */
+}
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 15px;
+  background-color: #f0f0f0;
+  color: #333;
+  font-size: 18px;
+  text-decoration: none;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 95%;
+  margin-bottom: 15px;
+  max-width: 100%;
+}
+
+.back-button:hover {
+  background-color: #e0e0e0;
+}
+
+.back-button .arrow {
+  margin-right: 8px;
+  font-size: 20px;
+  color: #007bff;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  padding: 15px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cart-item img.product-image {
+width: 80px;
+height: 80px;
+border-radius: 50%;
+margin-right: 20px; /* Adiciona espaçamento entre a imagem e a checkbox */
+}
+
+.cart-item .product-details {
+  flex: 2;
+  margin-left: 15px; 
+}
+
+.cart-item .product-details a {
+  color: #007bff;
+  font-size: 18px; 
+  text-decoration: none;
+}
+
+.cart-item .product-details p {
+  color: #666;
+  font-size: 16px; 
+}
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.quantity-control .quantity-label {
+  display: inline-block;
+  width: 50px; 
+  text-align: center;
+  font-size: 18px;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.btn-quantity {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-quantity:hover {
+  background-color: #0056b3;
+}
+
+.remove-item {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #999;
+  cursor: pointer;
+}
+
+.remove-item:hover {
+  color: #ff0000;
+}
+
+.checkout {
+  display: flex;
+  justify-content: flex-end; /* Alinha à direita */
+  margin-top: 20px;
+  width: 95%; /* Mesma largura das caixas de produtos */
+  margin-left: auto;
+  margin-right: auto; /* Centraliza horizontalmente */
+}
+
+.checkout-button {
+  background-color: #004085;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.checkout-button:hover {
+  background-color: #002952;
+}
+.juntando {
+display: flex; /* Torna o contêiner flexível */
+justify-content: space-between; /* Espaça os filhos */
+align-items: flex-start; /* Alinha os itens no início */
+flex-wrap: wrap;
+}
+
+.container {
+flex: 1; /* Permite que o container do carrinho ocupe o espaço restante */
+margin-right: 20px; /* Espaçamento à direita do container do carrinho */
+}
+
+.container2 {
+flex-shrink: 0; /* Impede que o container do botão diminua */
+width: 300px;
+margin-right: 20px;
+margin-top: 10px;
+background-color: white;
+padding: 20px;
+border-radius: 10px;
+box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+min-height: auto;
+}
+
+.check {
+  transform: scale(1.75); /* Aumenta o tamanho da checkbox */
+  margin-right: 15px; /* Adiciona espaçamento à direita da checkbox */
+}

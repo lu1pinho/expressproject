@@ -546,7 +546,7 @@ body {
 .resultados {
   display: flex;
   flex-wrap: wrap; /* Permite que os itens se movam para a próxima linha, se necessário */
-  justify-content: space-around; /* Alinha os itens à esquerda */
+  justify-content:flex-start;
 }
 
 .resultados ul {
