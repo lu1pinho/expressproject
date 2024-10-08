@@ -207,7 +207,9 @@ if (isset($_POST['logout'])) {
                 <!-- Adicionando ao carrinho -->
                 <form action="carrinho.php" method="POST">
                 <input type="hidden" name="produto_nome" value="<?php echo htmlspecialchars($nome); ?>">
-                <input type="hidden" name="produto_imagem" value="<?php echo CAMINHO_IMAGENS . htmlspecialchars($produto['url_img']); ?>">
+                <div class="product-image">
+                    <input type="hidden" name="produto_imagem" value="<?php echo CAMINHO_IMAGENS . htmlspecialchars($url_img); ?>">
+                </div>
                 <input type="hidden" name="produto_preco" value="<?php echo htmlspecialchars($preco); ?>"> <!-- Mantendo o valor original -->
                 <input type="hidden" name="produto_preco_desconto" value="<?php echo htmlspecialchars($precodesconto); ?>"> <!-- Preço com desconto -->
                 <div class="buy">
