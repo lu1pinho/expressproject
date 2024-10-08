@@ -1,3 +1,15 @@
+const fromSlider = document.querySelector('#fromSlider');
+const toSlider = document.querySelector('#toSlider');
+const fromInput = document.querySelector('#fromInput');
+const toInput = document.querySelector('#toInput');
+fillSlider(fromSlider, toSlider, '#004382', '#004382', toSlider);
+setToggleAccessible(toSlider);
+
+fromSlider.oninput = () => controlFromSlider(fromSlider, toSlider, fromInput);
+toSlider.oninput = () => controlToSlider(fromSlider, toSlider, toInput);
+fromInput.oninput = () => controlFromInput(fromSlider, fromInput, toInput, toSlider);
+toInput.oninput = () => controlToInput(toSlider, fromInput, toInput, toSlider);
+
 function controlFromInput(fromSlider, fromInput, toInput, controlSlider) {
     const [from, to] = getParsed(fromInput, toInput);
     fillSlider(fromInput, toInput, '#001C36', '#001C36', controlSlider);
@@ -74,14 +86,18 @@ function setToggleAccessible(currentTarget) {
     }
 }
 
-const fromSlider = document.querySelector('#fromSlider');
-const toSlider = document.querySelector('#toSlider');
-const fromInput = document.querySelector('#fromInput');
-const toInput = document.querySelector('#toInput');
-fillSlider(fromSlider, toSlider, '#004382', '#004382', toSlider);
-setToggleAccessible(toSlider);
+countProducts();
+function countProducts() {
+    const productsCountElements = document.querySelectorAll('.produtos .produto');
+    const productsCount = productsCountElements.length;
 
-fromSlider.oninput = () => controlFromSlider(fromSlider, toSlider, fromInput);
-toSlider.oninput = () => controlToSlider(fromSlider, toSlider, toInput);
-fromInput.oninput = () => controlFromInput(fromSlider, fromInput, toInput, toSlider);
-toInput.oninput = () => controlToInput(toSlider, fromInput, toInput, toSlider);
+    // Seleciona a primeira <section> encontrada
+    const sidebar = document.getElementsByTagName("section")[0];
+
+    if (sidebar) {
+        // Ajusta a altura da sidebar multiplicando 20vw pelo número de produtos
+        sidebar.style.height = (13 * productsCount-2) + 'vw';
+    } else {
+        console.log("Nenhuma <section> encontrada.");
+    }
+}
