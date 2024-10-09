@@ -417,6 +417,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
   </tbody>
 </table>
 
+<h3> Sprint 4 - vendedor </h3>
 <table>
     <thead>
         <tr>
@@ -432,14 +433,14 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
     </thead>
     <tbody>
         <tr>
-            <td>Model: Integração com o backend para armazenar produtos criados</td>
+            <td> Pedidos Realizados </td>
             <td>Model (Backend)</td>
             <td>Neci</td>
             <td>-</td>
             <td>-</td>
             <td>-</td>
             <td>Pendente</td>
-            <td>Implementar a lógica de armazenamento de produtos no banco de dados após a criação</td>
+            <td>Implementar a página que mostra o histórico dos pedidos</td>
         </tr>
         <tr>
             <td>View: Desenvolvimento da Página do Vendedor</td>
