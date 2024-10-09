@@ -405,13 +405,13 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
     </tr>
         <tr>
       <td>Implementação do método de pagamento</td>
-      <td>Lógica de negócio</td>
+      <td>Lógica de Negócio</td>
       <td>Mara Emanuela</td>
       <td>02/10/2024</td>
       <td>06/10/2024</td>
       <td>15</td>
       <td>Concluído</td>
-      <td>Conectar API do carrinho ao frontend para atualização e persistência dos dados</td>
+      <td>Implementar método de pagamento</td>
     </tr>
   </tbody>
 </table>
