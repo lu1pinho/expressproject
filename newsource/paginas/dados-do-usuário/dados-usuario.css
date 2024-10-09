@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+
+}
+
+
+/*-------------------------------------------BANNER E BOTÃO DE VOLTAR---------------------------------------*/
+
+header {
+    width: 86.8%;
+    background-color: #0A3871;
+    padding: 20px 100px;
+}
+
+.banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1150px;
+    padding: 0 20px;
+}
+
+.logo img {
+    width: 150px;
+    margin-left: 70px;
+}
+
+.btn-voltar {
+    background-color: #ffffff;  
+    color: #000000;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100px;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
+
+.btn-voltar:hover {
+    background-color: orange;
+}
+
+
+/*---------------------------------------------------------------------------------------------------------------*/
+
+
+.apresentacao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 20px 0px 40px;
+    color: black;
+    font-size: 15x;
+    gap: 10px;
+}
+
+.titulo {
+    font-size: 30px
+}
+
+.dados {
+    display: flex;
+    gap: 50px;
+}
+
+.sub {
+    display: flex;
+    flex-direction: column;
+}
+
+.bordas {
+    padding: 0px;
+    border: 1px solid;
+    width: 50%;
+    color: black;
+    border-radius: 5px;
+    width: 280px;
+    height: 30px;
+    margin: 0px 0px 10px 0px;
+    text-align: center;
+}
+
+.botoes {
+    border-radius: 10px;
+    border: 0;
+    width: 200px;
+    padding: 10px;
+    text-decoration: none;
+    font-size: 15px;
+
+
+
+
+    color: white;
+    background-color: #0A3871;
+
+
+
+
+    margin: 20px 300px 20px 200px;
+
+}

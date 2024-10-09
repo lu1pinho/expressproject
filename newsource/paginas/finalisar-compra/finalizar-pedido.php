@@ -124,7 +124,7 @@ $conn->close();
                     <p class="endereco-texto"><?php echo $enderecoCompleto; ?></p>
                 </div>
                 <a href="dados-usuario.php">
-                    <a href="">
+                    <a href="../dados-do-usuário/dados-usuario.php">
                         <button class="btn-editar">Editar ou escolher outro endereço</button>
 
                     </a>
