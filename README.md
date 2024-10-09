@@ -350,7 +350,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
       <td>25/09/2024</td>
       <td>01/10/2024</td>
       <td>15</td>
-      <td>Pendente</td>
+      <td>Concluído</td>
       <td>Adicionar produtos ao carrinho a partir da página de detalhes</td>
     </tr>
     <tr>
@@ -360,7 +360,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
       <td>25/09/2024</td>
       <td>01/10/2024</td>
       <td>15</td>
-      <td>Pendente</td>
+      <td>Concluído</td>
       <td>Permitir que o usuário aumente ou diminua a quantidade de itens no carrinho</td>
     </tr>
     <tr>
@@ -370,7 +370,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
       <td>02/10/2024</td>
       <td>06/10/2024</td>
       <td>15</td>
-      <td>Pendente</td>
+      <td>Concluído</td>
       <td>Funcionalidade de remover itens do carrinho</td>
     </tr>
     <tr>
@@ -380,7 +380,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
       <td>02/10/2024</td>
       <td>06/10/2024</td>
       <td>15</td>
-      <td>Pendente</td>
+      <td>Concluído</td>
       <td>Listar produtos com nome, imagem, preço e quantidade no carrinho</td>
     </tr>
     <tr>
@@ -390,7 +390,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
       <td>07/10/2024</td>
       <td>09/10/2024</td>
       <td>15</td>
-      <td>Pendente</td>
+      <td>Concluído</td>
       <td>Conectar API do carrinho ao frontend para atualização e persistência dos dados</td>
     </tr>
     <tr>
@@ -400,8 +400,18 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
       <td>07/10/2024</td>
       <td>09/10/2024</td>
       <td>15</td>
-      <td>Pendente</td>
+      <td>Concluído</td>
       <td>Verificar se adição, remoção e atualização estão funcionando corretamente</td>
+    </tr>
+        <tr>
+      <td>Implementação do método de pagamento</td>
+      <td>Lógica de negócio</td>
+      <td>Mara Emanuela</td>
+      <td>02/10/2024</td>
+      <td>06/10/2024</td>
+      <td>15</td>
+      <td>Concluído</td>
+      <td>Conectar API do carrinho ao frontend para atualização e persistência dos dados</td>
     </tr>
   </tbody>
 </table>
