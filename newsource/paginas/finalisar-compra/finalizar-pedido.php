@@ -68,12 +68,13 @@ function calcularFrete($cep)
 
     if ($stmt->fetch()) {
         $stmt->close();
-        return $valorFrete;
+        return floatval($valorFrete); // Garantir que retorna um valor numérico
     } else {
         $stmt->close();
-        return "Valor do frete não encontrado para o CEP informado.";
+        return 0; // Retorna 0 se o frete não for encontrado
     }
 }
+
 
 
 // Busca os produtos no carrinho
@@ -102,10 +103,12 @@ $conn->close();
     <header>
         <div class="banner">
             <div class="logo">
-                <img src="./images/logo.png" alt="Express.com">
+                <img src="../principal/images/logo/logo.png" alt="Express.com">
             </div>
             <div class="butao-voltar">
-            <button class="btn-voltar" onclick="window.history.back();">Voltar</button>
+                <a href="../produto-individual/carrinho.php">
+                    <button class="btn-voltar" onclick="window.history.back();">Voltar</button>
+                </a>
             </div>
         </div>
     </header>
