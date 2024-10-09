@@ -393,6 +393,16 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
       <td>Concluído</td>
       <td>Conectar API do carrinho ao frontend para atualização e persistência dos dados</td>
     </tr>
+      <tr>
+      <td>Implementação do método de pagamento</td>
+      <td>Lógica de Negócio</td>
+      <td>Mara Emanuela</td>
+      <td>02/10/2024</td>
+      <td>06/10/2024</td>
+      <td>15</td>
+      <td>Concluído</td>
+      <td>Implementar método de pagamento</td>
+    </tr>
     <tr>
       <td>Testes de Funcionalidade do Carrinho</td>
       <td>Testes</td>
@@ -403,16 +413,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
       <td>Concluído</td>
       <td>Verificar se adição, remoção e atualização estão funcionando corretamente</td>
     </tr>
-        <tr>
-      <td>Implementação do método de pagamento</td>
-      <td>Lógica de Negócio</td>
-      <td>Mara Emanuela</td>
-      <td>02/10/2024</td>
-      <td>06/10/2024</td>
-      <td>15</td>
-      <td>Concluído</td>
-      <td>Implementar método de pagamento</td>
-    </tr>
+      
   </tbody>
 </table>
 
