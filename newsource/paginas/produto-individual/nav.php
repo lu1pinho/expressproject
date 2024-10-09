@@ -32,11 +32,6 @@ facilitando a aplicação de estilos específicos de forma concisa e legível.
 Exemplo: `&:hover` se refere ao estado de hover do seletor pai.
 */
 
-.show {
-    opacity: 1;
-    visibility: visible;
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -50,14 +45,11 @@ html {
 
 body {
     font-family: 'Inter', sans-serif;
-    background-image: linear-gradient(to top, #f5f5f5, #ffff);
+    /*background-image: linear-gradient(to top, #f5f5f5, #000000);*/
     background-repeat: no-repeat;
     background-color: white;
 }
 
-header{
-    background-color:#001C36;
-}
 
 /*Logo*/
 .express-logo img{
@@ -122,7 +114,6 @@ header{
         min-width: 20px;
     }
 }
-
 
 
 /*Form POPUP*/
@@ -205,7 +196,7 @@ header{
     padding-left: 110px;
     position: relative;
     z-index: 2;
-    font-family: Inter;
+
 
     & .menu {
         display: flex;
@@ -238,23 +229,23 @@ header{
 .search-container {
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* Alterado para flex-start */
+    justify-content: space-between;
     height: 40px;
-    margin: 0; /* Garantir que não haja margens */
-}
 
-.search-container input {
-    border: none;
-    outline: none;
-    width: 400px;
-    height: 100%;
-    font-size: 14px;
-    padding: 0 10px; /* Ajuste de padding */
-    border-radius: 10px 0 0 10px;
-    transition: border 0.5ms linear;
+    & input {
+        border: none;
+        outline: none;
+        width: 400px;
+        height: 100%;
+        font-size: 14px;
+        padding-right: 10px;
+        padding-left: 10px;
+        border-radius: 10px 0 0 10px;
+        transition: border 0.5ms linear;
 
-    &:focus {
-        border: 3px solid var(--color-orange);
+        &:focus {
+            border: 3px solid var(--color-orange);
+        }
     }
 }
 
@@ -279,64 +270,106 @@ header{
         background-color: var(--color-light-orange);
     }
 }
-/*Fim na NAV*/
+
+.popup-todos {
+    width: 100%;
+    height: 30px;
+    padding-left: 102px;
+    /*background-color: ;*/
+    background-color: rgba(223, 223, 223, 0.7); /* Fundo branco semi-transparente */
+    backdrop-filter: blur(20px); /* Aplicando desfoque */
+    -webkit-backdrop-filter: blur(10px); /* Suporte para navegadores baseados em WebKit */
+
+    position: absolute;
+    z-index: 1;
+    top: 50px;
+    transition: ease 0.3s;
+
+    & .categoria ul{
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+        gap: 10px;
+        list-style: none;
+    }
+
+    & .categoria ul li {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 0.5px solid transparent;
+        padding: 5px 20px;
+
+        & a {
+            color: #000000;
+            font-size: 1rem;
+            font-weight: 500;
+            text-decoration: none;
+        }
+    }
+
+    & .categoria ul li:hover {
+        cursor: pointer;
+        border: 0.5px solid #000000;
+        /*background: var(--color-blue-5);*/
+    }
+
+}
   </style>
 </head>
 <body>
-<header>
-    <nav class="nav-container">
-        <div class="express-logo">
-            <img src="../principal/images/logo/logo.png" alt="Logo Express">
+<nav class="nav-container">
+            <div class="express-logo" onclick="window.location.href='../../../newsource/paginas/principal/pagina.php';">
+                <img src="../principal/images/logo/logo.png" alt="Logo Express">
+            </div>
+
+            <div class="nav-item rem-9">
+                <img src="../principal/images/svg/map-local.svg" alt="Atualizar CEP">
+                <p>Atualizar CEP</p>
+            </div>
+
+            <div class="search-container">
+                <input type="text" placeholder="Buscar na Express"=>
+                <div class="search-icon">
+                    <img src="../principal/images/svg/search.svg" alt="">
+                </div>
+            </div>
+
+            <div class="nav-item rem-9" id="login">
+                <p class="wrap" onmouseenter="showLoginPopup()" onmouseleave="hideLoginPopup()">faça seu login.</p>
+            </div>
+
+            <div class="nav-item rem-9">
+                <p class="">Pedidos<br>e Devoluções</p>
+            </div>
+
+            <div class="nav-item rem-9">
+                <img src="../principal/images/svg/shopping_cart.svg" alt="Atualizar CEP">
+                <p>Carrinho</p>
+            </div>
+        </nav>
+    </header>
+
+        <!--    NAV INFERIOR-->
+        <div class="botton-nav">
+        <div class="menu">
+            <div class="option todos-menu">
+                <img src="../principal/images/svg/menu.svg" alt="">
+                <p>Todos</p>
+            </div>
+            <div class="option">
+                <p>Venda na Express</p>
+            </div>
+            <div class="option">
+                <p>Ofertas do Dia</p>
+            </div>
+            <div class="option">
+                <p>Mais Vendidos</p>
+            </div>
+            <div class="option">
+                <p>Comprar Novamente</p>
+            </div>
         </div>
-
-        <div class="nav-item rem-9">
-            <img src="../principal/images/svg/map-local.svg" alt="Atualizar CEP">
-            <p>Atualizar CEP</p>
-        </div>
-
-        <form class="search-container" action="teste-listagem.php" method="get">
-            <input type="text" name="query" placeholder="Buscar na Express" required>
-            <button style="border: none;" type="submit" class="search-icon" aria-label="Buscar">
-                <img src="../principal/images/svg/search.svg" alt="Buscar">
-            </button>
-        </form>
-
-
-        <div class="nav-item rem-9" id="login">
-            <p class="wrap" onmouseenter="showLoginPopup()" onmouseleave="hideLoginPopup()">faça seu login.</p>
-        </div>
-
-        <div class="nav-item rem-9">
-            <p class="">Pedidos<br>e Devoluções</p>
-        </div>
-
-        <div class="nav-item rem-9">
-            <img src="../principal/images/svg/shopping_cart.svg" alt="Atualizar CEP">
-            <p>Carrinho</p>
     </div>
-    </nav>
-</header>
-
-<!--    NAV INFERIOR-->
-<div class="botton-nav">
-    <div class="menu">
-        <div class="option todos-menu">
-            <img src="../principal/images/svg/menu.svg" alt="">
-            <p>Todos</p>
-        </div>
-        <div class="option">
-            <p>Venda na Express</p>
-        </div>
-        <div class="option">
-            <p>Ofertas do Dia</p>
-        </div>
-        <div class="option">
-            <p>Mais Vendidos</p>
-        </div>
-        <div class="option">
-            <p>Comprar Novamente</p>
-        </div>
-    </div>
-</div>
 </body>
 </html>

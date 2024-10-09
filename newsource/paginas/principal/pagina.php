@@ -40,6 +40,12 @@ function calcularDesconto($preco, $preco_com_desconto, $percentual_desconto) {
         ];
     }
 }
+function logout() {
+    session_destroy();
+}
+    if (isset($_POST['logout'])) {
+        logout(); 
+    }
 ?>
 
 
@@ -58,7 +64,9 @@ function calcularDesconto($preco, $preco_com_desconto, $percentual_desconto) {
 <?php include 'nav.php'; ?>
 <!--    POPUP - LOGIN-->
 <div id="login-popup" class="form" style="display: flex;" onmouseenter="keepLoginPopup()" onmouseleave="hideLoginPopupWithDelay()">
-    <button class="button-submit" type="submit">Fazer Login</button>
+   <a href="login.php">
+   <button class="button-submit" type="submit">Fazer Login</button>
+   </a>
     <p class="p">Não tem uma conta Express? <span class="span">Cadastre-se</span></p>
 </div>
 
