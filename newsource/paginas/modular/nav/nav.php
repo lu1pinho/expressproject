@@ -63,13 +63,13 @@
 <div class="popup-todos">
     <div class="categoria">
         <ul>
-            <li><a href="#">Eletrônicos</a></li>
-            <li><a href="#">Informática</a></li>
-            <li><a href="#">Smartphones</a></li>
-            <li><a href="#">TV e Vídeo</a></li>
-            <li><a href="#">Áudio</a></li>
-            <li><a href="#">Games</a></li>
-            <li><a href="#">Tablets</a></li>
+            <li><a href="/expressproject/newsource/paginas/categorias/categoria.php?departamento=eletronicos">Eletrônicos</a></li>
+            <li><a href="/expressproject/newsource/paginas/categorias/categoria.php?departamento=notebooks">Notebooks</a></li>
+            <li><a href="/expressproject/newsource/paginas/categorias/categoria.php?departamento=smartphones">Smartphones</a></li>
+            <li><a href="/expressproject/newsource/paginas/categorias/categoria.php?departamento=televisores">Televisores</a></li>
+            <li><a href="/expressproject/newsource/paginas/categorias/categoria.php?departamento=caixas_de_som"">Áudio</a></li>
+            <li><a href="/expressproject/newsource/paginas/categorias/categoria.php?departamento=impressoras">Impressoras</a></li>
+            <li><a href="/expressproject/newsource/paginas/categorias/categoria.php?departamento=tablets">Tablets</a></li>
         </ul>
     </div>
 </div>

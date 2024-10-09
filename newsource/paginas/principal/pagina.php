@@ -66,12 +66,14 @@ function calcularDesconto($preco, $preco_com_desconto, $percentual_desconto) {
             <p>Atualizar CEP</p>
         </div>
 
+        <form class="search-form" method="get" action="../categorias/categoria.php">
         <div class="search-container">
-            <input type="text" placeholder="Buscar na Express"=>
-            <div class="search-icon">
-                <img src="../principal/images/svg/search.svg" alt="">
-            </div>
+                    <input type="text" placeholder="Buscar na Express">
+                <div class="search-icon">
+                    <img src="../principal/images/svg/search.svg" alt="">
+                </div>
         </div>
+        </form>
 
         <div class="nav-item rem-9" id="login">
             <p class="wrap" onmouseenter="showLoginPopup()" onmouseleave="hideLoginPopup()">faça seu login.</p>
@@ -119,13 +121,13 @@ function calcularDesconto($preco, $preco_com_desconto, $percentual_desconto) {
 <div class="popup-todos">
     <div class="categoria">
         <ul>
-            <li><a href="#">Eletrônicos</a></li>
-            <li><a href="#">Informática</a></li>
-            <li><a href="#">Smartphones</a></li>
-            <li><a href="#">TV e Vídeo</a></li>
-            <li><a href="#">Áudio</a></li>
-            <li><a href="#">Games</a></li>
-            <li><a href="#">Tablets</a></li>
+            <li><a href="../categorias/categoria.php?departamento=eletronicos">Eletrônicos</a></li>
+            <li><a href="../categorias/categoria.php?departamento=notebooks">Notebooks</a></li>
+            <li><a href="../categorias/categoria.php?departamento=smartphones">Smartphones</a></li>
+            <li><a href="../categorias/categoria.php?departamento=televisores">Televisores</a></li>
+            <li><a href="../categorias/categoria.php?departamento=caixas_de_som"">Áudio</a></li>
+            <li><a href="../categorias/categoria.php?departamento=impressoras">Impressoras</a></li>
+            <li><a href="../categorias/categoria.php?departamento=tablets">Tablets</a></li>
         </ul>
     </div>
 </div>

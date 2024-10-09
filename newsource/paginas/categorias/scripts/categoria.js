@@ -1,3 +1,25 @@
+document.getElementById('aplicar').addEventListener('click', function() {
+    // Coletando valores dos filtros
+    let departamento = document.getElementById('departamento').value;
+    let precoMin = document.getElementById('fromInput').value;
+    let precoMax = document.getElementById('toInput').value;
+    let ofertas = document.getElementById('ofertas').checked ? 1 : 0;
+    let descontos = document.getElementById('descontos').checked ? 1 : 0;
+    let freteGratis = document.getElementById('frete').checked ? 1 : 0;
+    let express = document.getElementById('express').checked ? 1 : 0;
+
+    // Enviando os filtros para o backend
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', `categoria.php?departamento=${departamento}&precoMin=${precoMin}&precoMax=${precoMax}&ofertas=${ofertas}&descontos=${descontos}&freteGratis=${freteGratis}&express=${express}`, true);
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            document.querySelector('.produtos').innerHTML = xhr.responseText; // Atualiza a lista de produtos
+        }
+    };
+    xhr.send();
+});
+
+
 const fromSlider = document.querySelector('#fromSlider');
 const toSlider = document.querySelector('#toSlider');
 const fromInput = document.querySelector('#fromInput');
@@ -90,14 +112,17 @@ countProducts();
 function countProducts() {
     const productsCountElements = document.querySelectorAll('.produtos .produto');
     const productsCount = productsCountElements.length;
+    const aside = document.querySelector('aside');
 
     // Seleciona a primeira <section> encontrada
     const sidebar = document.getElementsByTagName("section")[0];
 
     if (sidebar) {
         // Ajusta a altura da sidebar multiplicando 20vw pelo número de produtos
-        sidebar.style.height = (13 * productsCount-2) + 'vw';
+        aside.style.height = ((productsCount/2) *250) + 'px';
     } else {
         console.log("Nenhuma <section> encontrada.");
+
     }
 }
+

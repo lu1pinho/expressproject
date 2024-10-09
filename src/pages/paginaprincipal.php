@@ -39,7 +39,6 @@
         </button>
     </form>
 </div>
-
       <div class="divs" >
       <div class="contas">
         <?php if (isset($_SESSION['nome'])): ?>
