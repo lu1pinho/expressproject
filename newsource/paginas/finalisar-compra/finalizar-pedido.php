@@ -124,7 +124,10 @@ $conn->close();
                     <p class="endereco-texto"><?php echo $enderecoCompleto; ?></p>
                 </div>
                 <a href="dados-usuario.php">
-                    <button class="btn-editar">Editar ou escolher outro endereço</button>
+                    <a href="">
+                        <button class="btn-editar">Editar ou escolher outro endereço</button>
+
+                    </a>
                 </a>
             <?php endif; ?>
         </section>
@@ -183,7 +186,10 @@ $conn->close();
             <p>Total</p>
             <p>R$ <?php echo number_format($total_produtos + $frete, 2, ',', '.'); ?></p>
         </div>
-        <button class="btn-continuar">Continuar a compra</button>
+        <a href="../finalisar-compra/forma-de-pagamento.php">
+            <button class="btn-continuar">Continuar a compra</button>
+
+        </a>
     </section>
 
 </body>
