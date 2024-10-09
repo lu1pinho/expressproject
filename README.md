@@ -417,6 +417,83 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
   </tbody>
 </table>
 
+<table>
+    <thead>
+        <tr>
+            <th>Tarefa</th>
+            <th>Tipo de Funcionalidade</th>
+            <th>Responsável</th>
+            <th>Data de Início</th>
+            <th>Data de Término</th>
+            <th>Duração (em dias úteis)</th>
+            <th>Status</th>
+            <th>Notas</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Model: Integração com o backend para armazenar produtos criados</td>
+            <td>Model (Backend)</td>
+            <td>Neci</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>Pendente</td>
+            <td>Implementar a lógica de armazenamento de produtos no banco de dados após a criação</td>
+        </tr>
+        <tr>
+            <td>View: Desenvolvimento da Página do Vendedor</td>
+            <td>View (Interface do Usuário - UI)</td>
+            <td>Dallyla</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>Pendente</td>
+            <td>Exibição de produtos vendidos e dados do vendedor</td>
+        </tr>
+        <tr>
+            <td>View: Implementação da Página de Adicionar Produtos</td>
+            <td>View (Interface do Usuário - UI)</td>
+            <td>Heloisa</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>Pendente</td>
+            <td>Formulário para que o vendedor possa criar novos produtos</td>
+        </tr>
+        <tr>
+            <td>Controller: Conectar View e Model para criar e exibir produtos</td>
+            <td>Controller (Lógica de Negócio)</td>
+            <td>Mara</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>Pendente</td>
+            <td>Implementar a lógica para conectar a exibição da página com o backend e garantir a criação e exibição corretas de produtos</td>
+        </tr>
+        <tr>
+            <td>Refatoração do Código</td>
+            <td>Manutenção e Melhoria de Código</td>
+            <td>Luís</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>Pendente</td>
+            <td>Melhorar a legibilidade, modularidade e eficiência do código, sem alterar as funcionalidades</td>
+        </tr>
+        <tr>
+            <td>Testes de funcionalidades para vendedores</td>
+            <td>Testes e Validação</td>
+            <td>Dallyla</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>Pendente</td>
+            <td>Garantir que as funcionalidades de gerenciamento de produtos do vendedor estejam corretas</td>
+        </tr>
+    </tbody>
+</table>
+
 # SPRINTS
 ## Sprint 1: Configuração Inicial e Infraestrutura
 Objetivo: Configurar o ambiente de desenvolvimento, banco de dados, autenticação e autorização.
