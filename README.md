@@ -403,7 +403,6 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
       <td>Concluído</td>
       <td>Conectar API do carrinho ao frontend para atualização e persistência dos dados</td>
     </tr>
-      
     <tr>
       <td>Testes de Funcionalidade do Carrinho</td>
       <td>Testes</td>
