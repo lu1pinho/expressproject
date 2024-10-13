@@ -107,7 +107,7 @@ if (isset($_POST['logout'])) {
                     if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
                             echo "<div class='product-item' style='text-align: center; width: 150px; height: 150px'>";
-                            echo "<a href='individual-product.php?id=" . htmlspecialchars($row['id']) . "'>";
+                            echo "<a href='..\produto-individual\produto.php?id=" . htmlspecialchars($row['id']) . "'>";
                             
                             // Adiciona um div com fundo branco ao redor da imagem
                             echo "<div style='background-color: white; padding: 10px; display: inline-block; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);'>";
@@ -196,7 +196,7 @@ if (isset($_POST['logout'])) {
 
                     while ($row = $result->fetch_assoc()) {
                         echo "<div class='product-item' style='text-align: center; width: 150px;'>";
-                        echo "<a href='individual-product.php?id=" . htmlspecialchars($row['id']) . "'>";
+                        echo "<a href='..\produto-individual\produto.php?id=" . htmlspecialchars($row['id']) . "'>";
                         echo "<div style='background-color: white; padding: 10px; display: inline-block; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);'>";
                         echo "<img src='" . CAMINHO_IMAGENS . htmlspecialchars($row['url_img']) . "' alt='" . htmlspecialchars($row['nome']) . "' class='product-image'>";
                         echo "</div>";

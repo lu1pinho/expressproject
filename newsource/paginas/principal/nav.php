@@ -50,10 +50,14 @@ html {
 
 body {
     font-family: 'Inter', sans-serif;
-    background-image: linear-gradient(to top, #f5f5f5, #000000);
+    background-image: linear-gradient(to top, #f5f5f5, #ffff);
     background-repeat: no-repeat;
+    background-color: white;
 }
 
+header{
+    background-color:#001C36;
+}
 
 /*Logo*/
 .express-logo img{
@@ -201,7 +205,7 @@ body {
     padding-left: 110px;
     position: relative;
     z-index: 2;
-
+    font-family: Inter;
 
     & .menu {
         display: flex;
@@ -309,7 +313,7 @@ body {
         <div class="nav-item rem-9">
             <img src="../principal/images/svg/shopping_cart.svg" alt="Atualizar CEP">
             <p>Carrinho</p>
-        </div
+    </div>
     </nav>
 </header>
 

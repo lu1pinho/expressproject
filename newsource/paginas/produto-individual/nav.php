@@ -1,4 +1,11 @@
-@font-face {
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    @font-face {
     font-family: 'Inter';
     src: url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
     font-display: swap;
@@ -308,285 +315,61 @@ body {
     }
 
 }
+  </style>
+</head>
+<body>
+<nav class="nav-container">
+            <div class="express-logo" onclick="window.location.href='../../../newsource/paginas/principal/pagina.php';">
+                <img src="../principal/images/logo/logo.png" alt="Logo Express">
+            </div>
 
-/* Main*/
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+            <div class="nav-item rem-9">
+                <img src="../principal/images/svg/map-local.svg" alt="Atualizar CEP">
+                <p>Atualizar CEP</p>
+            </div>
 
-    & .product-full-description{
-        width: 1200px;
+            <div class="search-container">
+                <input type="text" placeholder="Buscar na Express"=>
+                <div class="search-icon">
+                    <img src="../principal/images/svg/search.svg" alt="">
+                </div>
+            </div>
 
-        #text-desc {
-            font-size: 1rem;
-            color: #000000;
-            font-weight: 400;
-            margin-bottom: 10px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #b3b3b3;
-        }
+            <div class="nav-item rem-9" id="login">
+                <p class="wrap" onmouseenter="showLoginPopup()" onmouseleave="hideLoginPopup()">faça seu login.</p>
+            </div>
 
-        p {
-            font-size: 1rem;
-            color: #000000;
-            margin-bottom: 20px;
-        }
+            <div class="nav-item rem-9">
+                <p class="">Pedidos<br>e Devoluções</p>
+            </div>
 
-        & .description {
-            margin-top: 20px;
-        }
-    }
-}
+            <div class="nav-item rem-9">
+                <img src="../principal/images/svg/shopping_cart.svg" alt="Atualizar CEP">
+                <p>Carrinho</p>
+            </div>
+        </nav>
+    </header>
 
-
-.product-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    gap: 30px;
-    padding: 20px;
-    background-color: white;
-    color: black;
-    width: 1300px;
-    font-size: 1rem;
-
-    & .favorite {
-        display: flex;
-        position: relative;
-        justify-content: center;
-        align-items: center;
-        bottom: 55px;
-        left: 610px;
-        width: 50px;
-        height: 50px;
-        z-index: 55;
-        -webkit-user-select: none; /* Para navegadores WebKit como Chrome e Safari */
-        -moz-user-select: none; /* Para Firefox */
-
-        &:hover {
-            cursor: pointer;
-        }
-    }
-
-    & #product-img {
-        width: 500px;
-        height: auto;
-        image-rendering: high-quality;
-        -webkit-user-select: none; /* Para navegadores WebKit como Chrome e Safari */
-        -moz-user-select: none; /* Para Firefox */
-        -webkit-user-drag: none; /* Para Chrome, Safari e Opera */
-        user-select: none; /* Para evitar seleção de texto */
-    }
-
-    & .product-info {
-        display: flex;
-        flex-direction: column;
-        padding-top: 100px;
-        gap: 10px;
-        width: 600px;
-        height: 600px;
-        word-wrap: break-word;
-
-        h1{
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #000000;
-            margin-bottom: 10px;
-        }
-
-        & .values{
-            display: flex;
-            flex-direction: row;
-            gap: 10px;
-            align-items: center;
-            justify-content: center;
-
-            & .price{
-                display: flex;
-                flex-direction: column;
-                gap: 10px;
-                span:first-child {
-                    font-size: 1.0rem;
-                    color: #7B7B7B;
-                    text-decoration: line-through;
-
-                }
-                p {
-                    font-size: 1.5rem;
-                    font-weight: bold;
-                    color: #000000;
-                }
-                span:last-child {
-                    font-size: 1.0rem;
-                    color: #7B7B7B;
-                }
-            }
-
-            & .discount {
-                border-left: 1px solid black;
-                padding-left: 50px;
-
-                p {
-                    font-size: 1.5rem;
-                    font-weight: bold;
-                    color: #000000;
-                    word-wrap: break-word;
-                    width: 300px;
-                }
-            }
-        }
-
-        & .short-description{
-            margin-top: 10px;
-            ul {
-                list-style-type: none;
-            }
-        }
-
-
-        & .buy {
-            display: flex;
-            flex-direction: row;
-            gap: 10px;
-            align-items: center;
-            justify-content: center;
-            margin-top: 20px;
-
-            button {
-                background-color: var(--color-orange);
-                border: none;
-                color: white;
-                font-size: 1rem;
-                font-weight: 500;
-                border-radius: 10px;
-                height: 40px;
-                width: 300px;
-                cursor: pointer;
-                transition: all 0.3s;
-                z-index: 3;
-                -webkit-user-select: none; /* Para navegadores WebKit como Chrome e Safari */
-                -moz-user-select: none; /* Para Firefox */
-
-
-                &:last-child {
-                    background-color: white;
-                    border: 1px solid var(--color-orange);
-                    color: var(--color-orange);
-
-                    &:hover {
-                        transform: scale(1.02);
-                    }
-                }
-
-            }
-
-            button:first-child {
-                &:first-child:hover {
-                    animation: headShake 0.5s linear;
-                    animation-duration: 2s;
-                    animation-iteration-count: 1;
-                    background-color: var(--color-light-orange);
-                }
-            }
-        }
-
-        & .popup-cart {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            visibility: hidden;
-            width: 200px;
-            height: 20px;
-            border-radius: 5px;
-            background-color: var(--color-secondary);
-            position: relative;
-            left: 350px;
-            z-index: 2;
-            transition: all 0.3s;
-
-            & p {
-                color: white;
-                font-size: 0.8rem;
-            }
-        }
-
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*Footer*/
-
-.footer-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 80px;
-    padding: 20px;
-    height: 250px;
-    margin-top: 100px;
-    background-color: white;
-    color: black;
-    border-top: 1px solid #d3d3d3;
-
-    & img {
-        width: 200px;
-        height: auto;
-    }
-
-}
-
-.footer-item {
-    display: flex;
-    flex-direction: column; /* Para empilhar os links verticalmente */
-    align-items: flex-start; /* Alinha os itens à esquerda */
-    height: 150px;
-
-    &:first-child {
-        align-items: center;
-        margin-right: 50px;
-    }
-
-    & h3{
-        font-size: 1rem;
-        font-weight: bold;
-        margin-bottom: 10px;
-    }
-
-    & .payments {
-        width: 180px;
-        margin-right: 10px;
-    }
-}
-
-.footer-item a {
-    text-decoration: none;
-    color: black;
-    margin: 5px 0;
-    transition: all 0.3s;
-    font-size: 0.9rem;
-    border-bottom: 1px solid transparent;
-}
-
-.footer-item a:hover {
-    color: orange;
-    border-bottom: 1px solid orange;
-}
+        <!--    NAV INFERIOR-->
+        <div class="botton-nav">
+        <div class="menu">
+            <div class="option todos-menu">
+                <img src="../principal/images/svg/menu.svg" alt="">
+                <p>Todos</p>
+            </div>
+            <div class="option">
+                <p>Venda na Express</p>
+            </div>
+            <div class="option">
+                <p>Ofertas do Dia</p>
+            </div>
+            <div class="option">
+                <p>Mais Vendidos</p>
+            </div>
+            <div class="option">
+                <p>Comprar Novamente</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

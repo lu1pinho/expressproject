@@ -3,7 +3,8 @@ $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
 // Incluindo conexão
 include_once 'C:/xampp/htdocs/expressproject/src/settings/connection.php';
-
+// Define o caminho para as imagens
+define('CAMINHO_IMAGENS', '../../produtos/');
 // Verificando a conexão
 if (empty($conn) || $conn->connect_error) {
     die("Falha na conexão: " . (isset($conn->connect_error) ? $conn->connect_error : "Conexão não estabelecida."));
@@ -41,6 +42,7 @@ $stmt->close();
 
 // Função para formatar texto
 require 'C:\xampp\htdocs\expressproject\vendor\erusev\parsedown\Parsedown.php';
+
 function formatText($text) {
     // Permitir apenas algumas tags HTML
     $allowed_tags = '<h1><h2><h3><p><strong><em><div><br><ul><li>'; // Adicione outras tags que você deseja permitir
@@ -83,8 +85,9 @@ session_start();
 function logout() {
     session_destroy();
 }
+
 if (isset($_POST['logout'])) {
-    logout();
+    logout(); 
 }
 ?>
 
@@ -101,80 +104,7 @@ if (isset($_POST['logout'])) {
     <title><?php echo htmlspecialchars($nome); ?></title>
 </head>
 <body>
-    <header>
-        <nav class="nav-container">
-            <div class="express-logo" onclick="window.location.href='../../../newsource/paginas/principal/pagina.php';">
-                <img src="../principal/images/logo/logo.png" alt="Logo Express">
-            </div>
-
-            <div class="nav-item rem-9">
-                <img src="../principal/images/svg/map-local.svg" alt="Atualizar CEP">
-                <p>Atualizar CEP</p>
-            </div>
-
-            <div class="search-container">
-                <input type="text" placeholder="Buscar na Express"=>
-                <div class="search-icon">
-                    <img src="../principal/images/svg/search.svg" alt="">
-                </div>
-            </div>
-
-            <div class="nav-item rem-9" id="login">
-                <p class="wrap" onmouseenter="showLoginPopup()" onmouseleave="hideLoginPopup()">faça seu login.</p>
-            </div>
-
-            <div class="nav-item rem-9">
-                <p class="">Pedidos<br>e Devoluções</p>
-            </div>
-
-            <div class="nav-item rem-9">
-                <img src="../principal/images/svg/shopping_cart.svg" alt="Atualizar CEP">
-                <p>Carrinho</p>
-            </div
-        </nav>
-    </header>
-
-    <!--    NAV INFERIOR-->
-    <div class="botton-nav">
-        <div class="menu">
-            <div class="option todos-menu">
-                <img src="../principal/images/svg/menu.svg" alt="">
-                <p>Todos</p>
-            </div>
-            <div class="option">
-                <p>Venda na Express</p>
-            </div>
-            <div class="option">
-                <p>Ofertas do Dia</p>
-            </div>
-            <div class="option">
-                <p>Mais Vendidos</p>
-            </div>
-            <div class="option">
-                <p>Comprar Novamente</p>
-            </div>
-        </div>
-    </div>
-
-    <!--    POPUP - LOGIN-->
-    <div id="login-popup" class="form" style="display: flex;" onmouseenter="keepLoginPopup()" onmouseleave="hideLoginPopupWithDelay()">
-        <button class="button-submit" type="submit">Fazer Login</button>
-        <p class="p">Não tem uma conta Express? <span class="span">Cadastre-se</span></p>
-    </div>
-
-    <div class="popup-todos">
-        <div class="categoria">
-            <ul>
-                <li><a href="#">Eletrônicos</a></li>
-                <li><a href="#">Informática</a></li>
-                <li><a href="#">Smartphones</a></li>
-                <li><a href="#">TV e Vídeo</a></li>
-                <li><a href="#">Áudio</a></li>
-                <li><a href="#">Games</a></li>
-                <li><a href="#">Tablets</a></li>
-            </ul>
-        </div>
-    </div>
+    <?php include 'nav.php'?>
 
     <main>
         <div class="product-container">
@@ -202,10 +132,53 @@ if (isset($_POST['logout'])) {
                 <div class="popup-cart">
                     <p>Adicionado Ao Carrinho!</p>
                 </div>
+                <!-- Adicionando ao carrinho -->
+                <form action="carrinho.php" method="POST">
+                <input type="hidden" name="produto_nome" value="<?php echo htmlspecialchars($nome); ?>">
+                <div class="product-image">
+                    <input type="hidden" name="produto_imagem" value="<?php echo CAMINHO_IMAGENS . htmlspecialchars($url_img); ?>">
+                </div>
+                <input type="hidden" name="produto_preco" value="<?php echo htmlspecialchars($preco); ?>"> <!-- Mantendo o valor original -->
+                <input type="hidden" name="produto_preco_desconto" value="<?php echo htmlspecialchars($precodesconto); ?>"> <!-- Preço com desconto -->
                 <div class="buy">
-                    <button>Comprar</button>
+                    <button style="margin-top:30px" >Comprar</button>
+                <div class="up" >
+                <select style="margin-bottom: 10px; margin-left: 5px" name="quantidade" id="quantidade" value="1" min="1" required>
+                <option value="1" selected>Quantidade: 1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                </select>
                     <button id="addcart">Adicionar Ao Carrinho</button>
                 </div>
+                </div>
+                </form>
                 <div class="favorite">
                     <img class="love-icon" src="../produto-individual/img/svg/heart-thin-icon.svg" alt="Favoritar" width="30px">
                 </div>
