@@ -492,6 +492,16 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
             <td>Pendente</td>
             <td>Garantir que as funcionalidades de gerenciamento de produtos do vendedor estejam corretas</td>
         </tr>
+      <tr>
+            <td>Reestruturação da Arquitetura MVC</td>
+            <td>Arquitetura (Todos)</td>
+            <td>Todos</td>
+            <td>-</td>
+            <td>16/10</td>
+            <td>-</td>
+            <td>Pendente</td>
+            <td>Reestruturar a arquitetura MVC em todas as páginas do projeto</td>
+        </tr>
     </tbody>
 </table>
 
