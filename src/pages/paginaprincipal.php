@@ -39,7 +39,6 @@
         </button>
     </form>
 </div>
-
       <div class="divs" >
       <div class="contas">
         <?php if (isset($_SESSION['nome'])): ?>
@@ -47,7 +46,7 @@
         <a href="#">Seus Dados</a>
         <?php else: ?>
         <p>Olá, faça seu login</p>
-        <a href="#">Seus Dados</a>
+        <a href="#">Abra sua conta</a>
         <div class="tooltip">
         <a href="login.php">
             <button>Faça seu login</button>

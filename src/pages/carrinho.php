@@ -18,12 +18,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'url_img' => $_POST['produto_imagem'],
             'preco' => (float) $_POST['produto_preco'], // Preço original
             // Preço com desconto
+<<<<<<< HEAD
             'preco_com_desconto' => (isset($_POST['produto_preco_desconto']) && $_POST['produto_preco_desconto'] != '') 
                                      ? (float) $_POST['produto_preco_desconto'] 
                                      : null,
             'quantidade' => (int) $_POST['quantidade']
         ];
         
+=======
+            'preco_com_desconto' => (isset($_POST['produto_preco_desconto']) && $_POST['produto_preco_desconto'] != '')
+                ? (float) $_POST['produto_preco_desconto']
+                : null,
+            'quantidade' => (int) $_POST['quantidade']
+        ];
+
+>>>>>>> f43f6494597c7ec68f9865815292fb2708056e5a
         $_SESSION['carrinho'][] = $produto; // Adiciona o produto ao carrinho
     }
 
@@ -46,10 +55,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 }
+<<<<<<< HEAD
+=======
+
+// Verifica se produtos foram selecionados e calcula o total
+if (isset($_POST['produtos_selecionados'])) {
+    foreach ($_POST['produtos_selecionados'] as $index) {
+        if (isset($_SESSION['carrinho'][$index])) {
+            $item = $_SESSION['carrinho'][$index];
+            $preco_final = $item['preco_com_desconto'] ?? $item['preco']; // Usa o preço com desconto se existir
+            $total += $preco_final * $item['quantidade'];
+        }
+    }
+}
+>>>>>>> f43f6494597c7ec68f9865815292fb2708056e5a
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
+<<<<<<< HEAD
+=======
+
+>>>>>>> f43f6494597c7ec68f9865815292fb2708056e5a
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -57,6 +84,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="../stylesheets/carrinho.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
+<<<<<<< HEAD
+=======
+
+>>>>>>> f43f6494597c7ec68f9865815292fb2708056e5a
 <body>
     <header>
         <div class="navbar">
@@ -79,6 +110,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="divs">
                 <div class="contas">
                     <?php if (isset($_SESSION['nome'])): ?>
+<<<<<<< HEAD
                     <p>Olá, <?php echo $_SESSION['nome']; ?>!</p>
                     <a href="#">Seus Dados</a>
                     <?php else: ?>
@@ -93,6 +125,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <a style="color: #001f54; font-size: 13px;" href="cadastro.php">Comece aqui.</a>
                         </div>
                     </div>
+=======
+                        <p>Olá, <?php echo $_SESSION['nome']; ?>!</p>
+                        <a href="#">Seus Dados</a>
+                    <?php else: ?>
+                        <p>Olá, faça seu login</p>
+                        <a href="#">Abra sua conta</a>
+                        <div class="tooltip">
+                            <a href="login.php">
+                                <button>Faça seu login</button>
+                            </a>
+                            <div class="inline">
+                                <p>Cliente novo?</p>
+                                <a style="color: #001f54; font-size: 13px;" href="cadastro.php">Comece aqui.</a>
+                            </div>
+                        </div>
+>>>>>>> f43f6494597c7ec68f9865815292fb2708056e5a
                     <?php endif; ?>
                 </div>
 
@@ -125,75 +173,61 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 
     <div class="juntando">
-    <div class="container">
-        <div class="cart">
-            <div class="back-button">
-                <a href="javascript:void(0);" class="arrow-link" onclick="goBack()">
-                    <span class="arrow">&#8592;</span>
-                </a> 
-                <span>Carrinho</span>
-            </div>
 
-            <!-- Verificar se o carrinho está vazio -->
-            <?php if (empty($_SESSION['carrinho'])): ?>
+        <div class="container">
+            <div class="cart">
+                <div class="back-button">
+                    <a href="javascript:void(0);" class="arrow-link" onclick="goBack()">
+                        <span class="arrow">&#8592;</span>
+                    </a>
+                    <span>Carrinho</span>
+                </div>
+
+                <!-- Verificar se o carrinho está vazio -->
+                <?php if (empty($_SESSION['carrinho'])): ?>
+
                     <p>Seu carrinho está vazio.</p>
                 <?php else: ?>
                     <form action="carrinho.php" method="POST" id="carrinhoForm">
                         <?php foreach ($_SESSION['carrinho'] as $index => $item): ?>
                             <div class="cart-item">
-                                <!-- Adicionando a checkbox para selecionar o produto -->
-                                <input class="check" type="checkbox" name="produtos_selecionados[]" value="<?= $index; ?>" checked onchange="document.getElementById('carrinhoForm').submit();">
+
+                                <input class="check" type="checkbox" name="produtos_selecionados[]" value="<?= $index; ?>"
+                                    <?= (isset($_POST['produtos_selecionados']) && in_array($index, $_POST['produtos_selecionados'])) ? 'checked' : ''; ?>
+                                    onchange="document.getElementById('carrinhoForm').submit();">
+
                                 <img src="<?= htmlspecialchars($item['url_img']); ?>" alt="<?= htmlspecialchars($item['nome']); ?>" class="product-image">
                                 <div class="product-details">
                                     <a href="#"><?= htmlspecialchars($item['nome']); ?></a>
-                                    <?php
-                                        $produto_preco = (float) $item['preco'];
-                                        $produto_preco_desconto = isset($item['preco_com_desconto']) ? (float) $item['preco_com_desconto'] : null;
+                                    <p>R$ <?= number_format($item['preco'], 2, ',', '.'); ?></p>
+                                </div>
+                                <div class="quantity-control">
+                                    <input type="hidden" name="index" value="<?= $index; ?>">
+                                    <button type="submit" name="alterar_quantidade" value="plus" class="btn-quantity">+</button>
+                                    <label class="quantity-label" for="item<?= $index; ?>-quantity"><?= $item['quantidade']; ?></label>
+                                    <button type="submit" name="alterar_quantidade" value="minus" class="btn-quantity">-</button>
+                                </div>
+                                <button type="submit" name="remover_item" class="remove-item">&#128465;</button>
+                            </div>
+                        <?php endforeach; ?>
+                    </form>
+                <?php endif; ?>
+            </div>
+        </div>
 
-                                        if ($produto_preco_desconto !== null && $produto_preco_desconto < $produto_preco) {
-                                            echo "<p>R$ " . number_format($produto_preco_desconto, 2, ',', '.') . "</p>";
-                                        } else {
-                                            echo "<p>R$ " . number_format($produto_preco, 2, ',', '.') . "</p>";
-                                        }
-
-                                        $preco_final = $produto_preco_desconto !== null ? $produto_preco_desconto : $produto_preco;
-
-                                        // Verificar se o produto está marcado (selecionado) para somar ao total
-                                        if (isset($_POST['produtos_selecionados']) && in_array($index, $_POST['produtos_selecionados'])) {
-                                            $total += $preco_final * $item['quantidade'];
-                                        }
-                                    ?>
-                        </div>
-                        <div class="quantity-control">
-                            <form action="carrinho.php" method="POST">
-                                <input type="hidden" name="index" value="<?= $index; ?>">
-                                <button type="submit" name="alterar_quantidade" value="plus" class="btn-quantity">+</button>
-                                <label class="quantity-label" for="item<?= $index; ?>-quantity"><?= $item['quantidade']; ?></label>
-                                <button type="submit" name="alterar_quantidade" value="minus" class="btn-quantity">-</button>
-                            </form>
-                        </div>
-                        <form action="carrinho.php" method="POST">
-                            <input type="hidden" name="index" value="<?= $index; ?>">
-                            <button type="submit" name="remover_item" class="remove-item">&#128465;</button>
-                        </form>
-                    </div>
-                <?php endforeach; ?>
-            <?php endif; ?>
+        <div class="container2">
+            <h3> Subtotal: R$ <?= number_format($total, 2, ',', '.'); ?></h3>
+            <button class="checkout-button">Fechar Pedido</button>
         </div>
     </div>
 
-    <div class="container2">
-        <h3> Subtotal:  R$ <?= number_format($total, 2, ',', '.'); ?></h3>
-        <button class="checkout-button">Fechar Pedido</button>
-    </div>
-</div>
-
 
     <script>
-    function goBack() {
-        console.log('Voltar clicado'); // Adiciona log para depuração
-        window.history.back(); // Redireciona para a página anterior
-    }
+        function goBack() {
+            console.log('Voltar clicado'); // Adiciona log para depuração
+            window.history.back(); // Redireciona para a página anterior
+        }
     </script>
 </body>
+
 </html>

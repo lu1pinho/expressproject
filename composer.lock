@@ -529,6 +529,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "erusev/parsedown": 20,
         "vlucas/phpdotenv": 20
     },
     "prefer-stable": false,

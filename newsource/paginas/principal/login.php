@@ -23,7 +23,7 @@
                 $_SESSION['id'] = $usuario['id'];
                 $_SESSION['nome'] = $usuario['nome'];
                 //echo "<script>alert('SUCESSO');</script>";
-                header("Location: paginaprincipal.php");
+                header("Location: pagina.php");
             }else {
                echo "<script>alert('Falha ao logar! Nome de usuário ou senha incorretos');</script>";
                 //echo "Falha ao logar! Nome de usuário ou senha incorretos";
@@ -39,7 +39,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tela de login</title>
-    <link rel="stylesheet" href="../stylesheets/login.css">
+    <link rel="stylesheet" href="stylesheets/login.css">
 </head>
 
 <body>

@@ -269,7 +269,7 @@
                   // Adiciona um div com fundo branco ao redor da imagem
                   echo "<div style='background-color: white; padding: 10px; display: inline-block; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);'>";
                   echo "<img src='" . htmlspecialchars($row['url_img']) . "' alt='" . htmlspecialchars($row['nome']) . "' class='product-image' style='width: 150px; height: 150px;'>";
-                  echo "</div>";
+                  echo "</div >";
     
                   // Ajusta o estilo do parágrafo
                   echo "<p style='margin: 5px 0; word-wrap: break-word; text-align: left; font-family: Inter; padding-left: 10px; width: 130px;'>" . htmlspecialchars($row['nome']) . "</p>";
