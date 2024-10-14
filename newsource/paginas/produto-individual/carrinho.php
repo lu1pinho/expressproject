@@ -14,11 +14,11 @@ if (!isset($_SESSION['carrinho'])) {
 $total = 0;
 
 // Verificar se o usuário está logado
-if (isset($_SESSION['id'])) {
+/*if (isset($_SESSION['id'])) {
     $id_user = $_SESSION['id'];
 } else {
     die("Usuário não está logado. Por favor, faça o login para continuar.");
-}
+}*/
 
 // Adiciona o produto ao carrinho
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
