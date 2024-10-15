@@ -70,7 +70,7 @@ function logout() {
     <!--    POPUP - LOGIN-->
     <div id="login-popup" class="form" style="display: flex;" onmouseenter="keepLoginPopup()" onmouseleave="hideLoginPopupWithDelay()">
         <a href="login.php">
-            <button class="button-submit" href="../principal/login.php" type="submit">Fazer Login</button>
+            <button class="button-submit" type="submit">Fazer Login</button>
         </a>
     <p class="p">Não tem uma conta Express? <span class="span">Cadastre-se</span></p>
     </div>

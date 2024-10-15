@@ -1,7 +1,7 @@
 <?php
 global $conn;
 include 'C:/xampp/htdocs/expressproject/src/settings/connection.php';
-
+session_start();
 // Define o caminho para as imagens
 define('CAMINHO_IMAGENS', '../../produtos/');
 
@@ -97,7 +97,7 @@ $result_produtos = $conn->query($sql_produtos);
     <title>Categoria</title>
 </head>
 <body>
-<?php include('../modular/nav/nav.php'); ?>
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/expressproject/newsource/paginas/principal/nav.php'; ?>
 
 <main>
     <aside>

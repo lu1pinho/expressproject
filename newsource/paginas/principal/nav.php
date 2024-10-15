@@ -92,24 +92,24 @@ header{
         align-items: center;
         padding: 5px 10px;
         height: 100%;
-        width: auto;
-        border: 0.5px solid transparent;
-    }
+            width: auto;
+            border: 0.5px solid transparent;
+        }
 
-    & .nav-item p {
-        width: 100%;
-        color: white;
-        font-weight: 500;
-    }
+        & .nav-item p {
+            width: 100%;
+            color: white;
+            font-weight: 500;
+        }
 
-    & .nav-item:hover {
-        cursor: pointer;
-        border: 0.5px solid white;
-    }
+        & .nav-item:hover {
+            cursor: pointer;
+            border: 0.5px solid white;
+        }
 
-    .wrap {
+        .wrap {
         margin: 0;
-
+        
         &::before {
             content: 'Olá,\A ';
             white-space: pre-line;
@@ -117,13 +117,20 @@ header{
         }
     }
 
-    & .nav-item img {
-        margin-right: 10px;
-        min-width: 20px;
+        & .nav-item img {
+            margin-right: 10px;
+            min-width: 20px;
+        }
     }
+.option {
+    font-family: Roboto;
 }
-
-
+.coluna {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-right: 10px;
+}
 
 /*Form POPUP*/
 
@@ -294,7 +301,7 @@ header{
             <p>Atualizar CEP</p>
         </div>
 
-        <form class="search-container" action="teste-listagem.php" method="get">
+        <form class="search-container" action="..\categorias\categoria.php" method="get">
             <input type="text" name="query" placeholder="Buscar na Express" required>
             <button style="border: none;" type="submit" class="search-icon" aria-label="Buscar">
                 <img src="../principal/images/svg/search.svg" alt="Buscar">
@@ -303,9 +310,15 @@ header{
 
 
         <div class="nav-item rem-9" id="login">
+        <?php if (isset($_SESSION['nome'])): ?>
+            <div class="coluna" >
+            <p style="color: #959595;" >Olá, <?php echo $_SESSION['nome']; ?>!</p>
+            <a style="color: white; text-decoration: none" href="#">Seus Dados</a>
+            </div>
+        <?php else: ?>
             <p class="wrap" onmouseenter="showLoginPopup()" onmouseleave="hideLoginPopup()">faça seu login.</p>
         </div>
-
+        <?php endif; ?>
         <div class="nav-item rem-9">
             <p class="">Pedidos<br>e Devoluções</p>
         </div>

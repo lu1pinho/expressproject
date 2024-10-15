@@ -39,7 +39,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tela de login</title>
-    <link rel="stylesheet" href="stylesheets/login.css">
+    <link rel="stylesheet" href="login.css">
 </head>
 
 <body>

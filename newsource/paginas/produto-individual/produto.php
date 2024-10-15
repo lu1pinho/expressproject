@@ -1,8 +1,10 @@
 <?php
+session_start();
 $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
 // Incluindo conexão
 include_once 'C:/xampp/htdocs/expressproject/src/settings/connection.php';
+
 // Define o caminho para as imagens
 define('CAMINHO_IMAGENS', '../../produtos/');
 // Verificando a conexão
@@ -81,7 +83,6 @@ while ($recommended_stmt->fetch()) {
     ];
 }
 $recommended_stmt->close();
-session_start();
 function logout() {
     session_destroy();
 }
