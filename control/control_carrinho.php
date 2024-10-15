@@ -98,4 +98,4 @@ if (isset($_POST['produtos_selecionados'])) {
 $conn->close();
 
 // Inclui a View do carrinho
-include '../view/carrinho.php';
+include '../view/carrinho.html';
