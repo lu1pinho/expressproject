@@ -2,7 +2,6 @@
 session_start();
 include 'C:/xampp/htdocs/expressproject/src/settings/connection.php';
 include '../model/login.php';
-
 class LoginController {
     private $userModel;
 
@@ -10,6 +9,12 @@ class LoginController {
         $this->userModel = new UserModel($conn);
     }
 
+    // Método para exibir a página de login
+    public function showLoginPage($errorMessage = null) {
+        include '../view/login.php';
+    }
+
+    // Método para processar o login
     public function login($email, $password) {
         if (empty($email)) {
             return "Preencha seu email";
@@ -22,19 +27,23 @@ class LoginController {
         if ($usuario) {
             $_SESSION['id'] = $usuario['id'];
             $_SESSION['nome'] = $usuario['nome'];
-            header("Location:../newsource/paginas/principal/pagina.php");
+            header("Location: control_pagina-principal.php");
             exit();
         } else {
-            echo  "<script>alert('Falha ao logar! Nome de usuário ou senha incorretos');</script>";
-
-            header("Location:../view/login.html");
-
+            return "Falha ao logar! Nome de usuário ou senha incorretos";
         }
     }
 }
 
+// Verifica se o formulário foi submetido ou se deve exibir a página de login
+$controller = new LoginController($conn);
+
 if (isset($_POST['submit'])) {
-    $controller = new LoginController($conn);
+    // Se o formulário for enviado, processa o login
     $errorMessage = $controller->login($_POST['email'], $_POST['password']);
+    $controller->showLoginPage($errorMessage);
+} else {
+    // Caso contrário, exibe a página de login
+    $controller->showLoginPage();
 }
 ?>
