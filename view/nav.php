@@ -313,7 +313,7 @@ header{
         <?php if (isset($_SESSION['nome'])): ?>
             <div class="coluna" >
             <p style="color: #959595;" >Olá, <?php echo $_SESSION['nome']; ?>!</p>
-            <a style="color: white; text-decoration: none" href="#">Seus Dados</a>
+            <a style="color: white; text-decoration: none" href="../control/control_dados_usuario.php/">Seus Dados</a>
             </div>
         <?php else: ?>
             <p class="wrap" onmouseenter="showLoginPopup()" onmouseleave="hideLoginPopup()">faça seu login.</p>

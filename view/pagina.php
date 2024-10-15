@@ -15,7 +15,7 @@
     <?php include 'nav.php'; ?>
     <!--    POPUP - LOGIN-->
     <div id="login-popup" class="form" style="display: flex;" onmouseenter="keepLoginPopup()" onmouseleave="hideLoginPopupWithDelay()">
-        <a href="login.php">
+        <a href="..\control\control_login.php">
             <button class="button-submit" type="submit">Fazer Login</button>
         </a>
     <p class="p">Não tem uma conta Express? <span class="span">Cadastre-se</span></p>
