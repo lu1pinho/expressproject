@@ -1,49 +1,25 @@
 <?php
-session_start();
-require_once '../model/dados_usuario.php';
-include 'C:/xampp/htdocs/expressproject/src/settings/connection.php';
-
-class UserController
-{
-    private $model;
-
-    public function __construct($dbConnection)
-    {
-        $this->model = new User($dbConnection);
-    }
-
-    public function getUserDetails($userId)
-    {
-        $userData = $this->model->getUserData($userId);
-        $userAddress = $this->model->getUserAddress($userId);
-        $userCard = $this->model->getUserCard($userId);
-        return [
-            'userData' => $userData,
-            'userAddress' => $userAddress,
-            'userCard' => $userCard
-        ];
-    }
-
-    public function updateUser($postData)
-    {
-        // Aqui você pode validar os dados e então chamar os métodos de atualização
-        $this->model->updateUser($postData);
-        $this->model->updateUserAddress($postData);
-        $this->model->updateUserCard($postData);
-    }
-}
-
+include '../model/dados_usuario.php';
+// Verifica se o usuário está logado
 if (!isset($_SESSION['id'])) {
-    header('Location: control_login.php');
-    exit();
+    header('Location: login.php'); // Redireciona para a página de login se não estiver autenticado
+    exit;
 }
 
-$userController = new UserController($conn);
+// A variável $userId já está definida no model
+$userId = $_SESSION['id'];
 
+// Aqui você pode executar a lógica de atualização
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $userController->updateUser($_POST);
-    header('Location: control_dados_usuario.php');
-} else {
-    $userData = $userController->getUserDetails($_SESSION['id']);
-    include '../view/dados-usuario.php';
+    if (isset($_POST['atualizar'])) {
+        // Coletando os dados do POST e executando as funções de atualização
+        // O model já está tratando a atualização e retorno dos dados
+        // Você pode adicionar lógica de feedback aqui, se necessário
+    }
 }
+
+// Dados do usuário, endereço e cartão são carregados do model
+// O model retorna as variáveis necessárias que serão usadas na view
+
+include '../view/dados_usuario.php';
+?>
