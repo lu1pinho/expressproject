@@ -123,7 +123,7 @@ header{
         }
     }
 .option {
-    font-family: Roboto;
+    font-family: 'Inter', sans-serif;
 }
 .coluna {
     display: flex;
