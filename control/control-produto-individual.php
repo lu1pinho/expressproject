@@ -4,7 +4,7 @@ $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
 // Corrigindo o caminho da model
 include_once '../model/produto_individual.php';
-
+include '../settings/config.php';
 // Função para formatar texto
 require 'C:\xampp\htdocs\expressproject\vendor\erusev\parsedown\Parsedown.php';
 

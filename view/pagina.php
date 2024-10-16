@@ -104,7 +104,7 @@
                 <?php while ($produto = $ofertas_do_dia->fetch_assoc()) {
                     $resultado = calcularDesconto($produto['preco'], $produto['preco_com_desconto'], $produto['percentual_desconto']);
                 ?>
-                    <div class="destaques" onclick="window.location.href='../../../newsource/paginas/produto-individual/produto.php?id=<?php echo $produto['id']; ?>'">
+                    <div class="destaques" onclick="window.location.href='../control/control-produto-individual.php?id=<?php echo $produto['id']; ?>'">
                         <img src="<?php echo CAMINHO_IMAGENS . $produto['url_img']; ?>" alt="<?php echo $produto['nome']; ?>">
                         <p><?php echo $produto['nome']; ?></p>
                         <div class="discount">

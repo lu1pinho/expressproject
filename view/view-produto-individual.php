@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="../produto-individual/stylesheets/produto.css">
+    <link rel="stylesheet" type="text/css" href="../view/produto.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <title><?php echo htmlspecialchars($productData['nome']); ?></title>
 </head>
@@ -14,7 +14,7 @@
 <main>
     <div class="product-container">
         <div class="product-image">
-            <img id="product-img" src="../../produtos/<?php echo htmlspecialchars($productData['url_img']); ?>" alt="<?php echo htmlspecialchars($productData['nome']); ?>">
+            <img id='product-img' src="../view/produtos/<?php echo htmlspecialchars($productData['url_img']); ?>" alt="<?php echo htmlspecialchars($productData['nome']); ?>">
         </div>
 
         <div class="product-info">
@@ -38,7 +38,7 @@
                 <p>Adicionado Ao Carrinho!</p>
             </div>
             <!-- Adicionando ao carrinho -->
-            <form action="carrinho.php" method="POST">
+            <form action="..\control\control_carrinho.php" method="POST">
                 <input type="hidden" name="produto_nome" value="<?php echo htmlspecialchars($productData['nome']); ?>">
                 <input type="hidden" name="produto_imagem" value="<?php echo CAMINHO_IMAGENS . htmlspecialchars($productData['url_img']); ?>">
                 <input type="hidden" name="produto_preco" value="<?php echo htmlspecialchars($preco); ?>">
@@ -56,7 +56,7 @@
                 </div>
             </form>
             <div class="favorite">
-                <img class="love-icon" src="../produto-individual/img/svg/heart-thin-icon.svg" alt="Favoritar" width="30px">
+                <img class="love-icon" src="../view/img/svg/heart-thin-icon.svg" alt="Favoritar" width="30px">
             </div>
         </div>
     </div>
@@ -72,7 +72,7 @@
 <footer>
     <div class="footer-container">
         <div class="footer-item">
-            <img src="../principal/images/logo/logopreta.png" alt="Logo Express">
+            <img src="../view/images/logo/logopreta.png" alt="Logo Express">
         </div>
         <div class="footer-item">
             <h3>Atendimento ao Cliente</h3>
@@ -96,9 +96,9 @@
         </div>
         <div class="footer-item">
             <h3>Siga-nos</h3>
-            <a href="#"><img src="../principal/images/social-icons/facebook.svg" alt="Facebook" width="30px"></a>
-            <a href="#"><img src="../principal/images/social-icons/instagram.svg" alt="Instagram" width="30px"></a>
-            <a href="#"><img src="../principal/images/social-icons/twitter.svg" alt="Twitter" width="30px"></a>
+            <a href="#"><img src="../view/images/social-icons/facebook.svg" alt="Facebook" width="30px"></a>
+            <a href="#"><img src="../view/images/social-icons/instagram.svg" alt="Instagram" width="30px"></a>
+            <a href="#"><img src="../view/images/social-icons/twitter.svg" alt="Twitter" width="30px"></a>
         </div>
     </div>
 </footer>
