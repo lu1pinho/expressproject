@@ -9,8 +9,8 @@
 
 <body>
     <div class="apresentacao">
-        <form class="caixa_fundo" method="POST" action="../control/control_adicionar_produtos.php"> 
-            <h1 class="titulo">Adicionar um produto</h1>
+    <form class="caixa_fundo" method="POST" action="../control/control_adicionar_produto.php" enctype="multipart/form-data">
+        <h1 class="titulo">Adicionar um produto</h1>
             <p class="psub">Adicione um novo produto e venda mais.</p>
         
             <div class="sub">
@@ -56,7 +56,7 @@
                 <div class="imagem" id="imagem">
                     <p>Carregue uma imagem</p>
                 </div>
-            <input type="file" name="imagem" accept="image/*" onchange="previewImage(this)">
+            <input type="file" name="imagem" name="imagem" accept="image/*" onchange="previewImage(this)">
 
             <div class="centro">
                 <button type="submit" class="botoes">Cadastrar produto</button>
