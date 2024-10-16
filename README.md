@@ -434,7 +434,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
     <tbody>
         <tr>
             <td> Pedidos Realizados </td>
-            <td>Model (Backend)</td>
+            <td> back e front </td>
             <td>Neci</td>
             <td>-</td>
             <td>-</td>
@@ -443,8 +443,8 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
             <td>Implementar a página que mostra o histórico dos pedidos</td>
         </tr>
         <tr>
-            <td>View: Desenvolvimento da Página do Vendedor</td>
-            <td>View (Interface do Usuário - UI)</td>
+            <td>Desenvolvimento da Página do Vendedor</td>
+            <td>(Interface do Usuário - UI)</td>
             <td>Dallyla</td>
             <td>-</td>
             <td>-</td>
@@ -453,8 +453,8 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
             <td>Exibição de produtos vendidos e dados do vendedor</td>
         </tr>
         <tr>
-            <td>View: Implementação da Página de Adicionar Produtos</td>
-            <td>View (Interface do Usuário - UI)</td>
+            <td>Implementação da Página de Adicionar Produtos</td>
+            <td>(Interface do Usuário - UI)</td>
             <td>Heloisa</td>
             <td>-</td>
             <td>-</td>
@@ -463,8 +463,8 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
             <td>Formulário para que o vendedor possa criar novos produtos</td>
         </tr>
         <tr>
-            <td>Controller: Conectar View e Model para criar e exibir produtos</td>
-            <td>Controller (Lógica de Negócio)</td>
+            <td>Atualizar os dados do produto</td>
+            <td>(Lógica de Negócio)</td>
             <td>Mara</td>
             <td>-</td>
             <td>-</td>
@@ -473,14 +473,14 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
             <td>Implementar a lógica para conectar a exibição da página com o backend e garantir a criação e exibição corretas de produtos</td>
         </tr>
         <tr>
-            <td>Refatoração do Código</td>
-            <td>Manutenção e Melhoria de Código</td>
+            <td>Faturamento</td>
+            <td>back e front</td>
             <td>Luís</td>
             <td>-</td>
             <td>-</td>
             <td>-</td>
             <td>Pendente</td>
-            <td>Melhorar a legibilidade, modularidade e eficiência do código, sem alterar as funcionalidades</td>
+            <td></td>
         </tr>
         <tr>
             <td>Testes de funcionalidades para vendedores</td>
