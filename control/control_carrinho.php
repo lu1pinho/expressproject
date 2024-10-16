@@ -95,7 +95,7 @@ if (isset($_POST['produtos_selecionados'])) {
     }
 }
 
-$conn->close();
+//$conn->close();
 
 // Inclui a View do carrinho
 include '../view/carrinho.html';
