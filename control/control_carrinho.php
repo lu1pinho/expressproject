@@ -1,12 +1,9 @@
 <?php
 session_start();
 include 'C:/xampp/htdocs/expressproject/src/settings/connection.php'; // Conexão ao banco de dados
-include '../model/carrinho.php'; 
-
+include '../model/carrinho.php';
+include '../settings/config.php';
 $carrinhoModel = new CarrinhoModel($conn);
-
-// Define o caminho para as imagens
-define('CAMINHO_IMAGENS', 'newsource/produtos/');
 
 // Verifica se o carrinho já está criado
 if (!isset($_SESSION['carrinho'])) {
