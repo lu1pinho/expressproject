@@ -1,0 +1,204 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+header {
+    width: 100%;
+    background-color: #0A3871;
+    padding: 20px 100px;
+}
+
+.banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    /* Define a largura do banner para ocupar 100% da tela */
+    padding: 0 20px;
+    max-width: none;
+    /* Remove o limite de largura */
+}
+
+
+.logo img {
+    width: 150px;
+    margin-left: 70px;
+}
+
+.btn-voltar {
+    background-color: #ffffff;
+    /* Azul similar ao botão de "Editar" e "Continuar a compra" */
+    color: #000000;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 20px 0;
+    /* Ajusta o espaçamento ao redor */
+    width: 100px;
+    position: absolute;
+    left: 20px;
+    top: 1px;
+
+}
+
+.btn-voltar:hover {
+    background-color: orange;
+    /* Cor mais escura para o hover */
+}
+
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 50px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    position: absolute;
+    left: 100px;
+    top: 125px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    margin-top: 10px;
+}
+
+thead {
+    background-color: #2b65f69d;
+    color: #fff;
+}
+
+thead th {
+    padding: 10px;
+    font-size: 16px;
+}
+
+tbody tr {
+    border-bottom: 1px solid #eee;
+}
+
+tbody td {
+    padding: 12px;
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+}
+
+tbody tr:hover {
+    background-color: #f0f4ff;
+}
+
+p {
+    text-align: center;
+    color: #999;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+/* Botões e outros estilos */
+button {
+    background-color: #2b63f6;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #244ab9;
+}
+
+.resumo-compra-container {
+    width: 450px;
+    /* Aumentando a largura */
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: absolute;
+    right: 160px;
+    top: 125px;
+}
+
+.resumo-compra-container h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+
+.resumo-compra-container .preco-detalhe {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.resumo-compra-container .preco-detalhe p {
+    margin: 0;
+    color: #555;
+}
+
+.resumo-compra-container .total {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+}
+
+.resumo-compra-container .btn-continuar {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.resumo-compra-container .btn-continuar:hover {
+    background-color: #0056b3;
+}
