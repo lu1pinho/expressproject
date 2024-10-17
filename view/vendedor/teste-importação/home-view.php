@@ -4,46 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <!-- Importe o CSS -->
     <link rel="stylesheet" href="../../../view/vendedor/modular/sidebar/sidebar.css">
 
+    <!-- Importe o CSS -->
     <style>
-        /* Estilizando o container principal */
         main {
-            display: flex;
-            min-height: 100vh; /* Garante que ocupe toda a altura da tela */
+            margin-left: 250px;
+            padding: 20px;
+            transition: 2ms;
         }
 
-        /* Estilizando a sidebar */
-        aside {
-            width: 300px; /* Tamanho fixo da sidebar */
-            background-color: #f1f1f1; /* Apenas para visualização */
-        }
+        @media (max-width: 700px) {
 
-        /* Estilizando o conteúdo principal */
-        .container {
-            flex-grow: 1; /* Ocupa o restante do espaço */
-            padding: 40px; /* Espaçamento interno */
-            background-color: #fff; /* Apenas para visualização */
-        }
+            main {
+                margin-left: 60px;
+                transition: 1s;
+            }
 
-        h1 {
-            font-size: 24px;
-        }
+            .express-logo img {
+                display: none;
+                transition: 1s;
+            }
 
-        form {
-            margin-top: 20px;
+            .aside-container {
+                width: 60px;
+                transition: 2ms;
+            }
+
+            .aside-menu span {
+                display: none;
+                transition: 2ms;
+            }
+
+            .aside-menu ul p{
+                display: none;
+                transition: 2ms;
+            }
+
+            .sealer-info {
+                border: none;
+                transition: 2ms;
+            }
+
+            .profile-info {
+                display: none;
+                transition: 2ms;
+            }
+
+
+
         }
     </style>
+
     <title>Vendedor Dashboard</title>
 </head>
 <body>
+<?php include_once '../../../view/vendedor/modular/sidebar/sidebar.php'; ?>
 <main>
-    <!-- Incluindo a sidebar -->
-    <?php include_once '../../../view/vendedor/modular/sidebar/sidebar.php'; ?>
-
-    <!-- Conteúdo principal -->
     <div class="container">
         <h1>Teste de Contéudo</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium asperiores dolor numquam quibusdam, reiciendis rerum ullam? Aspernatur at cumque debitis exercitationem, fugiat harum, illum odit, saepe sapiente soluta temporibus veritatis!</p>
