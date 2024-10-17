@@ -53,25 +53,25 @@
             </div>
         </div>    
             <label for="imagem" class="campos">Imagem:</label>
-                <div class="imagem" id="imagem">
-                    <p>Carregue uma imagem</p>
-                </div>
+            <div class="imagem" id="imagem" style="max-width: 615px; height: 280px;">
+                <p>Carregue uma imagem</p>
+            </div>
             <input type="file" name="imagem" accept="image/*" onchange="previewImage(this)">
 
-            <script>
+        <script>
             function previewImage(input) {
                 var file = input.files[0];
                 if (file) {
                     var reader = new FileReader();
                     reader.onload = function(e) {
                         // Remove o texto anterior (p) e insere a imagem
-                        var imgPreview = '<img src="' + e.target.result + '" alt="Imagem Carregada" style="max-width: 100%; height: auto;">';
+                        var imgPreview = '<img src="' + e.target.result + '" alt="Imagem Carregada" style="max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain;">';
                         document.getElementById('imagem').innerHTML = imgPreview;
                     }
                     reader.readAsDataURL(file);
                 }
             }
-            </script>
+        </script>
             <div class="centro">
                 <button type="submit" class="botoes">Cadastrar produto</button>
             </div>
