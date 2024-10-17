@@ -138,8 +138,8 @@
                 <?php while ($produto = $top_vendidos->fetch_assoc()) {
                     $resultado = calcularDesconto($produto['preco'], $produto['preco_com_desconto'], $produto['percentual_desconto']);
                 ?>
-                    <div class="destaques" onclick="window.location.href='../../../newsource/paginas/produto-individual/produto.php?id=<?php echo $produto['id']; ?>'">
-                        <img src="<?php echo CAMINHO_IMAGENS . $produto['url_img']; ?>" alt="<?php echo $produto['nome']; ?>">
+                    <div class="destaques" onclick="window.location.href='../control/control-produto-individual.php?id=<?php echo $produto['id']; ?>'">
+                    <img src="<?php echo CAMINHO_IMAGENS . $produto['url_img']; ?>" alt="<?php echo $produto['nome']; ?>">
                         <p><?php echo $produto['nome']; ?></p>
                         <div class="discount">
                             <?php if ($resultado['percentual_desconto'] > 0) { ?>
