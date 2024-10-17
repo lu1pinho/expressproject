@@ -18,7 +18,7 @@
         <a href="..\control\control_login.php">
             <button class="button-submit" type="submit">Fazer Login</button>
         </a>
-    <p class="p">Não tem uma conta Express? <span class="span">Cadastre-se</span></p>
+    <p class="p">Não tem uma conta Express? <span class="span"><a href="..\control\control_cadastro.php">Cadastre-se</a></span></p>
     </div>
 
     <div class="popup-todos">

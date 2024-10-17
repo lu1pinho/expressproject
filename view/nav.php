@@ -301,7 +301,7 @@ header{
             <p>Atualizar CEP</p>
         </div>
 
-        <form class="search-container" action="..\categorias\categoria.php" method="get">
+        <form class="search-container" action="..\control\control_categoria.php" method="get">
             <input type="text" name="query" placeholder="Buscar na Express" required>
             <button style="border: none;" type="submit" class="search-icon" aria-label="Buscar">
                 <img src="../view/images/svg/search.svg" alt="Buscar">
@@ -325,7 +325,7 @@ header{
 
         <div class="nav-item rem-9">
             <img src="../view/images/svg/shopping_cart.svg" alt="Atualizar CEP">
-            <p>Carrinho</p>
+            <a style="text-decoration: none; color: white;" href="..\control\control_carrinho.php">Carrinho</a>
     </div>
     </nav>
 </header>
