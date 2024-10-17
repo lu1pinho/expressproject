@@ -11,6 +11,7 @@
         rel="stylesheet">
 </head>
 
+
 <body>
     <?php include '..\view\nav\nav.php'; ?>
     <div class="juntando">

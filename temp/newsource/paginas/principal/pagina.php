@@ -60,7 +60,7 @@ function logout() {
     <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../principal/stylesheets/index.css">
+    <link rel="stylesheet" href="stylesheets/index.css">
     <title>Express.com</title>
     <title>Express.com</title>
 </head>
@@ -95,11 +95,11 @@ function logout() {
         <div class="carousel">
             <div class="slider">
                 <section>
-                    <img src="../principal/images/banner/expressblack.png" alt="">
+                    <img src="images/banner/expressblack.png" alt="">
                 </section>
-                <section><img src="../principal/images/banner/7.png" alt=""></section>
-                <section><img src="../principal/images/banner/8.png" alt=""></section>
-                <section><img src="../principal/images/banner/9.png" alt=""></section>
+                <section><img src="images/banner/7.png" alt=""></section>
+                <section><img src="images/banner/8.png" alt=""></section>
+                <section><img src="images/banner/9.png" alt=""></section>
                 <section>content6</section>
                 <section>content7</section>
                 <section>content8</section>
@@ -126,22 +126,22 @@ function logout() {
             </div>
             <div class="category">
                 <div class="category-card">
-                    <img src="../principal/images/categorias/1.png" alt="">
+                    <img src="images/categorias/1.png" alt="">
                 </div>
                 <div class="category-card">
-                    <img src="../principal/images/categorias/2.png" alt="">
+                    <img src="images/categorias/2.png" alt="">
                 </div>
                 <div class="category-card">
-                    <img src="../principal/images/categorias/3.png" alt="">
+                    <img src="images/categorias/3.png" alt="">
                 </div>
                 <div class="category-card">
-                    <img src="../principal/images/categorias/4.png" alt="">
+                    <img src="images/categorias/4.png" alt="">
                 </div>
                 <div class="category-card">
-                    <img src="../principal/images/categorias/5.png" alt="">
+                    <img src="images/categorias/5.png" alt="">
                 </div>
                 <div class="category-card">
-                    <img src="../principal/images/categorias/6.png" alt="">
+                    <img src="images/categorias/6.png" alt="">
                 </div>
             </div>
         </div>
@@ -158,7 +158,7 @@ function logout() {
                 <?php while ($produto = $ofertas_do_dia->fetch_assoc()) {
                     $resultado = calcularDesconto($produto['preco'], $produto['preco_com_desconto'], $produto['percentual_desconto']);
                 ?>
-                    <div class="destaques" onclick="window.location.href='../../../newsource/paginas/produto-individual/produto.php?id=<?php echo $produto['id']; ?>'">
+                    <div class="destaques" onclick="window.location.href='../../paginas/produto-individual/produto.php?id=<?php echo $produto['">
                         <img src="<?php echo CAMINHO_IMAGENS . $produto['url_img']; ?>" alt="<?php echo $produto['nome']; ?>">
                         <p><?php echo $produto['nome']; ?></p>
                         <div class="discount">
@@ -192,7 +192,7 @@ function logout() {
                 <?php while ($produto = $top_vendidos->fetch_assoc()) {
                     $resultado = calcularDesconto($produto['preco'], $produto['preco_com_desconto'], $produto['percentual_desconto']);
                 ?>
-                    <div class="destaques" onclick="window.location.href='../../../newsource/paginas/produto-individual/produto.php?id=<?php echo $produto['id']; ?>'">
+                    <div class="destaques" onclick="window.location.href='../../paginas/produto-individual/produto.php?id=<?php echo $produto['">
                         <img src="<?php echo CAMINHO_IMAGENS . $produto['url_img']; ?>" alt="<?php echo $produto['nome']; ?>">
                         <p><?php echo $produto['nome']; ?></p>
                         <div class="discount">
@@ -221,7 +221,7 @@ function logout() {
         <div class="footer-container">
 
             <div class="footer-item">
-                <img src="../principal/images/logo/logopreta.png" alt="Logo Express">
+                <img src="images/logo/logopreta.png" alt="Logo Express">
             </div>
 
             <div class="footer-item">
@@ -251,12 +251,12 @@ function logout() {
                 <a href="#">Cartões Visa e MasterCard</a>
                 <a href="#">Pagamento por Pix</a>
                 <a href="#">Apple Pay e PayPal</a>
-                <img class="payments" src="../principal/images/svg/paymentmethods.png" alt="Formas de Pagamento">
+                <img class="payments" src="images/svg/paymentmethods.png" alt="Formas de Pagamento">
             </div>
         </div>
     </footer>
 
 
-    <script src="../principal/scripts/index.js"></script>
+    <script src="scripts/index.js"></script>
 </body>
 </html>

@@ -178,7 +178,7 @@ $result_produtos = $conn->query($sql_produtos);
                     while ($produto = $result_produtos->fetch_assoc()) {
                         $resultado = calcularDesconto($produto['preco'], $produto['preco_com_desconto']);
                         ?>
-                        <div class="produto" onclick="window.location.href='../../../newsource/paginas/produto-individual/produto.php?id=<?php echo $produto['id']; ?>'">
+                        <div class="produto" onclick="window.location.href='../../paginas/produto-individual/produto.php?id=<?php echo $produto['">
                             <div class="produto-imagem">
                                 <img src="<?php echo CAMINHO_IMAGENS . $produto['url_img']; ?>" alt="<?php echo $produto['nome']; ?>">
                             </div>

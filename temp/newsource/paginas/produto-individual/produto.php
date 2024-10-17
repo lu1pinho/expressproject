@@ -100,12 +100,12 @@ if (isset($_POST['logout'])) {
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="../produto-individual/stylesheets/produto.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/produto.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <title><?php echo htmlspecialchars($nome); ?></title>
 </head>
 <body>
-    <?php include 'nav.php'?>
+    <?php include 'nav.php' ?>
 
     <main>
         <div class="product-container">
@@ -181,7 +181,7 @@ if (isset($_POST['logout'])) {
                 </div>
                 </form>
                 <div class="favorite">
-                    <img class="love-icon" src="../produto-individual/img/svg/heart-thin-icon.svg" alt="Favoritar" width="30px">
+                    <img class="love-icon" src="img/svg/heart-thin-icon.svg" alt="Favoritar" width="30px">
                 </div>
             </div>
         </div>
