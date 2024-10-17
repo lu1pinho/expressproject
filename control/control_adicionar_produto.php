@@ -45,19 +45,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit();
         }
 
-        // Inserindo o produto no banco de dados
+     // Inserindo o produto no banco de dados
         try {
-            $produtoCriado = $userModel->createProduto($name, $descricao, $preco, $estoque, $category, 0, $frete, $dados_produto, $imagem_id);
+            // O upload da imagem já deve ter sido realizado, então agora usamos o caminho retornado
+            $url_img = $userModel->uploadImage($_FILES); // Captura a URL da imagem
 
-            if ($produtoCriado) {
+            $produtoCriado = $userModel->createProduto($name, $descricao, $preco, $estoque, $category, 0, $frete, $dados_produto, $url_img); // Use $url_img aqui
+
+            /*if ($produtoCriado) {
                 echo "Produto inserido com sucesso!";
             } else {
                 echo "Erro ao inserir produto.";
-            }
+            }*/
         } catch (Exception $e) {
             echo "Erro ao criar produto: " . $e->getMessage();
         }
-        
+   
     }
 }
 ?>

@@ -56,8 +56,22 @@
                 <div class="imagem" id="imagem">
                     <p>Carregue uma imagem</p>
                 </div>
-            <input type="file" name="imagem" name="imagem" accept="image/*" onchange="previewImage(this)">
+            <input type="file" name="imagem" accept="image/*" onchange="previewImage(this)">
 
+            <script>
+            function previewImage(input) {
+                var file = input.files[0];
+                if (file) {
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        // Remove o texto anterior (p) e insere a imagem
+                        var imgPreview = '<img src="' + e.target.result + '" alt="Imagem Carregada" style="max-width: 100%; height: auto;">';
+                        document.getElementById('imagem').innerHTML = imgPreview;
+                    }
+                    reader.readAsDataURL(file);
+                }
+            }
+            </script>
             <div class="centro">
                 <button type="submit" class="botoes">Cadastrar produto</button>
             </div>
