@@ -293,18 +293,18 @@ header{
 <header>
     <nav class="nav-container">
         <div class="express-logo">
-            <img src="../principal/images/logo/logo.png" alt="Logo Express">
+            <img src="images/logo/logo.png" alt="Logo Express">
         </div>
 
         <div class="nav-item rem-9">
-            <img src="../principal/images/svg/map-local.svg" alt="Atualizar CEP">
+            <img src="images/svg/map-local.svg" alt="Atualizar CEP">
             <p>Atualizar CEP</p>
         </div>
 
         <form class="search-container" action="..\categorias\categoria.php" method="get">
             <input type="text" name="query" placeholder="Buscar na Express" required>
             <button style="border: none;" type="submit" class="search-icon" aria-label="Buscar">
-                <img src="../principal/images/svg/search.svg" alt="Buscar">
+                <img src="images/svg/search.svg" alt="Buscar">
             </button>
         </form>
 
@@ -324,7 +324,7 @@ header{
         </div>
 
         <div class="nav-item rem-9">
-            <img src="../principal/images/svg/shopping_cart.svg" alt="Atualizar CEP">
+            <img src="images/svg/shopping_cart.svg" alt="Atualizar CEP">
             <p>Carrinho</p>
     </div>
     </nav>
@@ -334,7 +334,7 @@ header{
 <div class="botton-nav">
     <div class="menu">
         <div class="option todos-menu">
-            <img src="../principal/images/svg/menu.svg" alt="">
+            <img src="images/svg/menu.svg" alt="">
             <p>Todos</p>
         </div>
         <div class="option">

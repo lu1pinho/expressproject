@@ -1,6 +1,7 @@
 <?php
-include 'C:/xampp/htdocs/expressproject/src/settings/connection.php';
-include '../model/cadastro.php';
+include_once '../src/settings/connection.php';
+include_once '../model/cadastro.php';
+include_once '../view/cadastro.html';
 
 // Verifica se o formulário foi enviado
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

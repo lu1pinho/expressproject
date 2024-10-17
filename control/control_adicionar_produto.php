@@ -1,6 +1,6 @@
 <?php
 // Incluindo os arquivos necessários
-include 'C:/xampp/htdocs/expressproject/src/settings/connection.php';
+include 'C:\xampp\htdocs\expressproject\settings\connection.php';
 include '../model/adicionar_produto.php';
 include '../view/adicionar_produto.php';
 

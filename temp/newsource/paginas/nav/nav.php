@@ -75,4 +75,4 @@
 </div>
 
 <!-- Script -->
-<script src="../../../newsource/paginas/modular/nav/nav.js"></script>
+<script src="../../paginas/modular/nav/nav.js"></script>

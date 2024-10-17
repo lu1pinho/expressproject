@@ -133,76 +133,29 @@
                 <h2>Mais Vendidos</h2>
                 <p>Ver todos os produtos</p>
             </div>
-
             <div class="destaque">
-                <?php while ($produto = $top_vendidos->fetch_assoc()) {
-                    $resultado = calcularDesconto($produto['preco'], $produto['preco_com_desconto'], $produto['percentual_desconto']);
-                ?>
-                    <div class="destaques" onclick="window.location.href='../control/control-produto-individual.php?id=<?php echo $produto['id']; ?>'">
-                    <img src="<?php echo CAMINHO_IMAGENS . $produto['url_img']; ?>" alt="<?php echo $produto['nome']; ?>">
-                        <p><?php echo $produto['nome']; ?></p>
-                        <div class="discount">
-                            <?php if ($resultado['percentual_desconto'] > 0) { ?>
-                                <p><?php echo $resultado['percentual_desconto']; ?>% OFF
-                                    <?php if ($produto['frete_gratis']) {
-                                        echo '- FRETE GRÁTIS';
-                                    } ?></p>
-                            <?php } else { ?>
-                                <p><?php echo $resultado['frete_texto']; ?></p>
-                            <?php } ?>
-                        </div>
-                        <div class="price">
-                            <span>R$</span> <span><?php echo $resultado['preco']; ?></span> <!-- Parte inteira -->
-                            <?php if ($resultado['percentual_desconto'] > 0) { ?>
-                                <span>De: R$ <?php echo number_format($produto['preco'], 2, ',', '.'); ?></span> <!-- Preço normal -->
-                            <?php } ?>
-                        </div>
-                    </div>
+    <?php while ($produto = $top_vendidos->fetch_assoc()) {
+        $resultado = calcularDesconto($produto['preco'], $produto['preco_com_desconto'], $produto['percentual_desconto']);
+    ?>
+          <div class="destaques" onclick="window.location.href='../control/control-produto-individual.php?id=<?php echo $produto['id']; ?>'">
+            <img src="<?php echo CAMINHO_IMAGENS . $produto['url_img']; ?>" alt="<?php echo $produto['nome']; ?>">
+            <p><?php echo $produto['nome']; ?></p>
+            <div class="discount">
+                <?php if ($resultado['percentual_desconto'] > 0) { ?>
+                    <p><?php echo $resultado['percentual_desconto']; ?>% OFF
+                        <?php if ($produto['frete_gratis']) {
+                            echo '- FRETE GRÁTIS';
+                        } ?></p>
+                <?php } else { ?>
+                    <p><?php echo $resultado['frete_texto']; ?></p>
+                <?php } ?>
+            </div>
+            <div class="price">
+                <span>R$</span> <span><?php echo $resultado['preco']; ?></span> <!-- Parte inteira -->
+                <?php if ($resultado['percentual_desconto'] > 0) { ?>
+                    <span>De: R$ <?php echo number_format($produto['preco'], 2, ',', '.'); ?></span> <!-- Preço normal -->
                 <?php } ?>
             </div>
         </div>
-    </main>
-
-    <footer>
-        <div class="footer-container">
-
-            <div class="footer-item">
-                <img src="../view/images/logo/logopreta.png" alt="Logo Express">
-            </div>
-
-            <div class="footer-item">
-                <h3>Atendimento ao Cliente</h3>
-                <a href="#">Central de Atendimento</a>
-                <a href="#">Como Comprar</a>
-                <a href="#">Formas de Pagamento</a>
-                <a href="#">Política de Privacidade</a>
-                <a href="#">Política de Troca e Devolução</a>
-            </div>
-
-            <div class="footer-item">
-                <h3>Express Marketplace</h3>
-                <a href="#">Quem Somos</a>
-                <a href="#">Trabalhe Conosco</a>
-                <a href="#">Seja um Parceiro</a>
-            </div>
-
-            <div class="footer-item">
-                <h3>Minha Conta</h3>
-                <a href="#">Meus Pedidos</a>
-                <a href="#">Meus Dados</a>
-                <a href="#">Meus Endereços</a>
-            </div>
-            <div class="footer-item">
-                <h3>Formas de Pagamento</h3>
-                <a href="#">Cartões Visa e MasterCard</a>
-                <a href="#">Pagamento por Pix</a>
-                <a href="#">Apple Pay e PayPal</a>
-                <img class="payments" src="../view/images/svg/paymentmethods.png" alt="Formas de Pagamento">
-            </div>
-        </div>
-    </footer>
-
-
-    <script src="../view/scripts/index.js"></script>
-</body>
-</html>
+    <?php } ?>
+</div>
