@@ -1,30 +1,30 @@
 <?php
+// Incluir o Model que contém a lógica de banco de dados
+include_once '../model/categoria.php';
 
-require_once __DIR__ . '/../model/categoria_dados_produtos.php';
-require_once __DIR__ . '/../src/settings/connection.php';
+// Filtros
+$categoria = $_POST['departamento'] ?? 'all';
+$preco_min = (float)($_POST['preco_min'] ?? 0);
+$preco_max = (float)($_POST['preco_max'] ?? 12000);
+$ofertas = isset($_POST['ofertas']) && $_POST['ofertas'] == 'on';
+$descontos = isset($_POST['descontos']) && $_POST['descontos'] == 'on';
+$frete_gratis = isset($_POST['frete']) && $_POST['frete'] == 'on';
+$go_express = isset($_POST['express']) && $_POST['express'] == 'on';
 
-class control_categoria {
-    private $model;
+list($sql_produtos, $param_types, $params) = buildQuery($categoria, $preco_min, $preco_max, $ofertas, $descontos, $frete_gratis, $go_express);
 
-    public function __construct() {
-        global $conn; // Assuming $conn is initialized in your connection file
-        $this->model = new categoria_dados_produtos($conn);
-    }
-
-    public function showCategoryPage() {
-        $filters = [
-            'departamento' => isset($_GET['departamento']) ? $_GET['departamento'] : 'all',
-            'preco_min' => isset($_GET['preco_min']) ? $_GET['preco_min'] : 0,
-            'preco_max' => isset($_GET['preco_max']) ? $_GET['preco_max'] : 12000,
-            'ofertas' => isset($_GET['ofertas']) ? 1 : 0,
-            'descontos' => isset($_GET['descontos']) ? 1 : 0,
-            'frete' => isset($_GET['frete']) ? 1 : 0,
-            'express' => isset($_GET['express']) ? 1 : 0
-        ];
-
-        $categorias = $this->model->getCategorias();
-        $produtos = $this->model->getProdutos($filters);
-
-        include __DIR__ . '../view/categoria.php';
-    }
+// Preparar e executar a query
+$stmt = $conn->prepare($sql_produtos);
+if (!$stmt) {
+    die("Erro ao preparar a query: " . $conn->error . "\nSQL: " . $sql_produtos);
 }
+$stmt->bind_param($param_types, ...$params);
+$stmt->execute();
+$result_produtos = $stmt->get_result();
+
+$result_departamentos = getCategorias($conn);
+
+
+
+// Incluir a View para renderizar os dados
+include '../view/categoria.php';
