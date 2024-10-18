@@ -301,12 +301,13 @@ header{
             <p>Atualizar CEP</p>
         </div>
 
-        <form class="search-container" action="..\control\control_categoria.php" method="get">
-            <input type="text" name="query" placeholder="Buscar na Express" required>
-            <button style="border: none;" type="submit" class="search-icon" aria-label="Buscar">
-                <img src="../view/images/svg/search.svg" alt="Buscar">
-            </button>
-        </form>
+    <form class="search-container" action="../control/control_categoria.php" method="get">
+        <input type="text" name="query" placeholder="Buscar na Express" required>
+        <button style="border: none;" type="submit" class="search-icon" aria-label="Buscar">
+            <img src="../view/images/svg/search.svg" alt="Buscar">
+        </button>
+    </form>
+
 
 
         <div class="nav-item rem-9" id="login">
@@ -338,7 +339,7 @@ header{
             <p>Todos</p>
         </div>
         <div class="option">
-            <p>Venda na Express</p>
+            <a style="text-decoration: none; color:white;" href="../view/pagina-vendedor.php">Venda na Express</a>
         </div>
         <div class="option">
             <p>Ofertas do Dia</p>

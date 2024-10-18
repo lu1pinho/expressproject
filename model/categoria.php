@@ -24,8 +24,8 @@ function formatarNomeCategoria($categoria)
     return implode(' ', $palavras);
 }
 
-// Função para construir a query SQL com filtros
-function buildQuery($categoria, $preco_min, $preco_max, $ofertas, $descontos, $frete_gratis, $go_express)
+// Função para construir a query SQL com filtros e busca por nome
+function buildQuery($categoria, $preco_min, $preco_max, $ofertas, $descontos, $frete_gratis, $go_express, $termo_busca = '')
 {
     $sql_produtos = "SELECT * FROM produtos WHERE preco BETWEEN ? AND ?";
     $params = [$preco_min, $preco_max];
@@ -36,6 +36,14 @@ function buildQuery($categoria, $preco_min, $preco_max, $ofertas, $descontos, $f
         $param_types .= "s";
         $params[] = $categoria;
     }
+
+    if ($termo_busca !== '') {
+        // Adiciona a busca pelo nome do produto
+        $sql_produtos .= " AND nome LIKE ?";
+        $param_types .= "s";
+        $params[] = '%' . $termo_busca . '%'; // Adiciona as porcentagens para a busca parcial
+    }
+
     if ($ofertas) $sql_produtos .= " AND oferta_do_dia = 1";
     if ($descontos) $sql_produtos .= " AND preco_com_desconto > 0";
     if ($frete_gratis) $sql_produtos .= " AND frete_gratis = 1";
@@ -43,3 +51,5 @@ function buildQuery($categoria, $preco_min, $preco_max, $ofertas, $descontos, $f
 
     return [$sql_produtos, $param_types, $params];
 }
+
+

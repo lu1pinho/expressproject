@@ -15,9 +15,7 @@
 </head>
 
 <body>
-    <nav>
-        <?php include('../view/nav.php'); ?>
-    </nav>
+    <?php include 'nav.php'; ?>
     <div class="main-layout">
         <aside>
             <div class="aside-container">
@@ -97,7 +95,7 @@
                         // Verifica se a chave 'url_img' existe e não está vazia
                         $imagem_produto = !empty($produto['url_img']) ? CAMINHO_IMAGENS . $produto['url_img'] : CAMINHO_IMAGENS . 'default.png';
 
-                        echo '<div class="produto" onclick="window.location.href=\'../../../newsource/paginas/produto-individual/produto.php?id=' . $produto['id'] . '\'">';
+                        echo '<div class="produto" onclick="window.location.href=\'../control/control-produto-individual.php?id=' . $produto['id'] . '\'">';
                         echo '<img src="' . $imagem_produto . '" alt="' . $produto['nome'] . '">';
                         echo '<h3>' . $produto['nome'] . '</h3>';
                         echo '<p>R$' . number_format($produto['preco'], 2, ',', '.') . '</p>';
