@@ -10,13 +10,14 @@
 </head>
 
 <body>
+    
     <header>
         <div class="banner">
             <div class="logo">
-                <img src="../principal/images/logo/logo.png" alt="Express.com">
+                <img src="../view/images/logo/logo.png" alt="Express.com">
             </div>
             <div class="butao-voltar">
-                <a href="../produto-individual/carrinho.php">
+                <a href="../control/control_carrinho.php">
                     <button class="btn-voltar">Voltar</button>
                 </a>
             </div>
@@ -32,7 +33,7 @@
                 <div class="entrega-opcao">
                     <p class="endereco-texto"><?php echo $enderecoCompleto; ?></p>
                 </div>
-                <a href="../dados-do-usuário/dados-usuario.php">
+                <a href="../control/control_dados_usuario.php">
                     <button class="btn-editar">Editar ou escolher outro endereço</button>
                 </a>
             <?php endif; ?>
@@ -82,7 +83,7 @@
                 <p>Total</p>
                 <p>R$ <?php echo number_format($total_produtos + $frete, 2, ',', '.'); ?></p>
             </div>
-            <a href="../finalisar-compra/forma-de-pagamento.php">
+            <a href="../control/control_pagamento.php">
                 <button class="btn-continuar">Continuar a compra</button>
             </a>
         </section>

@@ -13,10 +13,10 @@
     <header>
         <div class="banner">
             <div class="logo">
-                <img src="../principal/images/logo/logo.png" alt="Express.com">
+                <img src="../view/images/logo/logo.png" alt="Express.com">
             </div>
             <div class="butao-voltar">
-                <a href="../finalisar-compra/finalizar-pedido.php">
+                <a href="../control/control_finalizar_pedido.php">
                     <button class="btn-voltar" onclick="window.history.back();">Voltar</button>
                 </a>
             </div>

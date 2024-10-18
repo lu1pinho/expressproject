@@ -61,7 +61,7 @@
 
         <div class="container2">
             <h3>Subtotal: R$ <?= number_format($total, 2, ',', '.'); ?></h3>
-           <a href="../finalisar-compra/finalizar-pedido.php">
+           <a href="../control/control_finalizar_pedido.php">
                <button class="checkout-button">Fechar Pedido</button>
 
            </a>

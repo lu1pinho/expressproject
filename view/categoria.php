@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://raw.githubusercontent.com/MaxyFR/doublerange/main/doubleRange.js"></script>
 
-    <link rel="stylesheet" href="../modular/nav/nav.css">
+    <link rel="stylesheet" href="../view/nav.php">
     <link rel="stylesheet" href="../modular/footer/footer.css">
     <link rel="stylesheet" href="../view/stylesheets/categoria.css">
 
@@ -15,6 +15,9 @@
 </head>
 
 <body>
+    <nav>
+        <?php include('../view/nav.php'); ?>
+    </nav>
     <div class="main-layout">
         <aside>
             <div class="aside-container">
