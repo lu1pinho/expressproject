@@ -28,7 +28,7 @@
         <hr/>
         <div class="cadastro">
             <p class="aviso">Ainda não possui uma conta?</p>
-            <a class="botoes" href="cadastro.php">Cadastrar</a>  
+            <a class="botoes" href="../control/control_cadastro.php">Cadastrar</a>  
         </div>      
     </form>
 </div>

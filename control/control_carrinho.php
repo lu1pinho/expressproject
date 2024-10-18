@@ -6,7 +6,7 @@
 
     // Verifique se o usuário está logado
     if (!isset($_SESSION['id'])) {
-        die("Usuário não está logado. Por favor, faça o login para continuar.");
+       // die("Usuário não está logado. Por favor, faça o login para continuar.");
     } else {
         //$id_user = $_SESSION['id']; // Definir o ID do usuário logado
     }
@@ -23,9 +23,7 @@
                     : null,
                 'quantidade' => (int)$_POST['quantidade']
             ];
-    
-            // Adicionar o produto ao banco de dados
-            $carrinhoModel->adicionarProduto($id_user, $produto);
+
         }
     }
     

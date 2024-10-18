@@ -293,7 +293,7 @@ header{
 <header>
     <nav class="nav-container">
         <div class="express-logo">
-            <img src="../view/images/logo/logo.png" alt="Logo Express">
+            <a href="../control/control_pagina-principal.php"><img src="../view/images/logo/logo.png" alt="Logo Express"></a>
         </div>
 
         <div class="nav-item rem-9">
@@ -316,7 +316,7 @@ header{
             <a style="color: white; text-decoration: none" href="../control/control_dados_usuario.php/">Seus Dados</a>
             </div>
         <?php else: ?>
-            <p class="wrap" onmouseenter="showLoginPopup()" onmouseleave="hideLoginPopup()">faça seu login.</p>
+            <a style="text-decoration: none;" href="../control/control_login.php"><p class="wrap" onmouseenter="showLoginPopup()" onmouseleave="hideLoginPopup()">faça seu login.</p></a>
         </div>
         <?php endif; ?>
         <div class="nav-item rem-9">
