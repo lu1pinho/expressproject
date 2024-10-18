@@ -1,4 +1,5 @@
 <?php
+session_start();
 // Incluindo os arquivos necessários
 include 'C:\xampp\htdocs\expressproject\settings\connection.php';
 include '../model/adicionar_produto.php';

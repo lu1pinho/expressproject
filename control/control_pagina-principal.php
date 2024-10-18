@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 // Inclui a conexão com o banco de dados e o model
 include '../model/ProdutoModel.php';
 include '../settings/config.php';
