@@ -1,25 +1,23 @@
 <?php
+function getPedidosByUserId($conn, $user_id) {
+    if ($conn == null || $user_id == null) {
+        return [];
+    }
 
-function getPedidosByUserId($pdo, $userId) {
-    // Buscar os pedidos realizados pelo usuário
-    $stmt = $pdo->prepare("
-        SELECT p.id, p.data, p.valor_total
-        FROM pedidos p
-        WHERE p.usuario_id = :userId
-    ");
-    $stmt->execute(['userId' => $userId]);
-    $pedidos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    // Consulta para pegar os pedidos do usuário
+    $stmt = $conn->prepare("SELECT * FROM pedidos WHERE user_id = ?");
+    $stmt->bind_param('i', $user_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $pedidos = $result->fetch_all(MYSQLI_ASSOC);
 
     // Para cada pedido, buscar os produtos relacionados
     foreach ($pedidos as &$pedido) {
-        $stmtProdutos = $pdo->prepare("
-            SELECT pr.nome, pr.preco, pp.quantidade, pr.url_img
-            FROM produtos pr
-            JOIN pedido_produto pp ON pr.id = pp.produto_id
-            WHERE pp.pedido_id = :pedidoId
-        ");
-        $stmtProdutos->execute(['pedidoId' => $pedido['id']]);
-        $pedido['produtos'] = $stmtProdutos->fetchAll(PDO::FETCH_ASSOC);
+        $stmt_prod = $conn->prepare("SELECT * FROM produtos WHERE pedido_id = ?");
+        $stmt_prod->bind_param('i', $pedido['id']);
+        $stmt_prod->execute();
+        $result_prod = $stmt_prod->get_result();
+        $pedido['produtos'] = $result_prod->fetch_all(MYSQLI_ASSOC);
     }
 
     return $pedidos;

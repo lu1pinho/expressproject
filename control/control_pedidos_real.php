@@ -1,22 +1,24 @@
 <?php
+session_start(); // Inicie a sessão no início
 
-include 'C:/xampp/htdocs/expressproject/src/settings/connection.php';
-include '../model\pedidos_realizados.php';
-
-session_start();
-
-// Verificar se o usuário está logado
+// Verifique se o user_id está definido na sessão
 /*if (!isset($_SESSION['user_id'])) {
-    // Redirecionar para a página de login se não estiver logado
-    header("Location: C:/xampp/htdocs/expressproject/view/dados_usuarios/login.php");
-    exit();
+    // Redirecione para a página de login
+    header("Location: /expressproject/view/login.php");
+    exit(); // Garanta que o script pare de executar após o redirecionamento
 }*/
 
-$userId = $_SESSION['user_id'];
+$user_id = $_SESSION['user_id']; // Acesse o user_id da sessão
 
-// Buscar os pedidos do usuário
-$pedidos = getPedidosByUserId($pdo, $userId);
+// Inclua a conexão com o banco de dados
+include 'C:/xampp/htdocs/expressproject/src/settings/connection.php';
 
-// Incluir a view para exibir os dados
-include '../view\pedidos_realizados.php';
+// Inclua o modelo
+include '../model/pedidos_realizados.php';
+
+// Busque os pedidos do usuário
+$pedidos = getPedidosByUserId($conn, $user_id);
+
+// Inclua a view
+include '../view/pedidos_realizados.php';
 ?>
