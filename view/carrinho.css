@@ -25,6 +25,7 @@
   width: 95%;
   margin-bottom: 15px;
   max-width: 100%;
+  margin-left: 30px;
 }
 
 .back-button:hover {
@@ -146,21 +147,24 @@ flex-wrap: wrap;
 }
 
 .container {
-flex: 1; /* Permite que o container do carrinho ocupe o espaço restante */
-margin-right: 20px; /* Espaçamento à direita do container do carrinho */
+flex: 1; 
+max-width: 80%;
+margin-right: 20px; 
 }
 
 .container2 {
-flex-shrink: 0; /* Impede que o container do botão diminua */
-width: 300px;
-margin-right: 20px;
-margin-top: 10px;
-background-color: white;
-padding: 20px;
-border-radius: 10px;
-box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-min-height: auto;
+  position: fixed; 
+  top: 117px; 
+  right: 20px; 
+  width: 300px; 
+  background-color: white;  
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  max-height: calc(100vh - 40px); 
+  overflow-y: auto; 
 }
+
 
 .check {
   transform: scale(1.75); /* Aumenta o tamanho da checkbox */

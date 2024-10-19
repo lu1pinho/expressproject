@@ -9,14 +9,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 
-
 <body>
     <?php include 'nav.php'; ?>
     <div class="juntando">
         <div class="container">
             <div class="cart">
                 <div class="back-button">
-                    <a href="javascript:void(0);" class="arrow-link" onclick="goBack()">
+                    <a href="../control/control_pagina-principal.php">
                         <span class="arrow">&#8592;</span>
                     </a>
                     <span>Carrinho</span>
@@ -33,7 +32,7 @@
                                     <?= (isset($_POST['produtos_selecionados']) && in_array($index, $_POST['produtos_selecionados'])) ? 'checked' : ''; ?>
                                     onchange="document.getElementById('carrinhoForm').submit();">
 
-                                <img class="product-image" src="<?php echo CAMINHO_IMAGENS . $item['url_img']; ?>" alt="<?= htmlspecialchars($item['nome']); ?>" />
+                                <img class="product-image" src="<?= CAMINHO_IMAGENS . htmlspecialchars($item['url_img']); ?>" alt="<?= htmlspecialchars($item['nome']); ?>" />
                                 <div class="product-details">
                                     <a href="#"><?= htmlspecialchars($item['nome']); ?></a>
                                     <p>
@@ -50,22 +49,22 @@
                                     <label class="quantity-label"><?= $item['quantidade']; ?></label>
                                     <button type="submit" name="alterar_quantidade[<?= $index; ?>]" value="minus" class="btn-quantity">-</button>
                                 </div>
-                                <!-- Botão de remoção com valor do índice -->
                                 <button type="submit" name="remover_item" value="<?= $index; ?>" class="remove-item">&#128465;</button>
                             </div>
                         <?php endforeach; ?>
+
+                        <div class="container2">
+                            <h3>Subtotal: R$ <?= number_format($total, 2, ',', '.'); ?></h3>
+                            <form action="../control/control_finalizar_pedido.php" method="POST" id="carrinhoForm">
+                                <!-- Aqui vão os itens do carrinho -->
+                                <button type="submit" name="fechar_pedido" class="checkout-button">Fechar Pedido</button>
+                            </form>
+                        </div>
                     </form>
                 <?php endif; ?>
             </div>
         </div>
 
-        <div class="container2">
-            <h3>Subtotal: R$ <?= number_format($total, 2, ',', '.'); ?></h3>
-           <a href="../control/control_finalizar_pedido.php">
-               <button class="checkout-button">Fechar Pedido</button>
-
-           </a>
-        </div>
     </div>
 
     <script>

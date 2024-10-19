@@ -38,7 +38,7 @@
                 <p>Adicionado Ao Carrinho!</p>
             </div>
             <!-- Adicionando ao carrinho -->
-            <form action="..\control\control_carrinho.php" method="POST">
+            <form action="/expressproject/control/control_carrinho.php" method="POST">
                 <input type="hidden" name="produto_nome" value="<?php echo htmlspecialchars($productData['nome']); ?>">
                 <input type="hidden" name="produto_imagem" value="<?php echo CAMINHO_IMAGENS . htmlspecialchars($productData['url_img']); ?>">
                 <input type="hidden" name="produto_preco" value="<?php echo htmlspecialchars($preco); ?>">
