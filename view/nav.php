@@ -339,7 +339,7 @@ header{
             <p>Todos</p>
         </div>
         <div class="option">
-            <a style="text-decoration: none; color:white;" href="../view/pagina-vendedor.php">Venda na Express</a>
+            <a style="text-decoration: none; color:white;" href="../control/control_atualizar-vendedor.php">Venda na Express</a>
         </div>
         <div class="option">
             <p>Ofertas do Dia</p>

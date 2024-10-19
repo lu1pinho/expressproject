@@ -1,10 +1,18 @@
 <?php
-session_start();
+session_start(); // Adicione esta linha para iniciar a sessão
 // Incluindo os arquivos necessários
 include 'C:\xampp\htdocs\expressproject\settings\connection.php';
 include '../model/adicionar_produto.php';
 include '../view/adicionar_produto.php';
 
+// Verifica se o usuário está autenticado
+if (!isset($_SESSION['id'])) {
+    header("Location: ../control/control_login.php"); // Redireciona para a página de login se não estiver autenticado
+    exit();
+}
+
+// Pega o ID do vendedor logado (a partir da sessão)
+$vendedor_id = $_SESSION['id']; // Ou $_SESSION['id'], dependendo de como você armazenou o ID na sessão
 
 // Verifica se o formulário foi enviado
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -46,22 +54,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit();
         }
 
-     // Inserindo o produto no banco de dados
+        // Inserindo o produto no banco de dados
         try {
             // O upload da imagem já deve ter sido realizado, então agora usamos o caminho retornado
             $url_img = $userModel->uploadImage($_FILES); // Captura a URL da imagem
 
-            $produtoCriado = $userModel->createProduto($name, $descricao, $preco, $estoque, $category, 0, $frete, $dados_produto, $url_img); // Use $url_img aqui
+            // Agora passando o vendedor_id para o método createProduto
+            $produtoCriado = $userModel->createProduto($name, $descricao, $preco, $estoque, $category, 0, $frete, $dados_produto, $url_img, $vendedor_id);
 
-            /*if ($produtoCriado) {
+            if ($produtoCriado) {
                 echo "Produto inserido com sucesso!";
             } else {
                 echo "Erro ao inserir produto.";
-            }*/
+            }
         } catch (Exception $e) {
             echo "Erro ao criar produto: " . $e->getMessage();
         }
-   
     }
 }
 ?>

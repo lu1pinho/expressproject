@@ -1,3 +1,61 @@
-.container p {
+.container p, main {
   margin-left: 500px; 
+}
+
+/* Definir o layout principal para exibir aside e produtos lado a lado */
+.main-layout {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100vh;
+}
+
+.produtos-container {
+  display: flex;
+  margin-left: 500px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  /* Reduz o espaçamento entre os produtos */
+  padding: 10px;
+}
+
+.produto {
+  flex: 1 1 180px;
+  /* Define um tamanho mínimo para os produtos, ajustando a largura */
+  max-width: 200px;
+  /* Ajusta a largura máxima para deixar os produtos mais próximos */
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Ajuste no hover para o produto */
+.produto:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para a imagem dentro de cada produto */
+.produto img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  /* Garante que a imagem seja exibida corretamente sem cortar */
+  border-radius: 8px;
+}
+
+/* Estilos para o nome e descrição do produto */
+.produto h3 {
+  font-size: 1rem;
+  color: #18344F;
+  margin-top: 0.5rem;
+}
+
+.produto p {
+  font-size: 0.9rem;
+  color: #635a5a;
 }

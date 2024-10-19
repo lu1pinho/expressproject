@@ -33,9 +33,9 @@
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="../control/control_pagina-vendedor.php">
                             <img src="/expressproject/view/vendedor/modular/sidebar/svgs/box.svg" alt="" class="svg">
-                            <span>Meus Produtos</span>
+                           <span>Meus Produtos</span>
                         </a>
                     </li>
                 </ul>
@@ -62,7 +62,7 @@
                 <img src="/expressproject/view/vendedor/modular/sidebar/user-logo/user.png" alt="profile-pic">
             </div>
             <div class="profile-info">
-                <h3>Felipe Dias</h3>
+                <h3> <?php echo $_SESSION['nome']; ?></h3>
             </div>
         </div>
     </div>

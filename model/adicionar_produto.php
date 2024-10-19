@@ -17,7 +17,7 @@ class UserModel {
         }
     }    
 
-    public function createProduto($name, $descricao, $preco, $estoque, $category, $promocao, $frete, $dados, $file) {
+    public function createProduto($name, $descricao, $preco, $estoque, $category, $promocao, $frete, $dados, $file, $vendedor_id) { // Adicionado vendedor_id como parâmetro
 
         $this->conn->begin_transaction();
         try {
@@ -26,9 +26,10 @@ class UserModel {
                 throw new Exception("A URL da imagem não pode ser nula.");
             }
 
-            $sql_insert = "INSERT INTO produtos (nome, descricao, preco, estoque, categoria, preco_com_desconto, frete, dados_produto, url_img) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            // Atualizando a consulta para incluir vendedor_id
+            $sql_insert = "INSERT INTO produtos (nome, descricao, preco, estoque, categoria, preco_com_desconto, frete, dados_produto, url_img, vendedor_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             $stmt = $this->conn->prepare($sql_insert);
-            $stmt->bind_param('ssdisssss', $name, $descricao, $preco, $estoque, $category, $promocao, $frete, $dados, $url_img);
+            $stmt->bind_param('ssdisssssi', $name, $descricao, $preco, $estoque, $category, $promocao, $frete, $dados, $url_img, $vendedor_id); // Incluindo o vendedor_id
 
             if ($stmt->execute()) {
                 $this->conn->commit();
