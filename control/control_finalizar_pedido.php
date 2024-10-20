@@ -1,19 +1,25 @@
 <?php
 session_start();
+include 'C:/xampp/htdocs/expressproject/settings/connection.php'; 
+include '../model/finalizar_compra.php';
 
 if (!isset($_SESSION['id'])) {
-    header('C:\xampp\htdocs\expressproject\control\control_login.php');
+    header('Location: C:/xampp/htdocs/expressproject/control/control_login.php'); 
     exit();
 }
 
-include 'C:/xampp/htdocs/expressproject/settings/connection.php'; // Inclui a conexão
-include '../model/finalizar_compra.php';
-
 $id_user = $_SESSION['id'];
+$enderecoModel = new EnderecoModel($conn); 
 
-$enderecoModel = new EnderecoModel($conn); // Usa a conexão existente
+if (isset($_GET['action']) && $_GET['action'] == 'voltar') {
+    if ($enderecoModel->excluirProdutosCarrinho($id_user)) {
+        header('Location: ../control/control_carrinho.php');
+        exit();
+    } else {
+        echo "Erro ao tentar excluir os produtos do carrinho.";
+    }
+}
 
-// Obtém o endereço do usuário
 $endereco = $enderecoModel->buscarEnderecoPorUsuario($id_user);
 
 if ($endereco) {
@@ -23,7 +29,6 @@ if ($endereco) {
     $erro = "Endereço não encontrado para este usuário.";
 }
 
-// Obtém os produtos no carrinho
 $produtos = $enderecoModel->buscarProdutosCarrinho($id_user);
 $total_produtos = 0;
 $itens_carrinho = [];
@@ -37,8 +42,6 @@ if ($produtos->num_rows > 0) {
     }
 }
 
-// Fecha a conexão com o banco
 $conn->close();
 
-// Carrega a view
 include '../view/finalizar_compra.php';

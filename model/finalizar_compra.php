@@ -52,4 +52,12 @@ class EnderecoModel
         $stmt->close();
         return $produtos;
     }
+
+    public function excluirProdutosCarrinho($id_user) {
+        $sql = "DELETE FROM carrinho WHERE id_user = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("i", $id_user); // Usa o id_user
+        return $stmt->execute();
+    }
+    
 }

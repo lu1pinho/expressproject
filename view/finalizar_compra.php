@@ -10,17 +10,19 @@
 </head>
 
 <body>
-    
+
     <header>
         <div class="banner">
             <div class="logo">
                 <img src="../view/images/logo/logo.png" alt="Express.com">
             </div>
             <div class="butao-voltar">
-                <a href="../control/control_carrinho.php">
-                    <button class="btn-voltar">Voltar</button>
-                </a>
+                <form action="" method="GET"> 
+                    <input type="hidden" name="action" value="voltar">
+                    <button class="btn-voltar" type="submit">Voltar</button>
+                </form>
             </div>
+
         </div>
     </header>
 
