@@ -13,9 +13,13 @@ class UserModel {
             $image_name = basename($file['imagem']['name']);
             $target_dir = "../view/produtos/";
             $target_file = $image_name;
-            return $target_file; // Retorna o caminho da imagem
+            //var_dump($file);
+            move_uploaded_file($image_tmp_name, $target_file =  $target_dir.$image_name);
+            $target_file = $image_name;
+            return $target_file; 
         }
-    }    
+    }
+
 
     public function createProduto($name, $descricao, $preco, $estoque, $category, $promocao, $frete, $dados, $file, $vendedor_id) { // Adicionado vendedor_id como parâmetro
 
