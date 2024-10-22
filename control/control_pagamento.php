@@ -7,17 +7,17 @@ $id_usuario = $_SESSION['id'];
 
 $pedidoModel = new PedidoModel($conn);
 
-// Buscar o endereço e calcular o frete
 $endereco = $pedidoModel->buscarCepUsuario($id_usuario);
 $frete = 0;
 if ($endereco) {
     $frete = $pedidoModel->calcularFrete($endereco['cep']);
 }
 
-// Buscar produtos do carrinho
 $produtos = $pedidoModel->buscarProdutosCarrinho($id_usuario);
 $total_produtos = 0;
 foreach ($produtos as $produto) {
+    $produto_nome = $produto['produto_nome'];
+    $url_img = $produto['url_img'];
     $preco = $produto['preco'];
     $preco_com_desconto = $produto['preco_com_desconto'];
     $quantidade = $produto['quantidade'];
@@ -25,10 +25,29 @@ foreach ($produtos as $produto) {
     $total_produtos += $preco_final * $quantidade;
 }
 
-// Buscar cartões do usuário
 $cartoes = $pedidoModel->buscarCartoesUsuario($id_usuario);
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['comprar'])) {
+
+    foreach ($produtos as $produto) {
+        $preco = $produto['preco'];
+        $preco_com_desconto = $produto['preco_com_desconto'];
+        $quantidade = $produto['quantidade'];
+        $url_img = $produto['url_img']; 
+        $produto_nome = $produto['produto_nome']; 
+
+        $preco_final = $preco_com_desconto ?: $preco;
+        $total_produtos += $preco_final * $quantidade;
+
+        $pedidoModel->inserirProdutosComprados($id_usuario, $produto_nome, $quantidade, $preco_final, $url_img);
+    }
+
+    $pedidoModel->excluirProdutosCarrinho($id_usuario);
+
+    header("Location: /expressproject/control/control_pagina-principal.php");
+    exit();
+}
 
 $conn->close();
 
-// Passar dados para a view
 include '../view/pagamento.php';

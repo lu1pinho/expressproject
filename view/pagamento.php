@@ -56,24 +56,25 @@
             <?php endif; ?>
         </section>
 
-        <section class="resumo-compra-container">
-            <h2>Resumo da compra</h2>
-            <div class="preco-detalhe">
-                <p>Subtotal dos produtos</p>
-                <p>R$ <?php echo number_format($total_produtos, 2, ',', '.'); ?></p>
-            </div>
-            <div class="preco-detalhe">
-                <p>Frete</p>
-                <p>R$ <?php echo number_format($frete, 2, ',', '.'); ?></p>
-            </div>
-            <div class="total">
-                <p>Total</p>
-                <p>R$ <?php echo number_format($total_produtos + $frete, 2, ',', '.'); ?></p>
-            </div>
-            <a href="">
-                <button class="btn-continuar">Comprar</button>
-            </a>
-        </section>
+        <!-- Seção do resumo da compra -->
+        <form action="" method="POST">
+            <section class="resumo-compra-container">
+                <h2>Resumo da compra</h2>
+                <div class="preco-detalhe">
+                    <p>Subtotal dos produtos</p>
+                    <p>R$ <?php echo number_format($total_produtos, 2, ',', '.'); ?></p>
+                </div>
+                <div class="preco-detalhe">
+                    <p>Frete</p>
+                    <p>R$ <?php echo number_format($frete, 2, ',', '.'); ?></p>
+                </div>
+                <div class="total">
+                    <p>Total</p>
+                    <p>R$ <?php echo number_format($total_produtos + $frete, 2, ',', '.'); ?></p>
+                </div>
+                <button type="submit" name="comprar" class="btn-continuar">Comprar</button>
+            </section>
+        </form>
     </main>
 
 </body>
