@@ -1,24 +1,27 @@
 <?php
-session_start(); // Inicie a sessão no início
+session_start();
 
-// Verifique se o user_id está definido na sessão
 /*if (!isset($_SESSION['user_id'])) {
-    // Redirecione para a página de login
     header("Location: /expressproject/view/login.php");
-    exit(); // Garanta que o script pare de executar após o redirecionamento
+    exit();
 }*/
 
-$user_id = $_SESSION['user_id']; // Acesse o user_id da sessão
+$user_id = $_SESSION['user_id'];
 
-// Inclua a conexão com o banco de dados
 include 'C:/xampp/htdocs/expressproject/src/settings/connection.php';
-
-// Inclua o modelo
 include '../model/pedidos_realizados.php';
-
-// Busque os pedidos do usuário
-$pedidos = getPedidosByUserId($conn, $user_id);
-
-// Inclua a view
 include '../view/pedidos_realizados.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comprar'])) {
+    $produtosCarrinho = $_POST['produtos']; 
+
+    $pedido_id = criarPedido($conn, $user_id);
+
+    foreach ($produtosCarrinho as $produto) {
+        adicionarProdutoAoPedido($conn, $pedido_id, $produto['id'], $produto['quantidade']);
+    }
+
+    header("Location: /expressproject/view/pedidos_realizados.php");
+    exit();
+}
 ?>

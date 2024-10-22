@@ -19,20 +19,24 @@
         <?php else: ?>
             <?php foreach ($pedidos as $pedido): ?>
                 <div class="pedido-item">
-                    <h2>Pedido #<?= $pedido['id']; ?> - <?= htmlspecialchars($pedido['data']); ?></h2>
+                    <h2>Pedido #<?= htmlspecialchars($pedido['id']); ?> - <?= htmlspecialchars($pedido['data_pedido']); ?></h2>
                     <p>Total: R$ <?= number_format($pedido['valor_total'], 2, ',', '.'); ?></p>
 
                     <div class="produtos">
-                        <?php foreach ($pedido['produtos'] as $produto): ?>
-                            <div class="produto">
-                                <img src="<?= CAMINHO_IMAGENS . htmlspecialchars($produto['url_img']); ?>" alt="<?= htmlspecialchars($produto['nome']); ?>">
-                                <div class="detalhes-produto">
-                                    <p><?= htmlspecialchars($produto['nome']); ?></p>
-                                    <p>Quantidade: <?= $produto['quantidade']; ?></p>
-                                    <p>Preço: R$ <?= number_format($produto['preco'], 2, ',', '.'); ?></p>
+                        <?php if (!empty($pedido['produtos'])): ?>
+                            <?php foreach ($pedido['produtos'] as $produto): ?>
+                                <div class="produto">
+                                    <img src="<?= htmlspecialchars($produto['url_img']); ?>" alt="<?= htmlspecialchars($produto['nome']); ?>">
+                                    <div class="detalhes-produto">
+                                        <p><?= htmlspecialchars($produto['nome']); ?></p>
+                                        <p>Quantidade: <?= htmlspecialchars($produto['quantidade']); ?></p>
+                                        <p>Preço: R$ <?= number_format($produto['preco'], 2, ',', '.'); ?></p>
+                                    </div>
                                 </div>
-                            </div>
-                        <?php endforeach; ?>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <p>Nenhum produto relacionado a este pedido.</p>
+                        <?php endif; ?>
                     </div>
                 </div>
             <?php endforeach; ?>

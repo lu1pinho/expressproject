@@ -1,25 +1,62 @@
 <?php
-function getPedidosByUserId($conn, $user_id) {
-    if ($conn == null || $user_id == null) {
-        return [];
+class CartModel {
+    private $conn;
+
+    public function __construct($connection) {
+        $this->conn = $connection;
     }
 
-    // Consulta para pegar os pedidos do usuário
-    $stmt = $conn->prepare("SELECT * FROM pedidos WHERE user_id = ?");
-    $stmt->bind_param('i', $user_id);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $pedidos = $result->fetch_all(MYSQLI_ASSOC);
+    // Função para obter os pedidos realizados pelo usuário
+    public function getPedidosByUserId($userId) {
+        if ($this->conn == null || $userId == null) {
+            return [];
+        }
 
-    // Para cada pedido, buscar os produtos relacionados
-    foreach ($pedidos as &$pedido) {
-        $stmt_prod = $conn->prepare("SELECT * FROM produtos WHERE pedido_id = ?");
-        $stmt_prod->bind_param('i', $pedido['id']);
-        $stmt_prod->execute();
-        $result_prod = $stmt_prod->get_result();
-        $pedido['produtos'] = $result_prod->fetch_all(MYSQLI_ASSOC);
+        // Consulta para pegar os pedidos do usuário
+        $stmt = $this->conn->prepare("SELECT * FROM pedidos WHERE user_id = ?");
+        $stmt->bind_param('i', $userId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $pedidos = $result->fetch_all(MYSQLI_ASSOC);
+        $stmt->close();
+
+        // Para cada pedido, buscar os produtos relacionados
+        foreach ($pedidos as &$pedido) {
+            $pedido['produtos'] = $this->getProdutosByPedidoId($pedido['id']);
+        }
+
+        return $pedidos;
     }
 
-    return $pedidos;
+    // Função para obter os produtos relacionados a um pedido específico
+    private function getProdutosByPedidoId($pedidoId) {
+        $stmt = $this->conn->prepare("SELECT * FROM produtos WHERE pedido_id = ?");
+        $stmt->bind_param('i', $pedidoId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $produtos = $result->fetch_all(MYSQLI_ASSOC);
+        $stmt->close();
+
+        return $produtos;
+    }
+
+    // Função para criar um novo pedido
+    public function criarPedido($userId) {
+        $stmt = $this->conn->prepare("INSERT INTO pedidos (user_id, data_pedido) VALUES (?, NOW())");
+        $stmt->bind_param('i', $userId);
+        $stmt->execute();
+        $pedidoId = $this->conn->insert_id; // Retorna o ID do pedido recém-criado
+        $stmt->close();
+
+        return $pedidoId;
+    }
+
+    // Função para adicionar um produto ao pedido
+    public function adicionarProdutoAoPedido($pedidoId, $produtoId, $quantidade) {
+        $stmt = $this->conn->prepare("INSERT INTO produtos (pedido_id, produto_id, quantidade) VALUES (?, ?, ?)");
+        $stmt->bind_param('iii', $pedidoId, $produtoId, $quantidade);
+        $stmt->execute();
+        $stmt->close();
+    }
 }
 ?>
