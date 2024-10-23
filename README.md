@@ -311,7 +311,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
       <td>01/10/2024</td>
       <td>06/10/2024</td>
       <td>15</td>
-      <td>Pendente</td>
+      <td>Concluído</td>
       <td>Listagem de pedidos com status, data, detalhes do produto e rastreamento</td>
     </tr>
     <tr>
@@ -321,7 +321,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
       <td>07/10/2024</td>
       <td>09/10/2024</td>
       <td>15</td>
-      <td>Pendente</td>
+      <td>Concluído</td>
       <td>Conectar API de pedidos ao frontend, garantindo a exibição correta</td>
     </tr>
   </tbody>
@@ -439,7 +439,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
             <td>-</td>
             <td>-</td>
             <td>-</td>
-            <td>Pendente</td>
+            <td>Concluído</td>
             <td>Implementar a página que mostra o histórico dos pedidos</td>
         </tr>
         <tr>
@@ -449,7 +449,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
             <td>-</td>
             <td>-</td>
             <td>-</td>
-            <td>Pendente</td>
+            <td>Concluído</td>
             <td>Exibição de produtos vendidos e dados do vendedor</td>
         </tr>
         <tr>
@@ -459,7 +459,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
             <td>-</td>
             <td>-</td>
             <td>-</td>
-            <td>Pendente</td>
+            <td>Concluído</td>
             <td>Formulário para que o vendedor possa criar novos produtos</td>
         </tr>
         <tr>
@@ -469,7 +469,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
             <td>-</td>
             <td>-</td>
             <td>-</td>
-            <td>Pendente</td>
+            <td>Concluído</td>
             <td>Implementar a lógica para conectar a exibição da página com o backend e garantir a criação e exibição corretas de produtos</td>
         </tr>
         <tr>
@@ -479,7 +479,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
             <td>-</td>
             <td>-</td>
             <td>-</td>
-            <td>Pendente</td>
+            <td>Concluído</td>
             <td></td>
         </tr>
         <tr>
@@ -489,7 +489,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
             <td>-</td>
             <td>-</td>
             <td>-</td>
-            <td>Pendente</td>
+            <td>Concluído</td>
             <td>Garantir que as funcionalidades de gerenciamento de produtos do vendedor estejam corretas</td>
         </tr>
       <tr>
@@ -499,8 +499,65 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
             <td>-</td>
             <td>16/10</td>
             <td>-</td>
-            <td>Pendente</td>
+            <td>Concluído</td>
             <td>Reestruturar a arquitetura MVC em todas as páginas do projeto</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Api</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Feature</th>
+            <th>Tipo</th>
+            <th>Responsável</th>
+            <th>Início</th>
+            <th>Conclusão</th>
+            <th>Status</th>
+            <th>Descrição</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Validação de Email</td>
+            <td>(API de Validação)</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>Pendente</td>
+            <td>Implementar a API de validação de email da AbstractAPI para garantir que os emails inseridos sejam válidos.</td>
+        </tr>
+        <tr>
+            <td>Entrar pelo Google</td>
+            <td>(Autenticação)</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>Pendente</td>
+            <td>Integrar o login via Google utilizando a API de Sign-In do Google.</td>
+        </tr>
+        <tr>
+            <td>Validação de CEP</td>
+            <td>(Lógica de Negócio)</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>Pendente</td>
+            <td>Implementar a validação de CEP para garantir que os endereços inseridos sejam válidos.</td>
+        </tr>
+        <tr>
+            <td>Traduzir Site</td>
+            <td>(Internacionalização)</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>Pendente</td>
+            <td>Adicionar funcionalidade para traduzir o conteúdo do site para diferentes idiomas.</td>
         </tr>
     </tbody>
 </table>
