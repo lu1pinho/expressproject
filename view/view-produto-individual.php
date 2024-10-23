@@ -44,15 +44,15 @@
                 <input type="hidden" name="produto_preco" value="<?php echo htmlspecialchars($preco); ?>">
                 <input type="hidden" name="produto_preco_desconto" value="<?php echo htmlspecialchars($precodesconto); ?>">
                 <div class="buy">
-                    <button style="margin-top:30px">Comprar</button>
+                    <button>Comprar</button>
                     <div class="up">
-                        <select style="margin-bottom: 10px; margin-left: 5px" name="quantidade" id="quantidade" value="1" min="1" required>
-                            <?php for ($i = 1; $i <= 30; $i++): ?>
-                                <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                            <?php endfor; ?>
-                        </select>
                         <button id="addcart">Adicionar Ao Carrinho</button>
                     </div>
+                    <select name="quantidade" id="quantidade" value="1" min="1" required>
+                        <?php for ($i = 1; $i <= 10; $i++): ?>
+                            <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                        <?php endfor; ?>
+                    </select>
                 </div>
             </form>
             <div class="favorite">
@@ -96,11 +96,13 @@
         </div>
         <div class="footer-item">
             <h3>Siga-nos</h3>
-            <a href="#"><img src="../view/images/social-icons/facebook.svg" alt="Facebook" width="30px"></a>
-            <a href="#"><img src="../view/images/social-icons/instagram.svg" alt="Instagram" width="30px"></a>
-            <a href="#"><img src="../view/images/social-icons/twitter.svg" alt="Twitter" width="30px"></a>
+            <a href="#"><img class="svg" src="../view/images/svg/facebook.svg" alt="Facebook"></a>
+            <a href="#"><img class="svg" src="../view/images/svg/instagram.svg" alt="Instagram"></a>
+            <a href="#"><img class="svg" src="../view/images/svg/twitter.svg" alt="Twitter"></a>
         </div>
     </div>
 </footer>
+
+    <script src="../view/nav.js"></script>
 </body>
 </html>

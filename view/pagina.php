@@ -8,7 +8,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../view/index.css">
     <title>Express.com</title>
-    <title>Express.com</title>
 </head>
 
 <body>
@@ -186,11 +185,13 @@
         </div>
         <div class="footer-item">
             <h3>Siga-nos</h3>
-            <a href="#"><img src="../view/images/social-icons/facebook.svg" alt="Facebook" width="30px"></a>
-            <a href="#"><img src="../view/images/social-icons/instagram.svg" alt="Instagram" width="30px"></a>
-            <a href="#"><img src="../view/images/social-icons/twitter.svg" alt="Twitter" width="30px"></a>
+            <a href="#"><img class="svg" src="../view/images/svg/facebook.svg" alt="Facebook"></a>
+            <a href="#"><img class="svg" src="../view/images/svg/instagram.svg" alt="Instagram"></a>
+            <a href="#"><img class="svg" src="../view/images/svg/twitter.svg" alt="Twitter"></a>
         </div>
     </div>
 </footer>
+
+            <script src="../view/nav.js"></script>
 </body>
 </html>

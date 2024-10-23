@@ -572,6 +572,13 @@ body {
         height: auto;
     }
 
+    & .svg {
+        width: 20px;
+        height: 20px;
+        position: relative;
+        left: 49px;
+    }
+
 }
 
 .footer-item {
@@ -610,6 +617,5 @@ body {
     color: orange;
     border-bottom: 1px solid orange;
 }
-
 
 

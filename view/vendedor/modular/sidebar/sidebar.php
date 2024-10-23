@@ -21,7 +21,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="\expressproject\control\faturamento.php">
                             <img src="/expressproject/view/vendedor/modular/sidebar/svgs/receipt.svg" alt="" class="svg">
                             <span>Faturamento</span>
                         </a>
@@ -36,6 +36,9 @@
                         <a href="../control/control_pagina-vendedor.php">
                             <img src="/expressproject/view/vendedor/modular/sidebar/svgs/box.svg" alt="" class="svg">
                            <span>Meus Produtos</span>
+                            <span class="graph-container">
+
+                            </span>
                         </a>
                     </li>
                 </ul>
@@ -49,7 +52,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a onclick="openPopup()">
                             <img src="/expressproject/view/vendedor/modular/sidebar/svgs/leave.svg" alt="" class="svg">
                             <span>Sair</span>
                         </a>
