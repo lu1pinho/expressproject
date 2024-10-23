@@ -371,6 +371,7 @@ main {
         }
     }
 
+
     & #product-img {
         width: 500px;
         height: auto;
@@ -455,6 +456,17 @@ main {
             justify-content: center;
             margin-top: 20px;
 
+            select {
+                width: 40px;
+                height: 40px;
+                border: 1px solid var(--color-orange);
+                border-radius: 5px;
+            }
+
+            select:focus {
+                outline: none;
+            }
+
             button {
                 background-color: var(--color-orange);
                 border: none;
@@ -489,6 +501,7 @@ main {
                     animation-duration: 2s;
                     animation-iteration-count: 1;
                     background-color: var(--color-light-orange);
+                    color: white;
                 }
             }
         }
@@ -552,6 +565,8 @@ main {
         height: auto;
     }
 
+
+
 }
 
 .footer-item {
@@ -574,6 +589,13 @@ main {
     & .payments {
         width: 180px;
         margin-right: 10px;
+    }
+
+    & .svg {
+        width: 20px;
+        height: 20px;
+        position: relative;
+        left: 49px;
     }
 }
 
