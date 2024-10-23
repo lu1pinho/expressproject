@@ -522,7 +522,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
         <tr>
             <td>Validação de Email</td>
             <td>(API de Validação)</td>
-            <td>-</td>
+            <td>Mara Emanuella</td>
             <td>-</td>
             <td>-</td>
             <td>-</td>
@@ -532,7 +532,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
         <tr>
             <td>Entrar pelo Google</td>
             <td>(Autenticação)</td>
-            <td>-</td>
+            <td>Luís Gustavo</td>
             <td>-</td>
             <td>-</td>
             <td>-</td>
@@ -542,7 +542,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
         <tr>
             <td>Validação de CEP</td>
             <td>(Lógica de Negócio)</td>
-            <td>-</td>
+            <td>Dallyla</td>
             <td>-</td>
             <td>-</td>
             <td>-</td>
@@ -552,7 +552,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
         <tr>
             <td>Traduzir Site</td>
             <td>(Internacionalização)</td>
-            <td>-</td>
+            <td>Heloísa e Neci</td>
             <td>-</td>
             <td>-</td>
             <td>-</td>
