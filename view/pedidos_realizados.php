@@ -11,37 +11,40 @@
 <body>
     <?php include 'nav.php'; ?>
 
-    <div class="container">
-        <h1>Pedidos Realizados</h1>
+    <main class="container">
+        <section>
+            <h2>Produtos Comprados</h2>
 
-        <?php if (empty($pedidos)): ?>
-            <p>Você ainda não fez nenhum pedido.</p>
-        <?php else: ?>
-            <?php foreach ($pedidos as $pedido): ?>
-                <div class="pedido-item">
-                    <h2>Pedido #<?= htmlspecialchars($pedido['id']); ?> - <?= htmlspecialchars($pedido['data_pedido']); ?></h2>
-                    <p>Total: R$ <?= number_format($pedido['valor_total'], 2, ',', '.'); ?></p>
-
-                    <div class="produtos">
-                        <?php if (!empty($pedido['produtos'])): ?>
-                            <?php foreach ($pedido['produtos'] as $produto): ?>
-                                <div class="produto">
-                                    <img src="<?= htmlspecialchars($produto['url_img']); ?>" alt="<?= htmlspecialchars($produto['nome']); ?>">
-                                    <div class="detalhes-produto">
-                                        <p><?= htmlspecialchars($produto['nome']); ?></p>
-                                        <p>Quantidade: <?= htmlspecialchars($produto['quantidade']); ?></p>
-                                        <p>Preço: R$ <?= number_format($produto['preco'], 2, ',', '.'); ?></p>
-                                    </div>
-                                </div>
-                            <?php endforeach; ?>
-                        <?php else: ?>
-                            <p>Nenhum produto relacionado a este pedido.</p>
-                        <?php endif; ?>
-                    </div>
-                </div>
-            <?php endforeach; ?>
-        <?php endif; ?>
-    </div>
+            <?php if ($produtos->num_rows > 0): ?>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Produto</th>
+                            <th>Imagem</th>
+                            <th>Preço</th>
+                            <th>Data da Compra</th>
+                            <th>Quantidade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php while ($row = $produtos->fetch_assoc()): ?>
+                            <tr>
+                                <td><?php echo htmlspecialchars($row['produto_nome']); ?></td>
+                                <td>
+                                    <img src="<?php echo CAMINHO_IMAGENS . htmlspecialchars($row['url_img']); ?>" alt="<?php echo htmlspecialchars($row['produto_nome']); ?>" width="100">
+                                </td>
+                                <td><?php echo 'R$ ' . number_format($row['preco'], 2, ',', '.'); ?></td>
+                                <td><?php echo date('d/m/Y', strtotime($row['data_compra'])); ?></td>
+                                <td><?php echo htmlspecialchars($row['quantidade']); ?></td>
+                            </tr>
+                        <?php endwhile; ?>
+                    </tbody>
+                </table>
+            <?php else: ?>
+                <p>Nenhum produto encontrado.</p>
+            <?php endif; ?>
+        </section>
+    </main>
 </body>
 
 </html>
