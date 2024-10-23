@@ -1,0 +1,57 @@
+/*FOOTER */
+
+.footer-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    padding: 20px;
+    height: 250px;
+    background-color: white;
+    color: black;
+    border-top: 1px solid #d3d3d3;
+
+    & img {
+        width: 200px;
+        height: auto;
+    }
+
+}
+
+.footer-item {
+    display: flex;
+    flex-direction: column; /* Para empilhar os links verticalmente */
+    align-items: flex-start; /* Alinha os itens à esquerda */
+    height: 150px;
+
+    &:first-child {
+        align-items: center;
+        margin-right: 50px;
+    }
+
+    & h3{
+        font-size: 1rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    & .payments {
+        width: 180px;
+        margin-right: 10px;
+    }
+}
+
+.footer-item a {
+    text-decoration: none;
+    color: black;
+    margin: 5px 0;
+    transition: all 0.3s;
+    font-size: 0.9rem;
+    border-bottom: 1px solid transparent;
+}
+
+.footer-item a:hover {
+    color: orange;
+    border-bottom: 1px solid orange;
+}
