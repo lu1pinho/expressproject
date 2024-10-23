@@ -156,8 +156,11 @@
 <?php include 'C:\xampp\htdocs\expressproject\settings\connection.php'; ?>
 
 <div class="container" >
+  <a class="editar-produto-btn" style="margin-left: 1050px;" href="/expressproject/control/control_atualizar-produto.php">Editar produto</a>
+</div>
+<div class="container" >
   <h2>Que bom te ver, <?php echo $_SESSION['nome']; ?></h2>
-  <p>Confira as atualizações do seu negócio</p>
+  
   <a class="editar-produto-btn" style="margin-left: 1050px;" href="../control/control_adicionar_produto.php">Adicionar Produto</a>
   <h2 class="seusprodutos" >Seus Produtos</h2>
 </div>
@@ -174,7 +177,7 @@
                 echo '<img src="' . $imagem_produto . '" alt="' . $produto['nome'] . '">';
                 echo '<h3>' . $produto['nome'] . '</h3>';
                 echo '<p>R$' . number_format($produto['preco'], 2, ',', '.') . '</p>';
-                echo '<button class="editar-produto-btn" onclick="window.location.href=\'../control/control-editar-produto.php?id=' . $produto['id'] . '\'">Editar Produto</button>';
+                // echo '<button class="editar-produto-btn" onclick="window.location.href=\'../control/control_atualizar-produto.php?id=' . $produto['id'] . '\'">Editar Produto</button>';
 
                 echo '</div>';
             }
@@ -215,6 +218,7 @@
             <a href="#"><img src="../view/images/social-icons/instagram.svg" alt="Instagram" width="30px"></a>
             <a href="#"><img src="../view/images/social-icons/twitter.svg" alt="Twitter" width="30px"></a>
         </div>
+
     </div>
 </footer>
 </body>
