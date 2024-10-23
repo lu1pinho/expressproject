@@ -1,73 +1,103 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atualizar Produto</title>
     <link rel="stylesheet" href="../view/stylesheets/atualizar_produto.css">
     <link rel="stylesheet" href="../view/vendedor/modular/sidebar/sidebar.css">
+    <title>Atualizar produtos do vendedor</title>
 </head>
+
 <body>
-    <aside>
-        <?php include_once '../view/vendedor/modular/sidebar/sidebar.php';?>
-    </aside>
-    <main>
-        <section class="produto-form">
-            <header>
-                <h1>Atualize seu produto e venda muito mais</h1>
-                <p>Que tal criar um novo cupom de desconto?</p>
-            </header>
+    <?php include_once 'C:/xampp/htdocs/expressproject/view/vendedor/modular/sidebar/sidebar.php'; ?>
+    <section>
+        <?php foreach ($produtos as $produto): ?>
+            <div class="product-container">
+                <!-- Formulário para salvar as alterações do produto -->
+                <form action="../control/control_atualizar-produto.php" method="POST">
+                    <input type="hidden" name="id" value="<?php echo $produto['id']; ?>">
 
-            <form action="#">
-                <div class="form-group">
-                    <label for="nome-produto">Nome do Produto</label>
-                    <input type="text" id="nome-produto" name="nome-produto">
-                </div>
-
-                <div class="form-group">
-                    <label for="descricao-produto">Descrição do Produto</label>
-                    <textarea id="descricao-produto" name="descricao-produto" rows="4"></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label for="preco-unitario">Preço Unitário</label>
-                    <input type="text" id="preco-unitario" name="preco-unitario">
-                </div>
-
-                <div class="form-group">
-                    <label for="preco-promocao">Preço em Promoção</label>
-                    <input type="text" id="preco-promocao" name="preco-promocao">
-                </div>
-
-                <div class="form-group">
-                    <label for="categoria">Categoria</label>
-                    <input type="text" id="categoria" name="categoria">
-                </div>
-
-                <div class="form-group">
-                    <label for="estoque">Em estoque (Smart Stock)</label>
-                    <input type="text" id="estoque" name="estoque">
-                </div>
-
-                <div class="form-group">
-                    <label for="porcentagem-frete">Porcentagem do Frete</label>
-                    <input type="text" id="porcentagem-frete" name="porcentagem-frete">
-                </div>
-
-                <fieldset class="outros-ajustes">
-                    <legend>Outros ajustes do produto</legend>
-                    <div class="checkbox-group">
-                        <input type="checkbox" id="frete-gratis" name="frete-gratis" checked>
-                        <label for="frete-gratis">Frete Grátis</label>
+                    <!-- Imagem do produto -->
+                    <div class="product-image">
+                        <?php if (!empty($produto['url_img'])): ?>
+                            <img src="<?php echo CAMINHO_IMAGENS . '/' . htmlspecialchars($produto['url_img']); ?>" alt="Imagem do Produto">
+                        <?php else: ?>
+                            <span>Sem imagem</span>
+                        <?php endif; ?>
                     </div>
-                </fieldset>
 
-                <div class="form-buttons">
-                    <button type="submit" class="atualizar">Atualizar Produto</button>
-                    <button type="button" class="excluir">Excluir Produto</button>
+                    <!-- Detalhes do produto -->
+                    <div class="product-details">
+                        <div class="product-name">
+                            <label for="nome-<?php echo $produto['id']; ?>">Nome:</label>
+                            <input type="text" id="nome-<?php echo $produto['id']; ?>" name="nome" value="<?php echo htmlspecialchars($produto['nome']); ?>">
+                        </div>
+
+                        <div class="product-description">
+                            <label for="descricao-<?php echo $produto['id']; ?>">Descrição:</label>
+                            <textarea id="descricao-<?php echo $produto['id']; ?>" name="descricao" rows="4" cols="50"><?php echo htmlspecialchars($produto['descricao']); ?></textarea>
+                        </div>
+
+                        <div class="product-data">
+                            <label for="dados_produto-<?php echo $produto['id']; ?>">Dados do Produto:</label>
+                            <textarea id="dados_produto-<?php echo $produto['id']; ?>" name="dados_produto" rows="4" cols="50"><?php echo htmlspecialchars($produto['dados_produto']); ?></textarea>
+                        </div>
+
+                        <div class="product-price">
+                            <label for="preco-<?php echo $produto['id']; ?>">Preço:</label>
+                            <input type="number" id="preco-<?php echo $produto['id']; ?>" name="preco" value="<?php echo htmlspecialchars($produto['preco']); ?>" step="0.01">
+                        </div>
+
+                        <div class="product-discount-price">
+                            <label for="preco_com_desconto-<?php echo $produto['id']; ?>">Preço com Desconto:</label>
+                            <input type="number" id="preco_com_desconto-<?php echo $produto['id']; ?>" name="preco_com_desconto" value="<?php echo htmlspecialchars($produto['preco_com_desconto']); ?>" step="0.01">
+                        </div>
+
+                        <div class="product-shipping">
+                            <label for="frete_gratis-<?php echo $produto['id']; ?>">Frete Grátis:</label>
+                            <input type="checkbox" id="frete_gratis-<?php echo $produto['id']; ?>" name="frete_gratis" <?php echo $produto['frete_gratis'] ? 'checked' : ''; ?>>
+                        </div>
+
+                        <div class="product-offer">
+                            <label for="oferta_do_dia-<?php echo $produto['id']; ?>">Oferta do Dia:</label>
+                            <input type="checkbox" id="oferta_do_dia-<?php echo $produto['id']; ?>" name="oferta_do_dia" <?php echo $produto['oferta_do_dia'] ? 'checked' : ''; ?>>
+                        </div>
+
+                        <!-- Seleção da Categoria -->
+                        <div class="product-category">
+                            <label for="categoria-<?php echo $produto['id']; ?>">Categoria:</label>
+                            <input type="text" id="categoria-<?php echo $produto['id']; ?>" name="categoria" value="<?php echo htmlspecialchars($produto['categoria']); ?>">
+                        </div>
+
+                        <!-- Estoque e Frete -->
+                        <div class="product-stock">
+                            <label for="estoque-<?php echo $produto['id']; ?>">Estoque:</label>
+                            <input type="number" id="estoque-<?php echo $produto['id']; ?>" name="estoque" value="<?php echo htmlspecialchars($produto['estoque']); ?>">
+                        </div>
+
+                        <div class="product-frete">
+                            <label for="frete-<?php echo $produto['id']; ?>">Frete:</label>
+                            <input type="text" id="frete-<?php echo $produto['id']; ?>" name="frete" value="<?php echo htmlspecialchars($produto['frete']); ?>">
+                        </div>
+                    </div>
+
+                    <!-- Ações do Produto -->
+                    <div class="product-actions">
+                        <button type="submit">Salvar Alterações</button>
+                    </div>
+                </form>
+
+                <!-- Formulário para excluir o produto -->
+                <div class="product-close">
+                    <form action="atualizar_produto.php" method="POST" style="display:inline;">
+                        <input type="hidden" name="delete_id" value="<?php echo $produto['id']; ?>">
+                        <button type="submit">Excluir Produto</button>
+                    </form>
                 </div>
-            </form>
-        </section>
-    </main>
+            </div>
+        <?php endforeach; ?>
+    </section>
 </body>
+
 </html>

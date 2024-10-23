@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+section {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.product-container {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #fff;
+    padding: 50px;
+    margin-bottom: 50px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-left: 130px;
+}
+
+.product-container img {
+    max-width: 200px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.product-details {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.product-details label {
+    font-weight: bold;
+    color: #555;
+}
+
+.product-details input[type="text"],
+.product-details input[type="number"],
+.product-details input[type="checkbox"],
+.product-description textarea,
+.product-data textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+.product-actions button,
+.product-close button { /* Corrigido o nome da classe para 'product-close' */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    margin-top: 20px;
+}
+
+.product-actions button[type="submit"] {
+    background-color: #111fd7;
+    color: white;
+}
+
+.product-actions button[type="submit"]:hover,
+.product-close button:hover { /* Adicionado hover para o botão 'product-close' */
+    background-color: #ff8503;
+}
+
+/* Estilo específico para o botão close, se necessário */
+.product-close button {
+    background-color: #ff0000; /* Exemplo de cor específica para o botão close */
+    color: white; /* Cor do texto do botão close */
+    position: absolute;
+    margin-left: 24.2%;
+    margin-top: -3.8%;
+}
+
+
+
+
+.product-cloose form button:hover {
+    background-color: #ff0000;
+}
+
+.product-shipping,
+.product-name,
+.product-price,
+.product-discount-price,
+.product-category,
+.product-stock,
+.product-freight {
+    width: 518px;
+    margin-bottom: 10px;
+}
+
+input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+    transform: scale(1.5);
+    position: absolute;
+    margin-top: 2px;
+    left: -300px;
+}
+
+@media (max-width: 768px) {
+    .product-container {
+        flex-direction: column;
+    }
+
+    .product-details {
+        width: 100%;
+    }
+}
