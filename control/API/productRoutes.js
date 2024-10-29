@@ -30,10 +30,10 @@ const upload = multer({ storage: storage });
 router.post('/', upload.single('url_img'), productController.createProduct);
 
 // Rota para atualizar um produto existente
-/*router.put('/:id', productController.updateProduct);
+//router.put('/:id', productController.updateProduct);
 
 // Rota para deletar um produto
-router.delete('/:id', productController.deleteProduct);*/
+router.delete('/product/:id', productController.deleteProduct);
 
 // Exporta o router para uso em outros arquivos
 module.exports = router;
