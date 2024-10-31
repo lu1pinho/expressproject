@@ -34,6 +34,7 @@ router.post('/', upload.single('url_img'), productController.createProduct);
 
 // Rota para deletar um produto
 router.delete('/product/:id', productController.deleteProduct);
+//router.delete('/:id', productController.deleteProduct);
 
 // Exporta o router para uso em outros arquivos
 module.exports = router;
