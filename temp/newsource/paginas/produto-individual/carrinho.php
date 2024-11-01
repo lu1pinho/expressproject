@@ -121,7 +121,7 @@ $conn->close();
         <div class="container">
             <div class="cart">
                 <div class="back-button">
-                    <a href="javascript:void(0);" class="arrow-link" onclick="goBack()">
+                    <a href="../principal/pagina.php">
                         <span class="arrow">&#8592;</span>
                     </a>
                     <span>Carrinho</span>
