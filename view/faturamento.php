@@ -83,15 +83,7 @@
     </section>
 </main>
 
-<div class="container">
-    <div class="backdrop"></div> <!-- Backdrop -->
-    <div class="popup">
-        <h2>Encerrar Sessão!</h2>
-        <p>Você realmente quer encerrar a cessão?</p>
-        <button onclick="encerrarSessao()" class="encerrar">Encerrar Sessão</button>
-        <button onclick="closePopup()" class="cancelar">Cancelar</button>
-    </div>
-</div>
+
 
 <script>
     function closePopup() {
