@@ -520,8 +520,8 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
     </thead>
     <tbody>
         <tr>
-            <td>Validação de Email</td>
-            <td>(API de Validação)</td>
+            <td>Atualizar Produto</td>
+            <td>PUT</td>
             <td>Mara Emanuella</td>
             <td>-</td>
             <td>-</td>
@@ -530,8 +530,8 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
             <td>Implementar a API de validação de email da AbstractAPI para garantir que os emails inseridos sejam válidos.</td>
         </tr>
         <tr>
-            <td>Entrar pelo Google</td>
-            <td>(Autenticação)</td>
+            <td>Listagem de Produtos</td>
+            <td>GET</td>
             <td>Luís Gustavo</td>
             <td>-</td>
             <td>-</td>
@@ -540,8 +540,8 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
             <td>Integrar o login via Google utilizando a API de Sign-In do Google.</td>
         </tr>
         <tr>
-            <td>Validação de CEP</td>
-            <td>(Lógica de Negócio)</td>
+            <td>Produto Específico</td>
+            <td>GET</td>
             <td>Dallyla</td>
             <td>-</td>
             <td>-</td>
@@ -550,14 +550,119 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
             <td>Implementar a validação de CEP para garantir que os endereços inseridos sejam válidos.</td>
         </tr>
         <tr>
-            <td>Traduzir Site</td>
-            <td>(Internacionalização)</td>
-            <td>Heloísa e Neci</td>
+            <td>Novo Produto</td>
+            <td>POST</td>
+            <td>Heloísa</td>
             <td>-</td>
             <td>-</td>
             <td>-</td>
             <td>Pendente</td>
             <td>Adicionar funcionalidade para traduzir o conteúdo do site para diferentes idiomas.</td>
+        </tr>
+         <tr>
+            <td>Remover Produto</td>
+            <td>DELETE</td>
+            <td>Neci</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>Pendente</td>
+            <td>Adicionar funcionalidade para traduzir o conteúdo do site para diferentes idiomas.</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>API</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Feature</th>
+            <th>Tipo</th>
+            <th>Responsável</th>
+            <th>Início</th>
+            <th>Conclusão</th>
+            <th>Status</th>
+            <th>Descrição</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Atualizar Produto</td>
+            <td>PUT</td>
+            <td>Mara Emanuella</td>
+            <td>-</td>
+            <td>-</td>
+            <td>Pendente</td>
+            <td>Implementar a funcionalidade para atualizar as informações de um produto existente.</td>
+        </tr>
+        <tr>
+            <td>Listagem de Produtos</td>
+            <td>GET</td>
+            <td>Luís Gustavo</td>
+            <td>-</td>
+            <td>-</td>
+            <td>Pendente</td>
+            <td>Implementar a API para listar todos os produtos cadastrados.</td>
+        </tr>
+        <tr>
+            <td>Produto Específico</td>
+            <td>GET</td>
+            <td>Dallyla</td>
+            <td>-</td>
+            <td>-</td>
+            <td>Pendente</td>
+            <td>Implementar a funcionalidade para retornar os detalhes de um produto específico com base no seu ID.</td>
+        </tr>
+        <tr>
+            <td>Novo Produto</td>
+            <td>POST</td>
+            <td>Heloísa</td>
+            <td>-</td>
+            <td>-</td>
+            <td>Pendente</td>
+            <td>Implementar a API para adicionar um novo produto ao sistema.</td>
+        </tr>
+         <tr>
+            <td>Remover Produto</td>
+            <td>DELETE</td>
+            <td>Neci</td>
+            <td>-</td>
+            <td>-</td>
+            <td>Pendente</td>
+            <td>Implementar a funcionalidade para remover um produto do sistema com base no seu ID.</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Api - Responsáveis pelas Pull Requests</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Feature</th>
+            <th>Responsável</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Atualizar Produto</td>
+            <td>Luís Gustavo</td>
+        </tr>
+        <tr>
+            <td>Listagem de Produtos</td>
+            <td>Dallyla</td>
+        </tr>
+        <tr>
+            <td>Produto Específico</td>
+            <td>Heloísa</td>
+        </tr>
+        <tr>
+            <td>Novo Produto</td>
+            <td>Neci</td>
+        </tr>
+        <tr>
+            <td>Remover Produto</td>
+            <td>Mara Emanuella</td>
         </tr>
     </tbody>
 </table>
