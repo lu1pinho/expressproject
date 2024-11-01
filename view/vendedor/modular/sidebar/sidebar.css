@@ -1,0 +1,147 @@
+@font-face {
+    font-family: 'Inter';
+    src: url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+    font-display: swap;
+}
+
+:root {
+    /* Variáveis de Cor */
+    --color-primary: #004382;
+    --color-secondary: #18344F;
+    --color-darkblue: #001C36;
+    --color-blue-4: #275682;
+    --color-blue-5: #006BCF;
+    --color-nav: #0a3a6a;
+    --color-orange: #FF7F00;
+    --color-light-orange: #FFA500;
+}
+
+/*Medidas*/
+.rem-4 { font-size: 0.4rem; } .rem-5 { font-size: 0.5rem; } .rem-6 { font-size: 0.6rem; } .rem-7 { font-size: 0.7rem; } .rem-8 { font-size: 0.8rem; } .rem-9 { font-size: 0.9rem; } .rem-10 { font-size: 1rem; } .rem-12 { font-size: 1.2rem; } .rem-14 { font-size: 1.4rem; } .rem-16 { font-size: 1.6rem; } .rem-18 { font-size: 1.8rem; } .rem-20 { font-size: 2rem; } .rem-24 { font-size: 2.4rem; } .rem-28 { font-size: 2.8rem; } .rem-32 { font-size: 3.2rem; }
+
+/*
+O uso do `&` (e comercial) referencia o seletor pai dentro do aninhamento,
+facilitando a aplicação de estilos específicos de forma concisa e legível.
+Exemplo: `&:hover` se refere ao estado de hover do seletor pai.
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    background-color: #ffffff;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #000000;
+    background-color: #ffffff;
+}
+
+
+.aside-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    padding: 10px;
+    background-color: #ffffff;
+    border-right: 2px solid #e0e0e0;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s;
+
+    .express-logo img {
+        width: 150px;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        li {
+            a {
+                color: #000000;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                padding: 10px;
+                border-radius: 5px;
+                transition: all 0.3s;
+
+                &:hover {
+                    background-color: #e8e8e8;
+                }
+            }
+        }
+        li:last-child {
+            margin-bottom: 20px;
+        }
+    }
+
+    .sealer-info {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        border-right: 2px solid #e0e0e0;
+        gap: 10px;
+        position: absolute;
+        width: 96.6%;
+        height: 50px;
+        bottom: 0;
+        transition: all 20s;
+
+        img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+
+        h3 {
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+
+        &:hover {
+            cursor: pointer;
+            animation: upDown 2s infinite;
+        }
+    }
+}
+
+ul:last-child {
+    margin-top: 20px;
+}
+
+@keyframes upDown {
+    0% {
+        bottom: 0;
+    }
+    50% {
+        bottom: 10px;
+    }
+    100% {
+        bottom: 0;
+    }
+}
+

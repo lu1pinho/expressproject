@@ -1,4 +1,6 @@
 <?php
+session_start(); // Mover o session_start para o início
+
 $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
 // Incluindo conexão
@@ -20,20 +22,20 @@ if ($stmt === false) {
 // Vinculando e executando a consulta
 $stmt->bind_param("i", $id);
 $stmt->execute();
-$stmt->bind_result($id, $nome, $dados, $descricao, $preco, $precodesconto, $percentual_desconto, $url_img);
+$stmt->bind_result($id, $nome, $dados, $descricao, $produto_preco, $produto_preco_desconto, $percentual_desconto, $url_img);
 if (!$stmt->fetch()) {
     die("Produto não encontrado.");
 }
 
 // Calculando o preço com desconto
-if (empty($precodesconto)) {
-    $precodesconto = !empty($percentual_desconto)
-        ? $preco - (($percentual_desconto / 100) * $preco)
-        : $preco;
+if (empty($produto_preco_desconto)) {
+    $produto_preco_desconto = !empty($percentual_desconto)
+        ? $produto_preco - (($percentual_desconto / 100) * $produto_preco)
+        : $produto_preco;
 }
 
 // Calculando a porcentagem de desconto
-$porcentagem = ($precodesconto < $preco) ? round(100 - (($precodesconto / $preco) * 100)) : 0;
+$porcentagem = ($produto_preco_desconto < $produto_preco) ? round(100 - (($produto_preco_desconto / $produto_preco) * 100)) : 0;
 
 $stmt->close();
 
@@ -61,67 +63,28 @@ while ($recommended_stmt->fetch()) {
     ];
 }
 $recommended_stmt->close();
-?>
 
+function logout() {
+    session_destroy();
+}
+if (isset($_POST['logout'])) {
+    logout(); 
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../stylesheets/individual-product.css">
+    <link rel="stylesheet" href="individual-product.css">
     <title><?php echo htmlspecialchars($nome); ?></title>
-    <script src="../script/script.js" defer></script>
+    <script src="script-pag-principal/script-slider.js" defer></script>
+    <script src="script-pag-principal/script2.js" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="define('CAMINHO_IMAGENS', '../../produtos/');">
 </head>
 <body>
-<header>
-    <div class="navbar">
-        <div class="logo">
-            <img src="images/logo.png" alt="Logotipo Express Marketplace" width="150">
-        </div>
-        <div class="location">
-            <img src="images/location_on_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="Localização">
-            <a href="#">Atualizar CEP</a>
-        </div>
-        <div class="searchbar">
-            <input type="text" placeholder="Pesquisa Express.com.br">
-            <button type="submit">
-                <img style="height: 32px;" src="images/search_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="pesquisa">
-            </button>
-        </div>
-        <div class="divs">
-            <div class="contas">
-                <p>Olá, faça seu login</p>
-                <a href="#">Contas</a>
-                <div class="tooltip">
-                    <button>Faça seu login</button>
-                    <div class="inline">
-                        <p>Cliente novo?</p>
-                        <a style="color: #001f54; font-size: 13px;" href="#">Comece aqui.</a>
-                    </div>
-                </div>
-            </div>
-            <div class="pedidos">
-                <a href="#">Devoluções e</a>
-                <a href="#">Pedidos</a>
-            </div>
-            <div class="carrinho">
-                <img src="images/shopping_cart_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24 (1).svg" alt="Carrinho">
-                <a href="#">Carrinho</a>
-            </div>
-        </div>
-    </div>
-</header>
-
-<div class="subnav">
-    <div class="todos">
-        <img src="images/menu_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24 (1).svg" alt="menu-sanduiche">
-        <p>Todos</p>
-    </div>
-    <div class="venda-na-express">Venda Na Express</div>
-    <div class="comprar-novamente">Comprar novamente</div>
-    <div class="oferta-do-dia">Oferta do dia</div>
-</div>
+<?php include 'nav.php'?>
 
 <main>
     <article>
@@ -149,10 +112,48 @@ $recommended_stmt->close();
                         <li><?php echo formatText($dados); ?></li>
                     </ul>
                 </div>
-                <div class="action-buttons">
-                    <button class="buynow btn-final">Compre Agora</button>
-                    <button class="addtocart btn-cart">Adicionar ao Carrinho</button>
-                </div>
+            <div class="action-buttons">
+                <button class="buynow btn-final">Compre Agora</button>
+            <form action="carrinho.php" method="POST">
+            <input type="hidden" name="produto_nome" value="<?php echo htmlspecialchars($nome); ?>">
+            <input type="hidden" name="produto_imagem" value="<?php echo htmlspecialchars($url_img); ?>">
+            <input type="hidden" name="produto_preco" value="<?php echo $produto_preco; ?>"> <!-- Mantendo o valor original -->
+            <input type="hidden" name="produto_preco_desconto" value="<?php echo $produto_preco_desconto; ?>"> <!-- Preço com desconto -->
+                <select class="seletor" name="quantidade" id="quantidade" value="1" min="1" required>
+                <option value="1" selected>Quantidade: 1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                </select>
+                <button class="addtocart btn-cart" type="submit">Adicionar ao Carrinho</button>
+            </form>
+     </div>
             </div>
         </div>
     </article>
@@ -174,10 +175,10 @@ $recommended_stmt->close();
             <?php foreach ($recommended_products as $product): ?>
                 <div class="card" onclick="openPage(<?php echo htmlspecialchars($product['id']); ?>)">
                     <div class="imgbg">
-                        <img src="<?php echo htmlspecialchars($product['url_img']); ?>" alt="<?php echo htmlspecialchars($product['nome']); ?>" class="recommended-product-image" width="290px">
+                        <img src="<?php echo htmlspecialchars($url_img); ?>" alt="<?php echo htmlspecialchars($product['nome']); ?>" class="recommended-product-image" width="290px">
                     </div>
                     <p class="rname"><?php echo htmlspecialchars($product['nome']); ?></p>
-                    <p class="price">R$ <?php echo number_format($product['preco'], 2, ',', '.'); ?></p>
+                    <p class="price">R$ <?php echo number_format($product['produto_preco'], 2, ',', '.'); ?></p>
                 </div>
             <?php endforeach; ?>
         </div>
@@ -210,6 +211,10 @@ $recommended_stmt->close();
 <script>
     function openPage(id) {
         window.location.href = "individual-product.php?id=" + id;
+    }
+
+    function homePage() {
+        window.location.href = "paginaprincipal.php";
     }
 </script>
 

@@ -1,0 +1,231 @@
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+header {
+    width: 86.8%;
+    background-color: #0A3871;
+    padding: 20px 100px;
+}
+
+.banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1150px;
+    padding: 0 20px;
+}
+
+.logo img {
+    width: 150px;
+    margin-left: 70px;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 50px auto;
+}
+
+.btn-voltar {
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 20px 0;
+    width: 100px;
+    position: absolute;
+    left: 20px;
+    top: 1px;
+
+}
+
+.btn-voltar:hover {
+    background-color: orange;
+}
+
+.entrega-container {
+    width: 620px;
+    margin: 50px auto;
+    margin-right: 42%;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    right: -9px;
+    top: 78px;
+}
+
+.entrega-container h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.btn-editar {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s;
+    -webkit-user-select: none;
+
+}
+
+.btn-editar:hover {
+    background-color: #0056b3;
+}
+
+
+.resumo-compra-container {
+    width: 400px; /* Aumentando a largura */
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: fixed; /* Mudando de absolute para fixed */
+    right: 160px;
+    top: 125px;
+    z-index: 1000; /* Para garantir que o container esteja acima de outros elementos */
+}
+
+.resumo-compra-container h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+
+.resumo-compra-container .preco-detalhe {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.resumo-compra-container .preco-detalhe p {
+    margin: 0;
+    color: #555;
+}
+
+.resumo-compra-container .total {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+}
+
+/* Estilo do botão de compra */
+.resumo-compra-container .btn-continuar {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.resumo-compra-container .btn-continuar:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos do container de produtos no carrinho */
+.carrinho-container {
+    max-width: 700px;
+    width: 623px;
+    margin: 20px auto;
+    margin-left: 15.7%;
+    padding: 20px;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    position: absolute;
+    top: 45%;
+    left: -3px;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+.produto-carrinho {
+    display: flex;
+    align-items: center;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.produto-imagem {
+    flex: 0 0 100px;
+    margin-right: 15px;
+}
+
+.produto-imagem img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.produto-info {
+    flex-grow: 1;
+}
+
+.produto-info h3 {
+    margin: 0;
+    color: #007bff;
+}
+
+.produto-info p {
+    margin: 5px 0;
+    color: #555;
+}
+
+.quantidade-produto {
+    margin: 10px 0;
+}
+
+.quantidade-produto label {
+    font-weight: bold;
+}
+
+.quantidade-produto input {
+    width: 40px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f1f1f1;
+    margin-left: 5px;
+}
