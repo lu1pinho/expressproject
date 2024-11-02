@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'C:\xampp\htdocs\expressproject\settings\connection.php';
+include '../settings/connection.php';
 $userId = $_SESSION['id'];
 
 $sql = "SELECT id, nome, email, genero, cpf, telefone, dt_nascimento FROM users WHERE id = ?";

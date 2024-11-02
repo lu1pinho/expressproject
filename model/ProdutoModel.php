@@ -1,6 +1,6 @@
 <?php
 // Inclui a conexão com o banco de dados
-include 'C:/xampp/htdocs/expressproject/src/settings/connection.php';
+include '../settings/connection.php';
 
 class ProdutoModel {
 

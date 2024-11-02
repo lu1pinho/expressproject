@@ -1,6 +1,6 @@
 <?php
 
-include_once 'C:/xampp/htdocs/expressproject/src/settings/connection.php';
+include '../settings/connection.php';
 
 if (empty($conn) || $conn->connect_error) {
     die("Falha na conexão: " . (isset($conn->connect_error) ? $conn->connect_error : "Conexão não estabelecida."));
