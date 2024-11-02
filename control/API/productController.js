@@ -1,10 +1,36 @@
-// productController.js
+// control/API/productController.js
 const Product = require('./productModel');
+
+// Função para listar todos os produtos
+const getAllProducts = async (req, res) => {
+  try {
+    const products = await Product.findAll();
+    res.status(200).json(products);
+  } catch (error) {
+    res.status(500).json({ message: 'Erro ao buscar produtos', error });
+  }
+};
+
+// Função para obter um produto específico pelo ID
+const getProductById = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const product = await Product.findByPk(id);
+    if (!product) {
+      return res.status(404).json({ message: 'Produto não encontrado' });
+    }
+
+    res.status(200).json(product);
+  } catch (error) {
+    res.status(500).json({ message: 'Erro ao buscar produto', error });
+  }
+};
 
 // Função para criar um novo produto
 const createProduct = async (req, res) => {
   const { nome, descricao, preco, categoria, dados_produto, estoque } = req.body;
-  const image = req.file ? req.file.path : null; // Obtém o caminho da imagem, se existir
+  const image = req.file ? req.file.path : null; // Caminho da imagem, se existir
 
   try {
     const newProduct = await Product.create({
@@ -39,32 +65,9 @@ const deleteProduct = async (req, res) => {
   }
 };
 
-// Função para obter os detalhes de um produto específico pelo ID
-const getProductById = async (req, res) => {
-  const { id } = req.params;
-
-  try {
-    const product = await Product.findByPk(id);
-    if (!product) {
-      return res.status(404).json({ message: 'Produto não encontrado' });
-    }
-
-    res.status(200).json(product);
-  } catch (error) {
-    res.status(500).json({ message: 'Erro ao buscar produto', error });
-  }
-};
-
-// Exporta as funções do controlador
 module.exports = {
+  getAllProducts,
+  getProductById,
   createProduct,
-  deleteProduct, // Exporta a função de deletar produto
-  // ... outras funções, se houver
-  getProductById, // Exporta a função de obter produto por ID
+  deleteProduct,
 };
-/*
-// Exporta as funções do controlador
-module.exports = {
-  createProduct, // Certifique-se de que esta função está exportada
-  // ... outras funções, se houver
-};*/

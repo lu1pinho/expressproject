@@ -1,45 +1,40 @@
-// productModel.js
+// control/API/productModel.js
 const { DataTypes } = require('sequelize');
-const sequelize = require('./connection'); // Ajuste o caminho conforme necessário
+const sequelize = require('./connection');
 
 const Product = sequelize.define('Product', {
   nome: {
     type: DataTypes.STRING,
-    allowNull: false, // Nome é obrigatório
+    allowNull: false,
   },
   descricao: {
     type: DataTypes.STRING,
-    allowNull: false, // Descrição é obrigatória
+    allowNull: false,
   },
   preco: {
     type: DataTypes.FLOAT,
-    allowNull: false, // Preço é obrigatório
+    allowNull: false,
   },
   categoria: {
     type: DataTypes.STRING,
-    allowNull: false, // Categoria é obrigatória
+    allowNull: false,
   },
   dados_produto: {
     type: DataTypes.TEXT,
-    allowNull: false, // Dados  é obrigatório
+    allowNull: false,
   },
   estoque: {
     type: DataTypes.INTEGER,
-    allowNull: false, // Estoque é obrigatório
-    defaultValue: 0, // Valor padrão para estoque
+    allowNull: false,
+    defaultValue: 0,
   },
   url_img: {
-    type: DataTypes.STRING, // URL ou caminho da imagem
-    allowNull: false, // n obrigatória
+    type: DataTypes.STRING,
+    allowNull: true,
   },
 }, {
-  tableName: 'produtos', // Nome da tabela existente
-  timestamps: false, // Adiciona campos de criação e atualização automáticos
+  tableName: 'produtos',
+  timestamps: false,
 });
-
-// Sincroniza o modelo com o banco de dados (opcional, use com cuidado em produção)
-(async () => {
- // await Product.sync();
-})();
 
 module.exports = Product;
