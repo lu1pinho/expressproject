@@ -30,8 +30,10 @@ const upload = multer({ storage: storage });
 router.post('/', upload.single('url_img'), productController.createProduct);
 
 // Rota para atualizar um produto existente
-//router.put('/:id', productController.updateProduct);
+//router.put('/:id', productController.updateProduct);]
 
+// Define a rota para obter um produto específico pelo ID
+router.get('/:id', productController.getProductById);
 // Rota para deletar um produto
 router.delete('/product/:id', productController.deleteProduct);
 //router.delete('/:id', productController.deleteProduct);

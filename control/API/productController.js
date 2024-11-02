@@ -39,11 +39,28 @@ const deleteProduct = async (req, res) => {
   }
 };
 
+// Função para obter os detalhes de um produto específico pelo ID
+const getProductById = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const product = await Product.findByPk(id);
+    if (!product) {
+      return res.status(404).json({ message: 'Produto não encontrado' });
+    }
+
+    res.status(200).json(product);
+  } catch (error) {
+    res.status(500).json({ message: 'Erro ao buscar produto', error });
+  }
+};
+
 // Exporta as funções do controlador
 module.exports = {
   createProduct,
   deleteProduct, // Exporta a função de deletar produto
   // ... outras funções, se houver
+  getProductById, // Exporta a função de obter produto por ID
 };
 /*
 // Exporta as funções do controlador
