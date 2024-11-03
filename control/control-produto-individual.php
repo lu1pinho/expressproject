@@ -31,8 +31,16 @@ if (!$productData) {
 }
 
 // Calculando o preço com desconto
-$preco = $productData['preco'];
-$precodesconto = $productData['preco_com_desconto'] ?: $preco - (($productData['percentual_desconto'] / 100) * $preco);
+$preco = $productData['preco'] ?? 0; // Usando 0 se 'preco' não estiver definido
+$percentual_desconto = $productData['percentual_desconto'] ?? 0; // Usando 0 se 'percentual_desconto' não estiver definido
+$preco_com_desconto = $productData['preco_com_desconto'] ?? null; // Usando null se 'preco_com_desconto' não estiver definido
+
+if ($preco_com_desconto !== null) {
+    $precodesconto = $preco_com_desconto; // Se o preço com desconto estiver definido, usa ele
+} else {
+    $precodesconto = $preco - (($percentual_desconto / 100) * $preco); // Calcula o preço com desconto
+}
+
 $porcentagem = ($precodesconto < $preco) ? round(100 - (($precodesconto / $preco) * 100)) : 0;
 
 // Consultando produtos recomendados
