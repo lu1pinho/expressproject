@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    include 'C:\xampp\htdocs\expressproject\settings\connection.php';
+    include '../settings/connection.php';
     include '../model/carrinho.php';
     include '../view/carrinho.php';
 
