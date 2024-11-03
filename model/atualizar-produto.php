@@ -43,6 +43,8 @@ class ProductModel {
         $stmt_delete->execute();
     }*/
 
+    /*colocando isso pra conseguir mexer na abencoada da branch q esqueci de criar e agr to tendo q criar e fingir q fiz tudo nela*/
+
     public function updateProduct($id, $vendedor_id, $nome, $descricao, $dados_produto, $preco, $preco_com_desconto, $frete_gratis, $categoria, $oferta_do_dia, $estoque, $frete) {
         $sql_update = "UPDATE produtos SET nome = ?, descricao = ?, dados_produto = ?, preco = ?, preco_com_desconto = ?, frete_gratis = ?, categoria = ?, oferta_do_dia = ?, estoque = ?, frete = ? WHERE id = ? AND vendedor_id = ?";
         $stmt_update = $this->conn->prepare($sql_update);
