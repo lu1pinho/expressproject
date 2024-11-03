@@ -1,5 +1,5 @@
 <?php
-include_once '../src/settings/connection.php';
+include_once '../settings/connection.php';
 include_once '../model/cadastro.php';
 include_once '../view/cadastro.html';
 

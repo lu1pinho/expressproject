@@ -1,8 +1,10 @@
 <?php
-session_start();
+//session_start();
 include '../settings/connection.php'; // Altere conforme o caminho do seu arquivo de conexão
 include '../model/atualizar-produto.php'; // Alterado para o nome correto do arquivo
 define('CAMINHO_IMAGENS', '/expressproject/view/produtos');
+
+session_start();
 
 if ($conn->connect_error) {
     die("Erro: A conexão com o banco de dados não foi estabelecida.");
@@ -15,7 +17,7 @@ if (!isset($_SESSION['id'])) {
 
 $vendedor_id = $_SESSION['id'];
 $productModel = new ProductModel($conn);
-
+//$response = $productModel->deleteProduct($delete_id, $vendedor_id);
 // Listar produtos
 $produtos = $productModel->getProductsBySeller($vendedor_id);
 

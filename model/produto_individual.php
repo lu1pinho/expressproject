@@ -1,46 +1,37 @@
 <?php
 
-include '../settings/connection.php';
+include '../settings/connection.php'; // Inclua a conexão com o banco de dados
 
-if (empty($conn) || $conn->connect_error) {
-    die("Falha na conexão: " . (isset($conn->connect_error) ? $conn->connect_error : "Conexão não estabelecida."));
-}
-
+// Função para buscar dados do produto via API
 function getProductData($id) {
-    global $conn;
-    $sql = "SELECT id, nome, dados_produto, descricao, preco, preco_com_desconto, percentual_desconto, url_img FROM produtos WHERE id = ?";
-    $stmt = $conn->prepare($sql);
-
-    if ($stmt === false) {
-        die('Erro na preparação da consulta: ' . $conn->error);
+    $url = "http://localhost:3000/api/products/" . $id; // Ajuste a URL para o servidor remoto
+    $response = file_get_contents($url); // Faz uma chamada para a API
+    if ($response === FALSE) {
+        die('Erro ao buscar dados do produto.');
     }
-
-    $stmt->bind_param("i", $id);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    return $result->fetch_assoc();
+    
+    $data = json_decode($response, true); // Retorna os dados do produto como um array
+    return $data; 
 }
 
+// Função para buscar produtos recomendados diretamente do banco de dados
 function getRecommendedProducts($id) {
-    global $conn;
+    global $conn; // Use a conexão do banco de dados
+
+    // Consulta para selecionar produtos diferentes do produto atual
     $recommended_sql = "SELECT id, nome, preco, preco_com_desconto, percentual_desconto, url_img FROM produtos WHERE id != ? LIMIT 3";
-    $recommended_stmt = $conn->prepare($recommended_sql);
-    $recommended_stmt->bind_param("i", $id);
-    $recommended_stmt->execute();
-    $recommended_stmt->bind_result($rec_id, $rec_nome, $rec_preco, $rec_precodesconto, $rec_percentual_desconto, $rec_url_img);
+    $stmt = $conn->prepare($recommended_sql); // Prepara a consulta
+    $stmt->bind_param("i", $id); // Liga o parâmetro do id do produto atual
+    $stmt->execute(); // Executa a consulta
+    $result = $stmt->get_result(); // Obtém o resultado da consulta
 
     $recommended_products = [];
-    while ($recommended_stmt->fetch()) {
-        $recommended_products[] = [
-            'id' => $rec_id,
-            'nome' => $rec_nome,
-            'preco' => $rec_preco,
-            'precodesconto' => $rec_precodesconto,
-            'percentual_desconto' => $rec_percentual_desconto,
-            'url_img' => $rec_url_img,
-        ];
+    while ($product = $result->fetch_assoc()) { // Busca os produtos recomendados
+        $recommended_products[] = $product; // Adiciona ao array de produtos recomendados
     }
-    $recommended_stmt->close();
-    return $recommended_products;
+    
+    $stmt->close(); // Fecha a declaração
+    return $recommended_products; // Retorna os produtos recomendados
 }
+
 ?>
