@@ -1,6 +1,7 @@
 // control/API/productController.js
 const Product = require('./productModel');
 
+
 // Função para listar todos os produtos
 const getAllProducts = async (req, res) => {
   try {
@@ -11,9 +12,11 @@ const getAllProducts = async (req, res) => {
   }
 };
 
+
 // Função para obter um produto específico pelo ID
 const getProductById = async (req, res) => {
   const { id } = req.params;
+
 
   try {
     const product = await Product.findByPk(id);
@@ -21,16 +24,19 @@ const getProductById = async (req, res) => {
       return res.status(404).json({ message: 'Produto não encontrado' });
     }
 
+
     res.status(200).json(product);
   } catch (error) {
     res.status(500).json({ message: 'Erro ao buscar produto', error });
   }
 };
 
+
 // Função para criar um novo produto
 const createProduct = async (req, res) => {
-  const { nome, descricao, preco, categoria, dados_produto, estoque } = req.body;
-  const image = req.file ? req.file.path : null; // Caminho da imagem, se existir
+  const { nome, descricao, preco, categoria, dados_produto, estoque, image } = req.body;
+  //const image = req.file ? req.file.path : null; // Caminho da imagem, se existir
+
 
   try {
     const newProduct = await Product.create({
@@ -48,15 +54,18 @@ const createProduct = async (req, res) => {
   }
 };
 
+
 // Função para deletar um produto
 const deleteProduct = async (req, res) => {
   const { id } = req.params;
+
 
   try {
     const product = await Product.findByPk(id);
     if (!product) {
       return res.status(404).json({ message: 'Produto não encontrado' });
     }
+
 
     await product.destroy();
     res.status(204).json({ message: 'Produto deletado com sucesso' });
@@ -65,9 +74,12 @@ const deleteProduct = async (req, res) => {
   }
 };
 
+
 module.exports = {
   getAllProducts,
   getProductById,
   createProduct,
   deleteProduct,
 };
+
+

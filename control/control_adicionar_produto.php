@@ -5,17 +5,24 @@ include 'C:\xampp\htdocs\expressproject\settings\connection.php';
 include '../model/adicionar_produto.php';
 include '../view/adicionar_produto.php';
 
+
 // Verifica se o usuário está autenticado
 if (!isset($_SESSION['id'])) {
     header("Location: ../control/control_login.php"); // Redireciona para a página de login se não estiver autenticado
     exit();
 }
 
+
 // Pega o ID do vendedor logado (a partir da sessão)
 $vendedor_id = $_SESSION['id']; // Ou $_SESSION['id'], dependendo de como você armazenou o ID na sessão
 
+
 // Verifica se o formulário foi enviado
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Debug: exibe o conteúdo do array $_FILES
+    //var_dump($_FILES); // Adicione aqui
+
+
     // Validação dos campos
     if (strlen($_POST['name']) == 0) {
         echo "Preencha o nome do produto";
@@ -43,8 +50,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $frete = $conn->real_escape_string($_POST['frete']);
         $dados_produto = $conn->real_escape_string($_POST['dados_produto']);
 
+
         // Criando instância do modelo
         $userModel = new UserModel($conn);
+
 
         // Fazendo o upload da imagem e obtendo o ID da imagem
         try {
@@ -54,13 +63,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit();
         }
 
+
         // Inserindo o produto no banco de dados
         try {
-            // O upload da imagem já deve ter sido realizado, então agora usamos o caminho retornado
             $url_img = $userModel->uploadImage($_FILES); // Captura a URL da imagem
-
-            // Agora passando o vendedor_id para o método createProduto
+            // var_dump($url_img);
             $produtoCriado = $userModel->createProduto($name, $descricao, $preco, $estoque, $category, 0, $frete, $dados_produto, $url_img, $vendedor_id);
+
 
             if ($produtoCriado) {
                 echo "Produto inserido com sucesso!";
@@ -72,4 +81,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 }
+
+
 ?>
+
+
