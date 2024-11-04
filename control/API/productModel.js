@@ -30,7 +30,7 @@ const Product = sequelize.define('Product', {
   },
   url_img: {
     type: DataTypes.STRING,
-    allowNull: true,
+    allowNull: false,
   },
 }, {
   tableName: 'produtos',
