@@ -15,7 +15,7 @@ if (!isset($_SESSION['id'])) {
 
 // Pega o ID do vendedor logado (a partir da sessão)
 $vendedor_id = $_SESSION['id']; // Ou $_SESSION['id'], dependendo de como você armazenou o ID na sessão
-
+//var_dump($vendedor_id);
 
 // Verifica se o formulário foi enviado
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

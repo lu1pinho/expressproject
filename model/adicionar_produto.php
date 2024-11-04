@@ -23,11 +23,9 @@ class UserModel {
         }
     }
    
-
-
     public function createProduto($name, $descricao, $preco, $category, $dados, $estoque, $file, $vendedor_id) {
         $url_img = $file; // Captura o nome do arquivo da imagem
-        var_dump($url_img);
+        //var_dump($url_img);
         // Verifica se a URL da imagem não é nula
         if (empty($url_img)) {
             throw new Exception("A URL da imagem não pode ser nula.");
@@ -41,7 +39,7 @@ class UserModel {
             "dados_produto" => $dados,
             "estoque" => $estoque,
             "url_img" => $url_img, // Nome do arquivo da imagem
-            "vendedor_id" => $vendedor_id
+            "vendedor_id" => $vendedor_id,
         ];
    
         $json_data = json_encode($produtoData); // Codifica os dados em JSON
@@ -54,7 +52,7 @@ class UserModel {
             "Content-Type: application/json"
         ]);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $json_data);
-   
+   var_dump($json_data);
         // Executa a requisição
         $response = curl_exec($ch);
         $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);

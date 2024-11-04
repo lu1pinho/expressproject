@@ -26,10 +26,13 @@ const Product = sequelize.define('Product', {
   estoque: {
     type: DataTypes.INTEGER,
     allowNull: false,
-    defaultValue: 0,
   },
   url_img: {
     type: DataTypes.STRING,
+    allowNull: false,
+  },
+  vendedor_id: {
+    type: DataTypes.INTEGER,
     allowNull: false,
   },
 }, {
