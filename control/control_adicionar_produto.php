@@ -34,8 +34,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "Preencha o preço do produto";
     } else if (strlen($_POST['estoque']) == 0) {
         echo "Informe a quantidade em estoque";
-    } else if (strlen($_POST['frete']) == 0) {
-        echo "Informe a porcentagem do frete";
     } else if (strlen($_POST['dados_produto']) == 0) {
         echo "Informe os dados do produto";
     } else if (!isset($_FILES['imagem']) || $_FILES['imagem']['error'] != 0) {
@@ -44,31 +42,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Escapando os dados
         $name = $conn->real_escape_string($_POST['name']);
         $descricao = $conn->real_escape_string($_POST['descricao']);
-        $category = $conn->real_escape_string($_POST['category']);
         $preco = $conn->real_escape_string($_POST['preco']);
-        $estoque = $conn->real_escape_string($_POST['estoque']);
-        $frete = $conn->real_escape_string($_POST['frete']);
+        $category = $conn->real_escape_string($_POST['category']);
         $dados_produto = $conn->real_escape_string($_POST['dados_produto']);
-
+        $estoque = $conn->real_escape_string($_POST['estoque']);
 
         // Criando instância do modelo
         $userModel = new UserModel($conn);
 
-
-        // Fazendo o upload da imagem e obtendo o ID da imagem
-        try {
-            $imagem_id = $userModel->uploadImage($_FILES);
-        } catch (Exception $e) {
-            echo "Erro: " . $e->getMessage();
-            exit();
-        }
-
-
         // Inserindo o produto no banco de dados
         try {
             $url_img = $userModel->uploadImage($_FILES); // Captura a URL da imagem
-            // var_dump($url_img);
-            $produtoCriado = $userModel->createProduto($name, $descricao, $preco, $estoque, $category, 0, $frete, $dados_produto, $url_img, $vendedor_id);
+            $produtoCriado = $userModel->createProduto($name, $descricao, $preco, $category, $dados_produto, $estoque,$url_img, $vendedor_id);
 
 
             if ($produtoCriado) {

@@ -35,7 +35,9 @@ const getProductById = async (req, res) => {
 // Função para criar um novo produto
 const createProduct = async (req, res) => {
   const { nome, descricao, preco, categoria, dados_produto, estoque } = req.body;
+  console.log(req.file)
   const image = req.file ? req.file.path : null; // Obtém o caminho da imagem, se existir
+  
   try {
     const newProduct = await Product.create({
       nome,

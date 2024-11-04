@@ -25,7 +25,7 @@ class UserModel {
    
 
 
-    public function createProduto($name, $descricao, $preco, $estoque, $category, $promocao, $frete, $dados, $file, $vendedor_id) {
+    public function createProduto($name, $descricao, $preco, $category, $dados, $estoque, $file, $vendedor_id) {
         $url_img = $file; // Captura o nome do arquivo da imagem
         var_dump($url_img);
         // Verifica se a URL da imagem não é nula
