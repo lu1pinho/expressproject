@@ -23,17 +23,17 @@ class ProductModel {
             ],
         ];
         $context = stream_context_create($options);
-        $response = file_get_contents($url, false, $context);
-    
+        $response = @file_get_contents($url, false, $context);
+        
         if ($response === FALSE) {
-            // Lida com o erro de forma adequada
-            die('Erro ao deletar produto pela API.');
+            $error = error_get_last();
+            die('Erro ao deletar produto pela API: ' . $error['message']);
         }
         
-        // Opcional: Verifique a resposta da API se necessário
         $responseData = json_decode($response, true); // Se a API retornar dados
         return $responseData; 
     }
+    
     
 
     /*public function deleteProduct($delete_id, $vendedor_id) {
