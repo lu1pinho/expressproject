@@ -27,8 +27,11 @@
 
                 <label for="estoque" class="campos">Em estoque:</label>
                 <input type="text" id="estoque" name="estoque" class="bordas" required>
+                
+            </div>
 
-                <label for="category" class="campos">Categoria:</label>
+            <div class="sub">
+            <label for="category" class="campos">Categoria:</label>
                 <select id="category" name="category" class="bordas" required>
                     <option value="">Escolha</option>
                     <option value="eletronico">Eletrônico</option>
@@ -39,14 +42,6 @@
                     <option value="tablet">Tablet</option>
                     <option value="game">Game</option>
                 </select>
-            </div>
-
-            <div class="sub">
-                <label for="promocao" class="campos">Preço em promoção:</label>
-                <input type="text" id="promocao" name="promocao" class="bordas" required>
-
-                <label for="frete" class="campos">Porcentagem do frete:</label>
-                <input type="text" id="frete" name="frete" class="bordas" required>
 
                 <label for="dados_produto" class="campos">Dados do produto:</label>
                 <input type="text" id="dados_produto" name="dados_produto" class="bordas" required>
