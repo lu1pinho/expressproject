@@ -16,23 +16,25 @@ class ProductModel {
 
     public function deleteProduct($delete_id, $vendedor_id) {
         $url = "http://localhost:3000/api/products/" . $delete_id; // URL da API
-        $options = [
-            'http' => [
-                'header'  => "Content-Type: application/json\r\n",
-                'method'  => 'DELETE',
-            ],
-        ];
-        $context = stream_context_create($options);
-        $response = @file_get_contents($url, false, $context);
-        
-        if ($response === FALSE) {
-            $error = error_get_last();
-            die('Erro ao deletar produto pela API: ' . $error['message']);
+    
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, [
+            "Content-Type: application/json",
+        ]);
+    
+        $response = curl_exec($ch);
+        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
+    
+        if ($httpCode != 200) {
+            die('Erro ao deletar produto pela API: ' . $httpCode);
         }
-        
-        $responseData = json_decode($response, true); // Se a API retornar dados
-        return $responseData; 
+    
+        return json_decode($response, true);
     }
+    
     
     
 
