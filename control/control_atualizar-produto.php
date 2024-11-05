@@ -25,10 +25,14 @@ $produtos = $productModel->getProductsBySeller($vendedor_id);
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['delete_id'])) {
         $delete_id = $_POST['delete_id'];
-        $productModel->deleteProduct($delete_id, $vendedor_id);
+        $deleteResponse = $productModel->deleteProduct($delete_id, $vendedor_id);
         // Redirecionar para a mesma página após a exclusão
-        header("Location: " . $_SERVER['PHP_SELF']);
-        exit();
+        if ($deleteResponse) { // Verifica a resposta da API
+            header("Location: " . $_SERVER['PHP_SELF']);
+            exit();
+        } else {
+            echo "Erro: Não foi possível excluir o produto.";
+        }
     } else {
         $id = $_POST['id'];
         $nome = $_POST['nome'];
