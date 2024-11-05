@@ -15,29 +15,40 @@ class ProductModel {
     }
 
     public function deleteProduct($delete_id, $vendedor_id) {
-        $url = "http://localhost:3000/api/products/" . $delete_id; // URL da API
+        $url = "http://localhost:3000/api/products/" . $delete_id;
     
+        // Inicializa a sessão cURL
         $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
         curl_setopt($ch, CURLOPT_HTTPHEADER, [
-            "Content-Type: application/json",
+            'Content-Type: application/json',
         ]);
     
+        // Executa a requisição
         $response = curl_exec($ch);
-        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-        curl_close($ch);
     
-        if ($httpCode != 200) {
-            die('Erro ao deletar produto pela API: ' . $httpCode);
+        // Verifica se houve erro na requisição
+        if ($response === false) {
+            $error = curl_error($ch);
+            curl_close($ch);
+            die('Erro ao deletar produto pela API: ' . $error);
         }
     
-        return json_decode($response, true);
+        // Verifica o código de resposta HTTP
+        $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
+    
+        if ($http_code === 200 || $http_code === 204) {
+            // Exclusão bem-sucedida; redireciona ou recarrega a página
+            header("Location: " . $_SERVER['REQUEST_URI']); // recarrega a página atual
+            exit;
+        } else {
+            // Caso o código HTTP seja diferente de 200 ou 204, exibe uma mensagem de erro
+            die("Não foi possível excluir o produto. Código HTTP: " . $http_code);
+        }
     }
-    
-    
-    
-
+  
     /*public function deleteProduct($delete_id, $vendedor_id) {
         $sql_delete = "DELETE FROM produtos WHERE id = ? AND vendedor_id = ?";
         $stmt_delete = $this->conn->prepare($sql_delete);
