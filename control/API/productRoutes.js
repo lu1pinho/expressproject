@@ -32,6 +32,11 @@ router.get('/:id', productController.getProductById);
 // Rota para deletar um produto
 router.delete('/:id', productController.deleteProduct);
 
+// Rota para atualizar um produto pelo ID
+router.put('/:id', productController.updateProduct);
+
+
+
 
 module.exports = router;
 
