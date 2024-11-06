@@ -525,7 +525,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
             <td>Mara Emanuella</td>
             <td>-</td>
             <td>-</td>
-            <td>Pendente</td>
+            <td>Concluído</td>
             <td>Implementar a funcionalidade para atualizar as informações de um produto existente.</td>
         </tr>
         <tr>
@@ -534,7 +534,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
             <td>Luís Gustavo</td>
             <td>-</td>
             <td>-</td>
-            <td>Pendente</td>
+            <td>Concluído</td>
             <td>Implementar a API para listar todos os produtos cadastrados.</td>
         </tr>
         <tr>
@@ -543,7 +543,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
             <td>Dallyla</td>
             <td>-</td>
             <td>-</td>
-            <td>Pendente</td>
+            <td>Concluído</td>
             <td>Implementar a funcionalidade para retornar os detalhes de um produto específico com base no seu ID.</td>
         </tr>
         <tr>
@@ -552,7 +552,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
             <td>Heloísa</td>
             <td>-</td>
             <td>-</td>
-            <td>Pendente</td>
+            <td>Concluído</td>
             <td>Implementar a API para adicionar um novo produto ao sistema.</td>
         </tr>
          <tr>
@@ -561,7 +561,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
             <td>Neci</td>
             <td>-</td>
             <td>-</td>
-            <td>Pendente</td>
+            <td>Concluído</td>
             <td>Implementar a funcionalidade para remover um produto do sistema com base no seu ID.</td>
         </tr>
     </tbody>
@@ -595,6 +595,159 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
         <tr>
             <td>Remover Produto</td>
             <td>Mara Emanuella</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Testes Unitários</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th>Feature</th>
+            <th>Tipo</th>
+            <th>Responsável</th>
+            <th>Início</th>
+            <th>Conclusão</th>
+            <th>Status</th>
+            <th>Descrição</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Adicionar Produto</td>
+            <td>Teste</td>
+            <td>Não Definido</td>
+            <td>-</td>
+            <td>-</td>
+            <td>Pendente</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Atualizar Produto</td>
+            <td>Teste</td>
+            <td>Não Definido</td>
+            <td>-</td>
+            <td>-</td>
+            <td>Pendente</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Atualizar Vendedor</td>
+            <td>Teste</td>
+            <td>Dallyla</td>
+            <td>-</td>
+            <td>-</td>
+            <td>Pendente</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Cadastro</td>
+            <td>Teste</td>
+            <td>Não Definido</td>
+            <td>-</td>
+            <td>-</td>
+            <td>Pendente</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Carrinho</td>
+            <td>Teste</td>
+            <td>Dallyla</td>
+            <td>-</td>
+            <td>-</td>
+            <td>Pendente</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Categoria</td>
+            <td>Teste</td>
+            <td>Não Definido</td>
+            <td>-</td>
+            <td>-</td>
+            <td>Pendente</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Dados Usuário</td>
+            <td>Teste</td>
+            <td>Não Definido</td>
+            <td>-</td>
+            <td>-</td>
+            <td>Pendente</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Faturamento</td>
+            <td>Teste</td>
+            <td>Não Definido</td>
+            <td>-</td>
+            <td>-</td>
+            <td>Pendente</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Finalizar Compra</td>
+            <td>Teste</td>
+            <td>Não Definido</td>
+            <td>-</td>
+            <td>-</td>
+            <td>Pendente</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Login</td>
+            <td>Teste</td>
+            <td>Não Definido</td>
+            <td>-</td>
+            <td>-</td>
+            <td>Pendente</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Pagamento</td>
+            <td>Teste</td>
+            <td>Não Definido</td>
+            <td>-</td>
+            <td>-</td>
+            <td>Pendente</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Página Vendedor</td>
+            <td>Teste</td>
+            <td>Não Definido</td>
+            <td>-</td>
+            <td>-</td>
+            <td>Pendente</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Pedidos Realizados</td>
+            <td>Teste</td>
+            <td>Não Definido</td>
+            <td>-</td>
+            <td>-</td>
+            <td>Pendente</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Produto Individual</td>
+            <td>Teste</td>
+            <td>Não Definido</td>
+            <td>-</td>
+            <td>-</td>
+            <td>Pendente</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Produto Model</td>
+            <td>Teste</td>
+            <td>Dallyla</td>
+            <td>-</td>
+            <td>-</td>
+            <td>Pendente</td>
+            <td></td>
         </tr>
     </tbody>
 </table>
