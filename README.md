@@ -662,7 +662,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
         <tr>
             <td>Categoria</td>
             <td>Teste</td>
-            <td>Não Definido</td>
+            <td>Luís Gustavo</td>
             <td>-</td>
             <td>-</td>
             <td>Pendente</td>
@@ -680,7 +680,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
         <tr>
             <td>Faturamento</td>
             <td>Teste</td>
-            <td>Não Definido</td>
+            <td>Luís Gustavo</td>
             <td>-</td>
             <td>-</td>
             <td>Pendente</td>
@@ -734,7 +734,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
         <tr>
             <td>Produto Individual</td>
             <td>Teste</td>
-            <td>Não Definido</td>
+            <td>Luís Gustavo</td>
             <td>-</td>
             <td>-</td>
             <td>Pendente</td>
