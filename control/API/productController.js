@@ -112,6 +112,6 @@ module.exports = {
   getProductById,
   createProduct,
   deleteProduct,
-  updateProduct,  // Exportando a nova função
+  updateProduct,
 };
 

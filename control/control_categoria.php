@@ -3,10 +3,9 @@ session_start();
 // Incluir o Model que contém a lógica de banco de dados
 include_once '../model/categoria.php';
 
-// Obtém o termo de busca do formulário (se existir)
+// Obtém o termo de busca do formulário
 $termo_busca = $_GET['query'] ?? '';
 
-// Filtros
 $categoria = $_POST['departamento'] ?? 'all';
 $preco_min = (float)($_POST['preco_min'] ?? 0);
 $preco_max = (float)($_POST['preco_max'] ?? 12000);
