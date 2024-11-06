@@ -15,18 +15,66 @@ $descontos = isset($_POST['descontos']) && $_POST['descontos'] == 'on';
 $frete_gratis = isset($_POST['frete']) && $_POST['frete'] == 'on';
 $go_express = isset($_POST['express']) && $_POST['express'] == 'on';
 
-// Adicionar termo de busca à query
-list($sql_produtos, $param_types, $params) = buildQuery($categoria, $preco_min, $preco_max, $ofertas, $descontos, $frete_gratis, $go_express, $termo_busca);
+// Construa a URL de requisição para a API
+$api_url = 'http://localhost:3000/api/products';  // URL base da sua API
+$query_params = [];
 
-// Preparar e executar a query
-$stmt = $conn->prepare($sql_produtos);
-if (!$stmt) {
-    die("Erro ao preparar a query: " . $conn->error . "\nSQL: " . $sql_produtos);
+if ($termo_busca) {
+    $query_params['query'] = $termo_busca;
 }
-$stmt->bind_param($param_types, ...$params);
-$stmt->execute();
-$result_produtos = $stmt->get_result();
+if ($categoria && $categoria !== 'all') {
+    $query_params['categoria'] = $categoria;
+}
+if ($preco_min) {
+    $query_params['preco_min'] = $preco_min;
+}
+if ($preco_max) {
+    $query_params['preco_max'] = $preco_max;
+}
+if ($ofertas) {
+    $query_params['ofertas'] = 'on';
+}
+if ($descontos) {
+    $query_params['descontos'] = 'on';
+}
+if ($frete_gratis) {
+    $query_params['frete_gratis'] = 'on';
+}
+if ($go_express) {
+    $query_params['express'] = 'on';
+}
 
+// Montar a URL com os parâmetros de consulta (query parameters)
+if (!empty($query_params)) {
+    $api_url .= '?' . http_build_query($query_params);
+}
+
+// Realizar a requisição cURL para a API
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $api_url);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+    'Content-Type: application/json'
+));
+
+$response = curl_exec($ch);
+
+if (curl_errno($ch)) {
+    echo 'Erro na requisição cURL: ' . curl_error($ch);
+    exit;
+}
+
+curl_close($ch);
+
+// Decodificar a resposta JSON da API
+$produtos = json_decode($response, true);
+
+// Verificar se a resposta contém dados
+if (empty($produtos)) {
+    $produtos = [];
+}
+
+// Obtém as categorias para renderizar na página
 $result_departamentos = getCategorias($conn);
 
 // Incluir a View para renderizar os dados
