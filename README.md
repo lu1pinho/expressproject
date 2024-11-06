@@ -644,7 +644,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
         <tr>
             <td>Cadastro</td>
             <td>Teste</td>
-            <td>Não Definido</td>
+            <td>Neci</td>
             <td>-</td>
             <td>-</td>
             <td>Pendente</td>
@@ -716,7 +716,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
         <tr>
             <td>Página Vendedor</td>
             <td>Teste</td>
-            <td>Não Definido</td>
+            <td>Neci</td>
             <td>-</td>
             <td>-</td>
             <td>Pendente</td>
@@ -725,7 +725,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
         <tr>
             <td>Pedidos Realizados</td>
             <td>Teste</td>
-            <td>Não Definido</td>
+            <td>Neci</td>
             <td>-</td>
             <td>-</td>
             <td>Pendente</td>
