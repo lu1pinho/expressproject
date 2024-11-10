@@ -13,6 +13,9 @@ const sequelize = new Sequelize(banco, usuario, senha, {
   host: servidor,
   dialect: 'mysql', // Ou 'postgres', 'sqlite', etc. dependendo do banco de dados que você está usando
   port: porta, // Adicione a porta se necessário
+  dialectOptions: {
+    charset: 'utf8mb4', // Defina a codificação como utf8mb4
+  }
 });
 
 // Testar a conexão
