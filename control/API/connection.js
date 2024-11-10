@@ -1,14 +1,14 @@
 const { Sequelize } = require('sequelize');
-require('dotenv').config(); // Certifique-se de que a biblioteca dotenv está instalada
+require('dotenv').config(); // Carregando a lib dotenv
 
-// Carregar variáveis de ambiente
+// Carregar variáveis da .env
 const servidor = process.env.DB_HOST;
 const banco = process.env.DB_NAME;
 const usuario = process.env.DB_USER;
 const porta = process.env.DB_PORT;
 const senha = process.env.DB_PASS;
 
-// Criar a instância do Sequelize
+// Instância do Sequelize
 const sequelize = new Sequelize(banco, usuario, senha, {
   host: servidor,
   dialect: 'mysql', // Ou 'postgres', 'sqlite', etc. dependendo do banco de dados que você está usando
@@ -18,7 +18,6 @@ const sequelize = new Sequelize(banco, usuario, senha, {
   }
 });
 
-// Testar a conexão
 sequelize.authenticate()
   .then(() => {
     console.log('Conexão estabelecida com sucesso.');
@@ -27,5 +26,4 @@ sequelize.authenticate()
     console.error('Não foi possível conectar ao banco de dados:', err);
   });
 
-// Exportar a instância de sequelize para uso em outros módulos
 module.exports = sequelize;

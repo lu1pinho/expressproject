@@ -89,12 +89,13 @@
                 </form>
 
                 <!-- Formulário para excluir o produto -->
-                <div class="product-close">
-                    <form action="atualizar_produto.php" method="POST" style="display:inline;">
-                        <input type="hidden" name="delete_id" value="<?php echo $produto['id']; ?>">
-                        <button type="submit">Excluir Produto</button>
-                    </form>
-                </div>
+             <div class="product-close">
+                <form action="../control/control_atualizar-produto.php" method="POST" style="display:inline;">
+                    <input type="hidden" name="delete_id" value="<?php echo $produto['id']; ?>">
+                    <button type="submit">Excluir Produto</button>
+                </form>
+            </div>
+
             </div>
         <?php endforeach; ?>
     </section>

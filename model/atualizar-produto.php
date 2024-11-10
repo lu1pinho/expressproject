@@ -15,35 +15,35 @@ class ProductModel {
     }
 
     public function deleteProduct($delete_id, $vendedor_id) {
-        $url = "http://localhost:3000/api/products/" . $delete_id; // URL da API
-        $options = [
-            'http' => [
-                'header'  => "Content-Type: application/json\r\n",
-                'method'  => 'DELETE',
-            ],
-        ];
-        $context = stream_context_create($options);
-        $response = file_get_contents($url, false, $context);
-    
-        if ($response === FALSE) {
-            // Lida com o erro de forma adequada
-            die('Erro ao deletar produto pela API.');
+        $url = "http://localhost:3000/api/products/" . $delete_id;
+
+        // Inicializa a sessão cURL
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
+        curl_setopt($ch, CURLOPT_HTTPHEADER, [
+            'Content-Type: application/json',
+        ]);
+
+        // Executa a requisição
+        $response = curl_exec($ch);
+
+        if ($response === false) {
+            $error = curl_error($ch);
+            curl_close($ch);
+            die('Erro ao deletar produto pela API: ' . $error);
         }
-        
-        // Opcional: Verifique a resposta da API se necessário
-        $responseData = json_decode($response, true); // Se a API retornar dados
-        return $responseData; 
+
+        $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
+
+        if ($http_code === 200 || $http_code === 204) {
+            header("Location: " . $_SERVER['REQUEST_URI']);
+            exit;
+        } else {
+            die("Não foi possível excluir o produto. Código HTTP: " . $http_code);
+        }
     }
-    
-
-    /*public function deleteProduct($delete_id, $vendedor_id) {
-        $sql_delete = "DELETE FROM produtos WHERE id = ? AND vendedor_id = ?";
-        $stmt_delete = $this->conn->prepare($sql_delete);
-        $stmt_delete->bind_param("ii", $delete_id, $vendedor_id);
-        $stmt_delete->execute();
-    }*/
-
-    /*colocando isso pra conseguir mexer na abencoada da branch q esqueci de criar e agr to tendo q criar e fingir q fiz tudo nela*/
 
     public function updateProduct($id, $vendedor_id, $nome, $descricao, $dados_produto, $preco, $preco_com_desconto, $frete_gratis, $categoria, $oferta_do_dia, $estoque, $frete) {
         $sql_update = "UPDATE produtos SET nome = ?, descricao = ?, dados_produto = ?, preco = ?, preco_com_desconto = ?, frete_gratis = ?, categoria = ?, oferta_do_dia = ?, estoque = ?, frete = ? WHERE id = ? AND vendedor_id = ?";
@@ -51,5 +51,37 @@ class ProductModel {
         $stmt_update->bind_param("sssdiiisidii", $nome, $descricao, $dados_produto, $preco, $preco_com_desconto, $frete_gratis, $categoria, $oferta_do_dia, $estoque, $frete, $id, $vendedor_id);
         $stmt_update->execute();
     }
+
+    // Método para atualizar produto via API
+    public function updateProductViaAPI($id, $data) {
+        $url = "http://localhost:3000/api/products/" . $id;
+
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+        curl_setopt($ch, CURLOPT_HTTPHEADER, [
+            'Content-Type: application/json',
+        ]);
+
+        // Prepara os dados como JSON
+        $jsonData = json_encode($data);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonData);
+
+        $response = curl_exec($ch);
+
+        if ($response === false) {
+            $error = curl_error($ch);
+            curl_close($ch);
+            die('Erro ao atualizar produto pela API: ' . $error);
+        }
+
+        $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
+
+        if ($http_code === 200) {
+            return json_decode($response, true); // Retorna o JSON decodificado se a atualização for bem-sucedida
+        } else {
+            die("Não foi possível atualizar o produto. Código HTTP: " . $http_code);
+        }
+    }
 }
-?>

@@ -24,6 +24,7 @@
                     <select name="departamento" id="departamento">
                         <option value="all">Todos os Produtos</option>
                         <?php
+                        // Simulando a listagem de categorias, mas isso é apenas para o filtro. A API vai trazer os produtos
                         if ($result_departamentos->num_rows > 0) {
                             while ($row = $result_departamentos->fetch_assoc()) {
                                 $categoria_formatada = formatarNomeCategoria($row['categoria']);
@@ -35,6 +36,7 @@
                         ?>
                     </select>
 
+                    <!-- Outros filtros como preço, ofertas e frete -->
                     <div class="ajuste-preco">
                         <h2>Intervalo de Preço</h2>
                         <div class="range_container">
@@ -55,6 +57,7 @@
                         </div>
                     </div>
 
+                    <!-- Outras opções como ofertas, frete grátis -->
                     <div class="ofertas">
                         <h2>Ofertas e Descontos</h2>
                         <div class="oferta-diaria ctr pd-5px">
@@ -90,9 +93,52 @@
             <h2>Produtos</h2>
             <div class="produtos-container">
                 <?php
-                if ($result_produtos->num_rows > 0) {
-                    while ($produto = $result_produtos->fetch_assoc()) {
-                        // Verifica se a chave 'url_img' existe e não está vazia
+                // Inicializa os filtros de busca
+                $termo_busca = $_GET['query'] ?? '';
+                $categoria = $_POST['departamento'] ?? 'all';
+                $preco_min = (float)($_POST['preco_min'] ?? 0);
+                $preco_max = (float)($_POST['preco_max'] ?? 12000);
+                $ofertas = isset($_POST['ofertas']) && $_POST['ofertas'] == 'on';
+                $descontos = isset($_POST['descontos']) && $_POST['descontos'] == 'on';
+                $frete_gratis = isset($_POST['frete']) && $_POST['frete'] == 'on';
+                $go_express = isset($_POST['express']) && $_POST['express'] == 'on';
+
+                // Construa a URL da API com os filtros
+                $api_url = 'http://localhost:3000/api/products';
+                $query_params = [
+                    'query' => $termo_busca,
+                    'categoria' => $categoria,
+                    'preco_min' => $preco_min,
+                    'preco_max' => $preco_max,
+                    'ofertas' => $ofertas ? 'on' : '',
+                    'descontos' => $descontos ? 'on' : '',
+                    'frete_gratis' => $frete_gratis ? 'on' : '',
+                    'express' => $go_express ? 'on' : ''
+                ];
+
+                // Montar a URL com os parâmetros de consulta
+                $api_url .= '?' . http_build_query(array_filter($query_params));  // Filtra parâmetros vazios
+
+                // Realizar a requisição cURL para a API
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_URL, $api_url);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+
+                $response = curl_exec($ch);
+                if (curl_errno($ch)) {
+                    echo 'Erro na requisição cURL: ' . curl_error($ch);
+                    exit;
+                }
+                curl_close($ch);
+
+                // Decodificar a resposta JSON da API
+                $produtos = json_decode($response, true);
+
+                // Verifica se existem produtos para exibir
+                if (!empty($produtos)) {
+                    foreach ($produtos as $produto) {
+                        // Verifica a imagem do produto
                         $imagem_produto = !empty($produto['url_img']) ? CAMINHO_IMAGENS . $produto['url_img'] : CAMINHO_IMAGENS . 'default.png';
 
                         echo '<div class="produto" onclick="window.location.href=\'../control/control-produto-individual.php?id=' . $produto['id'] . '\'">';
@@ -109,7 +155,7 @@
         </main>
     </div>
 
-    <script src="../view//scripts/categoria.js"></script>
+    <script src="../view/scripts/categoria.js"></script>
 </body>
 
 </html>

@@ -388,10 +388,6 @@ input[type="range"] {
     opacity: 1;
 }
 
-
-
-/* Estilos existentes continuam aqui... */
-
 /* Definir o layout principal para exibir aside e produtos lado a lado */
 .main-layout {
     display: flex;
@@ -403,17 +399,13 @@ input[type="range"] {
 .produtos-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     gap: 10px;
-    /* Reduz o espaçamento entre os produtos */
     padding: 10px;
 }
 
 .produto {
-    flex: 1 1 180px;
-    /* Define um tamanho mínimo para os produtos, ajustando a largura */
+    display: flex;
     max-width: 200px;
-    /* Ajusta a largura máxima para deixar os produtos mais próximos */
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 8px;
