@@ -1,1 +1,0 @@
-{"version":1,"defects":{"FaturamentoModelTest::testGetTotalVendido":8,"FaturamentoModelTest::testGetTotalProdutosVendidos":8,"FaturamentoModelTest::testGetTopProdutosVendidos":8},"times":{"FaturamentoModelTest::testGetTotalVendido":0.008,"FaturamentoModelTest::testGetTotalProdutosVendidos":0,"FaturamentoModelTest::testGetTopProdutosVendidos":0}}
