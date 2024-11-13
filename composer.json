@@ -9,7 +9,8 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Expressgp\\Expressproject\\": "src/"
+            "Expressgp\\Expressproject\\": "src/",
+            "Model\\": "model/"
         }
     },
     "authors": [

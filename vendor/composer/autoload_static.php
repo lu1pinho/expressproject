@@ -26,6 +26,10 @@ class ComposerStaticInit52ae4d1b822238ddd11eca7dea6694af
             'PhpParser\\' => 10,
             'PhpOption\\' => 10,
         ),
+        'M' => 
+        array (
+            'Model\\' => 6,
+        ),
         'G' => 
         array (
             'GrahamCampbell\\ResultType\\' => 26,
@@ -61,6 +65,10 @@ class ComposerStaticInit52ae4d1b822238ddd11eca7dea6694af
         'PhpOption\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption',
+        ),
+        'Model\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/model',
         ),
         'GrahamCampbell\\ResultType\\' => 
         array (
