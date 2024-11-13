@@ -4,7 +4,7 @@ include 'C:\xampp\htdocs\expressproject\settings\connection.php';
 include '../model/login.php';
 
 class LoginController {
-    private $userModel;
+    public $userModel;
 
     public function __construct($conn) {
         $this->userModel = new UserModel($conn);
