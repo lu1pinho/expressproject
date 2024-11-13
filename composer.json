@@ -19,7 +19,7 @@
     ],
     "minimum-stability": "dev",
     "require": {
-      "ext-mysqli": "*",
+        "ext-mysqli": "*",
         "erusev/parsedown": "dev-master"
     }
 }

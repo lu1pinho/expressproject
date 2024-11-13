@@ -3,7 +3,7 @@
         'name' => 'expressgp/expressproject',
         'pretty_version' => 'dev-develop',
         'version' => 'dev-develop',
-        'reference' => 'a0c5e72ac2e90e1dfa291853fa8ca0c3ad1c7f28',
+        'reference' => '43e1271eb65f07c0cad14d87e04da851f9289b1a',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -24,7 +24,7 @@
         'expressgp/expressproject' => array(
             'pretty_version' => 'dev-develop',
             'version' => 'dev-develop',
-            'reference' => 'a0c5e72ac2e90e1dfa291853fa8ca0c3ad1c7f28',
+            'reference' => '43e1271eb65f07c0cad14d87e04da851f9289b1a',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
