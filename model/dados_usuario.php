@@ -1,6 +1,11 @@
 <?php
 session_start();
 include '../settings/connection.php';
+
+if (!isset($_SESSION['id'])) {
+    header('Location: login.php');
+    exit; // Certifique-se de que a execução seja interrompida
+}
 $userId = $_SESSION['id'];
 
 $sql = "SELECT id, nome, email, genero, cpf, telefone, dt_nascimento FROM users WHERE id = ?";
