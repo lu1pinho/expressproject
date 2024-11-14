@@ -1,9 +1,9 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-require_once __DIR__ . '/../model/cadastro.php'; // Altere para o caminho correto do seu arquivo UserModel
+require_once __DIR__ . '/../model/cadastro.php';
 
-class CadastroModelTest extends TestCase {
+class CadastroTeste extends TestCase {
     private $model;
     private $conn;
 
@@ -52,7 +52,7 @@ class CadastroModelTest extends TestCase {
         // Mock do ResultSet para simular que o email existe
         $resultMock = $this->createMock(mysqli_result::class);
         $resultMock->method('num_rows')
-                   ->willReturn(1);
+                   ->willReturn(1); // Simula que o email existe
 
         // Configuração do statement mockado
         $stmtMock = $this->createMock(mysqli_stmt::class);
@@ -73,7 +73,7 @@ class CadastroModelTest extends TestCase {
         // Mock do ResultSet para simular que o email não existe
         $resultMock = $this->createMock(mysqli_result::class);
         $resultMock->method('num_rows')
-                   ->willReturn(0);
+                   ->willReturn(0); // Simula que o email não existe
 
         // Configuração do statement mockado
         $stmtMock = $this->createMock(mysqli_stmt::class);
