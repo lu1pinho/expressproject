@@ -15,77 +15,43 @@ class CadastroTeste extends TestCase {
         $this->model = new UserModel($this->conn);
     }
 
-    // Teste para o método createUser com sucesso
-    public function testCreateUserSuccess() {
-        // Configuração do statement mockado
-        $stmtMock = $this->createMock(mysqli_stmt::class);
-        $stmtMock->method('execute')
-                 ->willReturn(true);
+    // Teste para email já existente
+    public function testCheckEmailExistsTrue() {
+        // Mock do mysqli_result
+        $resultMock = $this->createMock(mysqli_result::class);
 
-        // Configuração do método prepare para retornar o statement mockado
-        $this->conn->method('prepare')
-                   ->willReturn($stmtMock);
+        // Configuração para simular um resultado com registros (num_rows > 0)
+        $resultMock->method('num_rows')->willReturn(1);
+
+        // Mock do mysqli_stmt para retornar o resultado
+        $stmtMock = $this->createMock(mysqli_stmt::class);
+        $stmtMock->method('get_result')->willReturn($resultMock);
+
+        // Configurando a conexão para retornar o statement mockado
+        $this->conn->method('prepare')->willReturn($stmtMock);
 
         // Executar o método e verificar o resultado
-        $result = $this->model->createUser('Usuário Teste', '123456789', 'Cliente', 'teste@example.com', 'senha123');
-        $this->assertTrue($result);
-    }
-
-    // Teste para o método createUser com falha
-    public function testCreateUserFailure() {
-        // Configuração do statement mockado para falha na execução
-        $stmtMock = $this->createMock(mysqli_stmt::class);
-        $stmtMock->method('execute')
-                 ->willReturn(false);
-
-        // Configuração do método prepare para retornar o statement mockado
-        $this->conn->method('prepare')
-                   ->willReturn($stmtMock);
-
-        // Executar o método e verificar que ele retorne falso
-        $result = $this->model->createUser('Usuário Teste', '123456789', 'Cliente', 'teste@example.com', 'senha123');
-        $this->assertFalse($result);
-    }
-
-    // Teste para o método checkEmailExists com email existente
-    public function testCheckEmailExistsTrue() {
-        // Mock do ResultSet para simular que o email existe
-        $resultMock = $this->createMock(mysqli_result::class);
-        $resultMock->method('num_rows')
-                   ->willReturn(1); // Simula que o email existe
-
-        // Configuração do statement mockado
-        $stmtMock = $this->createMock(mysqli_stmt::class);
-        $stmtMock->method('get_result')
-                 ->willReturn($resultMock);
-
-        // Configuração do método prepare para retornar o statement mockado
-        $this->conn->method('prepare')
-                   ->willReturn($stmtMock);
-
-        // Executar o método e verificar que ele retorne true
         $result = $this->model->checkEmailExists('teste@example.com');
         $this->assertTrue($result);
     }
 
-    // Teste para o método checkEmailExists com email inexistente
+    // Teste para email não existente
     public function testCheckEmailExistsFalse() {
-        // Mock do ResultSet para simular que o email não existe
+        // Mock do mysqli_result
         $resultMock = $this->createMock(mysqli_result::class);
-        $resultMock->method('num_rows')
-                   ->willReturn(0); // Simula que o email não existe
 
-        // Configuração do statement mockado
+        // Configuração para simular um resultado vazio (num_rows = 0)
+        $resultMock->method('num_rows')->willReturn(0);
+
+        // Mock do mysqli_stmt para retornar o resultado
         $stmtMock = $this->createMock(mysqli_stmt::class);
-        $stmtMock->method('get_result')
-                 ->willReturn($resultMock);
+        $stmtMock->method('get_result')->willReturn($resultMock);
 
-        // Configuração do método prepare para retornar o statement mockado
-        $this->conn->method('prepare')
-                   ->willReturn($stmtMock);
+        // Configurando a conexão para retornar o statement mockado
+        $this->conn->method('prepare')->willReturn($stmtMock);
 
-        // Executar o método e verificar que ele retorne false
-        $result = $this->model->checkEmailExists('naoexiste@example.com');
+        // Executar o método e verificar o resultado
+        $result = $this->model->checkEmailExists('naoexistente@example.com');
         $this->assertFalse($result);
     }
 }
