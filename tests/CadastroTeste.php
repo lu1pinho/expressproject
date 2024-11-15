@@ -1,57 +1,62 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-require_once __DIR__ . '/../model/cadastro.php';
 
-class CadastroTeste extends TestCase {
-    private $model;
-    private $conn;
-
-    protected function setUp(): void {
-        // Mock da conexão com o banco de dados
-        $this->conn = $this->createMock(mysqli::class);
-
-        // Inicializar o modelo com a conexão mockada
-        $this->model = new UserModel($this->conn);
-    }
-
-    // Teste para email já existente
-    public function testCheckEmailExistsTrue() {
-        // Mock do mysqli_result
-        $resultMock = $this->createMock(mysqli_result::class);
-
-        // Configuração para simular um resultado com registros (num_rows > 0)
-        $resultMock->method('num_rows')->willReturn(1);
-
-        // Mock do mysqli_stmt para retornar o resultado
-        $stmtMock = $this->createMock(mysqli_stmt::class);
-        $stmtMock->method('get_result')->willReturn($resultMock);
-
-        // Configurando a conexão para retornar o statement mockado
-        $this->conn->method('prepare')->willReturn($stmtMock);
-
-        // Executar o método e verificar o resultado
-        $result = $this->model->checkEmailExists('teste@example.com');
+class CadastroTeste extends TestCase
+{
+    public function testCheckEmailExistsTrue()
+    {
+        // Cria um mock para o resultado da consulta
+        $mockResult = $this->createMock(mysqli_result::class);
+        
+        // Configura o método num_rows para retornar 1 (indicando que o email existe)
+        $mockResult->method('num_rows')->willReturn(1);
+        
+        // Cria o mock para a conexão MySQLi
+        $mockConn = $this->createMock(mysqli::class);
+        
+        // Configura o método get_result() para retornar o mock de resultado
+        $mockConn->method('prepare')->willReturnSelf();
+        $mockConn->method('bind_param')->willReturn(true);
+        $mockConn->method('execute')->willReturn(true);
+        $mockConn->method('get_result')->willReturn($mockResult);
+        
+        // Cria a instância do modelo e passa a conexão mockada
+        $userModel = new UserModel($mockConn);
+        
+        // Executa o teste
+        $result = $userModel->checkEmailExists('test@example.com');
+        
+        // Verifica se o resultado é verdadeiro (email existe)
         $this->assertTrue($result);
     }
 
-    // Teste para email não existente
-    public function testCheckEmailExistsFalse() {
-        // Mock do mysqli_result
-        $resultMock = $this->createMock(mysqli_result::class);
-
-        // Configuração para simular um resultado vazio (num_rows = 0)
-        $resultMock->method('num_rows')->willReturn(0);
-
-        // Mock do mysqli_stmt para retornar o resultado
-        $stmtMock = $this->createMock(mysqli_stmt::class);
-        $stmtMock->method('get_result')->willReturn($resultMock);
-
-        // Configurando a conexão para retornar o statement mockado
-        $this->conn->method('prepare')->willReturn($stmtMock);
-
-        // Executar o método e verificar o resultado
-        $result = $this->model->checkEmailExists('naoexistente@example.com');
+    public function testCheckEmailExistsFalse()
+    {
+        // Cria um mock para o resultado da consulta
+        $mockResult = $this->createMock(mysqli_result::class);
+        
+        // Configura o método num_rows para retornar 0 (indicando que o email não existe)
+       $mockResult->method('num_rows')->willReturn(0);
+        
+        // Cria o mock para a conexão MySQLi
+        $mockConn = $this->createMock(mysqli::class);
+        
+        // Configura o método get_result() para retornar o mock de resultado
+        $mockConn->method('prepare')->willReturnSelf();
+        $mockConn->method('bind_param')->willReturn(true);
+        $mockConn->method('execute')->willReturn(true);
+        $mockConn->method('get_result')->willReturn($mockResult);
+        
+        // Cria a instância do modelo e passa a conexão mockada
+        $userModel = new UserModel($mockConn);
+        
+        // Executa o teste
+        $result = $userModel->checkEmailExists('test@example.com');
+        
+        // Verifica se o resultado é falso (email não existe)
         $this->assertFalse($result);
     }
 }
+
+?>
