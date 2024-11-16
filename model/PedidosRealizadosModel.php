@@ -1,7 +1,8 @@
 <?php
 
 namespace Model;
-class CartModel {
+
+class PedidosRealizadosModel {
     private $conn;
 
     public function __construct($connection) {

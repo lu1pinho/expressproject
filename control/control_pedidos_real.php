@@ -8,7 +8,7 @@ if (!isset($_SESSION['id'])) {
 }
 
 include '../settings/connection.php';
-include '../model/pedidos_realizados.php';
+include '../model/PedidosRealizadosModel.php';
 
 $id_user = $_SESSION['id'];
 $model = new CartModel($conn);

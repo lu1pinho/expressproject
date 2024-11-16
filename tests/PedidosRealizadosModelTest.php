@@ -1,13 +1,15 @@
 <?php
-use PHPUnit\Framework\TestCase;
 
-class PedidosTest extends TestCase {
+use PHPUnit\Framework\TestCase;
+use Model\PedidosRealizadosModel; // Alinhar com o modelo
+
+class PedidosRealizadosModelTest extends TestCase {
     private $mockConnection;
     private $mockModel;
 
     protected function setUp(): void {
         $this->mockConnection = $this->createMock(mysqli::class);
-        $this->mockModel = new CartModel($this->mockConnection);
+        $this->mockModel = new PedidosRealizadosModel($this->mockConnection); // Usar o nome correto
     }
 
     public function testGetProductsInCartReturnsExpectedData() {
@@ -30,6 +32,7 @@ class PedidosTest extends TestCase {
 
         $result = $this->mockModel->getProductsInCart(1);
 
-        $this->assertEquals(2, count($result->fetch_all(MYSQLI_ASSOC)));
+        $this->assertIsObject($result); // Verificar que o resultado é um objeto válido
+        $this->assertEquals(2, count($result->fetch_all(MYSQLI_ASSOC))); // Verificar o número de produtos
     }
 }
