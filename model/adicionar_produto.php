@@ -52,7 +52,7 @@ class UserModel {
             "Content-Type: application/json"
         ]);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $json_data);
-   var_dump($json_data);
+   //var_dump($json_data);
         // Executa a requisição
         $response = curl_exec($ch);
         $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
