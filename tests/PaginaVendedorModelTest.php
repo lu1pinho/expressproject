@@ -68,4 +68,5 @@ class PaginaVendedorModelTest extends TestCase
         $this->assertIsArray($resultado);
         $this->assertCount(3, $resultado); // Verifica que tem três elementos no array
     }
+    //comentando pra tentar dar pull pq desmereceram meu trabalho suado e recusaram meu pr por pura maldade
 }
