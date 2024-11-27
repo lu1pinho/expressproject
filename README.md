@@ -778,7 +778,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
         <tr>
             <td>Página vendedor - Login simplificado</td>
             <td>Desenvolvimento</td>
-            <td>-</td>
+            <td>Dallyla</td>
             <td>-</td>
             <td>-</td>
             <td>Pendente</td>
@@ -841,7 +841,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
         <tr>
             <td>Busca</td>
             <td>Desenvolvimento</td>
-            <td>-</td>
+            <td>Dallyla</td>
             <td>-</td>
             <td>-</td>
             <td>Pendente</td>
