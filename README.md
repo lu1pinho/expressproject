@@ -796,7 +796,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
         <tr>
             <td>Navbar (NAV) - Ajustes de CSS</td>
             <td>Design</td>
-            <td>-</td>
+            <td>Heloisa</td>
             <td>-</td>
             <td>-</td>
             <td>Pendente</td>
@@ -814,7 +814,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
         <tr>
             <td>Atualizar CEP</td>
             <td>Desenvolvimento</td>
-            <td>-</td>
+            <td>Heloisa</td>
             <td>-</td>
             <td>-</td>
             <td>Pendente</td>
