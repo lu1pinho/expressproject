@@ -638,22 +638,13 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
             <td>Dallyla</td>
             <td>-</td>
             <td>-</td>
-            <td>Pendente</td>
+            <td>Concluído</td>
             <td></td>
         </tr>
         <tr>
             <td>Cadastro</td>
             <td>Teste</td>
             <td>Neci</td>
-            <td>-</td>
-            <td>-</td>
-            <td>Pendente</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>Carrinho</td>
-            <td>Teste</td>
-            <td>Dallyla</td>
             <td>-</td>
             <td>-</td>
             <td>Pendente</td>
@@ -746,10 +737,18 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
             <td>Dallyla</td>
             <td>-</td>
             <td>-</td>
-            <td>Pendente</td>
+            <td>Concluído</td>
             <td></td>
         </tr>
     </tbody>
+</table>
+
+<h2>Refinamento</h2>
+<table>
+  <tr>
+    <td>Refinamento</td>
+    <td>TODOS</td>
+  </tr>
 </table>
 
 # SPRINTS
