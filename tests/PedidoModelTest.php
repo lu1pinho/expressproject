@@ -1,4 +1,5 @@
 <?php
+//comando para teste vendor/bin/phpunit tests/PedidoModelTest.php
 
 use PHPUnit\Framework\TestCase;
 
