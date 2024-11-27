@@ -620,7 +620,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
             <td>Heloisa</td>
             <td>-</td>
             <td>-</td>
-            <td>Pendente</td>
+            <td>Concluido</td>
             <td></td>
         </tr>
         <tr>
@@ -629,7 +629,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
             <td>Mara Emanuella</td>
             <td>-</td>
             <td>-</td>
-            <td>Pendente</td>
+            <td>Concluido</td>
             <td></td>
         </tr>
         <tr>
@@ -647,7 +647,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
             <td>Neci</td>
             <td>-</td>
             <td>-</td>
-            <td>Pendente</td>
+            <td>Concluido</td>
             <td></td>
         </tr>
         <tr>
@@ -656,7 +656,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
             <td>Luís Gustavo</td>
             <td>-</td>
             <td>-</td>
-            <td>Pendente</td>
+            <td>Concluido</td>
             <td></td>
         </tr>
         <tr>
@@ -665,7 +665,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
             <td>Heloisa</td>
             <td>-</td>
             <td>-</td>
-            <td>Pendente</td>
+            <td>Concluido</td>
             <td></td>
         </tr>
         <tr>
@@ -674,7 +674,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
             <td>Luís Gustavo</td>
             <td>-</td>
             <td>-</td>
-            <td>Pendente</td>
+            <td>Concluido</td>
             <td></td>
         </tr>
         <tr>
@@ -683,7 +683,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
             <td>Mara Emanuella</td>
             <td>-</td>
             <td>-</td>
-            <td>Pendente</td>
+            <td>Concluido</td>
             <td></td>
         </tr>
         <tr>
@@ -692,7 +692,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
             <td>Heloisa</td>
             <td>-</td>
             <td>-</td>
-            <td>Pendente</td>
+            <td>Concluido</td>
             <td></td>
         </tr>
         <tr>
@@ -701,7 +701,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
             <td>Mara Emanuella</td>
             <td>-</td>
             <td>-</td>
-            <td>Pendente</td>
+            <td>Concluido</td>
             <td></td>
         </tr>
         <tr>
@@ -710,7 +710,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
             <td>Neci</td>
             <td>-</td>
             <td>-</td>
-            <td>Pendente</td>
+            <td>Concluido</td>
             <td></td>
         </tr>
         <tr>
@@ -719,7 +719,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
             <td>Neci</td>
             <td>-</td>
             <td>-</td>
-            <td>Pendente</td>
+            <td>Concluido</td>
             <td></td>
         </tr>
         <tr>
@@ -728,7 +728,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
             <td>Luís Gustavo</td>
             <td>-</td>
             <td>-</td>
-            <td>Pendente</td>
+            <td>Concluido</td>
             <td></td>
         </tr>
         <tr>
