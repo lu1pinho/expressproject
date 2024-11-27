@@ -35,4 +35,7 @@ class PedidosRealizadosModelTest extends TestCase {
         $this->assertIsObject($result); // Verificar que o resultado é um objeto válido
         $this->assertEquals(2, count($result->fetch_all(MYSQLI_ASSOC))); // Verificar o número de produtos
     }
+
+    //comentando pra conseguir dar um pull dnv
+    //subindo dnv
 }
