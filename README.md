@@ -651,7 +651,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
             <td></td>
         </tr>
         <tr>
-            <td>Categoria</td>
+            <td>Listagem</td>
             <td>Teste</td>
             <td>Luís Gustavo</td>
             <td>-</td>
