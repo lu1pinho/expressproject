@@ -745,11 +745,111 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
 
 <h2>Refinamento</h2>
 <table>
-  <tr>
-    <td>Refinamento</td>
-    <td>TODOS</td>
-  </tr>
+    <thead>
+        <tr>
+            <th>Feature</th>
+            <th>Tipo</th>
+            <th>Responsável</th>
+            <th>Início</th>
+            <th>Conclusão</th>
+            <th>Status</th>
+            <th>Descrição</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>JS da página principal</td>
+            <td>Desenvolvimento</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>Pendente</td>
+            <td>Fazer o JS rodar na página principal</td>
+        </tr>
+        <tr>
+            <td>Botão "Ver todos os produtos"</td>
+            <td>Desenvolvimento</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>Pendente</td>
+            <td>Adicionar um botão para navegar até a página com todos os produtos (página principal)</td>
+        </tr>
+        <tr>
+            <td>Página vendedor - Login simplificado</td>
+            <td>Desenvolvimento</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>Pendente</td>
+            <td>Se o usuário for vendedor, redirecioná-lo automaticamente para o dashboard sem necessidade de senha.</td>
+        </tr>
+        <tr>
+            <td>Página vendedor - Botão Editar Produto</td>
+            <td>Desenvolvimento</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>Pendente</td>
+            <td>Colocar o botão Editar Produto para cada produto</td>
+        </tr>
+        <tr>
+            <td>Navbar (NAV) - Ajustes de CSS</td>
+            <td>Design</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>Pendente</td>
+            <td>Quando passa o mouse na conta aparece uma "caixa" que abraça 3 botões</td>
+        </tr>
+        <tr>
+            <td>Navbar - Botão do Vendedor</td>
+            <td>Design</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>Pendente</td>
+            <td>Adicionar um botão visível para o vendedor na barra de navegação.</td>
+        </tr>
+        <tr>
+            <td>Atualizar CEP</td>
+            <td>Desenvolvimento</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>Pendente</td>
+            <td>Incluir a funcionalidade de atualização do CEP do usuário em seu perfil. Também aparecer o CEP da pessoa cadastrada na NAV</td>
+        </tr>
+        <tr>
+            <td>Carrinho - Desconto no Preço</td>
+            <td>Desenvolvimento</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>Pendente</td>
+            <td>Exibir o preço original riscado e o preço com desconto para produtos com promoção no carrinho.</td>
+        </tr>
+        <tr>
+            <td>Fechar pedido</td>
+            <td>Desenvolvimento</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>Pendente</td>
+            <td>Arrumar</td>
+        </tr>
+        <tr>
+            <td>Busca</td>
+            <td>Desenvolvimento</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>Pendente</td>
+            <td>Arrumar</td>
+        </tr>
+    </tbody>
 </table>
+
 
 # SPRINTS
 ## Sprint 1: Configuração Inicial e Infraestrutura
