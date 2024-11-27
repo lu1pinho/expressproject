@@ -805,7 +805,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
         <tr>
             <td>Navbar - Botão do Vendedor</td>
             <td>Design</td>
-            <td>-</td>
+            <td>Neci</td>
             <td>-</td>
             <td>-</td>
             <td>Pendente</td>
@@ -823,7 +823,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
         <tr>
             <td>Carrinho - Desconto no Preço</td>
             <td>Desenvolvimento</td>
-            <td>-</td>
+            <td>Neci</td>
             <td>-</td>
             <td>-</td>
             <td>Pendente</td>
