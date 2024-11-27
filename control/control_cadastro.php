@@ -1,6 +1,6 @@
 <?php
 include_once '../settings/connection.php';
-include_once '../model/cadastro.php';
+include_once '../model/CadastroModel.php';
 include_once '../view/cadastro.html';
 
 // Verifica se o formulário foi enviado
