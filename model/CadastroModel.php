@@ -1,5 +1,8 @@
 <?php
-class UserModel {
+
+namespace Model;
+
+class CadastroModel {
 
     private $conn;
 
