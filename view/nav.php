@@ -296,10 +296,20 @@ header{
             <a href="../control/control_pagina-principal.php"><img src="../view/images/logo/logo.png" alt="Logo Express"></a>
         </div>
 
-        <div class="nav-item rem-9">
-            <img src="../view/images/svg/map-local.svg" alt="Atualizar CEP">
-            <p>Atualizar CEP</p>
+        <div class="nav-item rem-9" id="cep">
+            <img src="../view/images/svg/map-local.svg" alt="Localização">
+            <p>CEP: 
+                <?php 
+                if (isset($_SESSION['cep'])) {
+                    echo htmlspecialchars($_SESSION['cep']); 
+                } else {
+                    echo "Não disponível";
+                }
+                ?>
+            </p>
         </div>
+
+
 
     <form class="search-container" action="../control/control_categoria.php" method="get">
         <input type="text" name="query" placeholder="Buscar na Express" required>
