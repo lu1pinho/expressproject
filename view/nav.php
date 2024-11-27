@@ -24,7 +24,7 @@
 }
 
 /*Medidas*/
-.rem-4 { font-size: 0.4rem; } .rem-5 { font-size: 0.5rem; } .rem-6 { font-size: 0.6rem; } .rem-7 { font-size: 0.7rem; } .rem-8 { font-size: 0.8rem; } .rem-9 { font-size: 0.9rem; } .rem-10 { font-size: 1rem; } .rem-12 { font-size: 1.2rem; } .rem-14 { font-size: 1.4rem; } .rem-16 { font-size: 1.6rem; } .rem-18 { font-size: 1.8rem; } .rem-20 { font-size: 2rem; } .rem-24 { font-size: 2.4rem; } .rem-28 { font-size: 2.8rem; } .rem-32 { font-size: 3.2rem; }
+.rem-4 { font-size: 0.4rem; } .rem-5 { font-size: 0.5rem; } .rem-6 { font-size: 0.6rem; } .rem-7 { font-size: 0.7rem; } .rem-8 { font-size: 0.8rem; } .rem-9 { font-size: 0.9rem;} .rem-10 { font-size: 1rem; } .rem-12 { font-size: 1.2rem; } .rem-14 { font-size: 1.4rem; } .rem-16 { font-size: 1.6rem; } .rem-18 { font-size: 1.8rem; } .rem-20 { font-size: 2rem; } .rem-24 { font-size: 2.4rem; } .rem-28 { font-size: 2.8rem; } .rem-32 { font-size: 3.2rem; }
 
 /*
 O uso do `&` (e comercial) referencia o seletor pai dentro do aninhamento,
@@ -81,13 +81,14 @@ header{
     min-height: 70px; max-height: 70px;
     background-color: var(--color-darkblue);
     padding-left: 80px;
-    gap: 60px;
+    gap: 30px;
     position: sticky;
     top: 0;
     z-index: 100;
     width: 100%;
 
     & .nav-item {
+        display: inline-flex;
         display: flex;
         align-items: center;
         padding: 5px 10px;
@@ -116,6 +117,11 @@ header{
             color: #959595;
         }
     }
+    #cep {
+    width: auto;
+    min-width: 150px; /* Largura mínima para evitar que a caixa fique muito estreita */
+    padding: 5px;
+}
 
         & .nav-item img {
             margin-right: 10px;
@@ -321,15 +327,17 @@ header{
 
 
         <div class="nav-item rem-9" id="login">
-        <?php if (isset($_SESSION['nome'])): ?>
-            <div class="coluna" >
-            <p style="color: #959595;" >Olá, <?php echo $_SESSION['nome']; ?>!</p>
-            <a style="color: white; text-decoration: none" href="../control/control_dados_usuario.php/">Seus Dados</a>
-            </div>
-        <?php else: ?>
-            <a style="text-decoration: none;" href="../control/control_login.php"><p class="wrap" onmouseenter="showLoginPopup()" onmouseleave="hideLoginPopup()">faça seu login.</p></a>
+            <?php if (isset($_SESSION['nome'])): ?>
+                <div class="coluna" >
+                <p style="color: #959595;" >Olá, <?php echo $_SESSION['nome']; ?>!</p>
+                <a style="color: white; text-decoration: none" href="../control/control_dados_usuario.php/">Seus Dados</a>
+                </div>
+            <?php else: ?>
+                <a style="text-decoration: none;" href="../control/control_login.php"><p class="wrap" onmouseenter="showLoginPopup()" onmouseleave="hideLoginPopup()">faça seu login.</p></a>
+            
+            <?php endif; ?>
         </div>
-        <?php endif; ?>
+
         <div class="nav-item rem-9">
             <p class="">Pedidos<br>e Devoluções</p>
         </div>
