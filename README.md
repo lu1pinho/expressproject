@@ -760,16 +760,16 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
         <tr>
             <td>JS da página principal</td>
             <td>Desenvolvimento</td>
-            <td>-</td>
+            <td>Luís Gustavo</td>
             <td>-</td>
             <td>-</td>
             <td>Pendente</td>
-            <td>Fazer o JS rodar na página principal</td>
+            <td>Fazer o JS rodar corretamente na página principal</td>
         </tr>
         <tr>
             <td>Botão "Ver todos os produtos"</td>
             <td>Desenvolvimento</td>
-            <td>-</td>
+            <td>Luís Gustavo</td>
             <td>-</td>
             <td>-</td>
             <td>Pendente</td>
@@ -787,7 +787,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
         <tr>
             <td>Página vendedor - Botão Editar Produto</td>
             <td>Desenvolvimento</td>
-            <td>-</td>
+            <td>Mara Emanuella</td>
             <td>-</td>
             <td>-</td>
             <td>Pendente</td>
@@ -832,7 +832,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
         <tr>
             <td>Fechar pedido</td>
             <td>Desenvolvimento</td>
-            <td>-</td>
+            <td>Mara Emanuella</td>
             <td>-</td>
             <td>-</td>
             <td>Pendente</td>
