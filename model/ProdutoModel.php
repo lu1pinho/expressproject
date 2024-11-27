@@ -1,5 +1,4 @@
 <?php
-namespace Model;
 // Inclui a conexão com o banco de dados
 include '../settings/connection.php'; // Não é necessário incluir o arquivo de conexão de teste
 

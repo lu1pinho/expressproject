@@ -1,6 +1,6 @@
 <?php 
 use PHPUnit\Framework\TestCase;
-use Model\ProdutoModel;
+include '../model/ProdutoModel.php';
 
 class ProdutoModelTest extends TestCase {
   private $conn;
