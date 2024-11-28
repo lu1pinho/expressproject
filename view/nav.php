@@ -357,7 +357,13 @@ header{
             <p>Todos</p>
         </div>
         <div class="option">
-            <a style="text-decoration: none; color:white;" href="../control/control_atualizar-vendedor.php">Venda na Express</a>
+        <?php if (isset($_SESSION['categoria']) && $_SESSION['categoria'] === 'fornecedor'): ?>
+                <a style="text-decoration: none; color: white;" href="../control/control_pagina-vendedor.php">Área do Vendedor</a>
+            <?php endif; ?>
+
+            <?php if (isset($_SESSION['categoria']) && $_SESSION['categoria'] === 'cliente'): ?>
+                <a style="text-decoration: none; color: white;" href="../control/control_pagina_vendedor.php">Venda na Express</a>
+            <?php endif; ?>
         </div>
         <div class="option">
             <p>Ofertas do Dia</p>
