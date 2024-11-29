@@ -15,14 +15,23 @@
             <div class="logo">
                 <img src="../view/images/logo/logo.png" alt="Express.com">
             </div>
-            <div class="butao-voltar">
-                <a href="../control/control_finalizar_pedido.php" class="voltar">
-                    <svg height="16" width="16" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1024 1024">
-                        <path d="M874.690416 495.52477c0 11.2973-9.168824 20.466124-20.466124 20.466124l-604.773963 0 188.083679 188.083679c7.992021 7.992021 7.992021 20.947078 0 28.939099-4.001127 3.990894-9.240455 5.996574-14.46955 5.996574-5.239328 0-10.478655-1.995447-14.479783-5.996574l-223.00912-223.00912c-3.837398-3.837398-5.996574-9.046027-5.996574-14.46955 0-5.433756 2.159176-10.632151 5.996574-14.46955l223.019353-223.029586c7.992021-7.992021 20.957311-7.992021 28.949332 0 7.992021 8.002254 7.992021 20.957311 0 28.949332l-188.073446 188.073446 604.753497 0C865.521592 475.058646 874.690416 484.217237 874.690416 495.52477z"></path>
-                    </svg>
-                    <span>Voltar</span>
-                </a>
-            </div>
+            <a href="../control/control_finalizar_pedido.php" class="button-voltar">
+                <div class="button-box">
+                    <span class="button-elem">
+                        <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                        </svg>
+                    </span>
+                    <span class="button-elem">
+                        <svg viewBox="0 0 46 40">
+                            <path
+                                d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                        </svg>
+                    </span>
+                </div>
+            </a>
+
         </div>
     </header>
 
@@ -76,11 +85,24 @@
                         <?php endforeach; ?>
                     </tbody>
 
+                    <a href="../control/control_dados_usuario.php">
+                        <button class="editar">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 20 20" height="20" fill="none" class="svg-icon">
+                                <g stroke-width="1.5" stroke-linecap="round" stroke="#5d41de">
+                                    <circle r="2.5" cy="10" cx="10"></circle>
+                                    <path fill-rule="evenodd" d="m8.39079 2.80235c.53842-1.51424 2.67991-1.51424 3.21831-.00001.3392.95358 1.4284 1.40477 2.3425.97027 1.4514-.68995 2.9657.82427 2.2758 2.27575-.4345.91407.0166 2.00334.9702 2.34248 1.5143.53842 1.5143 2.67996 0 3.21836-.9536.3391-1.4047 1.4284-.9702 2.3425.6899 1.4514-.8244 2.9656-2.2758 2.2757-.9141-.4345-2.0033.0167-2.3425.9703-.5384 1.5142-2.67989 1.5142-3.21831 0-.33914-.9536-1.4284-1.4048-2.34247-.9703-1.45148.6899-2.96571-.8243-2.27575-2.2757.43449-.9141-.01669-2.0034-.97028-2.3425-1.51422-.5384-1.51422-2.67994.00001-3.21836.95358-.33914 1.40476-1.42841.97027-2.34248-.68996-1.45148.82427-2.9657 2.27575-2.27575.91407.4345 2.00333-.01669 2.34247-.97026z" clip-rule="evenodd"></path>
+                                </g>
+                            </svg>
+                            <span class="lable-editar">Editar</span>
+                        </button>
+                    </a>
+
 
                 </table>
             <?php else: ?>
                 <p>Não há cartões cadastrados para este usuário.</p>
             <?php endif; ?>
+
         </section>
 
         <!-- Seção do resumo da compra -->
@@ -96,8 +118,8 @@
                     <p>R$ <?php echo number_format($frete, 2, ',', '.'); ?></p>
                 </div>
                 <div class="total">
-                    <p style="color: black;" >Total </p>
-                    <p style="color: black;" >R$ <?php echo number_format($total_produtos + $frete, 2, ',', '.'); ?></p>
+                    <p style="color: black;">Total </p>
+                    <p style="color: black;">R$ <?php echo number_format($total_produtos + $frete, 2, ',', '.'); ?></p>
                 </div>
                 <button type="submit" name="comprar" class="btn-continuar">Comprar</button>
             </section>
