@@ -7,7 +7,7 @@ body {
 
 header {
     width: 86.8%;
-    background-color: #0A3871;
+    background-color: #0a3a6a;
     padding: 20px 100px;
 }
 
@@ -21,7 +21,7 @@ header {
 
 .logo img {
     width: 150px;
-    margin-left: 70px;
+    margin-left: 100px;
 }
 
 .wrapper {
@@ -31,26 +31,42 @@ header {
     margin: 50px auto;
 }
 
-.btn-voltar {
-    background-color: #ffffff;
-    color: #000000;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin: 20px 0;
+.voltar {
+    display: flex;
+    height: 3em;
     width: 100px;
+    align-items: center;
+    justify-content: center;
+    background-color: #000000;
+    border-radius: 3px;
+    letter-spacing: 1px;
+    transition: all 0.2s linear;
+    cursor: pointer;
+    border: none;
+    background: #fff;
     position: absolute;
-    left: 20px;
-    top: 1px;
-
+    left: 60px;
+    top: 20px;
+    
 }
 
-.btn-voltar:hover {
-    background-color: orange;
+button>svg {
+    margin-right: 5px;
+    margin-left: 5px;
+    font-size: 20px;
+    transition: all 0.4s ease-in;
 }
+
+button:hover>svg {
+    font-size: 1.2em;
+    transform: translateX(-5px);
+}
+
+button:hover {
+    box-shadow: 9px 9px 33px #d1d1d1, -9px -9px 33px #ffffff;
+    transform: translateY(-2px);
+}
+
 
 .entrega-container {
     width: 620px;
@@ -62,14 +78,17 @@ header {
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     position: absolute;
-    right: -9px;
-    top: 78px;
+    right: 8px;
+    top: 75px;
 }
 
 .entrega-container h2 {
     font-size: 20px;
     margin-bottom: 15px;
+    font-weight: bold; 
+    color: #000000; 
 }
+
 
 .btn-editar {
     display: block;
@@ -77,7 +96,7 @@ header {
     padding: 10px;
     font-size: 16px;
     color: #fff;
-    background-color: #007bff;
+    background-color: #006BCF;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -88,28 +107,28 @@ header {
 }
 
 .btn-editar:hover {
-    background-color: #0056b3;
+    background-color: #006BCF;
 }
 
 
 .resumo-compra-container {
-    width: 400px; /* Aumentando a largura */
+    width: 400px;
     padding: 20px;
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    position: fixed; /* Mudando de absolute para fixed */
+    position: fixed;
     right: 160px;
     top: 125px;
-    z-index: 1000; /* Para garantir que o container esteja acima de outros elementos */
+    z-index: 1000;
 }
 
 .resumo-compra-container h2 {
     font-size: 18px;
     font-weight: 600;
-    color: #333;
+    color: #000000;
     margin-bottom: 20px;
 }
 
@@ -123,13 +142,13 @@ header {
 
 .resumo-compra-container .preco-detalhe p {
     margin: 0;
-    color: #555;
+    color: #333333;
 }
 
 .resumo-compra-container .total {
     font-size: 18px;
     font-weight: bold;
-    color: #333;
+    color: #000000;
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
@@ -137,14 +156,13 @@ header {
     border-top: 1px solid #ddd;
 }
 
-/* Estilo do botão de compra */
 .resumo-compra-container .btn-continuar {
     display: block;
     width: 100%;
     padding: 12px;
     font-size: 16px;
     color: #fff;
-    background-color: #007bff;
+    background-color: #006BCF;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -154,10 +172,9 @@ header {
 }
 
 .resumo-compra-container .btn-continuar:hover {
-    background-color: #0056b3;
+    background-color: #006BCF;
 }
 
-/* Estilos do container de produtos no carrinho */
 .carrinho-container {
     max-width: 700px;
     width: 623px;
@@ -170,12 +187,12 @@ header {
     background-color: #fff;
     position: absolute;
     top: 45%;
-    left: -3px;
+    left: -20px;
 }
 
 h2 {
     text-align: center;
-    color: #333;
+    color: #000000;
 }
 
 .produto-carrinho {
@@ -205,21 +222,20 @@ h2 {
 
 .produto-info h3 {
     margin: 0;
-    color: #007bff;
+    color: #006BCF;
 }
 
 .produto-info p {
     margin: 5px 0;
-    color: #555;
+    color: #333333;
 }
 
 .quantidade-produto {
     margin: 10px 0;
+    color: #333333;
 }
 
-.quantidade-produto label {
-    font-weight: bold;
-}
+
 
 .quantidade-produto input {
     width: 40px;
