@@ -28,7 +28,8 @@ class LoginController {
             SELECT 
                 users.id AS id,
                 users.nome AS nome,
-                enderecos.cep AS cep
+                enderecos.cep AS cep,
+                users.categoria AS categoria
             FROM users
             LEFT JOIN enderecos ON users.id = enderecos.id_user
             WHERE users.email = ? AND users.senha = ?
@@ -44,13 +45,14 @@ class LoginController {
         $stmt->execute();
 
         // Vincula os resultados às variáveis
-        $stmt->bind_result($id, $nome, $cep);
+        $stmt->bind_result($id, $nome, $cep, $categoria);
 
         // Verifica se há resultados e salva na sessão
         if ($stmt->fetch()) {
             $_SESSION['id'] = $id;
             $_SESSION['nome'] = $nome;
             $_SESSION['cep'] = $cep ?? 'Não informado'; // Trata caso o CEP seja NULL
+            $_SESSION['categoria'] = $categoria;
             
             // Redireciona para a página principal
             header("Location: control_pagina-principal.php");
