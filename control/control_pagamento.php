@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['comprar'])) {
         // Espera 10 segundos
         sleep(10);
         // Redireciona para a página principal
-        header("Location: ../control/control_pagina-principal.php");
+        header("Location: ../view/geração-pdf.php");
         exit();
     }
 
