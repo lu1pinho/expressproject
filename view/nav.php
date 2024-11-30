@@ -366,7 +366,7 @@ header{
             <p>Mais Vendidos</p>
         </div>
         <div class="option">
-            <p>Comprar Novamente</p>
+        <a style="text-decoration: none; color:white;" href="../control/control_pedidos_real.php">Pedidos Realizados</a>
         </div>
     </div>
 </div>
