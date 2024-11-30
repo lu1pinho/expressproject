@@ -93,7 +93,7 @@
     </div>
 
     <main>
-        <div class="produto-container">
+        <div class="produto-container" id="od">
             <div class="title" id="ofertas-do-dia">
                 <h2>Ofertas do Dia</h2>
                 <p>Ver todos os produtos</p>
@@ -105,21 +105,25 @@
                 ?>
                     <div class="destaques" onclick="window.location.href='../control/control-produto-individual.php?id=<?php echo $produto['id']; ?>'">
                         <img src="<?php echo CAMINHO_IMAGENS . $produto['url_img']; ?>" alt="<?php echo $produto['nome']; ?>">
-                        <p><?php echo $produto['nome']; ?></p>
+                        <p id="pname"><?php echo $produto['nome']; ?></p>
                         <div class="discount">
                             <?php if ($resultado['percentual_desconto'] > 0) { ?>
-                                <p><?php echo $resultado['percentual_desconto']; ?>% OFF
-                                    <?php if ($produto['frete_gratis']) {
-                                        echo '- FRETE GRÁTIS';
-                                    } ?></p>
+                                <p>
+                                    <?php echo number_format($resultado['percentual_desconto'], 0); ?>% OFF
+                                    <?php if ($produto['frete_gratis']) { ?>
+                                        - FRETE GRÁTIS
+                                    <?php } ?>
+                                </p>
                             <?php } else { ?>
-                                <p><?php echo $resultado['frete_texto']; ?></p>
+                                <p>FRETE EXPRESSO</p>
                             <?php } ?>
                         </div>
                         <div class="price">
-                            <span>R$</span> <span><?php echo $resultado['preco']; ?></span> <!-- Parte inteira -->
-                            <?php if ($resultado['percentual_desconto'] > 0) { ?>
-                                <span>De: R$ <?php echo number_format($produto['preco'], 2, ',', '.'); ?></span> <!-- Preço normal -->
+                            <?php if (!is_null($resultado['preco_com_desconto'])) { ?>
+                                <span class="preco-original">R$ <?php echo $resultado['preco_original']; ?></span>
+                                <span class="preco-com-desconto">R$ <?php echo $resultado['preco_com_desconto']; ?></span>
+                            <?php } else { ?>
+                                <p class="preco-sem-desconto">R$ <?php echo $resultado['preco_original']; ?></p>
                             <?php } ?>
                         </div>
                     </div>
@@ -127,7 +131,7 @@
             </div>
         </div>
 
-        <div class="produto-container">
+        <div class="produto-container" id="mv">
             <div class="title" id="mais-vendidos">
                 <h2>Mais Vendidos</h2>
                 <p>Ver todos os produtos</p>
@@ -137,24 +141,36 @@
         $resultado = calcularDesconto($produto['preco'], $produto['preco_com_desconto'], $produto['percentual_desconto']);
     ?>
           <div class="destaques" onclick="window.location.href='../control/control-produto-individual.php?id=<?php echo $produto['id']; ?>'">
-            <img src="<?php echo CAMINHO_IMAGENS . $produto['url_img']; ?>" alt="<?php echo $produto['nome']; ?>">
+            <img src="<?php echo CAMINHO_IMAGENS . $produto['url_img']; ?>" alt="<?php echo $produto['nome']; ?>" onerror="this.src='http://localhost/expressproject/view/notfound.png';">
             <p><?php echo $produto['nome']; ?></p>
-            <div class="discount">
-                <?php if ($resultado['percentual_desconto'] > 0) { ?>
-                    <p><?php echo $resultado['percentual_desconto']; ?>% OFF
-                        <?php if ($produto['frete_gratis']) {
-                            echo '- FRETE GRÁTIS';
-                        } ?></p>
-                <?php } else { ?>
-                    <p><?php echo $resultado['frete_texto']; ?></p>
-                <?php } ?>
-            </div>
-            <div class="price">
-                <span>R$</span> <span><?php echo $resultado['preco']; ?></span> <!-- Parte inteira -->
-                <?php if ($resultado['percentual_desconto'] > 0) { ?>
-                    <span>De: R$ <?php echo number_format($produto['preco'], 2, ',', '.'); ?></span> <!-- Preço normal -->
-                <?php } ?>
-            </div>
+              <div class="discount">
+                  <?php if ($resultado['percentual_desconto'] > 0) { ?>
+                      <p>
+                          <?php echo number_format($resultado['percentual_desconto'], 0); ?>% OFF
+                          <?php if ($produto['frete_gratis']) {
+                              echo '- FRETE GRÁTIS';
+                          } ?>
+                      </p>
+                  <?php } else { ?>
+                      <p>
+                          <?php
+                          if ($produto['frete_gratis']) {
+                              echo 'FRETE GRÁTIS';
+                          } else {
+                              echo 'FRETE EXPRESSO';
+                          }
+                          ?>
+                      </p>
+                  <?php } ?>
+              </div>
+              <div class="price">
+                  <?php if (!is_null($resultado['preco_com_desconto'])) { ?>
+                      <span class="preco-original">R$ <?php echo $resultado['preco_original']; ?></span>
+                      <span class="preco-com-desconto">R$ <?php echo $resultado['preco_com_desconto']; ?></span>
+                  <?php } else { ?>
+                      <p class="preco-sem-desconto">R$ <?php echo $resultado['preco_original']; ?></p>
+                  <?php } ?>
+              </div>
         </div>
     <?php } ?>
 </div>
@@ -193,5 +209,6 @@
 </footer>
 
             <script src="../view/nav.js"></script>
+            <script src="../view/carrosel.js"> </script>
 </body>
 </html>

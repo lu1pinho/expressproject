@@ -21,14 +21,30 @@
             <h1><?php echo htmlspecialchars($productData['nome']); ?></h1>
             <div class="values">
                 <div class="price">
-                    <span>R$ <?php echo number_format($preco, 2, ',', '.'); ?></span>
-                    <p>R$ <?php echo number_format($precodesconto, 2, ',', '.'); ?></p>
-                    <span>em até 10x de <?php echo htmlspecialchars(dividirPor10($precodesconto)); ?> sem juros no Cartão Express.</span>
+                    <?php if ($porcentagem > 0): ?>
+                        <span>R$ <?php echo number_format($preco, 2, ',', '.'); ?></span>
+                        <p>R$ <?php echo number_format($precodesconto, 2, ',', '.'); ?></p>
+                        <span>em até 10x de <?php echo dividirPor10($precodesconto); ?> sem juros no Cartão Express.</span>
+                    <?php else: ?>
+                        <p>R$ <?php echo number_format($preco, 2, ',', '.'); ?></p>
+                        <span>em até 10x de <?php echo dividirPor10($preco); ?> sem juros no Cartão Express.</span>
+                    <?php endif; ?>
                 </div>
                 <div class="discount">
-                    <p><?php echo htmlspecialchars($porcentagem); ?>% de desconto comprando agora no PIX!</p>
+                    <?php if ($porcentagem > 0): ?>
+                        <p><?php echo $porcentagem; ?>% de desconto comprando agora no PIX!</p>
+                    <?php else: ?>
+                        <?php
+                        $messages = [
+                            "Compre em até 10x sem juros! 😍",
+                            "Compre agora e tenha frete express grátis 🤩"
+                        ];
+                        echo "<p>" . $messages[array_rand($messages)] . "</p>";
+                        ?>
+                    <?php endif; ?>
                 </div>
             </div>
+
             <div class="short-description">
                 <ul>
                     <li><?php echo formatText($productData['dados_produto']); ?></li>
