@@ -71,9 +71,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['comprar'])) {
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comprar'])) {
         // Espera 10 segundos
-        sleep(10);
+        sleep(3);
         // Redireciona para a página principal
-        header("Location: ../view/geração-pdf.php");
+        header("Location: ../view/pagina-final.php");
         exit();
     }
 
