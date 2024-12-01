@@ -36,13 +36,14 @@
                                 <div class="product-details">
                                     <a href="#"><?= htmlspecialchars($item['nome']); ?></a>
                                     <p>
-                                        <?php if ($item['preco_com_desconto'] !== null): ?>
+                                        <?php if ($item['preco_com_desconto'] !== null && $item['preco_com_desconto'] < $item['preco']): ?>
                                             <span class="preco-original" style="text-decoration: line-through;">R$ <?= number_format($item['preco'], 2, ',', '.'); ?></span>
                                             <span class="preco-com-desconto">R$ <?= number_format($item['preco_com_desconto'], 2, ',', '.'); ?></span>
                                         <?php else: ?>
-                                            R$ <?= number_format($item['preco'], 2, ',', '.'); ?>
+                                            <span>R$ <?= number_format($item['preco'], 2, ',', '.'); ?></span>
                                         <?php endif; ?>
                                     </p>
+
                                 </div>
                                 <div class="quantity-control">
                                     <button type="submit" name="alterar_quantidade[<?= $index; ?>]" value="plus" class="btn-quantity">+</button>
