@@ -1,3 +1,7 @@
+<?php 
+include '../settings/connection.php'; // Conexão com o banco
+include '../settings/config.php'; // Configurações gerais
+?>
 <!doctype html>
 <html lang="pt-br">
 
@@ -24,10 +28,13 @@
                     <select name="departamento" id="departamento">
                         <option value="all">Todos os Produtos</option>
                         <?php
-                        // Simulando a listagem de categorias, mas isso é apenas para o filtro. A API vai trazer os produtos
+                        // Obtendo categorias diretamente do banco
+                        $sql = "SELECT DISTINCT categoria FROM produtos";
+                        $result_departamentos = $conn->query($sql);
+
                         if ($result_departamentos->num_rows > 0) {
                             while ($row = $result_departamentos->fetch_assoc()) {
-                                $categoria_formatada = formatarNomeCategoria($row['categoria']);
+                                $categoria_formatada = ucfirst(strtolower($row['categoria']));
                                 echo '<option value="' . $row['categoria'] . '">' . $categoria_formatada . '</option>';
                             }
                         } else {
@@ -36,7 +43,6 @@
                         ?>
                     </select>
 
-                    <!-- Outros filtros como preço, ofertas e frete -->
                     <div class="ajuste-preco">
                         <h2>Intervalo de Preço</h2>
                         <div class="range_container">
@@ -57,7 +63,6 @@
                         </div>
                     </div>
 
-                    <!-- Outras opções como ofertas, frete grátis -->
                     <div class="ofertas">
                         <h2>Ofertas e Descontos</h2>
                         <div class="oferta-diaria ctr pd-5px">
@@ -93,62 +98,73 @@
             <h2>Produtos</h2>
             <div class="produtos-container">
                 <?php
-                // Inicializa os filtros de busca
+                // Verifica se foi passada uma busca por nome
                 $termo_busca = $_GET['query'] ?? '';
-                $categoria = $_POST['departamento'] ?? 'all';
-                $preco_min = (float)($_POST['preco_min'] ?? 0);
-                $preco_max = (float)($_POST['preco_max'] ?? 12000);
-                $ofertas = isset($_POST['ofertas']) && $_POST['ofertas'] == 'on';
-                $descontos = isset($_POST['descontos']) && $_POST['descontos'] == 'on';
-                $frete_gratis = isset($_POST['frete']) && $_POST['frete'] == 'on';
-                $go_express = isset($_POST['express']) && $_POST['express'] == 'on';
 
-                // Construa a URL da API com os filtros
-                $api_url = 'http://localhost:3000/api/products';
-                $query_params = [
-                    'query' => $termo_busca,
-                    'categoria' => $categoria,
-                    'preco_min' => $preco_min,
-                    'preco_max' => $preco_max,
-                    'ofertas' => $ofertas ? 'on' : '',
-                    'descontos' => $descontos ? 'on' : '',
-                    'frete_gratis' => $frete_gratis ? 'on' : '',
-                    'express' => $go_express ? 'on' : ''
-                ];
+                if (!empty($termo_busca)) {
+                    // Busca por nome diretamente no banco de dados
+                    $sql = "SELECT * FROM produtos WHERE nome LIKE ? OR descricao LIKE ?";
+                    $stmt = $conn->prepare($sql);
+                    $like_termo = "%$termo_busca%";
+                    $stmt->bind_param("ss", $like_termo, $like_termo);
+                    $stmt->execute();
+                    $result = $stmt->get_result();
 
-                // Montar a URL com os parâmetros de consulta
-                $api_url .= '?' . http_build_query(array_filter($query_params));  // Filtra parâmetros vazios
+                    if ($result->num_rows > 0) {
+                        while ($produto = $result->fetch_assoc()) {
+                            $imagem_produto = !empty($produto['url_img']) ? CAMINHO_IMAGENS . $produto['url_img'] : CAMINHO_IMAGENS . 'default.png';
 
-                // Realizar a requisição cURL para a API
-                $ch = curl_init();
-                curl_setopt($ch, CURLOPT_URL, $api_url);
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-                curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
-
-                $response = curl_exec($ch);
-                if (curl_errno($ch)) {
-                    echo 'Erro na requisição cURL: ' . curl_error($ch);
-                    exit;
-                }
-                curl_close($ch);
-
-                // Decodificar a resposta JSON da API
-                $produtos = json_decode($response, true);
-
-                // Verifica se existem produtos para exibir
-                if (!empty($produtos)) {
-                    foreach ($produtos as $produto) {
-                        // Verifica a imagem do produto
-                        $imagem_produto = !empty($produto['url_img']) ? CAMINHO_IMAGENS . $produto['url_img'] : CAMINHO_IMAGENS . 'default.png';
-
-                        echo '<div class="produto" onclick="window.location.href=\'../control/control-produto-individual.php?id=' . $produto['id'] . '\'">';
-                        echo '<img src="' . $imagem_produto . '" alt="' . $produto['nome'] . '">';
-                        echo '<h3>' . $produto['nome'] . '</h3>';
-                        echo '<p>R$' . number_format($produto['preco'], 2, ',', '.') . '</p>';
-                        echo '</div>';
+                            echo '<div class="produto" onclick="window.location.href=\'../control/control-produto-individual.php?id=' . $produto['id'] . '\'">';
+                            echo '<img src="' . $imagem_produto . '" alt="' . $produto['nome'] . '">';
+                            echo '<h3>' . $produto['nome'] . '</h3>';
+                            echo '<p>R$' . number_format($produto['preco'], 2, ',', '.') . '</p>';
+                            echo '</div>';
+                        }
+                    } else {
+                        echo '<p>Nenhum produto encontrado.</p>';
                     }
                 } else {
-                    echo '<p>Nenhum produto encontrado.</p>';
+                    // Realiza a requisição para a API se não houver busca por nome
+                    $api_url = 'http://localhost:3000/api/products';
+                    $query_params = [
+                        'categoria' => $_POST['departamento'] ?? 'all',
+                        'preco_min' => (float)($_POST['preco_min'] ?? 0),
+                        'preco_max' => (float)($_POST['preco_max'] ?? 12000),
+                        'ofertas' => isset($_POST['ofertas']) && $_POST['ofertas'] == 'on' ? 'on' : '',
+                        'descontos' => isset($_POST['descontos']) && $_POST['descontos'] == 'on' ? 'on' : '',
+                        'frete_gratis' => isset($_POST['frete']) && $_POST['frete'] == 'on' ? 'on' : '',
+                        'express' => isset($_POST['express']) && $_POST['express'] == 'on' ? 'on' : ''
+                    ];
+
+                    $api_url .= '?' . http_build_query(array_filter($query_params));
+
+                    $ch = curl_init();
+                    curl_setopt($ch, CURLOPT_URL, $api_url);
+                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                    curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+
+                    $response = curl_exec($ch);
+                    if (curl_errno($ch)) {
+                        echo 'Erro na requisição cURL: ' . curl_error($ch);
+                        exit;
+                    }
+                    curl_close($ch);
+
+                    $produtos = json_decode($response, true);
+
+                    if (!empty($produtos)) {
+                        foreach ($produtos as $produto) {
+                            $imagem_produto = !empty($produto['url_img']) ? CAMINHO_IMAGENS . $produto['url_img'] : CAMINHO_IMAGENS . 'default.png';
+
+                            echo '<div class="produto" onclick="window.location.href=\'../control/control-produto-individual.php?id=' . $produto['id'] . '\'">';
+                            echo '<img src="' . $imagem_produto . '" alt="' . $produto['nome'] . '">';
+                            echo '<h3>' . $produto['nome'] . '</h3>';
+                            echo '<p>R$' . number_format($produto['preco'], 2, ',', '.') . '</p>';
+                            echo '</div>';
+                        }
+                    } else {
+                        echo '<p>Nenhum produto encontrado.</p>';
+                    }
                 }
                 ?>
             </div>
