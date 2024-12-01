@@ -1,11 +1,10 @@
 <?php
 session_start();
-// Incluir o Model que contém a lógica de banco de dados
-include_once '../model/categoria.php';
+// Incluir a conexão com o banco de dados
+include '../settings/connection.php'; // Certifique-se de que este arquivo tem a lógica de conexão com o banco de dados
 
-// Obtém o termo de busca do formulário
-$termo_busca = $_GET['query'] ?? '';
-
+// Inicializa os filtros de busca
+$termo_busca = trim($_GET['query'] ?? ''); // Remove espaços em branco no início e fim
 $categoria = $_POST['departamento'] ?? 'all';
 $preco_min = (float)($_POST['preco_min'] ?? 0);
 $preco_max = (float)($_POST['preco_max'] ?? 12000);
@@ -14,67 +13,98 @@ $descontos = isset($_POST['descontos']) && $_POST['descontos'] == 'on';
 $frete_gratis = isset($_POST['frete']) && $_POST['frete'] == 'on';
 $go_express = isset($_POST['express']) && $_POST['express'] == 'on';
 
-// Construa a URL de requisição para a API
-$api_url = 'http://localhost:3000/api/products';  // URL base da sua API
-$query_params = [];
-
-if ($termo_busca) {
-    $query_params['query'] = $termo_busca;
+// Verifica a conexão
+if ($conn->connect_error) {
+    die("Conexão falhou: " . $conn->connect_error);
 }
+
+// Construa a consulta SQL usando prepared statements para evitar SQL Injection
+$sql = "SELECT * FROM produtos WHERE 1=1";
+$params = [];
+$types = "";
+
+// Valida o termo de busca antes de incluí-lo no SQL
+if (!empty($termo_busca)) { // Certifique-se de que o termo de busca não está vazio
+    $sql .= " AND (nome LIKE ? OR descricao LIKE ?)";
+    $params[] = "%$termo_busca%";
+    $params[] = "%$termo_busca%";
+    $types .= "ss";
+}
+
 if ($categoria && $categoria !== 'all') {
-    $query_params['categoria'] = $categoria;
+    $sql .= " AND categoria = ?";
+    $params[] = $categoria;
+    $types .= "s";
 }
-if ($preco_min) {
-    $query_params['preco_min'] = $preco_min;
+
+if ($preco_min > 0) {
+    $sql .= " AND preco >= ?";
+    $params[] = $preco_min;
+    $types .= "d";
 }
-if ($preco_max) {
-    $query_params['preco_max'] = $preco_max;
+
+if ($preco_max > 0) {
+    $sql .= " AND preco <= ?";
+    $params[] = $preco_max;
+    $types .= "d";
 }
+
 if ($ofertas) {
-    $query_params['ofertas'] = 'on';
+    $sql .= " AND oferta = 1"; // Supondo que "oferta" seja uma coluna booleana na sua tabela
 }
+
 if ($descontos) {
-    $query_params['descontos'] = 'on';
+    $sql .= " AND desconto > 0"; // Supondo que "desconto" seja uma coluna que indica a porcentagem de desconto
 }
+
 if ($frete_gratis) {
-    $query_params['frete_gratis'] = 'on';
+    $sql .= " AND frete_gratis = 1"; // Supondo que "frete_gratis" seja uma coluna booleana na sua tabela
 }
+
 if ($go_express) {
-    $query_params['express'] = 'on';
+    $sql .= " AND express = 1"; // Supondo que "express" seja uma coluna booleana na sua tabela
 }
 
-// Montar a URL com os parâmetros de consulta (query parameters)
-if (!empty($query_params)) {
-    $api_url .= '?' . http_build_query($query_params);
+// Prepara a declaração e liga os parâmetros
+$stmt = $conn->prepare($sql);
+
+if ($types) {
+    $stmt->bind_param($types, ...$params);
 }
 
-// Realizar a requisição cURL para a API
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, $api_url);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-    'Content-Type: application/json'
-));
+$stmt->execute();
+$result = $stmt->get_result();
 
-$response = curl_exec($ch);
+// Verifica se a consulta retornou resultados
+$produtos = [];
 
-if (curl_errno($ch)) {
-    echo 'Erro na requisição cURL: ' . curl_error($ch);
-    exit;
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $produtos[] = $row;
+    }
+} else {
+    echo 'Nenhum produto encontrado.<br>';
 }
 
-curl_close($ch);
+// Obtém as categorias antes de fechar a conexão
+function getCategorias($conn) {
+    $categorias = [];
+    $sql = "SELECT DISTINCT categoria FROM produtos";
+    $result = $conn->query($sql);
 
-// Decodificar a resposta JSON da API
-$produtos = json_decode($response, true);
-
-// Verificar se a resposta contém dados
-if (empty($produtos)) {
-    $produtos = [];
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $categorias[] = $row;
+        }
+    }
+    return $categorias;
 }
 
-// Obtém as categorias para renderizar na página
 $result_departamentos = getCategorias($conn);
+
+// Fechar a conexão com o banco de dados
+$stmt->close();
+$conn->close();
 
 // Incluir a View para renderizar os dados
 include '../view/categoria.php';
