@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Finalizar Pedido - Express.com</title>
+    <title>Express.com</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../view/stylesheets/finalizar_compra.css">
 </head>
@@ -17,9 +17,22 @@
                 <img src="../view/images/logo/logo.png" alt="Express.com">
             </div>
             <div class="butao-voltar">
-                <form action="" method="GET"> 
+                <form action="" method="GET">
                     <input type="hidden" name="action" value="voltar">
-                    <button class="btn-voltar" type="submit">Voltar</button>
+                    <button class="button-voltar">
+                        <span class="button-elem">
+                            <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                            </svg>
+                        </span>
+                        <span class="button-elem">
+                            <svg viewBox="0 0 46 40">
+                                <path
+                                    d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                            </svg>
+                        </span>
+                    </button>
                 </form>
             </div>
 
@@ -71,6 +84,7 @@
             <?php endif; ?>
         </section>
 
+
         <section class="resumo-compra-container">
             <h2>Resumo da compra</h2>
             <div class="preco-detalhe">
@@ -90,6 +104,7 @@
             </a>
         </section>
     </main>
+
 </body>
 
 </html>
