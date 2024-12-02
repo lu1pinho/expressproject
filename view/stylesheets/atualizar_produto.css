@@ -1,135 +1,136 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
-}
-
+/* stylesheets/atualizar_produto.css */
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
     color: #333;
-    padding: 20px;
-}
-
-h1 {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 2rem;
 }
 
 section {
-    max-width: 1200px;
-    margin: 0 auto;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.product-container {
-    width: 80%;
+form {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    background-color: #fff;
-    padding: 50px;
-    margin-bottom: 50px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-left: 130px;
 }
 
-.product-container img {
-    max-width: 200px;
-    height: auto;
+.product-image img {
+    max-width: 100%;
     border-radius: 8px;
-    margin-bottom: 10px;
 }
 
 .product-details {
-    width: 60%;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.product-details > div {
     display: flex;
     flex-direction: column;
-    gap: 10px;
 }
 
 .product-details label {
     font-weight: bold;
-    color: #555;
+    margin-bottom: 5px;
 }
 
 .product-details input[type="text"],
 .product-details input[type="number"],
-.product-details input[type="checkbox"],
-.product-description textarea,
-.product-data textarea {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ddd;
+.product-details textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
     border-radius: 4px;
-    background-color: #f9f9f9;
-}
-
-.product-actions button,
-.product-close button { /* Corrigido o nome da classe para 'product-close' */
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
     font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-    margin-top: 20px;
 }
 
-.product-actions button[type="submit"] {
-    background-color: #111fd7;
-    color: white;
+.product-details textarea#descricao,
+.product-details textarea#dados_produto {
+    height: 150px;
 }
 
-.product-actions button[type="submit"]:hover,
-.product-close button:hover { /* Adicionado hover para o botão 'product-close' */
-    background-color: #ff8503;
+.product-details input[type="checkbox"] {
+    align-self: flex-start;
+    margin-top: 8px;
 }
 
-/* Estilo específico para o botão close, se necessário */
-.product-close button {
-    background-color: #ff0000; /* Exemplo de cor específica para o botão close */
-    color: white; /* Cor do texto do botão close */
-    position: absolute;
-    margin-left: 24.2%;
-    margin-top: -3.8%;
-}
-
-
-
-
-.product-cloose form button:hover {
-    background-color: #ff0000;
-}
-
-.product-shipping,
+/* Specific field arrangement */
 .product-name,
+.product-description,
+.product-data,
 .product-price,
 .product-discount-price,
-.product-category,
 .product-stock,
-.product-freight {
-    width: 518px;
-    margin-bottom: 10px;
+.product-frete {
+    grid-column: span 2;
 }
 
-input[type="checkbox"] {
-    width: 15px;
-    height: 15px;
-    transform: scale(1.5);
-    position: absolute;
-    margin-top: 2px;
-    left: -300px;
+.product-offer + .product-shipping {
+    margin-top: -20px; /* Adjust spacing */
 }
 
-@media (max-width: 768px) {
-    .product-container {
-        flex-direction: column;
-    }
-
-    .product-details {
-        width: 100%;
-    }
+/* Align buttons side by side */
+.product-actions,
+.product-close {
+    display: inline-block;
+    width: 48%;
+    text-align: center;
 }
+
+.product-actions {
+    float: left;
+}
+
+.product-close {
+    float: right;
+}
+
+.product-close button {
+    padding: 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #ff0000b1;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    width: 50%;
+    box-sizing: border-box;
+    position: relative;
+    top: -46px;
+    float: right;
+}
+
+
+
+.product-actions button {
+    padding: 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #018f22c6;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    width: 50%;
+    box-sizing: border-box;
+    float: left;
+}
+
+
+
+.product-actions button:hover,
+.product-close button:hover {
+    opacity: 0.9;
+}
+
+
+
+
+
