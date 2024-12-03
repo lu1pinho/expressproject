@@ -14,150 +14,154 @@
     }
 
     .container {
-      margin-left: 280px;
-      margin-top: 30px;/
-    }
+  margin-left: 280px;
+  margin-top: 30px;
+}
 
-    .container h2 {
-      font-family: 'Inter';
-      font-weight: normal;
-    }
+.container h2 {
+  font-family: 'Inter';
+  font-weight: normal;
+}
 
-    .seusprodutos {
-      margin-top: 30px;
-      margin-left: 12px;
-    }
+.seusprodutos {
+  margin-top: 30px;
+  margin-left: 12px;
+}
 
-    /* Definir o layout principal para exibir aside e produtos lado a lado */
-    .main-layout {
-      display: flex;
-      flex-direction: row;
-      width: 100%;
-      height: 100vh;
-    }
+/* Definir o layout principal para exibir aside e produtos lado a lado */
+.main-layout {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100vh;
+}
 
-    .produtos-container {
-      display: flex;
-      margin-left: 280px;
-      margin-top: -23px;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 10px;
-      /* Reduz o espaçamento entre os produtos */
-      padding: 10px;
-    }
+.produtos-container {
+  display: flex;
+  margin-left: 280px;
+  margin-top: -23px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  /* Reduz o espaçamento entre os produtos */
+  padding: 10px;
+}
 
-    .produto {
-      flex: 1 1 180px;
-      /* Define um tamanho mínimo para os produtos, ajustando a largura */
-      max-width: 200px;
-      /* Ajusta a largura máxima para deixar os produtos mais próximos */
-      background-color: #f9f9f9;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      text-align: center;
-      padding: 10px;
-      cursor: pointer;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
+.produto {
+  flex: 1 1 180px;
+  /* Define um tamanho mínimo para os produtos, ajustando a largura */
+  max-width: 200px;
+  /* Ajusta a largura máxima para deixar os produtos mais próximos */
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
-    /* Ajuste no hover para o produto */
-    .produto:hover {
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    }
+/* Ajuste no hover para o produto */
+.produto:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
 
-    /* Estilos para a imagem dentro de cada produto */
-    .produto img {
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-      /* Garante que a imagem seja exibida corretamente sem cortar */
-      border-radius: 8px;
-    }
+/* Estilos para a imagem dentro de cada produto */
+.produto img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  /* Garante que a imagem seja exibida corretamente sem cortar */
+  border-radius: 8px;
+}
 
-    /* Estilos para o nome e descrição do produto */
-    .produto h3 {
-      font-size: 1rem;
-      color: #18344F;
-      margin-top: 0.5rem;
-    }
+/* Estilos para o nome e descrição do produto */
+.produto h3 {
+  font-size: 1rem;
+  color: #18344F;
+  margin-top: 0.5rem;
+}
 
-    .produto p {
-      font-size: 0.9rem;
-      color: #635a5a;
-    }
+.produto p {
+  font-size: 0.9rem;
+  color: #635a5a;
+}
 
-    .editar-produto-btn {
-      background-color: rgb(10, 56, 113);
-      color: white;
-      border: none;
-      padding: 5px 10px;
-      border-radius: 5px;
-      text-decoration: none;
-      cursor: pointer;
-    }
+.editar-produto-btn {
+  background-color: rgb(10, 56, 113);
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  margin-top: auto;
+}
 
-    /*Footer*/
+/*Footer*/
 
-    .footer-container {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      gap: 80px;
-      padding: 20px;
-      height: 250px;
-      margin-top: 100px;
-      background-color: white;
-      color: black;
-      border-top: 1px solid #d3d3d3;
+.footer-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  padding: 20px;
+  height: 250px;
+  margin-top: 100px;
+  background-color: white;
+  color: black;
+  border-top: 1px solid #d3d3d3;
+}
 
-      & img {
-        width: 200px;
-        height: auto;
-      }
+.footer-container img {
+  width: 200px;
+  height: auto;
+}
 
-    }
+.footer-item {
+  display: flex;
+  flex-direction: column;
+  /* Para empilhar os links verticalmente */
+  align-items: flex-start;
+  /* Alinha os itens à esquerda */
+  height: 150px;
+  margin-left: -40px;
+}
 
-    .footer-item {
-      display: flex;
-      flex-direction: column;
-      /* Para empilhar os links verticalmente */
-      align-items: flex-start;
-      /* Alinha os itens à esquerda */
-      height: 150px;
-      margin-left: -40px;
+.footer-item:first-child {
+  align-items: center;
+  margin-right: 50px;
+}
 
-      &:first-child {
-        align-items: center;
-        margin-right: 50px;
-      }
+.footer-item h3 {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
 
-      & h3 {
-        font-size: 1rem;
-        font-weight: bold;
-        margin-bottom: 10px;
-      }
+.footer-item .payments {
+  width: 180px;
+  margin-right: 10px;
+}
 
-      & .payments {
-        width: 180px;
-        margin-right: 10px;
-      }
-    }
+.footer-item a {
+  text-decoration: none;
+  color: black;
+  margin: 5px 0;
+  transition: all 0.3s;
+  font-size: 0.9rem;
+  border-bottom: 1px solid transparent;
+}
 
-    .footer-item a {
-      text-decoration: none;
-      color: black;
-      margin: 5px 0;
-      transition: all 0.3s;
-      font-size: 0.9rem;
-      border-bottom: 1px solid transparent;
-    }
+.footer-item a:hover {
+  color: orange;
+  border-bottom: 1px solid orange;
+}
 
-    .footer-item a:hover {
-      color: orange;
-      border-bottom: 1px solid orange;
-    }
   </style>
 </head>
 
@@ -167,28 +171,23 @@
 
   <div class="container">
     <h2>Que bom te ver, <?php echo $_SESSION['nome']; ?></h2>
-
     <a class="editar-produto-btn" style="margin-left: 1050px;" href="../control/control_adicionar_produto.php">Adicionar Produto</a>
     <h2 class="seusprodutos">Seus Produtos</h2>
   </div>
-  <div class="container">
-    <a class="editar-produto-btn" style="margin-left: 1050px;" href="/expressproject/control/control_atualizar-produto.php">Editar produto</a>
-  </div>
+
   <main>
     <h2>Produtos</h2>
     <div class="produtos-container">
       <?php
       if (count($produtos) > 0) {
         foreach ($produtos as $produto) {
-          // Verifica se a chave 'url_img' existe e não está vazia
           $imagem_produto = !empty($produto['url_img']) ? CAMINHO_IMAGENS . $produto['url_img'] : CAMINHO_IMAGENS . 'default.png';
 
           echo '<div class="produto" onclick="window.location.href=\'../control/control-produto-individual.php?id=' . $produto['id'] . '\'">';
           echo '<img src="' . $imagem_produto . '" alt="' . $produto['nome'] . '">';
           echo '<h3>' . $produto['nome'] . '</h3>';
           echo '<p>R$' . number_format($produto['preco'], 2, ',', '.') . '</p>';
-          // echo '<button class="editar-produto-btn" onclick="window.location.href=\'../control/control_atualizar-produto.php?id=' . $produto['id'] . '\'">Editar Produto</button>';
-
+          echo '<button class="editar-produto-btn" onclick="event.stopPropagation(); window.location.href=\'../control/control_atualizar-produto.php?id=' . $produto['id'] . '\'">Editar Produto</button>';
           echo '</div>';
         }
       } else {
@@ -197,6 +196,7 @@
       ?>
     </div>
   </main>
+
   <footer>
     <div class="footer-container">
       <div class="footer-item">
