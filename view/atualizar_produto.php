@@ -19,7 +19,7 @@
 
                 <div class="product-image">
                     <?php if (!empty($produto['url_img'])): ?>
-                        <img src="<?php echo htmlspecialchars($produto['url_img']); ?>" alt="Imagem do Produto">
+                        <img src="<?php echo CAMINHO_IMAGENS . '/' . htmlspecialchars($produto['url_img']); ?>" alt="Imagem do Produto">
                     <?php else: ?>
                         <span>Sem imagem</span>
                     <?php endif; ?>

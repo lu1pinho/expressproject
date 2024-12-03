@@ -1,7 +1,10 @@
 <?php
 session_start();
+
 include '../settings/connection.php';
 include '../model/atualizar-produto.php';
+
+define('CAMINHO_IMAGENS', '/expressproject/view/produtos'); // Definição do caminho das imagens
 
 if ($conn->connect_error) {
     die("Erro: A conexão com o banco de dados não foi estabelecida.");
@@ -45,7 +48,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $estoque = $_POST['estoque'];
     $frete = $_POST['frete'];
 
-    $productModel->updateProduct($id, $vendedor_id, $nome, $descricao, $dados_produto, $preco, $preco_com_desconto, $frete_gratis, $categoria, $oferta_do_dia, $estoque, $frete);
+    $productModel->updateProduct(
+        $id,
+        $vendedor_id,
+        $nome,
+        $descricao,
+        $dados_produto,
+        $preco,
+        $preco_com_desconto,
+        $frete_gratis,
+        $categoria,
+        $oferta_do_dia,
+        $estoque,
+        $frete
+    );
 
     header("Location: ../control/control_pagina-vendedor.php");
     exit();
