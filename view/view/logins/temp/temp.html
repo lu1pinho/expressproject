@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+  <!-- Formulário de Login -->
+  <form method="POST">
+    <h1>Faça Login no Express</h1>
+    <label for="email">E-mail</label>
+    <input type="email" id="email" name="email" required>
+    <label for="senha">Senha</label>
+    <input type="password" id="senha" name="senha" required>
+    <button type="submit">Entrar</button>
+  </form>
+
+  <!-- Verifica se há uma sessão ativa -->
+  <?php if (SessionManager::get('name')): ?>
+  <p>Seja bem-vindo, <?php echo SessionManager::get('name'); ?>!</p>
+  <form method="POST" name="logout">
+    <button type="submit" name="logout">Sair</button>
+  </form>
+  <?php endif; ?>
+</div>
+</body>
+</html>

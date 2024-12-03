@@ -1,80 +1,51 @@
 <?php
 session_start();
 include 'C:\xampp\htdocs\expressproject\settings\connection.php';
-include '../model/login.php';
 
-class LoginController {
-    private $conn;
+// Definindo o tipo de resposta como JSON
+header('Content-Type: application/json');
 
-    public function __construct($conn) {
-        $this->conn = $conn;
+// Verifica se a requisição é do tipo POST
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = $_POST['email'] ?? '';
+    $senha = $_POST['senha'] ?? '';
+
+    // Log para diagnóstico dos dados recebidos
+    error_log(print_r($_POST, true)); // Loga os dados recebidos do frontend
+
+    // Verifica se o email ou a senha estão vazios
+    if (empty($email) || empty($senha)) {
+        echo json_encode(['status' => 'error', 'message' => 'Preencha todos os campos.']);
+        exit();
     }
 
-    // Método para exibir a página de login
-    public function showLoginPage($errorMessage = null) {
-        include '../view/login.php';
+    // Prepara a consulta para verificar o usuário e senha no banco
+    $stmt = $conn->prepare("SELECT id, nome, categoria, enderecos.cep FROM users LEFT JOIN enderecos ON users.id = enderecos.id_user WHERE email = ? AND senha = ?");
+    $stmt->bind_param("ss", $email, $senha);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    // Verifica se o usuário foi encontrado
+    if ($result->num_rows > 0) {
+        $user = $result->fetch_assoc();
+
+        // Armazena os dados do usuário na sessão
+        $_SESSION['id'] = $user['id'];
+        $_SESSION['nome'] = $user['nome'];
+        $_SESSION['categoria'] = $user['categoria'];
+        $_SESSION['cep'] = $user['cep'] ?? 'Não informado'; // Armazena o CEP (se não for NULL, caso contrário "Não informado")
+
+        // Retorna sucesso e a URL de redirecionamento
+        echo json_encode(['status' => 'success', 'redirect' => '/expressproject/control/control_pagina-principal.php']);
+    } else {
+        // Se o login falhar
+        echo json_encode(['status' => 'error', 'message' => 'Credenciais inválidas.']);
     }
 
-    // Método para processar o login
-    public function login($email, $password) {
-        if (empty($email)) {
-            return "Preencha seu email";
-        } elseif (empty($password)) {
-            return "Preencha sua senha";
-        }
-
-        // Consulta ao banco para buscar o usuário e o CEP
-        $sql = "
-            SELECT 
-                users.id AS id,
-                users.nome AS nome,
-                enderecos.cep AS cep,
-                users.categoria AS categoria
-            FROM users
-            LEFT JOIN enderecos ON users.id = enderecos.id_user
-            WHERE users.email = ? AND users.senha = ?
-        ";
-
-        $stmt = $this->conn->prepare($sql);
-        if (!$stmt) {
-            die("Erro na preparação da consulta: " . $this->conn->error);
-        }
-
-        // Vincula os parâmetros e executa
-        $stmt->bind_param('ss', $email, $password);
-        $stmt->execute();
-
-        // Vincula os resultados às variáveis
-        $stmt->bind_result($id, $nome, $cep, $categoria);
-
-        // Verifica se há resultados e salva na sessão
-        if ($stmt->fetch()) {
-            $_SESSION['id'] = $id;
-            $_SESSION['nome'] = $nome;
-            $_SESSION['cep'] = $cep ?? 'Não informado'; // Trata caso o CEP seja NULL
-            $_SESSION['categoria'] = $categoria;
-            
-            // Redireciona para a página principal
-            header("Location: control_pagina-principal.php");
-            exit();
-        } else {
-            return "Falha ao logar! Nome de usuário ou senha incorretos.";
-        }
-
-        // Fecha o statement
-        $stmt->close();
-    }
-}
-
-// Verifica se o formulário foi submetido ou se deve exibir a página de login
-$controller = new LoginController($conn);
-
-if (isset($_POST['submit'])) {
-    // Se o formulário for enviado, processa o login
-    $errorMessage = $controller->login($_POST['email'], $_POST['password']);
-    $controller->showLoginPage($errorMessage);
+    // Fecha o statement
+    $stmt->close();
+    exit();
 } else {
-    // Caso contrário, exibe a página de login
-    $controller->showLoginPage();
+    // Caso o método não seja POST
+    echo json_encode(['status' => 'error', 'message' => 'Método não suportado.']);
 }
-?>

@@ -7,17 +7,18 @@ class UserModel {
     }
 
     public function findUserByEmailAndPassword($email, $password) {
-        $email = $this->conn->real_escape_string($email);
-        $password = $this->conn->real_escape_string($password);
+        $sql = "SELECT * FROM users WHERE email = ? AND senha = SHA2(?, 256)";
+        $stmt = $this->conn->prepare($sql);
 
-        $sql = "SELECT * FROM users WHERE email = '$email' AND senha = '$password'";
-        $query = $this->conn->query($sql);
-
-        if ($query) {
-            return $query->fetch_assoc();
-        } else {
-            return null;
+        if ($stmt) {
+            $stmt->bind_param('ss', $email, $password);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_assoc();
         }
+
+        return null;
     }
 }
+
 ?>
