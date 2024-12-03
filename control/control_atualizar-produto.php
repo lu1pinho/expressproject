@@ -18,11 +18,9 @@ if (!isset($_SESSION['id'])) {
 $vendedor_id = $_SESSION['id'];
 $productModel = new ProductModel($conn);
 
-// Verifica se o ID do produto foi passado via GET
-if (isset($_GET['id'])) {
-    $produto_id = (int)$_GET['id'];
-
-    // Busca o produto específico do vendedor
+// Verifica se o ID do produto foi passado via GET ou POST
+if (isset($_GET['id']) || isset($_POST['id'])) {
+    $produto_id = isset($_GET['id']) ? (int)$_GET['id'] : (int)$_POST['id'];
     $produto = $productModel->getProductByIdAndSeller($produto_id, $vendedor_id);
 
     if (!$produto) {
@@ -43,21 +41,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $preco = $_POST['preco'];
     $preco_com_desconto = $_POST['preco_com_desconto'];
     $frete_gratis = isset($_POST['frete_gratis']) ? 1 : 0;
-    $categoria = $_POST['categoria'];
     $oferta_do_dia = isset($_POST['oferta_do_dia']) ? 1 : 0;
     $estoque = $_POST['estoque'];
     $frete = $_POST['frete'];
 
+    // Atualiza os dados do produto
     $productModel->updateProduct(
-        $id,
-        $vendedor_id,
+        $id,               
+        $vendedor_id,       
         $nome,
         $descricao,
         $dados_produto,
         $preco,
         $preco_com_desconto,
         $frete_gratis,
-        $categoria,
         $oferta_do_dia,
         $estoque,
         $frete

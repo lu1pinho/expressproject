@@ -62,8 +62,7 @@
                     </div>
 
                     <div class="product-category">
-                        <label for="categoria">Categoria:</label>
-                        <input type="text" id="categoria" name="categoria" value="<?php echo htmlspecialchars($produto['categoria']); ?>">
+                        <!-- Campo de categoria removido -->
                     </div>
 
                     <div class="product-stock">
