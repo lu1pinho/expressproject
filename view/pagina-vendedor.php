@@ -14,126 +14,154 @@
     }
 
     .container {
-      margin-left: 280px;
-      margin-top: 30px;
-    }
+  margin-left: 280px;
+  margin-top: 30px;
+}
 
-    .container h2 {
-      font-family: 'Inter';
-      font-weight: normal;
-    }
+.container h2 {
+  font-family: 'Inter';
+  font-weight: normal;
+}
 
-    .seusprodutos {
-      margin-top: 30px;
-      margin-left: 12px;
-    }
+.seusprodutos {
+  margin-top: 30px;
+  margin-left: 12px;
+}
 
-    .main-layout {
-      display: flex;
-      flex-direction: row;
-      width: 100%;
-      height: 100vh;
-    }
+/* Definir o layout principal para exibir aside e produtos lado a lado */
+.main-layout {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100vh;
+}
 
-    .produtos-container {
-      display: flex;
-      margin-left: 280px;
-      margin-top: -23px;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 10px;
-      padding: 10px;
-    }
+.produtos-container {
+  display: flex;
+  margin-left: 280px;
+  margin-top: -23px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  /* Reduz o espaçamento entre os produtos */
+  padding: 10px;
+}
 
-    .produto {
-      flex: 1 1 180px;
-      max-width: 200px;
-      background-color: #f9f9f9;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      text-align: center;
-      padding: 10px;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
+.produto {
+  flex: 1 1 180px;
+  /* Define um tamanho mínimo para os produtos, ajustando a largura */
+  max-width: 200px;
+  /* Ajusta a largura máxima para deixar os produtos mais próximos */
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
-    .produto:hover {
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    }
+/* Ajuste no hover para o produto */
+.produto:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
 
-    .produto img {
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-      border-radius: 8px;
-    }
+/* Estilos para a imagem dentro de cada produto */
+.produto img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  /* Garante que a imagem seja exibida corretamente sem cortar */
+  border-radius: 8px;
+}
 
-    .produto h3 {
-      font-size: 1rem;
-      color: #18344F;
-      margin-top: 0.5rem;
-      margin-bottom: 10px;
-    }
+/* Estilos para o nome e descrição do produto */
+.produto h3 {
+  font-size: 1rem;
+  color: #18344F;
+  margin-top: 0.5rem;
+}
 
-    .produto p {
-      font-size: 0.9rem;
-      color: #635a5a;
-      margin: 10px 0 0;
-      text-align: center;
-      min-height: 1.5rem;
-      margin-bottom: auto;
-    }
+.produto p {
+  font-size: 0.9rem;
+  color: #635a5a;
+}
 
-    .editar-produto-btn {
-      background-color: rgb(10, 56, 113);
-      color: white;
-      border: none;
-      padding: 5px 10px;
-      border-radius: 5px;
-      text-decoration: none;
-      cursor: pointer;
-      margin-top: 10px;
-      display: block;
-    }
+.editar-produto-btn {
+  background-color: rgb(10, 56, 113);
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  margin-top: auto;
+}
 
-    .footer-container {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      gap: 80px;
-      padding: 20px;
-      height: 250px;
-      margin-top: 100px;
-      background-color: white;
-      color: black;
-      border-top: 1px solid #d3d3d3;
-    }
+/*Footer*/
 
-    .footer-item {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      height: 150px;
-      margin-left: -40px;
-    }
+.footer-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  padding: 20px;
+  height: 250px;
+  margin-top: 100px;
+  background-color: white;
+  color: black;
+  border-top: 1px solid #d3d3d3;
+}
 
-    .footer-item a {
-      text-decoration: none;
-      color: black;
-      margin: 5px 0;
-      transition: all 0.3s;
-      font-size: 0.9rem;
-      border-bottom: 1px solid transparent;
-    }
+.footer-container img {
+  width: 200px;
+  height: auto;
+}
 
-    .footer-item a:hover {
-      color: orange;
-      border-bottom: 1px solid orange;
-    }
+.footer-item {
+  display: flex;
+  flex-direction: column;
+  /* Para empilhar os links verticalmente */
+  align-items: flex-start;
+  /* Alinha os itens à esquerda */
+  height: 150px;
+  margin-left: -40px;
+}
+
+.footer-item:first-child {
+  align-items: center;
+  margin-right: 50px;
+}
+
+.footer-item h3 {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.footer-item .payments {
+  width: 180px;
+  margin-right: 10px;
+}
+
+.footer-item a {
+  text-decoration: none;
+  color: black;
+  margin: 5px 0;
+  transition: all 0.3s;
+  font-size: 0.9rem;
+  border-bottom: 1px solid transparent;
+}
+
+.footer-item a:hover {
+  color: orange;
+  border-bottom: 1px solid orange;
+}
+
   </style>
 </head>
 
@@ -200,6 +228,7 @@
         <a href="#"><img src="../view/images/social-icons/instagram.svg" alt="Instagram" width="30px"></a>
         <a href="#"><img src="../view/images/social-icons/twitter.svg" alt="Twitter" width="30px"></a>
       </div>
+
     </div>
   </footer>
 </body>
