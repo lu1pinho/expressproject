@@ -41,7 +41,7 @@
   margin-left: 280px;
   margin-top: -23px;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 10px;
   /* Reduz o espaçamento entre os produtos */
   padding: 10px;
@@ -61,7 +61,7 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 /* Ajuste no hover para o produto */

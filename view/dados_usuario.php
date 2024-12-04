@@ -20,7 +20,7 @@
         justify-content: center;
         padding: 20px 20px 0px 40px;
         color: black;
-        font-size: 15x;
+        font-size: 15px;
         gap: 10px;
     }
     .titulo{
@@ -46,7 +46,7 @@
         text-align: center;
     }
     .bordas:focus {
-    border: 1px solid #0A3871; 
+    border: 1px solid #0A3871;
     outline: none;
 }
     .botoes{
@@ -65,12 +65,33 @@
     background-color: rgb(240, 240, 240);
 }
 
+    .back {
+        background-color: #0a3a6a;
+        width: 100px;
+        height: 40px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 20px 0 0 20px;
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+    }
+
 </style>
 
 
 <body>
+    <div class="back">
+        <a href="../control/control_pagina-principal.php" class="voltar">Voltar</a>
+    </div>
+
     <div class="apresentacao">
     <form id="formAtualizar" class="caixa_fundo" method="POST" action="dados-usuario.php">
+                <p class="titulo">Seus Dados</p>
         <div class="dados">
             <div class="sub">
                 <label for="name" class="campos">Nome:</label>
@@ -91,7 +112,7 @@
                 <input type="cpf" id="cpf" name="cpf" value="<?php echo htmlspecialchars($cpf); ?>" placeholder="  _ _ _ . _ _ _ . _ _ _ - _ _" class="bordas" required>
 
                 <label for="phone" class="campos">Telefone:</label>
-                <input type="tel" id="phone" name="phone" value="<?php echo htmlspecialchars($telefone); ?>" placeholder="  (_ _) _ _ _ _ _ - _ _ _ _" class="bordas" required>            
+                <input type="tel" id="phone" name="phone" value="<?php echo htmlspecialchars($telefone); ?>" placeholder="  (_ _) _ _ _ _ _ - _ _ _ _" class="bordas" required>
 
                 <label for="dt-nascimento" class="campos">Data de nascimento:</label>
                 <input type="text" id="dt-nascimento" name="dt-nascimento" value="<?php echo htmlspecialchars($dt_nascimento); ?>" placeholder="  _ _ / _ _ / _ _ _ _" class="bordas" required>
@@ -115,7 +136,7 @@
             </div>
             <div class="sub">
             <label for="cep" class="campos">CEP:</label>
-            <input type="text" id="cep" name="cep" value="<?php echo htmlspecialchars($cep); ?>" placeholder="  _ _ _ _ _ - _ _ _" class="bordas" required>            
+            <input type="text" id="cep" name="cep" value="<?php echo htmlspecialchars($cep); ?>" placeholder="  _ _ _ _ _ - _ _ _" class="bordas" required>
 
             <label for="cidade" class="campos">Cidade:</label>
             <input type="text" id="cidade" name="cidade" value="<?php echo htmlspecialchars($cidade); ?>" class="bordas" required>
@@ -156,7 +177,7 @@
 
         <input type="hidden" name="id_end" value="<?php echo $id_end; ?>">
 
-           
+
         <p class="titulo">Seu cartão</p>
         <div class="dados">
             <div class="sub">
@@ -188,7 +209,6 @@
             <input type="hidden" name="id_cartao" value="<?php echo $id_cartao; ?>">
 
             <button type="submit" name="atualizar" class="botoes">Atualizar</button>
-
         </form>
     </div>
 </body>

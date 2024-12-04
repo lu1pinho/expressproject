@@ -71,9 +71,9 @@
                     </select>
                 </div>
             </form>
-            <div class="favorite">
-                <img class="love-icon" src="../view/img/svg/heart-thin-icon.svg" alt="Favoritar" width="30px">
-            </div>
+<!--            <div class="favorite">-->
+<!--                <img class="love-icon" src="../view/img/svg/heart-thin-icon.svg" alt="Favoritar" width="30px">-->
+<!--            </div>-->
         </div>
     </div>
 

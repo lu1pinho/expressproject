@@ -14,14 +14,14 @@
   display: flex;
   margin-left: 500px;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 10px;
-  /* Reduz o espaçamento entre os produtos */
   padding: 10px;
 }
 
 .produto {
-  flex: 1 1 180px;
+  flex: 1 1 200px;
+  justify-content: flex-start;
   /* Define um tamanho mínimo para os produtos, ajustando a largura */
   max-width: 200px;
   /* Ajusta a largura máxima para deixar os produtos mais próximos */

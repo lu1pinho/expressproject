@@ -26,12 +26,12 @@
                             <span>Faturamento</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="">
-                            <img src="/expressproject/view/vendedor/modular/sidebar/svgs/arrows.svg" alt="" class="svg">
-                            <span>Minhas Vendas</span>
-                        </a>
-                    </li>
+<!--                    <li>-->
+<!--                        <a href="">-->
+<!--                            <img src="/expressproject/view/vendedor/modular/sidebar/svgs/arrows.svg" alt="" class="svg">-->
+<!--                            <span>Minhas Vendas</span>-->
+<!--                        </a>-->
+<!--                    </li>-->
                     <li>
                         <a href="../control/control_pagina-vendedor.php">
                             <img src="/expressproject/view/vendedor/modular/sidebar/svgs/box.svg" alt="" class="svg">
@@ -52,23 +52,31 @@
                         </a>
                     </li>
                     <li>
-                        <a onclick="openPopup()">
+                        <a onclick="openPopup()" style="cursor: pointer">
                             <img src="/expressproject/view/vendedor/modular/sidebar/svgs/leave.svg" alt="" class="svg">
-                            <span>Sair</span>
+                            <span onclick="logout()" class="btn-logout">Voltar ao Express</span>
                         </a>
                     </li>
                 </ul>
             </div>
         </div>
         <div class="sealer-info">
-            <div class="profile-pic">
-                <img src="/expressproject/view/vendedor/modular/sidebar/user-logo/user.png" alt="profile-pic">
-            </div>
+<!--            <div class="profile-pic">-->
+<!--                <img src="/expressproject/view/vendedor/modular/sidebar/user-logo/user.png" alt="profile-pic">-->
+<!--            </div>-->
             <div class="profile-info">
                 <h3> <?php echo $_SESSION['nome']; ?></h3>
             </div>
         </div>
     </div>
 </aside>
+
+    <script>
+        function logout() {
+            // Redireciona para a página desejada
+            window.location.href = "http://localhost/expressproject/control/control_pagina-principal.php";
+        }
+    </script>
+
 </body>
 </html>
