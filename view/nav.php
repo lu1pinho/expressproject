@@ -366,10 +366,10 @@ header{
             <?php endif; ?>
         </div>
         <div class="option">
-            <p>Ofertas do Dia</p>
+            <p onclick="window.location.href='http://localhost/expressproject/control/control_categoria.php?departamento=game&preco_min=0&preco_max=12000&preco_min=0&preco_max=12000'">Ofertas do Dia</p>
         </div>
         <div class="option">
-            <p>Mais Vendidos</p>
+            <p onclick="window.location.href='http://localhost/expressproject/control/control_pagina-principal.php#mv'">Mais Vendidos</p>
         </div>
         <div class="option">
         <a style="text-decoration: none; color:white;" href="../control/control_pedidos_real.php">Pedidos Realizados</a>

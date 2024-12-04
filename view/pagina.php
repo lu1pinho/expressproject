@@ -23,13 +23,14 @@
     <div class="popup-todos">
         <div class="categoria">
             <ul>
-                <li><a href="#">Eletrônicos</a></li>
-                <li><a href="#">Informática</a></li>
-                <li><a href="#">Smartphones</a></li>
-                <li><a href="#">TV e Vídeo</a></li>
-                <li><a href="#">Áudio</a></li>
-                <li><a href="#">Games</a></li>
-                <li><a href="#">Tablets</a></li>
+                <!-- Adicionando o redirecionamento para cada categoria -->
+                <li><a href="http://localhost/expressproject/control/control_categoria.php?departamento=eletronico&preco_min=0&preco_max=12000">Eletrônicos</a></li>
+                <li><a href="http://localhost/expressproject/control/control_categoria.php?departamento=informatica&preco_min=0&preco_max=12000">Informática</a></li>
+                <li><a href="http://localhost/expressproject/control/control_categoria.php?departamento=smartphone&preco_min=0&preco_max=12000">Smartphones</a></li>
+                <li><a href="http://localhost/expressproject/control/control_categoria.php?departamento=tv_e_video&preco_min=0&preco_max=12000">TV e Vídeo</a></li>
+                <li><a href="http://localhost/expressproject/control/control_categoria.php?departamento=audio&preco_min=0&preco_max=12000">Áudio</a></li>
+                <li><a href="http://localhost/expressproject/control/control_categoria.php?departamento=game&preco_min=0&preco_max=12000">Games</a></li>
+                <li><a href="http://localhost/expressproject/control/control_categoria.php?departamento=tablets&preco_min=0&preco_max=12000">Tablets</a></li>
             </ul>
         </div>
     </div>
@@ -71,13 +72,13 @@
             </div>
             <div class="category">
                 <div class="category-card">
-                    <img src="../view/images/categorias/1.png" alt="">
+                    <img src="../view/images/categorias/1.png" alt="" onclick="window.location.href='http://localhost/expressproject/control/control_categoria.php?departamento=all&preco_min=0&preco_max=12000&preco_min=0&preco_max=12000&ofertas=on'">
                 </div>
                 <div class="category-card">
-                    <img src="../view/images/categorias/2.png" alt="">
+                    <img src="../view/images/categorias/2.png" alt="" onclick="window.location.href='http://localhost/expressproject/control/control_categoria.php?departamento=all&preco_min=0&preco_max=12000&preco_min=0&preco_max=12000&ofertas=on'">
                 </div>
                 <div class="category-card">
-                    <img src="../view/images/categorias/3.png" alt="">
+                    <img src="../view/images/categorias/3.png" alt="" onclick="window.location.href='http://localhost/expressproject/control/control_categoria.php?departamento=informatica&preco_min=0&preco_max=12000&preco_min=0&preco_max=12000'">
                 </div>
                 <div class="category-card">
                     <img src="../view/images/categorias/4.png" alt="">
@@ -86,7 +87,7 @@
                     <img src="../view/images/categorias/5.png" alt="">
                 </div>
                 <div class="category-card">
-                    <img src="../view/images/categorias/6.png" alt="">
+                    <img src="../view/images/categorias/6.png" alt="" onclick="window.location.href='http://localhost/expressproject/control/control_categoria.php?departamento=informatica&preco_min=0&preco_max=12000&preco_min=0&preco_max=12000'">
                 </div>
             </div>
         </div>
@@ -96,7 +97,7 @@
         <div class="produto-container" id="od">
             <div class="title" id="ofertas-do-dia">
                 <h2>Ofertas do Dia</h2>
-                <p>Ver todos os produtos</p>
+                <p onclick="window.location.href='http://localhost/expressproject/control/control_categoria.php?departamento=game&preco_min=0&preco_max=12000&preco_min=0&preco_max=12000'">Ver todos os produtos</p>
             </div>
 
             <div class="destaque">
@@ -134,7 +135,7 @@
         <div class="produto-container" id="mv">
             <div class="title" id="mais-vendidos">
                 <h2>Mais Vendidos</h2>
-                <p>Ver todos os produtos</p>
+                <p onclick="window.location.href='http://localhost/expressproject/control/control_categoria.php?departamento=all&preco_min=0&preco_max=12000'">Ver todos os produtos</p>
             </div>
             <div class="destaque">
     <?php while ($produto = $top_vendidos->fetch_assoc()) {
