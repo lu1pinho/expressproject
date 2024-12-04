@@ -27,6 +27,15 @@ Edeílson Milhomem
   </tr>
 </table>
 
+## Documentação
+A documentação do projeto Express Project está disponível no GitHub e fornece informações detalhadas sobre a instalação, configuração e uso do projeto. Ela inclui etapas para configurar o ambiente de desenvolvimento, configurar o banco de dados, clonar o repositório, e executar o servidor Node.js. Além disso, contém instruções sobre como criar um arquivo de configuração .env e realizar a instalação de dependências necessárias para o projeto funcionar corretamente.
+
+Você pode acessar a documentação completa [aqui](https://github.com/lu1pinho/expressproject/blob/develop/Documentação.md).
+
+## Vídeo De Apresentação
+O vídeo de apresentação do projeto Express Project pode ser encontrado no YouTube. Nele, você verá uma demonstração do funcionamento do projeto.
+Assista ao vídeo completo através deste [link](https://youtu.be/DO1ZC00pn-g?si=WiRjOf--jtKJfWBN).
+
 ## Descrição
 O projeto Express.com visa criar uma loja online especializada em tecnologia, oferecendo uma plataforma robusta e intuitiva para a compra de produtos eletrônicos e de tecnologia. O objetivo é proporcionar uma experiência de compra fluida e segura, atendendo às necessidades de entusiastas de tecnologia e profissionais do setor.
 ## Sprint Planning
