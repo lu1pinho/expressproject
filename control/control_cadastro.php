@@ -2,6 +2,7 @@
 include_once '../settings/connection.php';
 include_once '../model/CadastroModel.php';
 include_once '../view/cadastro.html';
+include_once '../model/login.php';
 
 // Verifica se o formulário foi enviado
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

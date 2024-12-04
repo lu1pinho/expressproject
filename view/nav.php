@@ -326,12 +326,23 @@ header{
 
 
 
-
+        <?php if (isset($_SESSION['nome'])): ?>
+            <!-- A div será criada apenas se o usuário estiver logado -->
+            <div class="nav-item rem-9 coluna" id="login">
+                <p style="color: #959595;">Olá, <?php echo htmlspecialchars($_SESSION['nome']); ?>!</p>
+                <a style="color: white; text-decoration: none;" href="../control/control_dados_usuario.php">Seus Dados</a>
+            </div>
+        <?php else: ?>
+            <!-- Apenas um link será exibido se o usuário não estiver logado -->
+            <a class="nav-item rem-9" id="login" style="text-decoration: none;" href="../control/control_login.php">
+                <p class="wrap" onmouseenter="showLoginPopup()" onmouseleave="hideLoginPopup()">faça seu login.</p>
+            </a>
+        <?php endif; ?>
 
         <div class="nav-item rem-9">
             <img src="../view/images/svg/shopping_cart.svg" alt="Atualizar CEP">
             <a style="text-decoration: none; color: white;" href="..\control\control_carrinho.php">Carrinho</a>
-    </div>
+        </div>
     </nav>
 </header>
 
