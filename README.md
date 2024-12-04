@@ -36,7 +36,7 @@ Você pode acessar a documentação completa [aqui](https://github.com/lu1pinho/
 
 ## Vídeo De Apresentação
 O vídeo de apresentação do projeto Express Project pode ser encontrado no YouTube. Nele, você verá uma demonstração do funcionamento do projeto.
-Assista ao vídeo completo através deste [link](https://youtu.be/DO1ZC00pn-g?si=WiRjOf--jtKJfWBN).
+Assista ao vídeo completo através deste [link](https://drive.google.com/file/d/1W8kAyMbqMkz0y4qltCnSVoMKI0Q1vuau/view?usp=sharing).
 
 ## Descrição
 O projeto Express.com visa criar uma loja online especializada em tecnologia, oferecendo uma plataforma robusta e intuitiva para a compra de produtos eletrônicos e de tecnologia. O objetivo é proporcionar uma experiência de compra fluida e segura, atendendo às necessidades de entusiastas de tecnologia e profissionais do setor.
