@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'expressgp/expressproject',
-        'pretty_version' => 'dev-develop',
-        'version' => 'dev-develop',
-        'reference' => 'c98365c18ce6c2355622ff42428b9099421e176b',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => 'bcfa4ca00b10023bcd6a85af1eab94d8272a01d2',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -22,9 +22,9 @@
             'dev_requirement' => false,
         ),
         'expressgp/expressproject' => array(
-            'pretty_version' => 'dev-develop',
-            'version' => 'dev-develop',
-            'reference' => 'c98365c18ce6c2355622ff42428b9099421e176b',
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => 'bcfa4ca00b10023bcd6a85af1eab94d8272a01d2',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
