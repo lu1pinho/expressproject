@@ -11,10 +11,12 @@ app.use(express.json());
 // Usar as rotas de produtos
 app.use('/api/products', productRoutes);
 
+
 // Testar a conexão com o banco de dados
 sequelize.authenticate()
     .then(() => console.log('Conexão com o MySQL foi bem-sucedida!'))
     .catch(err => console.error('Não foi possível conectar ao MySQL:', err));
+
 
 // Inicia o servidor
 const PORT = process.env.PORT || 3000;
