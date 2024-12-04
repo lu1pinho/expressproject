@@ -27,7 +27,10 @@ Edeílson Milhomem
   </tr>
 </table>
 
-[Vídeo de apresentação do projeto](https://www.youtube.com/watch?v=DO1ZC00pn-g)
+## Links Úteis
+
+| [**Landing Page do Projeto**](https://lu1pinho.github.io/expressproject/) | [**Documentação do Projeto**](https://github.com/lu1pinho/expressproject/blob/develop/Documentação.md) | [**Vídeo de Apresentação do Projeto**](https://www.youtube.com/watch?v=DO1ZC00pn-g) | [**Release Final**](https://github.com/lu1pinho/expressproject/releases/tag/V2.0) |
+
 ## Descrição
 O projeto Express.com visa criar uma loja online especializada em tecnologia, oferecendo uma plataforma robusta e intuitiva para a compra de produtos eletrônicos e de tecnologia. O objetivo é proporcionar uma experiência de compra fluida e segura, atendendo às necessidades de entusiastas de tecnologia e profissionais do setor.
 ## Sprint Planning
