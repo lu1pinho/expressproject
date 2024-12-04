@@ -89,10 +89,14 @@ main {
     background-color: #060413;
 }
 
+select {
+    cursor: pointer;
+}
+
 article,
 form {
     width: 100%;
-    max-width: 1000px;
+    max-width: 400px;
     height: 650px;
     border-radius: 10px;
     display: flex;

@@ -1,7 +1,7 @@
 <?php
 include_once '../settings/connection.php';
 include_once '../model/CadastroModel.php';
-include_once '../view/cadastro.html';
+include '../view/view/cadastros/cadastro.php';
 
 // Verifica se o formulário foi enviado
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -44,6 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Verifica se o email já está cadastrado
         if ($userModel->checkEmailExists($email)) {
             echo "<script>alert('Este email já está cadastrado.');</script>";
+                header('Location: /expressproject/view/view/cadastros/cadastro.php'); // Redireciona para a página principal
         } else {
             // Insere o usuário no banco
             if ($userModel->createUser($name, $phone, $category, $email, $password)) {
@@ -62,7 +63,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
-
-
-
-/expressproject/view/view/logins\login.php

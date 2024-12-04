@@ -145,6 +145,15 @@ form {
     display: flex;
     flex-direction: column;
     gap: 10px;
+
+    a {
+        color: var(--color-blue-5);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 15px;
+        text-align: center;
+    }
+
 }
 
 .actions button {

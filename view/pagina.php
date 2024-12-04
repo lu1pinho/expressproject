@@ -14,10 +14,10 @@
     <?php include 'nav.php'; ?>
     <!--    POPUP - LOGIN-->
     <div id="login-popup" class="form" style="display: flex;" onmouseenter="keepLoginPopup()" onmouseleave="hideLoginPopupWithDelay()">
-        <a href="..\control\control_login.php">
+        <a href="../../expressproject/view/view/logins/login.php">
             <button class="button-submit" type="submit">Fazer Login</button>
         </a>
-    <p class="p">Não tem uma conta Express? <span class="span"><a href="..\control\control_cadastro.php">Cadastre-se</a></span></p>
+    <p class="p">Não tem uma conta Express? <span class="span"><a href="../../expressproject/view/view/cadastros/cadastro.php">Cadastre-se</a></span></p>
     </div>
 
     <div class="popup-todos">

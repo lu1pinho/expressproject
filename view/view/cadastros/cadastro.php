@@ -13,7 +13,7 @@
 <body>
 <main>
     <article>
-        <form action="/expressproject/control/control_cadastro.php" method="POST">
+        <form action="../../../../expressproject/control/control_cadastro.php" method="POST">
             <div class="left">
                 <img src="../materials/logos/logopreta.png" alt="Logo">
                 <div class="text">
@@ -62,7 +62,7 @@
                     </div>
                     <div class="actions">
                         <button type="submit" id="submit">Continuar</button>
-                        <p>Já possui uma conta? <a href="/view/view/logins/login.php" class="login-a">Faça Login</a></p>
+                        <p>Já possui uma conta? <a href="../logins/login.php" class="login-a">Faça Login</a></p>
                     </div>
                 </div>
             </div>
