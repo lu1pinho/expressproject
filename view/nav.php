@@ -326,21 +326,7 @@ header{
 
 
 
-        <div class="nav-item rem-9" id="login">
-            <?php if (isset($_SESSION['nome'])): ?>
-                <div class="coluna" >
-                <p style="color: #959595;" >Olá, <?php echo $_SESSION['nome']; ?>!</p>
-                <a style="color: white; text-decoration: none" href="../control/control_dados_usuario.php/">Seus Dados</a>
-                </div>
-            <?php else: ?>
-                <a style="text-decoration: none;" href="../control/control_login.php"><p class="wrap" onmouseenter="showLoginPopup()" onmouseleave="hideLoginPopup()">faça seu login.</p></a>
-            
-            <?php endif; ?>
-        </div>
 
-        <div class="nav-item rem-9">
-            <p class="">Pedidos<br>e Devoluções</p>
-        </div>
 
         <div class="nav-item rem-9">
             <img src="../view/images/svg/shopping_cart.svg" alt="Atualizar CEP">
