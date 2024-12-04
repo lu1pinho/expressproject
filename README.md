@@ -27,6 +27,7 @@ Edeílson Milhomem
   </tr>
 </table>
 
+[Vídeo de apresentação do projeto](https://www.youtube.com/watch?v=DO1ZC00pn-g)
 ## Descrição
 O projeto Express.com visa criar uma loja online especializada em tecnologia, oferecendo uma plataforma robusta e intuitiva para a compra de produtos eletrônicos e de tecnologia. O objetivo é proporcionar uma experiência de compra fluida e segura, atendendo às necessidades de entusiastas de tecnologia e profissionais do setor.
 ## Sprint Planning
