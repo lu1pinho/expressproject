@@ -15,7 +15,7 @@
         <div class="container">
             <div class="cart">
                 <div class="back-button">
-                    <a href="../control/control_pagina-principal.php">
+                    <a style="text-decoration: none;" href="../control/control_pagina-principal.php">
                         <span class="arrow">&#8592;</span>
                     </a>
                     <span>Carrinho</span>

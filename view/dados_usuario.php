@@ -45,34 +45,32 @@
         margin: 0px 0px 10px 0px;
         text-align: center;
     }
+    .bordas:focus {
+    border: 1px solid #0A3871; 
+    outline: none;
+}
     .botoes{
         border-radius: 10px;
         border: 0;
         width: 200px;
         padding: 10px;
+        cursor: pointer;
         text-decoration: none;
         font-size: 15px;
-
-
-
-
         color: white;
         background-color: #0A3871;
-
-
-
-
-        margin: 20px 300px 20px 120px;
-
+        margin: 20px 300px 20px 230px;
     }
+    .bordas:hover, .bordas:focus {
+    background-color: rgb(240, 240, 240);
+}
+
 </style>
 
 
 <body>
     <div class="apresentacao">
-        <form class="caixa_fundo" method="POST" action="dados-usuario.php">
-       
-        <p class="titulo">Sua conta</p>
+    <form id="formAtualizar" class="caixa_fundo" method="POST" action="dados-usuario.php">
         <div class="dados">
             <div class="sub">
                 <label for="name" class="campos">Nome:</label>
@@ -194,4 +192,4 @@
         </form>
     </div>
 </body>
-</html>  
+</html>
