@@ -1,0 +1,295 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root {
+    /* Variáveis de Cor */
+    --color-primary: #004382;
+    --color-secondary: #18344F;
+    --color-darkblue: #001C36;
+    --color-blue-4: #275682;
+    --color-blue-5: #0085fd;
+    --color-nav: #0a3a6a;
+    --color-orange: #FF7F00;
+    --color-light-orange: #FFA500;
+}
+
+/*Medidas*/
+.rem-4 { font-size: 0.4rem; } .rem-5 { font-size: 0.5rem; } .rem-6 { font-size: 0.6rem; } .rem-7 { font-size: 0.7rem; } .rem-8 { font-size: 0.8rem; } .rem-9 { font-size: 0.9rem; } .rem-10 { font-size: 1rem; } .rem-12 { font-size: 1.2rem; } .rem-14 { font-size: 1.4rem; } .rem-16 { font-size: 1.6rem; } .rem-18 { font-size: 1.8rem; } .rem-20 { font-size: 2rem; } .rem-24 { font-size: 2.4rem; } .rem-28 { font-size: 2.8rem; } .rem-32 { font-size: 3.2rem; }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+    user-select: none;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #060413;
+}
+
+article {
+    width: 100%;
+    max-width: 1000px;
+    height: 600px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    box-shadow: rgb(0, 6, 48) 0 0 53px 16px;
+}
+
+.left {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left {
+    background-image: url("../../materials/banners/login-banners/expresss-gif.gif");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px 0 0 10px;
+    transition: background-image 2s ease-in-out;
+}
+
+.left:hover{
+    background-image: url("../../materials/banners/login-banners/expresss-gif.gif");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 0 10px 10px 0;
+}
+
+.right {
+    background-color: ghostwhite;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    color: #000000;
+    /*padding: 20px;*/
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h2 {
+        font-size: 12px;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+}
+
+.right img {
+    width: 250px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    p {
+        font-size: 14px;
+        font-weight: 400;
+        text-align: center;
+    }
+
+    a {
+        color: var(--color-blue-5);
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+        text-align: center;
+    }
+
+    a:hover {
+        color: #0065fd;
+    }
+
+}
+
+.forgot {
+    color: #979797;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: right;
+}
+
+.forgot:hover {
+    color: #515151;
+}
+
+.credentials {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    a {
+        color: var(--color-blue-5);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 15px;
+        text-align: center;
+    }
+
+}
+
+.actions button {
+    width: 100%;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--color-blue-5);  /* Cor de fundo do botão */
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: lighter;
+    cursor: pointer;
+    font-family: Roboto, sans-serif;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+#error-message {
+    display: block;
+    visibility: hidden;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    color: red;
+    margin-top: 10px;
+}
+
+/* Animação de shake para a mensagem de erro */
+.animate__headShake {
+    animation: headShake 1s ease-in-out;
+    animation-iteration-count: 1; /* A animação acontece uma vez */
+}
+
+@keyframes headShake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    50% { transform: translateX(10px); }
+    75% { transform: translateX(-10px); }
+    100% { transform: translateX(0); }
+}
+
+.actions button:hover {
+    background-color: #0065fd;
+}
+
+/* Inputs group */
+.group {
+    position: relative;
+}
+
+.input {
+    font-size: 15px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 300px;
+    border: none;
+    border-bottom: 1px solid #515151;
+    background: transparent;
+}
+
+.input:focus {
+    outline: none;
+}
+
+label {
+    color: #999;
+    font-size: 15px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+.input:focus ~ label, .input:valid ~ label {
+    top: -20px;
+    font-size: 14px;
+    color: #999;
+}
+
+.bar {
+    position: relative;
+    display: block;
+    width: 300px;
+}
+
+.bar:before, .bar:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    background: var(--color-blue-5);
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+.bar:before {
+    left: 50%;
+}
+
+.bar:after {
+    right: 50%;
+}
+
+.input:focus ~ .bar:before, .input:focus ~ .bar:after {
+    width: 50%;
+}
+
+.highlight {
+    position: absolute;
+    height: 60%;
+    width: 300px;
+    top: 25%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.1;
+}
+
+.input:focus ~ .highlight {
+    animation: inputHighlighter 0.3s ease;
+}
+
+@keyframes inputHighlighter {
+    from {
+        background: var(--color-blue-5);
+    }
+
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+

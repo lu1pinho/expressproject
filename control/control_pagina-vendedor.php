@@ -2,7 +2,7 @@
 session_start();
 include '../settings/connection.php'; // Conexão com o banco de dados
 include '../settings/config.php';
-include '../model/pagina-vendedor.php'; // Modelo da página do vendedor
+include '../model/PaginaVendedorModel.php'; // Modelo da página do vendedor
 
 // Verifica se o usuário está autenticado
 if (!isset($_SESSION['id'])) {

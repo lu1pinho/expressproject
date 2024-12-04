@@ -30,6 +30,8 @@ if ($ofertas_do_dia && $ofertas_do_dia->num_rows > 0) {
     echo "Nenhuma oferta encontrada.";
 }
 
+//comentando pra conseguir dar pr
+
 // Incluir a view que vai exibir os produtos
 include '../view/pagina.php';
 ?>

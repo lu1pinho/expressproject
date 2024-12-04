@@ -1,13 +1,15 @@
 <?php
 session_start();
+
+// Obtendo o ID do produto via GET
 $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
-// Corrigindo o caminho da model
+// Incluindo as dependências necessárias
 include_once '../model/produto_individual.php';
 include '../settings/config.php';
-// Função para formatar texto
 require 'C:\xampp\htdocs\expressproject\vendor\erusev\parsedown\Parsedown.php';
 
+// Função para formatar texto
 function formatText($text) {
     $allowed_tags = '<h1><h2><h3><p><strong><em><div><br><ul><li>';
     $parsedown = new Parsedown();
@@ -15,6 +17,7 @@ function formatText($text) {
     return nl2br(strip_tags($html, $allowed_tags));
 }
 
+// Função para dividir valor por 10
 function dividirPor10($valor) {
     if (is_numeric($valor) && $valor > 0) {
         return number_format($valor / 10, 2, ',', '.');
@@ -22,38 +25,30 @@ function dividirPor10($valor) {
     return '0,00';
 }
 
-// Coletando dados do produto
+// Coletando os dados do produto
 $productData = getProductData($id);
 if (!$productData) {
-    // Redireciona para a página de erro 404
+    // Redireciona para a página de erro 404 caso o produto não exista
     header("Location: /expressproject/error404/error404.html");
     exit();
 }
 
 // Calculando o preço com desconto
-$preco = $productData['preco'] ?? 0; // Usando 0 se 'preco' não estiver definido
-$percentual_desconto = $productData['percentual_desconto'] ?? 0; // Usando 0 se 'percentual_desconto' não estiver definido
-$preco_com_desconto = $productData['preco_com_desconto'] ?? null; // Usando null se 'preco_com_desconto' não estiver definido
+$preco = $productData['preco'] ?? 0; // Preço normal
+$percentual_desconto = $productData['percentual_desconto'] ?? 0; // Percentual de desconto
+$preco_com_desconto = $productData['preco_com_desconto'] ?? null; // Preço com desconto
 
 if ($preco_com_desconto !== null) {
-    $precodesconto = $preco_com_desconto; // Se o preço com desconto estiver definido, usa ele
+    $precodesconto = $preco_com_desconto; // Usa o preço com desconto caso esteja definido
 } else {
-    $precodesconto = $preco - (($percentual_desconto / 100) * $preco); // Calcula o preço com desconto
+    $precodesconto = $preco - (($percentual_desconto / 100) * $preco); // Calcula o desconto
 }
 
 $porcentagem = ($precodesconto < $preco) ? round(100 - (($precodesconto / $preco) * 100)) : 0;
 
-// Consultando produtos recomendados
+// Obtendo produtos recomendados
 $recommendedProducts = getRecommendedProducts($id);
 
-// Carregando a view
+// Incluindo a view
 include '../view/view-produto-individual.php';
-
-function logout() {
-    session_destroy();
-}
-
-if (isset($_POST['logout'])) {
-    logout();
-}
 ?>

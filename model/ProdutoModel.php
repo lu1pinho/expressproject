@@ -1,6 +1,6 @@
 <?php
 // Inclui a conexão com o banco de dados
-include '../settings/connection.php';
+include '../settings/connection.php'; // Não é necessário incluir o arquivo de conexão de teste
 
 class ProdutoModel {
 
@@ -37,30 +37,27 @@ class ProdutoModel {
 }
 // Função global para formatar o preço e calcular o desconto
 function calcularDesconto($preco, $preco_com_desconto, $percentual_desconto) {
-    if ($percentual_desconto === null || $percentual_desconto === "") {
-        if ($preco_com_desconto !== null) {
-            $percentual_desconto = round((($preco - $preco_com_desconto) / $preco) * 100);
-        } else {
-            return [
-                'preco' => number_format($preco, 2, ',', '.'),
-                'percentual_desconto' => 0,
-                'frete_texto' => "FRETE EXPRESSO"
-            ];
-        }
+    if (!empty($percentual_desconto) && $percentual_desconto > 0) {
+        $preco_com_desconto_calculado = $preco - ($preco * ($percentual_desconto / 100));
+        return [
+            'preco_com_desconto' => number_format($preco_com_desconto_calculado, 2, ',', '.'),
+            'preco_original' => number_format($preco, 2, ',', '.'),
+            'percentual_desconto' => $percentual_desconto
+        ];
     }
 
-    if ($percentual_desconto > 0) {
+    if (!empty($preco_com_desconto)) {
         return [
-            'preco' => number_format($preco_com_desconto, 2, ',', '.'),
-            'percentual_desconto' => $percentual_desconto,
-            'frete_texto' => ""
-        ];
-    } else {
-        return [
-            'preco' => number_format($preco, 2, ',', '.'),
-            'percentual_desconto' => 0,
-            'frete_texto' => "FRETE EXPRESSO"
+            'preco_com_desconto' => number_format($preco_com_desconto, 2, ',', '.'),
+            'preco_original' => number_format($preco, 2, ',', '.'),
+            'percentual_desconto' => round((($preco - $preco_com_desconto) / $preco) * 100)
         ];
     }
+
+    return [
+        'preco_com_desconto' => null,
+        'preco_original' => number_format($preco, 2, ',', '.'),
+        'percentual_desconto' => 0
+    ];
 }
 ?>

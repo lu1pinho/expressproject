@@ -24,7 +24,7 @@
 }
 
 /*Medidas*/
-.rem-4 { font-size: 0.4rem; } .rem-5 { font-size: 0.5rem; } .rem-6 { font-size: 0.6rem; } .rem-7 { font-size: 0.7rem; } .rem-8 { font-size: 0.8rem; } .rem-9 { font-size: 0.9rem; } .rem-10 { font-size: 1rem; } .rem-12 { font-size: 1.2rem; } .rem-14 { font-size: 1.4rem; } .rem-16 { font-size: 1.6rem; } .rem-18 { font-size: 1.8rem; } .rem-20 { font-size: 2rem; } .rem-24 { font-size: 2.4rem; } .rem-28 { font-size: 2.8rem; } .rem-32 { font-size: 3.2rem; }
+.rem-4 { font-size: 0.4rem; } .rem-5 { font-size: 0.5rem; } .rem-6 { font-size: 0.6rem; } .rem-7 { font-size: 0.7rem; } .rem-8 { font-size: 0.8rem; } .rem-9 { font-size: 0.9rem;} .rem-10 { font-size: 1rem; } .rem-12 { font-size: 1.2rem; } .rem-14 { font-size: 1.4rem; } .rem-16 { font-size: 1.6rem; } .rem-18 { font-size: 1.8rem; } .rem-20 { font-size: 2rem; } .rem-24 { font-size: 2.4rem; } .rem-28 { font-size: 2.8rem; } .rem-32 { font-size: 3.2rem; }
 
 /*
 O uso do `&` (e comercial) referencia o seletor pai dentro do aninhamento,
@@ -81,13 +81,14 @@ header{
     min-height: 70px; max-height: 70px;
     background-color: var(--color-darkblue);
     padding-left: 80px;
-    gap: 60px;
+    gap: 30px;
     position: sticky;
     top: 0;
     z-index: 100;
     width: 100%;
 
     & .nav-item {
+        display: inline-flex;
         display: flex;
         align-items: center;
         padding: 5px 10px;
@@ -116,6 +117,11 @@ header{
             color: #959595;
         }
     }
+    #cep {
+    width: auto;
+    min-width: 150px; /* Largura mínima para evitar que a caixa fique muito estreita */
+    padding: 5px;
+}
 
         & .nav-item img {
             margin-right: 10px;
@@ -296,10 +302,20 @@ header{
             <a href="../control/control_pagina-principal.php"><img src="../view/images/logo/logo.png" alt="Logo Express"></a>
         </div>
 
-        <div class="nav-item rem-9">
-            <img src="../view/images/svg/map-local.svg" alt="Atualizar CEP">
-            <p>Atualizar CEP</p>
+        <div class="nav-item rem-9" id="cep">
+            <img src="../view/images/svg/map-local.svg" alt="Localização">
+            <p>CEP: 
+                <?php 
+                if (isset($_SESSION['cep'])) {
+                    echo htmlspecialchars($_SESSION['cep']); 
+                } else {
+                    echo "Não disponível";
+                }
+                ?>
+            </p>
         </div>
+
+
 
     <form class="search-container" action="../control/control_categoria.php" method="get">
         <input type="text" name="query" placeholder="Buscar na Express" required>
@@ -310,24 +326,23 @@ header{
 
 
 
-        <div class="nav-item rem-9" id="login">
         <?php if (isset($_SESSION['nome'])): ?>
-            <div class="coluna" >
-            <p style="color: #959595;" >Olá, <?php echo $_SESSION['nome']; ?>!</p>
-            <a style="color: white; text-decoration: none" href="../control/control_dados_usuario.php/">Seus Dados</a>
+            <!-- A div será criada apenas se o usuário estiver logado -->
+            <div class="nav-item rem-9 coluna" id="login">
+                <p style="color: #959595;">Olá, <?php echo htmlspecialchars($_SESSION['nome']); ?>!</p>
+                <a style="color: white; text-decoration: none;" href="../control/control_dados_usuario.php">Seus Dados</a>
             </div>
         <?php else: ?>
-            <a style="text-decoration: none;" href="../control/control_login.php"><p class="wrap" onmouseenter="showLoginPopup()" onmouseleave="hideLoginPopup()">faça seu login.</p></a>
-        </div>
+            <!-- Apenas um link será exibido se o usuário não estiver logado -->
+            <a class="nav-item rem-9" id="login" style="text-decoration: none;" href="../control/control_login.php">
+                <p class="wrap" onmouseenter="showLoginPopup()" onmouseleave="hideLoginPopup()">faça seu login.</p>
+            </a>
         <?php endif; ?>
-        <div class="nav-item rem-9">
-            <p class="">Pedidos<br>e Devoluções</p>
-        </div>
 
         <div class="nav-item rem-9">
             <img src="../view/images/svg/shopping_cart.svg" alt="Atualizar CEP">
             <a style="text-decoration: none; color: white;" href="..\control\control_carrinho.php">Carrinho</a>
-    </div>
+        </div>
     </nav>
 </header>
 
@@ -339,16 +354,22 @@ header{
             <p>Todos</p>
         </div>
         <div class="option">
-            <a style="text-decoration: none; color:white;" href="../control/control_atualizar-vendedor.php">Venda na Express</a>
+        <?php if (isset($_SESSION['categoria']) && $_SESSION['categoria'] === 'fornecedor'): ?>
+                <a style="text-decoration: none; color: white;" href="../control/control_pagina-vendedor.php">Área do Vendedor</a>
+            <?php endif; ?>
+
+            <?php if (isset($_SESSION['categoria']) && $_SESSION['categoria'] === 'cliente'): ?>
+                <a style="text-decoration: none; color: white;" href="../control/control_atualizar-vendedor.php">Venda na Express</a>
+            <?php endif; ?>
         </div>
         <div class="option">
-            <p>Ofertas do Dia</p>
+            <p onclick="window.location.href='http://localhost/expressproject/control/control_categoria.php?departamento=game&preco_min=0&preco_max=12000&preco_min=0&preco_max=12000'">Ofertas do Dia</p>
         </div>
         <div class="option">
-            <p>Mais Vendidos</p>
+            <p onclick="window.location.href='http://localhost/expressproject/control/control_pagina-principal.php#mv'">Mais Vendidos</p>
         </div>
         <div class="option">
-            <p>Comprar Novamente</p>
+        <a style="text-decoration: none; color:white;" href="../control/control_pedidos_real.php">Pedidos Realizados</a>
         </div>
     </div>
 </div>

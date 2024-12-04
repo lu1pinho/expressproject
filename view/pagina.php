@@ -14,22 +14,23 @@
     <?php include 'nav.php'; ?>
     <!--    POPUP - LOGIN-->
     <div id="login-popup" class="form" style="display: flex;" onmouseenter="keepLoginPopup()" onmouseleave="hideLoginPopupWithDelay()">
-        <a href="..\control\control_login.php">
+        <a href="../../expressproject/view/view/logins/login.php">
             <button class="button-submit" type="submit">Fazer Login</button>
         </a>
-    <p class="p">Não tem uma conta Express? <span class="span"><a href="..\control\control_cadastro.php">Cadastre-se</a></span></p>
+    <p class="p">Não tem uma conta Express? <span class="span"><a href="../../expressproject/view/view/cadastros/cadastro.php">Cadastre-se</a></span></p>
     </div>
 
     <div class="popup-todos">
         <div class="categoria">
             <ul>
-                <li><a href="#">Eletrônicos</a></li>
-                <li><a href="#">Informática</a></li>
-                <li><a href="#">Smartphones</a></li>
-                <li><a href="#">TV e Vídeo</a></li>
-                <li><a href="#">Áudio</a></li>
-                <li><a href="#">Games</a></li>
-                <li><a href="#">Tablets</a></li>
+                <!-- Adicionando o redirecionamento para cada categoria -->
+                <li><a href="http://localhost/expressproject/control/control_categoria.php?departamento=eletronico&preco_min=0&preco_max=12000">Eletrônicos</a></li>
+                <li><a href="http://localhost/expressproject/control/control_categoria.php?departamento=informatica&preco_min=0&preco_max=12000">Informática</a></li>
+                <li><a href="http://localhost/expressproject/control/control_categoria.php?departamento=smartphone&preco_min=0&preco_max=12000">Smartphones</a></li>
+                <li><a href="http://localhost/expressproject/control/control_categoria.php?departamento=tv_e_video&preco_min=0&preco_max=12000">TV e Vídeo</a></li>
+                <li><a href="http://localhost/expressproject/control/control_categoria.php?departamento=audio&preco_min=0&preco_max=12000">Áudio</a></li>
+                <li><a href="http://localhost/expressproject/control/control_categoria.php?departamento=game&preco_min=0&preco_max=12000">Games</a></li>
+                <li><a href="http://localhost/expressproject/control/control_categoria.php?departamento=tablets&preco_min=0&preco_max=12000">Tablets</a></li>
             </ul>
         </div>
     </div>
@@ -71,13 +72,13 @@
             </div>
             <div class="category">
                 <div class="category-card">
-                    <img src="../view/images/categorias/1.png" alt="">
+                    <img src="../view/images/categorias/1.png" alt="" onclick="window.location.href='http://localhost/expressproject/control/control_categoria.php?departamento=all&preco_min=0&preco_max=12000&preco_min=0&preco_max=12000&ofertas=on'">
                 </div>
                 <div class="category-card">
-                    <img src="../view/images/categorias/2.png" alt="">
+                    <img src="../view/images/categorias/2.png" alt="" onclick="window.location.href='http://localhost/expressproject/control/control_categoria.php?departamento=all&preco_min=0&preco_max=12000&preco_min=0&preco_max=12000&ofertas=on'">
                 </div>
                 <div class="category-card">
-                    <img src="../view/images/categorias/3.png" alt="">
+                    <img src="../view/images/categorias/3.png" alt="" onclick="window.location.href='http://localhost/expressproject/control/control_categoria.php?departamento=informatica&preco_min=0&preco_max=12000&preco_min=0&preco_max=12000'">
                 </div>
                 <div class="category-card">
                     <img src="../view/images/categorias/4.png" alt="">
@@ -86,17 +87,17 @@
                     <img src="../view/images/categorias/5.png" alt="">
                 </div>
                 <div class="category-card">
-                    <img src="../view/images/categorias/6.png" alt="">
+                    <img src="../view/images/categorias/6.png" alt="" onclick="window.location.href='http://localhost/expressproject/control/control_categoria.php?departamento=informatica&preco_min=0&preco_max=12000&preco_min=0&preco_max=12000'">
                 </div>
             </div>
         </div>
     </div>
 
     <main>
-        <div class="produto-container">
+        <div class="produto-container" id="od">
             <div class="title" id="ofertas-do-dia">
                 <h2>Ofertas do Dia</h2>
-                <p>Ver todos os produtos</p>
+                <p onclick="window.location.href='http://localhost/expressproject/control/control_categoria.php?departamento=game&preco_min=0&preco_max=12000&preco_min=0&preco_max=12000'">Ver todos os produtos</p>
             </div>
 
             <div class="destaque">
@@ -105,21 +106,25 @@
                 ?>
                     <div class="destaques" onclick="window.location.href='../control/control-produto-individual.php?id=<?php echo $produto['id']; ?>'">
                         <img src="<?php echo CAMINHO_IMAGENS . $produto['url_img']; ?>" alt="<?php echo $produto['nome']; ?>">
-                        <p><?php echo $produto['nome']; ?></p>
+                        <p id="pname"><?php echo $produto['nome']; ?></p>
                         <div class="discount">
                             <?php if ($resultado['percentual_desconto'] > 0) { ?>
-                                <p><?php echo $resultado['percentual_desconto']; ?>% OFF
-                                    <?php if ($produto['frete_gratis']) {
-                                        echo '- FRETE GRÁTIS';
-                                    } ?></p>
+                                <p>
+                                    <?php echo number_format($resultado['percentual_desconto'], 0); ?>% OFF
+                                    <?php if ($produto['frete_gratis']) { ?>
+                                        - FRETE GRÁTIS
+                                    <?php } ?>
+                                </p>
                             <?php } else { ?>
-                                <p><?php echo $resultado['frete_texto']; ?></p>
+                                <p>FRETE EXPRESSO</p>
                             <?php } ?>
                         </div>
                         <div class="price">
-                            <span>R$</span> <span><?php echo $resultado['preco']; ?></span> <!-- Parte inteira -->
-                            <?php if ($resultado['percentual_desconto'] > 0) { ?>
-                                <span>De: R$ <?php echo number_format($produto['preco'], 2, ',', '.'); ?></span> <!-- Preço normal -->
+                            <?php if (!is_null($resultado['preco_com_desconto'])) { ?>
+                                <span class="preco-original">R$ <?php echo $resultado['preco_original']; ?></span>
+                                <span class="preco-com-desconto">R$ <?php echo $resultado['preco_com_desconto']; ?></span>
+                            <?php } else { ?>
+                                <p class="preco-sem-desconto">R$ <?php echo $resultado['preco_original']; ?></p>
                             <?php } ?>
                         </div>
                     </div>
@@ -127,34 +132,46 @@
             </div>
         </div>
 
-        <div class="produto-container">
+        <div class="produto-container" id="mv">
             <div class="title" id="mais-vendidos">
                 <h2>Mais Vendidos</h2>
-                <p>Ver todos os produtos</p>
+                <p onclick="window.location.href='http://localhost/expressproject/control/control_categoria.php?departamento=all&preco_min=0&preco_max=12000'">Ver todos os produtos</p>
             </div>
             <div class="destaque">
     <?php while ($produto = $top_vendidos->fetch_assoc()) {
         $resultado = calcularDesconto($produto['preco'], $produto['preco_com_desconto'], $produto['percentual_desconto']);
     ?>
           <div class="destaques" onclick="window.location.href='../control/control-produto-individual.php?id=<?php echo $produto['id']; ?>'">
-            <img src="<?php echo CAMINHO_IMAGENS . $produto['url_img']; ?>" alt="<?php echo $produto['nome']; ?>">
+            <img src="<?php echo CAMINHO_IMAGENS . $produto['url_img']; ?>" alt="<?php echo $produto['nome']; ?>" onerror="this.src='http://localhost/expressproject/view/notfound.png';">
             <p><?php echo $produto['nome']; ?></p>
-            <div class="discount">
-                <?php if ($resultado['percentual_desconto'] > 0) { ?>
-                    <p><?php echo $resultado['percentual_desconto']; ?>% OFF
-                        <?php if ($produto['frete_gratis']) {
-                            echo '- FRETE GRÁTIS';
-                        } ?></p>
-                <?php } else { ?>
-                    <p><?php echo $resultado['frete_texto']; ?></p>
-                <?php } ?>
-            </div>
-            <div class="price">
-                <span>R$</span> <span><?php echo $resultado['preco']; ?></span> <!-- Parte inteira -->
-                <?php if ($resultado['percentual_desconto'] > 0) { ?>
-                    <span>De: R$ <?php echo number_format($produto['preco'], 2, ',', '.'); ?></span> <!-- Preço normal -->
-                <?php } ?>
-            </div>
+              <div class="discount">
+                  <?php if ($resultado['percentual_desconto'] > 0) { ?>
+                      <p>
+                          <?php echo number_format($resultado['percentual_desconto'], 0); ?>% OFF
+                          <?php if ($produto['frete_gratis']) {
+                              echo '- FRETE GRÁTIS';
+                          } ?>
+                      </p>
+                  <?php } else { ?>
+                      <p>
+                          <?php
+                          if ($produto['frete_gratis']) {
+                              echo 'FRETE GRÁTIS';
+                          } else {
+                              echo 'FRETE EXPRESSO';
+                          }
+                          ?>
+                      </p>
+                  <?php } ?>
+              </div>
+              <div class="price">
+                  <?php if (!is_null($resultado['preco_com_desconto'])) { ?>
+                      <span class="preco-original">R$ <?php echo $resultado['preco_original']; ?></span>
+                      <span class="preco-com-desconto">R$ <?php echo $resultado['preco_com_desconto']; ?></span>
+                  <?php } else { ?>
+                      <p class="preco-sem-desconto">R$ <?php echo $resultado['preco_original']; ?></p>
+                  <?php } ?>
+              </div>
         </div>
     <?php } ?>
 </div>
@@ -193,5 +210,6 @@
 </footer>
 
             <script src="../view/nav.js"></script>
+            <script src="../view/carrosel.js"> </script>
 </body>
 </html>

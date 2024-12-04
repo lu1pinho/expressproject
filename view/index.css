@@ -122,6 +122,8 @@ body {
     /*visibility: hidden;*/
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     top: 70px;
     right: 300px;
@@ -142,6 +144,8 @@ body {
 
 .form button {
     align-self: center;
+    align-items: center;
+    justify-content: center;
 }
 
 .flex-row {
@@ -153,7 +157,7 @@ body {
 }
 
 .button-submit {
-    margin: 20px 0 10px 0;
+
     background-color: var(--color-orange);
     border: none;
     color: white;
@@ -466,6 +470,7 @@ body {
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             transition: transform 0.1s ease-in-out;
 
+
             & .discount{
                 display: flex;
                 justify-content: center;
@@ -491,11 +496,9 @@ body {
 
             & img {
                 width: 200px;
-                height: auto;
-                /*max-width: 180px;*/
-                image-rendering: high-quality;
-                image-resolution: from-image;
-                align-self: center; !important;
+                height: 200px;
+                object-fit: scale-down;
+                align-self: center;
             }
 
             & p:nth-child(2) {
@@ -532,32 +535,44 @@ body {
     & .price {
         display: flex;
         position: relative;
+        flex-direction: column;
         bottom: 0;
         color: black;
 
-
-        span:nth-child(1) {
-            font-size: 0.9rem;
-        }
-
-        span:nth-child(2) {
-            font-size: 1.2rem;
-
-        }
-        span:nth-child(3){
+        span:nth-child(1){
             font-size: 0.9rem;
             margin-left: 10px;
             text-decoration: line-through;
             color: #959595;
         }
+
+        span:nth-child(2) {
+            font-size: 1.1rem;
+            margin-left: 10px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-left: 10px;
+        }
+
     }
 }
 
+#pname {
+
+}
+
+
 /*FOOTER */
+
+footer {
+    width: 100%;
+}
 
 .footer-container {
     display: flex;
-    flex-direction: row;
+    width: 100%;
     justify-content: center;
     align-items: center;
     gap: 80px;

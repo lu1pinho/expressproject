@@ -1,46 +1,64 @@
 <?php
 include_once '../settings/connection.php';
-include_once '../model/cadastro.php';
-include_once '../view/cadastro.html';
+include_once '../model/CadastroModel.php';
+include '../view/view/cadastros/cadastro.php';
 
 // Verifica se o formulário foi enviado
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Validação dos campos
+    $errors = [];
+
     if (strlen($_POST['name']) == 0) {
-        echo "Preencha seu nome";
-    } else if (strlen($_POST['phone']) == 0) {
-        echo "Preencha seu telefone";
-    } else if (strlen($_POST['category']) == 0) {
-        echo "Selecione uma categoria";
-    } else if (strlen($_POST['email']) == 0) {
-        echo "Preencha seu email";
-    } else if (strlen($_POST['password']) == 0) {
-        echo "Preencha sua senha";
-    } else if (strlen($_POST['confirm-password']) == 0) {
-        echo "Confirme sua senha";
-    } else if ($_POST['password'] !== $_POST['confirm-password']) {
-        echo "As senhas não coincidem";
-    } else {
+        $errors[] = "Preencha seu nome.";
+    }
+    if (strlen($_POST['phone']) == 0) {
+        $errors[] = "Preencha seu telefone.";
+    }
+    if (strlen($_POST['category']) == 0) {
+        $errors[] = "Selecione uma categoria.";
+    }
+    if (strlen($_POST['email']) == 0) {
+        $errors[] = "Preencha seu email.";
+    }
+    if (strlen($_POST['password']) == 0) {
+        $errors[] = "Preencha sua senha.";
+    }
+    if (strlen($_POST['confirm-password']) == 0) {
+        $errors[] = "Confirme sua senha.";
+    }
+    if ($_POST['password'] !== $_POST['confirm-password']) {
+        $errors[] = "As senhas não coincidem.";
+    }
+
+    if (empty($errors)) {
         // Escapando os dados
         $name = $conn->real_escape_string($_POST['name']);
         $phone = $conn->real_escape_string($_POST['phone']);
         $category = $conn->real_escape_string($_POST['category']);
         $email = $conn->real_escape_string($_POST['email']);
-        $password = $conn->real_escape_string($_POST['password']);
+        $password = $conn->real_escape_string($_POST['password']); // Armazenando a senha diretamente
 
         // Criando instância do modelo
-        $userModel = new UserModel($conn);
+        $userModel = new \Model\CadastroModel($conn);
 
         // Verifica se o email já está cadastrado
         if ($userModel->checkEmailExists($email)) {
             echo "<script>alert('Este email já está cadastrado.');</script>";
+                header('Location: /expressproject/view/view/cadastros/cadastro.php'); // Redireciona para a página principal
         } else {
             // Insere o usuário no banco
             if ($userModel->createUser($name, $phone, $category, $email, $password)) {
                 echo "<script>alert('Cadastro realizado com sucesso!');</script>";
+                header('Location: /expressproject/view/view/logins\login.php'); // Redireciona para a página principal
+                exit();
             } else {
                 echo "Erro ao cadastrar: " . $conn->error;
             }
+        }
+    } else {
+        // Exibindo as mensagens de erro
+        foreach ($errors as $error) {
+            echo "<script>alert('$error');</script>";
         }
     }
 }

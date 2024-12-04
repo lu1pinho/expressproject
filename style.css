@@ -1,0 +1,507 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: "Poppins", sans-serif;
+    scroll-behavior: smooth;
+    scroll-padding-top: 70px;
+}
+
+
+:root {
+    /* Variáveis de Cor */
+    --color-primary: #004382;
+    --color-secondary: #18344F;
+    --color-darkblue: #001C36;
+    --color-blue-4: #275682;
+    --color-blue-5: #006BCF;
+    --color-nav: #0a3a6a;
+    --color-orange: #FF7F00;
+    --color-light-orange: #FFA500;
+}
+
+
+nav {
+    width: 100%;
+    height: 70px;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    z-index: 3;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    .logo img {
+        width: 150px;
+        margin-left: -250px;
+    }
+
+}
+
+
+ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    gap: 20px;
+
+}
+
+ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+}
+
+ul li a:hover {
+    color: #c6c6c6;
+    border-bottom: 1px solid #c6c6c6;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+}
+
+
+.start-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+    align-items: center;
+    height: 500px;
+    width: 100%;
+    background-image: url("./github-pages/kl_8.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-top: 60px;
+
+
+    h1 {
+        color: white;
+        font-size: 50px;
+    }
+
+    p {
+        color: white;
+        font-size: 20px;
+    }
+}
+
+.actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+
+    a {
+        text-decoration: none;
+        color: #ffffff;
+        background-color: black;
+        padding: 10px 30px;
+        border-radius: 5px;
+        margin-top: 20px;
+    }
+
+    a:hover {
+        background-color: var(--color-blue-5);
+        color: #ffffff;
+    }
+
+}
+
+.right {
+    background-image: url("./github-pages/guy.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 600px;
+    height: 101%;
+}
+
+.divisor {
+    position: relative;
+    z-index: 3;
+    bottom: 60px;
+    width: 100%;
+    height: 60px;
+    margin-bottom: 60px;
+}
+
+.about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 120px;
+    background-color: ghostwhite;
+}
+
+.about h2 {
+    padding-top: 120px;
+    margin-bottom: -190px;
+    color: black;
+    font-size: 50px;
+}
+
+.card strong{
+    color: var(--color-blue-5);
+}
+
+/*Cards*/
+.cards {
+    display: flex;
+    flex-wrap: wrap;  /* Permite que os cards se movam para a linha seguinte quando o espaço acabar */
+    justify-content: center;  /* Distribui os cards igualmente com espaçamento entre eles */
+    gap: 20px;  /* Espaçamento entre os cards */
+    padding: 120px;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;  /* Faz com que cada card ocupe 50% da largura da tela, com uma margem entre eles */
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:first-child {
+    width: 600px;
+}
+.card:last-child {
+    width: 600px;
+}
+
+.card img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    color: #333333;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 1rem;
+    color: #666666;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.click {
+    background-color: var(--color-primary);
+    width: auto;
+    margin-top: 10px;
+    padding: 3px 50px; /* Mais espaçamento interno para o botão */
+    border-radius: 5px; /* Bordas arredondadas para suavizar o visual */
+    display: inline-block;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.3s; /* Transições suaves */
+
+}
+
+.click:hover {
+    transform: scale(1.05); /* Efeito de ampliação suave ao passar o mouse */
+    cursor: pointer;
+    border: var(--color-blue-5) 1px solid;
+}
+
+.click p {
+    color: white;
+    font-size: 16px; /* Ajustei o tamanho da fonte */
+    display: block; /* Faz com que o link ocupe toda a área do botão */
+}
+
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .card {
+        width: 100%;  /* Em telas menores, os cards ocupam 100% da largura, um por vez */
+    }
+}
+
+.center {
+    text-align: center;
+    font-size: 50px;
+}
+
+.centertext p {
+    text-align: center;
+}
+
+/* Container das pessoas */
+.persons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 0 0 150px 0;
+}
+
+/* Card de cada pessoa */
+.person {
+    background-color: #fff;
+    margin-top: 60px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 300px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.person:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.person img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; /* Deixa a imagem circular */
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.person h3 {
+    font-size: 1.25rem;
+    color: #004382;
+    margin-bottom: 5px;
+}
+
+.person p {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Efeito ao passar o mouse */
+.person:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+article .d {
+    padding-top: 30px;
+}
+
+.video {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 50px;
+}
+
+/* Responsividade para telas pequenas (máximo de 576px) */
+@media (max-width: 576px) {
+    nav {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .logo img {
+        margin-left: 0;
+        width: 120px;
+    }
+
+    ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    ul li a {
+        font-size: 14px;
+    }
+
+    .start-card {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .start-card .left, .start-card .right {
+        width: 100%;
+        height: auto;
+    }
+
+    .start-card h1 {
+        font-size: 40px;
+    }
+
+    .start-card p {
+        font-size: 18px;
+    }
+
+    .actions a {
+        padding: 8px 20px;
+    }
+
+    .cards {
+        padding: 60px 10px;
+        gap: 10px;
+    }
+
+    .card {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .card:first-child, .card:last-child {
+        width: 100%;
+    }
+
+    .persons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .person {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+/* Responsividade para telas médias (máximo de 768px) */
+@media (max-width: 768px) {
+    .logo img {
+        margin-left: 0;
+        width: 130px;
+    }
+
+    .cards {
+        padding: 90px 20px;
+        gap: 15px;
+    }
+
+    .card {
+        width: 45%;
+    }
+
+    .card:first-child, .card:last-child {
+        width: 90%;
+    }
+
+    .persons {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .person {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+}
+
+/* Responsividade para telas grandes (máximo de 992px) */
+@media (max-width: 992px) {
+    .logo img {
+        margin-left: 0;
+        width: 140px;
+    }
+
+    .cards {
+        padding: 100px 30px;
+        gap: 20px;
+    }
+
+    .card {
+        width: 48%;
+    }
+
+    .card:first-child, .card:last-child {
+        width: 95%;
+    }
+
+    .persons {
+        flex-direction: row;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .person {
+        width: 45%;
+        margin-bottom: 20px;
+    }
+}
+
+/* Responsividade para telas extras grandes (máximo de 1200px) */
+@media (max-width: 1200px) {
+    .logo img {
+        margin-left: 0;
+        width: 150px;
+    }
+
+    .cards {
+        padding: 110px 40px;
+        gap: 25px;
+    }
+
+    .card {
+        width: 48%;
+    }
+
+    .card:first-child, .card:last-child {
+        width: 48%;
+    }
+
+    .persons {
+        flex-direction: row;
+        gap: 25px;
+        flex-wrap: wrap;
+    }
+
+    .person {
+        width: 30%;
+        margin-bottom: 30px;
+    }
+}
+
+
+/* Animação de desvanecer e subir */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Classes de animação */
+.animate-h1, .animate-h2 {
+    opacity: 0; /* Elementos começam invisíveis */
+    animation-fill-mode: forwards;
+}
+
+
+.animate-h1 {
+    animation: fadeInUp 1s ease-out;
+}
+
+.animate-h2 {
+    animation: fadeInUp 1.2s ease-out; /* Pequeno atraso para as h2 */
+}
