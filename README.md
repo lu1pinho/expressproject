@@ -763,7 +763,7 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
             <td>Luís Gustavo</td>
             <td>-</td>
             <td>-</td>
-            <td>80%</td>
+            <td>Concluido</td>
             <td>Fazer o JS rodar corretamente na página principal</td>
         </tr>
         <tr>
@@ -772,8 +772,17 @@ O projeto Express.com visa criar uma loja online especializada em tecnologia, of
             <td>Luís Gustavo</td>
             <td>-</td>
             <td>-</td>
-            <td>Pendente</td>
+            <td>Concluido</td>
             <td>Adicionar um botão para navegar até a página com todos os produtos (página principal)</td>
+        </tr>
+      <tr>
+            <td>Corrigir problemas na Filtragem</td>
+            <td>Desenvolvimento</td>
+            <td>Luís Gustavo</td>
+            <td>-</td>
+            <td>-</td>
+            <td>Concluido</td>
+            <td>Arrumar a busca e filtragem.</td>
         </tr>
         <tr>
             <td>Página vendedor - Login simplificado</td>
