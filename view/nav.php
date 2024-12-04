@@ -362,7 +362,7 @@ header{
             <?php endif; ?>
 
             <?php if (isset($_SESSION['categoria']) && $_SESSION['categoria'] === 'cliente'): ?>
-                <a style="text-decoration: none; color: white;" href="../control/control_pagina_vendedor.php">Venda na Express</a>
+                <a style="text-decoration: none; color: white;" href="../control/control_atualizar-vendedor.php">Venda na Express</a>
             <?php endif; ?>
         </div>
         <div class="option">

@@ -116,8 +116,13 @@
   color: black;
   border-top: 1px solid #d3d3d3;
 }
-
 .footer-container img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain; /* Mantém a proporção da imagem dentro das dimensões */
+}
+
+.footer-item2 img {
   width: 200px;
   height: auto;
 }
@@ -199,7 +204,7 @@
 
   <footer>
     <div class="footer-container">
-      <div class="footer-item">
+      <div class="footer-item2">
         <img src="../view/images/logo/logopreta.png" alt="Logo Express">
       </div>
       <div class="footer-item">
@@ -224,9 +229,9 @@
       </div>
       <div class="footer-item">
         <h3>Siga-nos</h3>
-        <a href="#"><img src="../view/images/social-icons/facebook.svg" alt="Facebook" width="30px"></a>
-        <a href="#"><img src="../view/images/social-icons/instagram.svg" alt="Instagram" width="30px"></a>
-        <a href="#"><img src="../view/images/social-icons/twitter.svg" alt="Twitter" width="30px"></a>
+        <a href="#"><img class="svg" src="../view/images/svg/facebook.svg" alt="Facebook"></a>
+        <a href="#"><img class="svg" src="../view/images/svg/instagram.svg" alt="Instagram"></a>
+        <a href="#"><img class="svg" src="../view/images/svg/twitter.svg" alt="Twitter"></a>
       </div>
 
     </div>
