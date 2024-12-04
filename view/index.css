@@ -122,6 +122,8 @@ body {
     /*visibility: hidden;*/
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     top: 70px;
     right: 300px;
@@ -142,6 +144,8 @@ body {
 
 .form button {
     align-self: center;
+    align-items: center;
+    justify-content: center;
 }
 
 .flex-row {
@@ -153,7 +157,7 @@ body {
 }
 
 .button-submit {
-    margin: 20px 0 10px 0;
+
     background-color: var(--color-orange);
     border: none;
     color: white;

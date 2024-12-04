@@ -326,26 +326,23 @@ header{
 
 
 
-        <div class="nav-item rem-9" id="login">
-            <?php if (isset($_SESSION['nome'])): ?>
-                <div class="coluna" >
-                <p style="color: #959595;" >Olá, <?php echo $_SESSION['nome']; ?>!</p>
-                <a style="color: white; text-decoration: none" href="../control/control_dados_usuario.php/">Seus Dados</a>
-                </div>
-            <?php else: ?>
-                <a style="text-decoration: none;" href="../control/control_login.php"><p class="wrap" onmouseenter="showLoginPopup()" onmouseleave="hideLoginPopup()">faça seu login.</p></a>
-            
-            <?php endif; ?>
-        </div>
-
-        <div class="nav-item rem-9">
-            <p class="">Pedidos<br>e Devoluções</p>
-        </div>
+        <?php if (isset($_SESSION['nome'])): ?>
+            <!-- A div será criada apenas se o usuário estiver logado -->
+            <div class="nav-item rem-9 coluna" id="login">
+                <p style="color: #959595;">Olá, <?php echo htmlspecialchars($_SESSION['nome']); ?>!</p>
+                <a style="color: white; text-decoration: none;" href="../control/control_dados_usuario.php">Seus Dados</a>
+            </div>
+        <?php else: ?>
+            <!-- Apenas um link será exibido se o usuário não estiver logado -->
+            <a class="nav-item rem-9" id="login" style="text-decoration: none;" href="../control/control_login.php">
+                <p class="wrap" onmouseenter="showLoginPopup()" onmouseleave="hideLoginPopup()">faça seu login.</p>
+            </a>
+        <?php endif; ?>
 
         <div class="nav-item rem-9">
             <img src="../view/images/svg/shopping_cart.svg" alt="Atualizar CEP">
             <a style="text-decoration: none; color: white;" href="..\control\control_carrinho.php">Carrinho</a>
-    </div>
+        </div>
     </nav>
 </header>
 
@@ -362,14 +359,14 @@ header{
             <?php endif; ?>
 
             <?php if (isset($_SESSION['categoria']) && $_SESSION['categoria'] === 'cliente'): ?>
-                <a style="text-decoration: none; color: white;" href="../control/control_pagina_vendedor.php">Venda na Express</a>
+                <a style="text-decoration: none; color: white;" href="../control/control_atualizar-vendedor.php">Venda na Express</a>
             <?php endif; ?>
         </div>
         <div class="option">
-            <p>Ofertas do Dia</p>
+            <p onclick="window.location.href='http://localhost/expressproject/control/control_categoria.php?departamento=game&preco_min=0&preco_max=12000&preco_min=0&preco_max=12000'">Ofertas do Dia</p>
         </div>
         <div class="option">
-            <p>Mais Vendidos</p>
+            <p onclick="window.location.href='http://localhost/expressproject/control/control_pagina-principal.php#mv'">Mais Vendidos</p>
         </div>
         <div class="option">
         <a style="text-decoration: none; color:white;" href="../control/control_pedidos_real.php">Pedidos Realizados</a>
