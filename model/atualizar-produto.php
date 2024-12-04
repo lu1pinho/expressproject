@@ -47,4 +47,16 @@ class ProductModel
             exit();
         }
     }
+
+    public function deleteProduct($delete_id, $vendedor_id) {
+        $sql_delete = "DELETE FROM produtos WHERE id = ? AND vendedor_id = ?";
+        $stmt_delete = $this->conn->prepare($sql_delete);
+        $stmt_delete->bind_param("ii", $delete_id, $vendedor_id);
+    
+        if ($stmt_delete->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
