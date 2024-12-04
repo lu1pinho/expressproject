@@ -14,10 +14,11 @@ class CadastroModel {
         $sql_insert = "INSERT INTO users (nome, telefone, categoria, email, senha) VALUES (?, ?, ?, ?, ?)";
         $stmt = $this->conn->prepare($sql_insert);
         $stmt->bind_param('sssss', $name, $phone, $category, $email, $password);
-        
+
         if ($stmt->execute()) {
             return true;
         } else {
+            error_log("Erro ao inserir usuário: " . $stmt->error); // Logging the error for debugging
             return false;
         }
     }
@@ -28,7 +29,7 @@ class CadastroModel {
         $stmt->bind_param('s', $email);
         $stmt->execute();
         $result = $stmt->get_result();
-        
+
         return $result->num_rows > 0;
     }
 }
