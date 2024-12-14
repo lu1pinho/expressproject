@@ -68,7 +68,9 @@ CREATE TABLE carrinho (
     updated_at TIMESTAMP,
     id INT NOT NULL
 );
+```
 
+```
 CREATE TABLE cartoes (
     apelido VARCHAR(255) NOT NULL,
     id_user INT UNSIGNED NOT NULL,
@@ -79,7 +81,8 @@ CREATE TABLE cartoes (
     nome_cartao VARCHAR(255) NOT NULL,
     id_cartao INT UNSIGNED NOT NULL
 );
-
+```
+```
 CREATE TABLE enderecos (
     endereco VARCHAR(255) NOT NULL,
     id_user INT UNSIGNED NOT NULL,
@@ -91,13 +94,15 @@ CREATE TABLE enderecos (
     bairro VARCHAR(255) NOT NULL,
     id_end INT UNSIGNED NOT NULL
 );
-
+```
+```
 CREATE TABLE frete (
     id INT NOT NULL,
     cep VARCHAR(255) NOT NULL,
     valor DECIMAL(10,2) NOT NULL
 );
-
+```
+```
 CREATE TABLE produtos (
     descricao TEXT,
     vendedor_id INT NOT NULL,
@@ -115,7 +120,8 @@ CREATE TABLE produtos (
     id INT NOT NULL,
     n_vendas INT
 );
-
+```
+```
 CREATE TABLE produtos_comprados (
     produto_nome VARCHAR(255),
     codigo VARCHAR(255),
@@ -129,6 +135,8 @@ CREATE TABLE produtos_comprados (
     id_user INT UNSIGNED NOT NULL,
     id INT NOT NULL
 );
+```
+```
 
 CREATE TABLE users (
     id INT UNSIGNED NOT NULL,
