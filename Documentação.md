@@ -53,11 +53,99 @@ O próximo passo é importar o banco de dados necessário para o projeto. Ele co
 
    ### Usando o phpMyAdmin:
    1. Abra o **phpMyAdmin** no seu navegador.
-   2. Crie um banco de dados novo ou selecione um banco de dados existente.
-   3. Vá até a aba **Importar** e selecione o arquivo de importação.
-   4. Clique em **Executar** para completar a importação.
+   2. Crie um banco de dados novo.
+   3. Use os comandos abaixo para criar as tabelas:
 
-Após a importação, o banco de dados estará pronto para ser usado pelo projeto.
+```
+CREATE TABLE carrinho (
+    id_user INT UNSIGNED NOT NULL,
+    produto_nome VARCHAR(255) NOT NULL,
+    url_img VARCHAR(255),
+    preco DECIMAL(10,2) NOT NULL,
+    preco_com_desconto DECIMAL(10,2),
+    quantidade INT NOT NULL,
+    created_at TIMESTAMP,
+    updated_at TIMESTAMP,
+    id INT NOT NULL
+);
+
+CREATE TABLE cartoes (
+    apelido VARCHAR(255) NOT NULL,
+    id_user INT UNSIGNED NOT NULL,
+    categoria_cartao VARCHAR(255) NOT NULL,
+    cvv INT NOT NULL,
+    dt_expedicao VARCHAR(255) NOT NULL,
+    numero_cartao VARCHAR(255) NOT NULL,
+    nome_cartao VARCHAR(255) NOT NULL,
+    id_cartao INT UNSIGNED NOT NULL
+);
+
+CREATE TABLE enderecos (
+    endereco VARCHAR(255) NOT NULL,
+    id_user INT UNSIGNED NOT NULL,
+    estado VARCHAR(255) NOT NULL,
+    cidade VARCHAR(255) NOT NULL,
+    cep VARCHAR(10) NOT NULL,
+    numero INT NOT NULL,
+    complemento VARCHAR(255),
+    bairro VARCHAR(255) NOT NULL,
+    id_end INT UNSIGNED NOT NULL
+);
+
+CREATE TABLE frete (
+    id INT NOT NULL,
+    cep VARCHAR(255) NOT NULL,
+    valor DECIMAL(10,2) NOT NULL
+);
+
+CREATE TABLE produtos (
+    descricao TEXT,
+    vendedor_id INT NOT NULL,
+    url_img VARCHAR(255),
+    preco_com_desconto DECIMAL(10,2),
+    preco DECIMAL(10,2) NOT NULL,
+    percentual_desconto DECIMAL(5,2),
+    oferta_do_dia TINYINT(1),
+    nome VARCHAR(255) NOT NULL,
+    frete_gratis TINYINT(1),
+    frete DECIMAL(10,2),
+    estoque INT,
+    dados_produto TEXT,
+    categoria VARCHAR(255) NOT NULL,
+    id INT NOT NULL,
+    n_vendas INT
+);
+
+CREATE TABLE produtos_comprados (
+    produto_nome VARCHAR(255),
+    codigo VARCHAR(255),
+    id_vendedor INT,
+    id_produto INT NOT NULL,
+    preco_com_desconto VARCHAR(255),
+    data_compra DATETIME NOT NULL,
+    url_img VARCHAR(255),
+    preco DECIMAL(10,2) NOT NULL,
+    quantidade INT NOT NULL,
+    id_user INT UNSIGNED NOT NULL,
+    id INT NOT NULL
+);
+
+CREATE TABLE users (
+    id INT UNSIGNED NOT NULL,
+    nome VARCHAR(255),
+    email VARCHAR(255),
+    senha VARCHAR(255),
+    telefone VARCHAR(255),
+    categoria VARCHAR(255),
+    genero VARCHAR(255),
+    cpf VARCHAR(14),
+    dt_nascimento VARCHAR(255)
+);
+```
+   4. Clique em **Executar** para criar as tabelas. 
+
+Lembre-se que você terá que ajustar os dados de conexão nos arquivos de conexão: connection.js e connection.php
+Após isso, o banco de dados estará pronto para ser usado pelo projeto.
 
 ---
 
