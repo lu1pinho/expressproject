@@ -155,6 +155,7 @@ CREATE TABLE users (
 Lembre-se que você terá que ajustar os dados de conexão nos arquivos de conexão: connection.js e connection.php
 Após isso, o banco de dados estará pronto para ser usado pelo projeto.
 
+### No final da documentação você encontrará alguns comandos SQL para adicionar dados no banco.
 ---
 
 ## Passo 3: Clonar o Repositório
@@ -242,3 +243,22 @@ Este é o endereço da página principal do projeto.
 - Caso a página não carregue corretamente, verifique se o servidor Node.js está rodando (você deve ter executado o comando `node index.js` anteriormente). Além disso, certifique-se de que o XAMPP (ou outro servidor de banco de dados) esteja ativo, com os serviços Apache e MySQL iniciados.
 
 Agora você está pronto para começar a trabalhar com o projeto, realizar alterações e desenvolver novas funcionalidades!
+
+
+### Produtos:
+
+``` 
+insert into `produtos` (`categoria`, `dados_produto`, `descricao`, `estoque`, `frete`, `frete_gratis`, `id`, `n_vendas`, `nome`, `oferta_do_dia`, `percentual_desconto`, `preco`, `preco_com_desconto`, `url_img`, `vendedor_id`) values ('Tablet', '### Marca: Apple\n**Modelo**: iPad Air, 64GB, Cinza Espacial\n**Características**: Chip A14 Bionic, Tela Liquid Retina de 10.9 polegadas, Suporte ao Apple Pencil e Magic Keyboard', 'O iPad Air da Apple com 64GB é um tablet versátil que combina desempenho e portabilidade. Equipado com o chip A14 Bionic, ele proporciona desempenho rápido e eficiente para multitarefas, jogos e aplicativos criativos. A tela Liquid Retina de 10.9 polegadas oferece cores vivas e detalhes nítidos, ideal para trabalho e entretenimento. Com suporte ao Apple Pencil e ao Magic Keyboard, o iPad Air se transforma em uma ferramenta poderosa para profissionais e estudantes.', 35, NULL, 1, 5, 220, 'Apple iPad Air', 0, '12.00', '6999.00', '6159.12', 'ipadair.jpg', 5), ('Eletrodomesticos', '### Marca: Arno\n**Modelo**: Ventilador Turbo Silence, 40cm, Preto\n**Características**: Diâmetro de 40cm, 3 velocidades, Tecnologia Turbo Silence', 'O ventilador Arno Turbo Silence de 40cm é perfeito para manter a casa fresca e confortável. Com três velocidades ajustáveis, ele oferece ventilação potente e silenciosa. A tecnologia Turbo Silence garante um desempenho eficiente sem incomodar com ruídos. Seu design moderno e compacto facilita o transporte e a instalação em qualquer ambiente. Ideal para salas, quartos e escritórios, este ventilador combina funcionalidade e elegância.', 30, NULL, 0, 9, 120, 'Arno Ventilador Turbo Silence', 1, '15.00', '299.00', '254.15', 'arnovent.jpg', 9), ('Eletrodomesticos', '### Marca: Brastemp\n**Modelo**: Micro-ondas 32L, Inox\n**Características**: Capacidade de 32 litros, Painel digital, 10 níveis de potência', 'O micro-ondas Brastemp de 32 litros oferece praticidade e eficiência na cozinha. Com um painel digital intuitivo e 10 níveis de potência, ele facilita o preparo de diferentes tipos de alimentos. A função de descongelamento rápido permite preparar refeições em menos tempo. O design moderno em inox adiciona um toque de elegância à sua cozinha. Ideal para famílias que buscam um eletrodoméstico funcional e estético.', 25, NULL, 0, 12, 180, 'Brastemp Micro-ondas 32L', 0, '12.00', '899.00', '791.12', 'microondasbrastemp.webp', 12), ('Audio', '### Marca: JBL\n**Modelo**: Flip 5, Verde\n**Características**: Som estéreo, Resistente à água (IPX7), Bateria de 12 horas', 'A JBL Flip 5 é uma caixa de som Bluetooth portátil que oferece som estéreo de alta qualidade. Resistente à água com classificação IPX7, ela é perfeita para uso ao ar livre, como na piscina ou na praia. Com uma bateria que proporciona até 12 horas de reprodução, você pode curtir suas músicas favoritas o dia todo. A conectividade Bluetooth facilita o emparelhamento com seus dispositivos móveis. Com um design compacto e robusto, a Flip 5 é a companheira ideal para qualquer aventura.', 30, NULL, 1, 13, 160, 'JBL Flip 5', 0, '10.00', '599.00', '539.10', 'flip5.webp', 29), ('Notebook', '### Marca: Apple\n**Modelo**: MacBook Pro 13\", M1, 8GB RAM\n**Características**: Chip M1, 8GB de RAM, 256GB SSD', 'O MacBook Pro 13\" da Apple com chip M1 redefine o desempenho e a eficiência dos laptops. Equipado com o poderoso chip M1, ele oferece velocidade e eficiência excepcionais para tarefas diárias e profissionais. Com 8GB de RAM e 256GB de armazenamento SSD, o MacBook Pro é rápido e responsivo. A tela Retina de 13.3 polegadas proporciona cores vibrantes e detalhes nítidos. A longa duração da bateria garante até 20 horas de uso contínuo, perfeito para quem está sempre em movimento. Além disso, seu design fino e leve torna-o fácil de transportar para qualquer lugar.', 25, NULL, 0, 15, 200, 'Apple MacBook Pro 13\"', 0, '5.00', '12499.00', '11874.05', 'macbookpro13.png', 29), ('Smartphone', '### Marca: Samsung\n**Modelo**: Galaxy S21, 128GB, Phantom Gray\n**Características**: Tela AMOLED de 6.2\", Processador Exynos 2100, Câmera tripla de 64MP', 'O Samsung Galaxy S21 é um smartphone de alto desempenho que oferece uma experiência completa. Com uma tela AMOLED de 6.2 polegadas, ele proporciona cores vibrantes e nitidez excepcional. Equipado com um processador Exynos 2100 e 128GB de armazenamento, ele garante velocidade e espaço para todas as suas necessidades. A câmera tripla de 64MP captura fotos incríveis, mesmo em condições de pouca luz. Além disso, a bateria de longa duração e o design elegante fazem do Galaxy S21 uma escolha excelente para quem busca inovação e estilo.', 40, NULL, 1, 16, 220, 'Samsung Galaxy S21', 0, '10.00', '5999.00', '5399.10', 's21.webp', 29)
+```
+
+### Usuários:
+
+```
+insert into `users` (`categoria`, `cpf`, `dt_nascimento`, `email`, `genero`, `id`, `nome`, `senha`, `telefone`) values ('fornecedor', '99999999999', '02/02/2000', 'zedafeira@gmail.com', 'Masculino', 29, 'Zezinho da Feira', '12345678', '63999999999')
+```
+
+```
+insert into `users` (`categoria`, `cpf`, `dt_nascimento`, `email`, `genero`, `id`, `nome`, `senha`, `telefone`) values ('cliente', '99999999991', '01/01/2001', 'ritinhadavila@gmail.com', 'Masculino', 30, 'Ritinha da Vila', '12345678', '63999999991')
+```
+
+
